@@ -1,6 +1,7 @@
 /* Bissecção */
-function calcula(x) {
-    x.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)"); //Substitui o ^ pow Math.pow()
+function calcula(string x) {
+    
+    
     valor =4*(Math.sin(x))-Math.exp(x);
     /*valor = eval(x.campoEquacao.value);*/
     return valor
@@ -13,9 +14,12 @@ function arredonda(x) {
 
 function leitura(aForm)
 {
-
-    a = eval(aForm.raizEsq.value);
-    b = eval(aForm.raizDir.value);
+    x = aForm.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
+    a = eval(x.raizEsq.value);
+    //a = eval(aForm.raizEsq.value);
+    b = eval(x.raizDir.value);
+    //b = eval(aForm.raizDir.value);
+    
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
