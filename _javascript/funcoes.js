@@ -1,22 +1,22 @@
 /* Bissecção */
 function calcula(x) {
-    /*valor =4*(Math.sin(x))-Math.exp(x)*/
-    valor = eval(x.campoEquacao.value)
+    valor =4*(Math.sin(x))-Math.exp(x);
+    /*valor = eval(x.campoEquacao.value);*/
     return valor
 }
 
 function arredonda(x) {
-    valor = Math.floor(10000000 * x)/10000000
+    valor = Math.floor(10000000 * x)/10000000;
     return valor
 }
 
 function leitura(aForm)
 {
 
-    a = eval(aForm.raizEsq.value)
-    b = eval(aForm.raizDir.value)
-    aa = parseFloat(a)
-    bb = parseFloat(b)
+    a = eval(aForm.raizEsq.value);
+    b = eval(aForm.raizDir.value);
+    aa = parseFloat(a);
+    bb = parseFloat(b);
     erro=eval(aForm.preci.value);
 
 
@@ -31,7 +31,7 @@ function leitura(aForm)
         janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
     }
 
-    var achou=false
+    var achou=false;
     fa=calcula(aa);
     fb=calcula(bb);
     cont=2;
@@ -39,7 +39,7 @@ function leitura(aForm)
     Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
     Jan1.focus();
     Jan1.document.write(janela);
-    var fr
+    var fr;
 
     if ((a!=null) && (b!=null) && (erro!=null)) {
         while (!achou){
@@ -68,8 +68,8 @@ function leitura(aForm)
         }
     }
     if (achou){
-        Jan1.document.write("<br>")
-        Jan1.document.write("Intervalo final:   ["+aa+";"+bb+"]<br>")
+        Jan1.document.write("<br>");
+        Jan1.document.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
         Jan1.document.write("Raiz:   "+arredonda(x)+" ± "+er)
     }
 }

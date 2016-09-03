@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c4575d79-8aee-4499-bbb6-9e780adcc7b4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_css/calcular-funcao.css" afterPath="$PROJECT_DIR$/_css/calcular-funcao.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_javascript/funcoes.js" afterPath="$PROJECT_DIR$/_javascript/funcoes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calcular-funcao.html" afterPath="$PROJECT_DIR$/calcular-funcao.html" />
     </list>
     <ignored path="Paradigmas - Projeto.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +49,8 @@
       <file leaf-file-name="funcoes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="40" />
+            <state relative-caret-position="816">
+              <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -236,7 +234,7 @@
       <option name="presentableId" value="Default" />
       <updated>1472835683860</updated>
       <workItem from="1472835685447" duration="1007000" />
-      <workItem from="1472897833561" duration="10235000" />
+      <workItem from="1472897833561" duration="10463000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração de alguns titulos">
       <created>1472898314196</created>
@@ -252,11 +250,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472903698446</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adicionado método da bisseção (incompleto)">
+      <created>1472908103388</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1472908103388</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11242000" />
+    <option name="totallyTimeSpent" value="11470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -296,7 +301,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alteração de alguns titulos" />
     <MESSAGE value="Algumas alterações" />
-    <option name="LAST_COMMIT_MESSAGE" value="Algumas alterações" />
+    <MESSAGE value="adicionado método da bisseção (incompleto)" />
+    <option name="LAST_COMMIT_MESSAGE" value="adicionado método da bisseção (incompleto)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -349,8 +355,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="40" />
+        <state relative-caret-position="816">
+          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
