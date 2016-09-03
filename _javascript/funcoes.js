@@ -1,6 +1,7 @@
 /* Bissecção */
 function calcula(x) {
-    valor =4*(Math.sin(x))-Math.exp(x);
+    /* 4*sen-e^x */
+    valor =x^(Math.exp(2));
     /*valor = eval(x.campoEquacao.value);*/
     return valor
 }
