@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+section#corpo-full legend{
+    font-family: FonteLogo, sans-serif;
+    font-size: 25pt;
+    color: #606060;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+fieldset#bisseccao input#campoRaizEsq{
+    margin-left: 6px;
+}
+
+fieldset#bisseccao input#campoRaizDir{
+    margin-left: 30px;
+}
+
+input#bt-calcular{
+    margin-left: 430px;
+    padding: 5px 20px 5px 20px;
+}

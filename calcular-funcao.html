@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Função</title>
+    <link rel="stylesheet" href="_css/estilo.css"/>
+    <link rel="stylesheet" href="_css/calcular-funcao.css"/>
+
+</head>
+
+<script language="JavaScript" src="_javascript/funcoes.js"></script>
+
+<body>
+
+<div id="interface">
+
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Cálculo Númerico</h1>
+            <h2>De uma forma diferente</h2>
+        </hgroup>
+
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul type="1">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="specs.html" >Códigos em Python</a></li>
+                <li><a href="fotos.html">Calcular Função</a></li>
+                <li><a href="multimidia.html" >Multimídia</a></li>
+                <li><a href="fale-conosco.html" >Fale conosco</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section id="corpo-full">
+
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+                <hgroup>
+                    <h3>Home > Cálcular Função</h3>
+                    <h3 class="direita">Atualizado em 03/09/2016</h3>
+                </hgroup>
+            </header>
+
+            <form id="formulario-bisseccao">
+                <fieldset id="bisseccao">
+                    <legend>Método da Bissecção</legend>
+                    <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="3" placeholder="Valor a esquerda da raiz"/></p>
+                    <p><label for="campoRaizDir">Valor a direita da raiz:</label><input type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="3" placeholder="Valor a direita da raiz"/></p>
+                    <p><label for="campoPreci">Valor da precisão de erro:</label><input type="number" name="preci" id="campoPreci" size="10" maxlength="3" placeholder="Valor da precisão de erro"/></p>
+
+                    <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form)"/>
+                </fieldset>
+            </form>
+
+
+        </article>
+    </section>
+
+    <footer id="rodape">
+        <p>Copyright 2016 - por Computação - UEPB<br>
+            <a href="http://facebook.com" target="_blank" >Facebook</a> |
+            <a href="http://twitter.com" target="_blank">Twitter</a></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
