@@ -14,14 +14,17 @@ function arredonda(x) {
 
 function leitura(aForm)
 {
-    x = aForm.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
-    a = eval(x.raizEsq.value);
-    //a = eval(aForm.raizEsq.value);
-    b = eval(x.raizDir.value);
-    //b = eval(aForm.raizDir.value);
     
-    aa = parseFloat(a);
-    bb = parseFloat(b);
+    a = eval(aForm.raizEsq.value);
+    b = eval(aForm.raizDir.value);
+    
+    x = a.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
+    y = b.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
+    
+    //aa = parseFloat(a);
+    aa = parseFloat(x);
+    //bb = parseFloat(b);
+    bb = parseFloat(y);
     erro=eval(aForm.preci.value);
 
 
