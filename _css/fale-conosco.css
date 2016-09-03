@@ -4,6 +4,17 @@
     font-family: 'FonteLogo';
     src: url(../_fonts/bubblegum-sans-regular.otf);
 }
+
+section#corpo-fullcontato legend{
+    font-family: FonteLogo, sans-serif;
+    font-size: 25pt;
+    color: #606060;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+
 /*  Formulario Fale Conosco*/
 form {
     /* Just to center the form on the page */

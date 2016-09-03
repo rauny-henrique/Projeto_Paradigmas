@@ -1,10 +1,37 @@
 /* Bissecção */
-function calcula(string x) {
-    
-    
-    valor =4*(Math.sin(x))-Math.exp(x);
+
+function ajeitaEquacao(_s) {
+    if (_s.indexOf("^") > -1)
+    {
+        var tab = [];
+        var powfunc="Math.pow";
+        var joker = "___joker___";
+        while (_s.indexOf("(") > -1) {
+            _s = _s.replace(/(\([^\(\)]*\))/g, function(m, t) {
+                tab.push(t);
+                return (joker + (tab.length - 1));
+            });
+        }
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\^(\w*)/g, powfunc+"($1,$2)");
+            });
+        }
+    }
+    return _s;
+}
+
+
+function calcula(x, _s) {
+    caretReplace = ajeitaEquacao(_s);
+
+    //valor = Math.pow(x,2);
     /*valor = eval(x.campoEquacao.value);*/
-    return valor
+    return caretReplace
 }
 
 function arredonda(x) {
@@ -14,16 +41,13 @@ function arredonda(x) {
 
 function leitura(aForm)
 {
-    
+
     a = eval(aForm.raizEsq.value);
     b = eval(aForm.raizDir.value);
-    
-    //x = a.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
-    
-    
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
+    EQUACAO = eval(aForm.campoEquacao.value);
 
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
@@ -33,13 +57,13 @@ function leitura(aForm)
     if ((a==null) || (b==null) || (erro==null)) {
         janela +="É preciso preencher todos os campos!";
     }else{
-        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+"<BR><br>"
+        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa, EQUACAO))+ ",     f("+bb+") = "+ arredonda(calcula(bb, EQUACAO))+"<BR><br>"
         janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
     }
 
     var achou=false;
-    fa=calcula(aa);
-    fb=calcula(bb);
+    fa=calcula(aa, EQUACAO);
+    fb=calcula(bb, EQUACAO);
     cont=2;
 
     Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
@@ -55,7 +79,7 @@ function leitura(aForm)
                 achou=true;
             }else{
                 if (er>erro){
-                    fr=calcula(x);
+                    fr=calcula(x, EQUACAO);
                 }
                 if (fr==0) {
                     achou=true;

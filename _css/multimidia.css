@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+section#corpo-fullmult legend{
+    font-family: FonteLogo, sans-serif;
+    font-size: 25pt;
+    color: #606060;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    padding: 0px;
+    margin-bottom: 0px;
+}
