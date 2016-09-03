@@ -27,15 +27,11 @@ function ajeitaEquacao(_s) {
 
 
 function calcula(x, _s) {
-    /* x^2 */
-
-    var caretReplace = ajeitaEquacao(_s);
-
-    valor = caretReplace.replace("x", x);;
+    caretReplace = ajeitaEquacao(_s);
 
     //valor = Math.pow(x,2);
     /*valor = eval(x.campoEquacao.value);*/
-    return valor
+    return caretReplace
 }
 
 function arredonda(x) {
