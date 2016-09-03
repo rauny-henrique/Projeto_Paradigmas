@@ -1,5 +1,7 @@
+/* Bissecção */
 function calcula(x) {
-    valor =4*(Math.sin(x))-Math.exp(x)
+    /*valor =4*(Math.sin(x))-Math.exp(x)*/
+    valor = eval(x.campoEquacao.value)
     return valor
 }
 
@@ -11,15 +13,15 @@ function arredonda(x) {
 function leitura(aForm)
 {
 
-    a = eval(aForm.inicial.value)
-    b = eval(aForm.final.value)
+    a = eval(aForm.raizEsq.value)
+    b = eval(aForm.raizDir.value)
     aa = parseFloat(a)
     bb = parseFloat(b)
-    erro=eval(aForm.erro.value);
+    erro=eval(aForm.preci.value);
 
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
-    janela +="<BODY BGCOLOR='black' TEXT='yellow'>";
+    janela +="<BODY BGCOLOR='white' TEXT='black'>";
     janela +="<FONT FACE='Arial' SIZE='3'>";
     janela +="<B>Iniciando busca da raiz...</B><BR><BR>";
     if ((a==null) || (b==null) || (erro==null)) {

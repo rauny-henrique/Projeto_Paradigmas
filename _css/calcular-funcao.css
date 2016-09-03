@@ -21,3 +21,7 @@ input#bt-calcular{
     margin-left: 430px;
     padding: 5px 20px 5px 20px;
 }
+
+p#textequacao{
+    margin-bottom: -15px;
+}
