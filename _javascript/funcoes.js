@@ -18,13 +18,11 @@ function leitura(aForm)
     a = eval(aForm.raizEsq.value);
     b = eval(aForm.raizDir.value);
     
-    x = a.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
-    y = b.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
+    //x = a.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)");
     
-    //aa = parseFloat(a);
-    aa = parseFloat(x);
-    //bb = parseFloat(b);
-    bb = parseFloat(y);
+    
+    aa = parseFloat(a);
+    bb = parseFloat(b);
     erro=eval(aForm.preci.value);
 
 
