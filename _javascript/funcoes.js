@@ -1,6 +1,6 @@
 /* Bissecção */
 function calcula(x) {
-    x.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)"); //Substitui o ^ pow Math.exp()
+    x.replace(/(.*)\^(.*)/g. "Math.pow($1,$2)"); //Substitui o ^ pow Math.pow()
     valor =4*(Math.sin(x))-Math.exp(x);
     /*valor = eval(x.campoEquacao.value);*/
     return valor
