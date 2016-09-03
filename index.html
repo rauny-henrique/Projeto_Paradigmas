@@ -3,6 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width:device-width">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="all and (max-width:320px)">
+    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="all and(min-width:321px) and (max-width:960px)">
+    <link rel="stylesheet" type="text/css" href="css/full.css" media="all and (min-width:960px)">
+
     <title>Cálculo Númerico</title>
     <link rel="stylesheet" href="_css/estilo.css"/>
 
@@ -11,6 +16,7 @@
 <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
 <body>
+<link rel="shortcut icon" href="_imagens/favicon.ico" />
 <div id="interface">
 
     <header id="cabecalho">
@@ -18,7 +24,7 @@
     <h1>Cálculo Númerico</h1>
     <h2>De uma forma diferente</h2>
     </hgroup>
-
+<header class="main_header container"><!-- fsb modificado-->
 <nav id="menu">
 <h1>Menu Principal</h1>
     <ul type="1">
@@ -29,7 +35,7 @@
         <li><a href="fale-conosco.html" >Fale conosco</a></li>
     </ul>
 </nav>
-
+</header><!-- fsb modificado-->
     </header>
 
 <section id="corpo">
@@ -38,16 +44,25 @@
 <header id="cabecalho-artigo">
 <hgroup>
 <h3>Tecnologia > Inovações</h3>
-<h1>Saiba tudo sobre o Google Glass</h1>
-<h2>por Gustavo Guanabara</h2>
-<h3 class="direita">Atualizado em 23/Abril/2013</h3>
+<h1>II – Métodos numéricos para encontrar raízes (zeros) de funções reais.</h1>
+<h2>por XxXxX</h2>
+<h3 class="direita">Atualizado em 03/Set/2016</h3>
 </hgroup>
 </header>
 
-<h2>O que é</h2>
-<p>O <span style="font-weight: bold;">Google Glass</span> é um acessório em forma de óculos que possibilita a interação dos usuários com diversos conteúdos em realidade aumentada. Também chamado de <a href="http://google.com" target="_blank">Project Glass</a>, o eletrônico é capaz de tirar fotos a partir de comandos de voz, enviar mensagens instantâneas e realizar vídeoconferências. Seu lançamento está previsto para 2014, e seu preço deve ser de US$ 1,5 mil. Atualmente o Google Glass encontra-se em fase de testes e já possui um vídeo totalmente gravado com o dispositivo. Além disso, a companhia de buscas registrou novas patentes anti-furto e de desbloqueio de tela para o acessório.</p>
+<h2>Introdução</h2>
+<p>Um dos <span style="font-weight: bold;">problemas</span>   que ocorrem mais frequentemente em trabalhos científicos é
+    calcular as raízes de equações da forma: f(x) = 0. A função f(x) pode ser um polinômio em x ou
+    uma função transcendente. Em raros casos é possível obter as raízes exatas de f(x)= 0, como
+    ocorre, por exemplo, supondo-se f(x) um polinômio fatorável.
+    Resolver a equação f(x) = 0 consiste em determinar a solução (ou soluções) real ou
+    complexa, 𝑥̅, tal que 𝑓(𝑥̅) = 0. Por exemplo, na equação f(x) = cos x + x2 + 5 =0, devemos
+    determinar a solução 𝑥̅ tal que f(𝑥̅) = cos 𝑥̅ + 𝑥̅2 + 5 = 0.
+    Dado 𝑓: ℝ → ℝ com f definida e contínua em [a, b], são denominadas raízes de f os
+    valores de x tais que f(x) = 0.</p>
 
-
+   <!-- Video -->
+    <iframe width="300" height="175" src="https://www.youtube.com/embed/RDsJBGv6onk" frameborder="0" allowfullscreen></iframe>
 <h2>Data de lançamento</h2>
 <p>Não há uma data específica e oficial para o dispositivo ser lançado, ainda. Pode ser que ele esteja disponível em demonstrações a partir de 2013, mas seu lançamento para as lojas fica para, pelo menos, 2014.</p>
 
@@ -84,7 +99,7 @@
 
 </aside>
 <footer id="rodape">
-    <p>Copyright 2013 - by Gustavo Guanabara <br>
+    <p>Copyright 2016 - by Gustavo Guanabara <br>
     <a href="http://facebook.com" target="_blank" >Facebook</a> |
     <a href="http://twitter.com" target="_blank">Twitter</a></p>
 </footer>

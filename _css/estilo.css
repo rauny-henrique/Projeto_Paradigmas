@@ -7,20 +7,25 @@
 
 body{
     font-family: Arial, sans-serif;
+
 }
 
 /* Formatando a interface que esta dentro do body */
 div#interface{
-    width: 1000px;
-    margin: -20px auto 0px auto;
+   /* width: 1000px;*/
+    width: 100%; /*fsb*/
+    max-width: 1280px;/**/
+    /* margin: -20px auto 0px auto; */
+    margin: -2% auto 0px auto;
     box-shadow: 0px 0px 10px rgba(0,0,0,.5);
-    padding: 10px 10px 10px 10px;
+    /*padding: 10px 10px 10px 10px;*/
+    padding: 1% 1% 1% 1%;
 }
 
 /* Formatação do texto */
 p{
     text-align: justify;
-    text-indent: 30px;
+    indent: 30px;
 }
 
 a{
@@ -36,7 +41,7 @@ a:hover{
 /* Ajustando o cabeçalho e pondo uma divisoria e um icone (logo) */
 header#cabecalho{
     border-bottom: 1px #606060 solid;
-    height: 150px;
+   height: 150px;
 }
 
 header#cabecalho h1{
@@ -51,7 +56,7 @@ header#cabecalho h1{
 header#cabecalho h2{
     font-family: 'Titillium Web', sans-serif;
     color: #888888;
-    font-size: 20pt;
+  font-size: 20pt;
     padding: 0px;
     margin-top: 0px;
 }
@@ -69,7 +74,7 @@ nav#menu ul{
     position: absolute;
     top: -10px;
     left: auto;
-    margin-left: 240px;
+   margin-left: 240px;
 }
 
 /* Formatação do menu em li.. alinhando em uma linha só*/
@@ -212,7 +217,6 @@ aside#lateral h2{
     color: white;
     padding: 5px 0px 5px 10px;
 }
-
 footer#rodape{
     clear: both; /* ajusta o foot... no seu lugar */
     border-top: 1px solid #606060;
@@ -220,3 +224,16 @@ footer#rodape{
 footer#rodape p{
     text-align: center;
 }
+
+
+/* Container para responsividade Adaptado FranklinBasilio*/
+.container{
+    float:left;
+    width:100%;
+}
+.content{
+    width:70%;
+    margin: 0 auto;
+    padding: 1.4% 0;
+}
+/* fim*/
