@@ -55,7 +55,7 @@ function ajeitaEquacao(_s) {
 
     if (res.indexOf("log") > -1)
     {
-        res2 = res.replace("cos", "Math.log");
+        res2 = res.replace("log", "Math.log");
         res = res2;
     }
 
