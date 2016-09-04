@@ -22,16 +22,115 @@ function ajeitaEquacao(_s) {
             });
         }
     }
+
+    if (_s.indexOf("sen") > -1)
+    {
+        var tab = [];
+        var sinfunc="Math.sin";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, sinfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("cos") > -1)
+    {
+        var tab = [];
+        var cosfunc="Math.cos";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, cosfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("tan") > -1)
+    {
+        var tab = [];
+        var tanfunc="Math.tan";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, tanfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("log") > -1)
+    {
+        var tab = [];
+        var logfunc="Math.log";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, logfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("exp") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.exp";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, expfunc+"($2)");
+            });
+        }
+    }
     return _s;
 }
 
+var EQUACAO;
 
-function calcula(x, _s) {
-    caretReplace = ajeitaEquacao(_s);
+function Escolha() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("escolhaEquacao").innerHTML = "Sua escolha: " + x;
 
-    //valor = Math.pow(x,2);
-    /*valor = eval(x.campoEquacao.value);*/
-    return caretReplace
+    if(x=="Bissetriz"){
+        //executa calculaBissetriz()
+    }
+    if(x=="escolha1"){
+        //executa calculaSeno()
+    }
+    if(x=="escolha1"){
+        //executa calculaTangente()
+    }
+    if(x=="escolha4"){
+        //executa calculaGauss()
+    }
+}
+
+function calcula(x) {
+    //caretReplace = ajeitaEquacao(_s);
+
+    //valor = equacao;
+    valor = eval(EQUACAO);
+    return valor
 }
 
 function arredonda(x) {
@@ -41,14 +140,19 @@ function arredonda(x) {
 
 function leitura(aForm)
 {
-
     a = eval(aForm.raizEsq.value);
     b = eval(aForm.raizDir.value);
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
-    EQUACAO = eval(aForm.campoEquacao.value);
+    EQUACAO = document.getElementById('textAreaEqua').value;
 
+    //var res = EQUACAO.split("^");
+    //alert(eval(Math.pow(res[0],res[1])));
+    //alert(eval("Math.pow(2,2)*(5*2-2)"));
+
+    EQUACAO = ajeitaEquacao(EQUACAO);
+    alert(EQUACAO);
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
     janela +="<BODY BGCOLOR='white' TEXT='black'>";
@@ -57,13 +161,13 @@ function leitura(aForm)
     if ((a==null) || (b==null) || (erro==null)) {
         janela +="É preciso preencher todos os campos!";
     }else{
-        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa, EQUACAO))+ ",     f("+bb+") = "+ arredonda(calcula(bb, EQUACAO))+"<BR><br>"
+        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+"<BR><br>"
         janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
     }
 
     var achou=false;
-    fa=calcula(aa, EQUACAO);
-    fb=calcula(bb, EQUACAO);
+    fa=calcula(aa);
+    fb=calcula(bb);
     cont=2;
 
     Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
@@ -79,7 +183,7 @@ function leitura(aForm)
                 achou=true;
             }else{
                 if (er>erro){
-                    fr=calcula(x, EQUACAO);
+                    fr=calcula(x);
                 }
                 if (fr==0) {
                     achou=true;
