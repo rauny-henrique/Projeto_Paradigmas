@@ -27,6 +27,24 @@ function ajeitaEquacao(_s) {
 
 var EQUACAO;
 
+function Escolha() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("escolhaEquacao").innerHTML = "Sua escolha: " + x;
+
+    if(x=="Bissetriz"){
+        //executa calculaBissetriz()
+    }
+    if(x=="escolha1"){
+        //executa calculaSeno()
+    }
+    if(x=="escolha1"){
+        //executa calculaTangente()
+    }
+    if(x=="escolha4"){
+        //executa calculaGauss()
+    }
+}
+
 function calcula(x) {
     //caretReplace = ajeitaEquacao(_s);
 
