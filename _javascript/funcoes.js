@@ -1,16 +1,27 @@
 /* Bissecção */
 
 function ajeitaEquacao(_s) {
+
+    var res = _s;
+    var res2;
+
     if (_s.indexOf("^") > -1)
     {
         var tab = [];
         var powfunc="Math.pow";
         var joker = "___joker___";
+
+
+
         while (_s.indexOf("(") > -1) {
+            res2 = res;
+
             _s = _s.replace(/(\([^\(\)]*\))/g, function(m, t) {
                 tab.push(t);
                 return (joker + (tab.length - 1));
             });
+
+
         }
 
         tab.push(_s);
@@ -18,91 +29,43 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\^(\w*)/g, powfunc+"($1,$2)");
+                res2 = tab[d].replace(/(\w*)\^(\w*)/g, powfunc+"($1,$2)");
             });
         }
+        res = res2;
     }
 
-    if (_s.indexOf("sen") > -1)
+    if (res.indexOf("sen") > -1)
     {
-        var tab = [];
-        var sinfunc="Math.sin";
-        var joker = "___joker___";
-
-        tab.push(_s);
-        _s = joker + (tab.length - 1);
-        while (_s.indexOf(joker) > -1)
-        {
-            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, sinfunc+"($2)");
-            });
-        }
+        res2 = res.replace("sen", "Math.sin");
+        res = res2;
     }
 
-    if (_s.indexOf("cos") > -1)
+    if (res.indexOf("cos") > -1)
     {
-        var tab = [];
-        var cosfunc="Math.cos";
-        var joker = "___joker___";
-
-        tab.push(_s);
-        _s = joker + (tab.length - 1);
-        while (_s.indexOf(joker) > -1)
-        {
-            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, cosfunc+"($2)");
-            });
-        }
+        res2 = res.replace("cos", "Math.cos");
+        res = res2;
     }
 
-    if (_s.indexOf("tan") > -1)
+    if (res.indexOf("tan") > -1)
     {
-        var tab = [];
-        var tanfunc="Math.tan";
-        var joker = "___joker___";
-
-        tab.push(_s);
-        _s = joker + (tab.length - 1);
-        while (_s.indexOf(joker) > -1)
-        {
-            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, tanfunc+"($2)");
-            });
-        }
+        res2 = res.replace("tan", "Math.tan");
+        res = res2;
     }
 
-    if (_s.indexOf("log") > -1)
+    if (res.indexOf("log") > -1)
     {
-        var tab = [];
-        var logfunc="Math.log";
-        var joker = "___joker___";
-
-        tab.push(_s);
-        _s = joker + (tab.length - 1);
-        while (_s.indexOf(joker) > -1)
-        {
-            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, logfunc+"($2)");
-            });
-        }
+        res2 = res.replace("cos", "Math.log");
+        res = res2;
     }
 
-    if (_s.indexOf("exp") > -1)
+    if (res.indexOf("exp") > -1)
     {
-        var tab = [];
-        var expfunc="Math.exp";
-        var joker = "___joker___";
-
-        tab.push(_s);
-        _s = joker + (tab.length - 1);
-        while (_s.indexOf(joker) > -1)
-        {
-            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, expfunc+"($2)");
-            });
-        }
+        res2 = res.replace("exp", "Math.exp");
+        res = res2;
     }
-    return _s;
+
+    return res;
 }
 
 var EQUACAO;
