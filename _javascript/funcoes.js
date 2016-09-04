@@ -1,6 +1,6 @@
 /* Bissecção */
 
-function ajeitaEquacao(_s) {
+/*function ajeitaEquacao(_s) {
     if (_s.indexOf("^") > -1)
     {
         var tab = [];
@@ -24,14 +24,16 @@ function ajeitaEquacao(_s) {
     }
     return _s;
 }
+*/
 
+var EQUACAO;
 
-function calcula(x, _s) {
-    caretReplace = ajeitaEquacao(_s);
+function calcula(x) {
+    //caretReplace = ajeitaEquacao(_s);
 
-    //valor = Math.pow(x,2);
-    /*valor = eval(x.campoEquacao.value);*/
-    return caretReplace
+    //valor = equacao;
+    valor = eval(EQUACAO);
+    return valor
 }
 
 function arredonda(x) {
@@ -47,8 +49,7 @@ function leitura(aForm)
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
-    EQUACAO = eval(aForm.campoEquacao.value);
-
+    EQUACAO = document.getElementById('textAreaEqua').value;
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
     janela +="<BODY BGCOLOR='white' TEXT='black'>";
@@ -57,13 +58,13 @@ function leitura(aForm)
     if ((a==null) || (b==null) || (erro==null)) {
         janela +="É preciso preencher todos os campos!";
     }else{
-        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa, EQUACAO))+ ",     f("+bb+") = "+ arredonda(calcula(bb, EQUACAO))+"<BR><br>"
+        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+"<BR><br>"
         janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
     }
 
     var achou=false;
-    fa=calcula(aa, EQUACAO);
-    fb=calcula(bb, EQUACAO);
+    fa=calcula(aa);
+    fb=calcula(bb);
     cont=2;
 
     Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
@@ -79,7 +80,7 @@ function leitura(aForm)
                 achou=true;
             }else{
                 if (er>erro){
-                    fr=calcula(x, EQUACAO);
+                    fr=calcula(x);
                 }
                 if (fr==0) {
                     achou=true;
