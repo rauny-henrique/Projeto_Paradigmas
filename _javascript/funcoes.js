@@ -22,10 +22,108 @@ function ajeitaEquacao(_s) {
             });
         }
     }
+
+    if (_s.indexOf("sen") > -1)
+    {
+        var tab = [];
+        var sinfunc="Math.sin";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, sinfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("cos") > -1)
+    {
+        var tab = [];
+        var cosfunc="Math.cos";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, cosfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("tan") > -1)
+    {
+        var tab = [];
+        var tanfunc="Math.tan";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, tanfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("log") > -1)
+    {
+        var tab = [];
+        var logfunc="Math.log";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, logfunc+"($2)");
+            });
+        }
+    }
+
+    if (_s.indexOf("exp") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.exp";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\w*)\((\w+)\)/g, expfunc+"($2)");
+            });
+        }
+    }
     return _s;
 }
 
 var EQUACAO;
+
+function Escolha() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("escolhaEquacao").innerHTML = "Sua escolha: " + x;
+
+    if(x=="Bissetriz"){
+        //executa calculaBissetriz()
+    }
+    if(x=="escolha1"){
+        //executa calculaSeno()
+    }
+    if(x=="escolha1"){
+        //executa calculaTangente()
+    }
+    if(x=="escolha4"){
+        //executa calculaGauss()
+    }
+}
 
 function calcula(x) {
     //caretReplace = ajeitaEquacao(_s);
