@@ -52,6 +52,14 @@
                     <p id="textequacao"><label for="textAreaEqua">Equação:</label>
                     <p><textarea name="campoEquacao" id="textAreaEqua" cols="47" rows="5" placeholder="Insira uma equação aqui"></textarea></p>
 
+                    <p><select id="mySelect" onchange="Escolha()" >
+                        <option value="Bissetriz">Bissetriz
+                        <option value="Seno">Seno
+                        <option value="Tangente">Tangente
+                        <option value="Equacao de Gauus">Gauss
+                    </select></p>
+                    <p id="escolhaEquacao">Sua escolha: </p>
+
                     <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form)"/>
 
                 </fieldset>
