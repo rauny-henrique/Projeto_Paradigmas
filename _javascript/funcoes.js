@@ -1,6 +1,6 @@
 /* Bissecção */
 
-/*function ajeitaEquacao(_s) {
+function ajeitaEquacao(_s) {
     if (_s.indexOf("^") > -1)
     {
         var tab = [];
@@ -24,7 +24,6 @@
     }
     return _s;
 }
-*/
 
 var EQUACAO;
 
@@ -43,13 +42,17 @@ function arredonda(x) {
 
 function leitura(aForm)
 {
-
     a = eval(aForm.raizEsq.value);
     b = eval(aForm.raizDir.value);
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
     EQUACAO = document.getElementById('textAreaEqua').value;
+
+    //var res = EQUACAO.split("^");
+    //alert(eval(Math.pow(res[0],res[1])));
+    alert(eval("Math.pow(2,2)*(5*2-2)"));
+
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
     janela +="<BODY BGCOLOR='white' TEXT='black'>";

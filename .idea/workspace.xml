@@ -37,8 +37,8 @@
       <file leaf-file-name="funcoes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+            <state relative-caret-position="595">
+              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -246,7 +246,7 @@
       <workItem from="1472920196838" duration="8749000" />
       <workItem from="1472936178292" duration="139000" />
       <workItem from="1472986667269" duration="428000" />
-      <workItem from="1472999745534" duration="2397000" />
+      <workItem from="1472999745534" duration="4676000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração de alguns titulos">
       <created>1472898314196</created>
@@ -276,11 +276,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472935929818</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Programa agora reconhece equações &quot;Math&quot;. Falta implementar um teclado para o usuário">
+      <created>1473002194797</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1473002194797</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25546000" />
+    <option name="totallyTimeSpent" value="27825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -321,7 +328,8 @@
     <MESSAGE value="Alteração de alguns titulos" />
     <MESSAGE value="Algumas alterações" />
     <MESSAGE value="adicionado método da bisseção (incompleto)" />
-    <option name="LAST_COMMIT_MESSAGE" value="adicionado método da bisseção (incompleto)" />
+    <MESSAGE value="Programa agora reconhece equações &quot;Math&quot;. Falta implementar um teclado para o usuário" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programa agora reconhece equações &quot;Math&quot;. Falta implementar um teclado para o usuário" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -553,8 +561,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+        <state relative-caret-position="595">
+          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
           <folding />
         </state>
       </provider>
