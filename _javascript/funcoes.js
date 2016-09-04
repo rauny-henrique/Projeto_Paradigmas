@@ -51,8 +51,10 @@ function leitura(aForm)
 
     //var res = EQUACAO.split("^");
     //alert(eval(Math.pow(res[0],res[1])));
-    alert(eval("Math.pow(2,2)*(5*2-2)"));
+    //alert(eval("Math.pow(2,2)*(5*2-2)"));
 
+    EQUACAO = ajeitaEquacao(EQUACAO);
+    alert(EQUACAO);
 
     var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
     janela +="<BODY BGCOLOR='white' TEXT='black'>";
