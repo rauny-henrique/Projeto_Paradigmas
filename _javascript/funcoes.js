@@ -34,8 +34,9 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, sinfunc+"($2)");
+                return tab[d].replace(/(\bsen\b)\((\w+)\)/g, sinfunc+"($2)");
             });
+            // oq sai aqui, já sai pronto
         }
     }
 
@@ -50,7 +51,7 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, cosfunc+"($2)");
+                return tab[d].replace(/(\bcos\b)\((\w+)\)/g, cosfunc+"($2)");
             });
         }
     }
@@ -66,7 +67,7 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, tanfunc+"($2)");
+                return tab[d].replace(/(\btan\b)\((\w+)\)/g, tanfunc+"($2)");
             });
         }
     }
@@ -82,7 +83,7 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, logfunc+"($2)");
+                return tab[d].replace(/(\blog\b)\((\w+)\)/g, logfunc+"($2)");
             });
         }
     }
@@ -98,7 +99,7 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\((\w+)\)/g, expfunc+"($2)");
+                return tab[d].replace(/(\exp\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
             });
         }
     }
