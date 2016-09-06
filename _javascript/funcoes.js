@@ -36,7 +36,7 @@ function ajeitaEquacao(_s) {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
                 return tab[d].replace(/(\bsen\b)\((\w+)\)/g, sinfunc+"($2)");
             });
-            // oq sai aqui, já sai pronto
+            // oq sai aqui, já sai prontoo
         }
     }
 
