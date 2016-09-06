@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4575d79-8aee-4499-bbb6-9e780adcc7b4" name="Default" comment="">
+    <list default="true" id="c4575d79-8aee-4499-bbb6-9e780adcc7b4" name="Default" comment="Corrigido a trocas de ex: &quot;sen(x)+cos(x)&quot; por &quot;Math.sin(x)+Math.cos(x)&quot;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_javascript/funcoes.js" afterPath="$PROJECT_DIR$/_javascript/funcoes.js" />
     </list>
@@ -37,8 +37,8 @@
       <file leaf-file-name="funcoes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
-              <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -260,7 +260,7 @@
       <workItem from="1472936178292" duration="139000" />
       <workItem from="1472986667269" duration="428000" />
       <workItem from="1472999745534" duration="17817000" />
-      <workItem from="1473168019273" duration="8219000" />
+      <workItem from="1473168019273" duration="9014000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração de alguns titulos">
       <created>1472898314196</created>
@@ -318,14 +318,21 @@
       <option name="project" value="LOCAL" />
       <updated>1473017445233</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Corrigido a trocas de ex: &quot;sen(x)+cos(x)&quot; por &quot;Math.sin(x)+Math.cos(x)&quot;">
+      <created>1473183880790</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1473183880790</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49185000" />
+    <option name="totallyTimeSpent" value="49980000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -364,7 +371,8 @@
     <MESSAGE value="Algumas alterações" />
     <MESSAGE value="adicionado método da bisseção (incompleto)" />
     <MESSAGE value="Programa agora reconhece equações &quot;Math&quot;. Falta implementar um teclado para o usuário" />
-    <option name="LAST_COMMIT_MESSAGE" value="Programa agora reconhece equações &quot;Math&quot;. Falta implementar um teclado para o usuário" />
+    <MESSAGE value="Corrigido a trocas de ex: &quot;sen(x)+cos(x)&quot; por &quot;Math.sin(x)+Math.cos(x)&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrigido a trocas de ex: &quot;sen(x)+cos(x)&quot; por &quot;Math.sin(x)+Math.cos(x)&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -611,8 +619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_javascript/funcoes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
           <folding />
         </state>
       </provider>

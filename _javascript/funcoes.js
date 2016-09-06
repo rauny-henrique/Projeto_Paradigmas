@@ -18,7 +18,7 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\w*)\^(\w*)/g, powfunc+"($1,$2)");
+                return tab[d].replace(/(\w*)\^(\w*)/g, powfunc+"($1,$2)"); //haha
             });
         }
     }
