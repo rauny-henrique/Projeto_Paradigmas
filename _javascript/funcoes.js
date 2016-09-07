@@ -99,30 +99,36 @@ function ajeitaEquacao(_s) {
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\exp\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\bexp\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
             });
         }
     }
+
+
     return _s;
 }
 
 var EQUACAO;
 
-function Escolha() {
+function Escolha()
+{
     var x = document.getElementById("mySelect").value;
     document.getElementById("escolhaEquacao").innerHTML = "Sua escolha: " + x;
 
-    if(x=="Bissetriz"){
-        //executa calculaBissetriz()
+    if(x=="Bisseccao"){
+        return 1;
     }
-    if(x=="escolha1"){
-        //executa calculaSeno()
+    if(x=="Falsa posição"){
+        return 2;
     }
-    if(x=="escolha1"){
-        //executa calculaTangente()
+    if(x=="Newton-Raphson"){
+        return 3;
     }
-    if(x=="escolha4"){
-        //executa calculaGauss()
+    if(x=="Secante"){
+        return 4;
+    }
+    if(x=="Ponto fixo"){
+        return 5;
     }
 }
 
@@ -139,7 +145,7 @@ function arredonda(x) {
     return valor
 }
 
-function leitura(aForm)
+function leitura(aForm, escolha)
 {
     a = eval(aForm.raizEsq.value);
     b = eval(aForm.raizDir.value);
@@ -148,63 +154,67 @@ function leitura(aForm)
     erro=eval(aForm.preci.value);
     EQUACAO = document.getElementById('textAreaEqua').value;
 
-    //var res = EQUACAO.split("^");
-    //alert(eval(Math.pow(res[0],res[1])));
-    //alert(eval("Math.pow(2,2)*(5*2-2)"));
-
     EQUACAO = ajeitaEquacao(EQUACAO);
-    alert(EQUACAO);
 
-    var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
-    janela +="<BODY BGCOLOR='white' TEXT='black'>";
-    janela +="<FONT FACE='Arial' SIZE='3'>";
-    janela +="<B>Iniciando busca da raiz...</B><BR><BR>";
-    if ((a==null) || (b==null) || (erro==null)) {
-        janela +="É preciso preencher todos os campos!";
-    }else{
-        janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+"<BR><br>"
-        janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
-    }
+    if(escolha == 1)
+    {
+        var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
+        janela +="<BODY BGCOLOR='white' TEXT='black'>";
+        janela +="<FONT FACE='Arial' SIZE='3'>";
+        janela +="<B>Iniciando busca da raiz...</B><BR><BR>";
+        if ((a==null) || (b==null) || (erro==null)) {
+            janela +="É preciso preencher todos os campos!";
+        }else{
+            janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+", E = "+erro+"<BR><br>"
+            janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
+        }
 
-    var achou=false;
-    fa=calcula(aa);
-    fb=calcula(bb);
-    cont=2;
+        var achou=false;
+        fa=calcula(aa);
+        fb=calcula(bb);
+        cont=2;
 
-    Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
-    Jan1.focus();
-    Jan1.document.write(janela);
-    var fr;
+        Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
+        Jan1.focus();
+        Jan1.document.write(janela);
+        var fr;
 
-    if ((a!=null) && (b!=null) && (erro!=null)) {
-        while (!achou){
-            x=((aa+bb)/2);
-            er=((bb-aa)/2);
-            if (er<=erro) {
-                achou=true;
-            }else{
-                if (er>erro){
-                    fr=calcula(x);
-                }
-                if (fr==0) {
+        if ((a!=null) && (b!=null) && (erro!=null)) {
+            while (!achou)
+            {
+                x=((aa+bb)/2);
+                er=((bb-aa)/2);
+                if (er<=erro) {
                     achou=true;
+                    Jan1.document.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                    Jan1.document.write("Calculando f("+x+") = 0"+"<br><br>");
                 }else{
-                    if (fr<0){
-                        aa=x;
+                    if (er>erro){
+                        fr=calcula(x);
+                        Jan1.document.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                        Jan1.document.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
+                    }
+                    if (fr==0) {
+                        achou=true;
                     }else{
-                        bb=x;
+                        if (fr<0){
+                            aa=x;
+                        }else{
+                            bb=x;
+                        }
                     }
                 }
-            }
-            if (!achou){
-                Jan1.document.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
-                cont++;
+                if (!achou){
+                    Jan1.document.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
+
+                    cont++;
+                }
             }
         }
-    }
-    if (achou){
-        Jan1.document.write("<br>");
-        Jan1.document.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
-        Jan1.document.write("Raiz:   "+arredonda(x)+" ± "+er)
+        if (achou){
+            Jan1.document.write("Portanto,"+"<br><br>");
+            Jan1.document.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
+            Jan1.document.write("Raiz:   "+arredonda(x)+" ± "+er)
+        }
     }
 }
