@@ -145,6 +145,8 @@ function arredonda(x) {
     return valor
 }
 
+var CLEAR = 0;
+
 function leitura(aForm, escolha)
 {
     a = eval(aForm.raizEsq.value);
@@ -153,20 +155,28 @@ function leitura(aForm, escolha)
     bb = parseFloat(b);
     erro=eval(aForm.preci.value);
     EQUACAO = document.getElementById('textAreaEqua').value;
+    cop = EQUACAO;
 
     EQUACAO = ajeitaEquacao(EQUACAO);
 
+    // Recuperando iframe
+    var meuIframe = document.getElementById("frame-passos");
+    var conteudoIframe = meuIframe.contentDocument || meuIframe.contentWindow.document;
+
+    // Limpando iframe
+    var html = "";
+    meuIframe.contentWindow.document.open();
+    meuIframe.contentWindow.document.write(html);
+    meuIframe.contentWindow.document.close();
+
+
     if(escolha == 1)
     {
-        var janela="<html><head><TITLE>Calculando a raiz</TITLE></head>";
-        janela +="<BODY BGCOLOR='white' TEXT='black'>";
-        janela +="<FONT FACE='Arial' SIZE='3'>";
-        janela +="<B>Iniciando busca da raiz...</B><BR><BR>";
         if ((a==null) || (b==null) || (erro==null)) {
-            janela +="É preciso preencher todos os campos!";
+            alert("É preciso preencher todos os campos!");
         }else{
-            janela +="Dados iniciais:   f("+aa+") = "+ arredonda(calcula(aa))+ ",     f("+bb+") = "+ arredonda(calcula(bb))+", E = "+erro+"<BR><br>"
-            janela +="Invervalo 1: ["+aa+","+bb+"]<br>";
+            conteudoIframe.write("Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br>");
+            conteudoIframe.write("Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br>");
         }
 
         var achou=false;
@@ -174,9 +184,6 @@ function leitura(aForm, escolha)
         fb=calcula(bb);
         cont=2;
 
-        Jan1=open("", "", "scrollbars=yes,resizable=0,width=400,height=400");
-        Jan1.focus();
-        Jan1.document.write(janela);
         var fr;
 
         if ((a!=null) && (b!=null) && (erro!=null)) {
@@ -186,13 +193,13 @@ function leitura(aForm, escolha)
                 er=((bb-aa)/2);
                 if (er<=erro) {
                     achou=true;
-                    Jan1.document.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                    Jan1.document.write("Calculando f("+x+") = 0"+"<br><br>");
+                    conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                    conteudoIframe.write("Calculando f("+x+") = 0"+"<br><br>");
                 }else{
                     if (er>erro){
                         fr=calcula(x);
-                        Jan1.document.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                        Jan1.document.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
+                        conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                        conteudoIframe.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
                     }
                     if (fr==0) {
                         achou=true;
@@ -205,16 +212,16 @@ function leitura(aForm, escolha)
                     }
                 }
                 if (!achou){
-                    Jan1.document.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
+                    conteudoIframe.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
 
                     cont++;
                 }
             }
         }
         if (achou){
-            Jan1.document.write("Portanto,"+"<br><br>");
-            Jan1.document.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
-            Jan1.document.write("Raiz:   "+arredonda(x)+" ± "+er)
+            conteudoIframe.write("Portanto,"+"<br><br>");
+            conteudoIframe.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
+            conteudoIframe.write("Raiz:   "+arredonda(x)+" ± "+er)
         }
     }
 }

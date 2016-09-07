@@ -18,7 +18,7 @@ fieldset#bisseccao input#campoRaizDir{
 }
 
 input#bt-calcular{
-    margin-left: 430px;
+    margin-left: 150px;
     padding: 5px 20px 5px 20px;
 }
 
@@ -28,4 +28,26 @@ p#textequacao{
 
 p#escolhaEquacao{
     margin-bottom: -15px;
+}
+
+div#div-frame{
+    margin-left: 420px;
+    margin-top: -330px;
+    width: 400px;
+    height: 340px;
+
+}
+
+iframe#frame-passos{
+    width: 530px;
+    height: 325px;
+}
+
+footer#rodape-full{
+    clear: both; /* ajusta o foot... no seu lugar */
+    margin-top: 80px;
+    border-top: 1px solid #606060;
+}
+footer#rodape-full p{
+    text-align: center;
 }
