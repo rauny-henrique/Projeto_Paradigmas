@@ -213,9 +213,14 @@ aside#lateral h2{
     padding: 5px 0px 5px 10px;
 }
 
+div#disqus_thread{
+    margin-top: 50px;
+}
+
 footer#rodape{
     clear: both; /* ajusta o foot... no seu lugar */
     border-top: 1px solid #606060;
+    margin-top: 50px;
 }
 footer#rodape p{
     text-align: center;
