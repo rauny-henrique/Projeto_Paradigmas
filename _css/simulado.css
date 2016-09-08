@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*Inicio do testes de conhecimento*/
+#nextQuestion {
+    font-family: Tahoma;
+    font-weight: bold;
+    width: 80px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 3px 3px gray;
+
+
+
+
+}
+
+#questionDisplay {
+    height: 80px;
+    width: 330px;
+}
+/*fim dos testes de conhecimento*/
