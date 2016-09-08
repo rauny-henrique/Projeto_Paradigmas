@@ -10,7 +10,7 @@
 
 <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
-<body>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
 
 <div id="interface">
 
@@ -45,14 +45,29 @@
 
             <form id="formulario-bisseccao">
                 <fieldset id="bisseccao">
-                    <legend>Método da Bissecção</legend>
-                    <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="3" placeholder="Valor a esquerda da raiz"/></p>
-                    <p><label for="campoRaizDir">Valor a direita da raiz:</label><input type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="3" placeholder="Valor a direita da raiz"/></p>
-                    <p><label for="campoPreci">Valor da precisão de erro:</label><input type="number" name="preci" id="campoPreci" size="10" maxlength="3" placeholder="Valor da precisão de erro"/></p>
+                    <legend>Calcular zero da função</legend>
+                    <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
+                    <p><label for="campoRaizDir">Valor a direita da raiz:</label><input type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
+                    <p><label for="campoPreci">Valor da precisão de erro:</label><input type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
                     <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                    <p><textarea name="campoEquacao" id="textAreaEqua" cols="47" rows="5" placeholder="Insira uma equação aqui"></textarea></p>
+                    <p><textarea name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
 
-                    <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form)"/>
+                    <p id="escolhaEquacao">Escolha um método: </p>
+                    <p><select id="mySelect" onchange="Escolha()" >
+                        <option value="Bisseccao">Bissecção
+                        <option value="Falsa posição">Falsa posição
+                        <option value="Newton-Raphson">Newton-Raphson
+                        <option value="Secante">Secante
+                        <option value="Ponto fixo">Ponto fixo
+                    </select></p>
+
+
+                    <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
+
+                    <div id="div-frame">
+                        <iframe src="calfuncao-passo-a-passo.html" name="janela" id="frame-passos"></iframe>
+                    </div>
+
                 </fieldset>
             </form>
 
@@ -60,8 +75,8 @@
         </article>
     </section>
 
-    <footer id="rodape">
-        <p>Copyright 2016 - por Computação - UEPB<br>
+    <footer id="rodape-full">
+        <p>Copyright 2016 - Computação - UEPB<br>
             <a href="http://facebook.com" target="_blank" >Facebook</a> |
             <a href="http://twitter.com" target="_blank">Twitter</a></p>
     </footer>
