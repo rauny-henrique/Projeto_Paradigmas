@@ -45,7 +45,7 @@ iframe#frame-passos{
 
 footer#rodape-full{
     clear: both; /* ajusta o foot... no seu lugar */
-    margin-top: 80px;
+    margin-top: 50px;
     border-top: 1px solid #606060;
 }
 footer#rodape-full p{
