@@ -235,12 +235,12 @@ function leitura(aForm, escolha)
                 }
                 else
                 {
-                    conteudoIframe.write("<p>O intervalo indicado não possui raiz.</p>");
+                    alert("O intervalo indicado não possui raiz.");
                 }
             }
             else
             {
-                conteudoIframe.write("<p>A equação deve possuir ao menos uma variável (ex: 'x').</p>");
+                alert("A equação deve possuir ao menos uma variável (ex: 'x').");
             }
         }
     }
