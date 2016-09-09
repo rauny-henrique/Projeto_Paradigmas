@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<title>CNDiferente</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="_css/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="_css/calcular-funcao.css"/>
+<head>
+    <title>Introdução</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="_css/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="_css/simulado.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-<style>
-    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
-
-<script language="JavaScript" src="_javascript/funcoes.js"></script>
-
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+    <!-- Início do código Latex -->
+    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
+        MathJax.Hub.Config({
+            HTML: ["input/TeX","output/HTML-CSS"],
+            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX","output/HTML-CSS"],
+            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true },
+            "HTML-CSS": { availableFonts: ["TeX"],
+                linebreaks: { automatic: true } }
+        });
+    </script>
+    <!-- Fim do código Latex -->
+</head>
 <body class="w3-light-grey">
 
-<!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
     <!-- Header -->
@@ -58,39 +72,20 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Calcular função</b></h3>
+                    <h3><b>Métodos numéricos para encontrar raízes (zeros) de funções reais</b></h3>
                     <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
 
                 <div class="w3-container">
-
-                    <form class="w3-form">
-                        <fieldset id="bisseccao">
-                            <legend><h3>Calcular zero da função</h3></legend>
-                            <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
-                            <p><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
-                            <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
-                            <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                            <p><textarea name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
-
-                            <p id="escolhaEquacao">Escolha um método: </p>
-                            <p><select id="mySelect" onchange="Escolha()" >
-                                <option value="Bisseccao">Bissecção
-                                <option value="Falsa posição">Falsa posição
-                                <option value="Newton-Raphson">Newton-Raphson
-                                <option value="Secante">Secante
-                                <option value="Ponto fixo">Ponto fixo
-                            </select></p>
-
-
-                            <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
-
-                            <div id="div-frame">
-                                <iframe class="w3-iframe" src="calfuncao-passo-a-passo.html" name="janela" id="frame-passos"></iframe>
-                            </div>
-
-                        </fieldset>
-                    </form>
+                    <h4>Introdução</h4>
+                    <p class="w3-justify">Um dos <span style="font-weight: bold;">problemas</span>   que ocorrem mais frequentemente em trabalhos científicos é
+                        calcular as raízes de equações da forma: $f(x) = 0$. A função $f(x)$ pode ser um polinômio em x ou
+                        uma função transcendente. Em raros casos é possível obter as raízes exatas de $f(x)= 0$, como
+                        ocorre, por exemplo, supondo-se $f(x)$ um polinômio fatorável. Resolver a equação $f(x) = 0$ consiste em determinar a solução (ou soluções) real ou
+                        complexa, $𝑥̅$, tal que $𝑓(𝑥̅) = 0$. Por exemplo, na equação $f(x) = cos x + x2 + 5 = 0$, devemos
+                        determinar a solução $𝑥̅$ tal que $f(𝑥̅) = cos 𝑥̅ + 𝑥̅2 + 5 = 0$.
+                        Dado $𝑓: ℝ → ℝ$ com $f$ definida e contínua em $[a, b]$, são denominadas raízes de $f$ os
+                        valores de x tais que $f(x) = 0$.</p>
 
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
@@ -103,7 +98,6 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
             </div>
             <hr>
-
             <!-- END BLOG ENTRIES -->
         </div>
 
@@ -211,4 +205,3 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 </body>
 </html>
-

@@ -9,16 +9,8 @@ section#corpo-full legend{
     margin-bottom: 0px;
 }
 
-fieldset#bisseccao input#campoRaizEsq{
-    margin-left: 6px;
-}
-
-fieldset#bisseccao input#campoRaizDir{
-    margin-left: 30px;
-}
-
 input#bt-calcular{
-    margin-left: 150px;
+    margin-left: 0%;
     padding: 5px 20px 5px 20px;
 }
 
@@ -31,16 +23,17 @@ p#escolhaEquacao{
 }
 
 div#div-frame{
-    margin-left: 420px;
-    margin-top: -330px;
-    width: 400px;
-    height: 340px;
-
+    margin-left: 50%;
+    width: 49%;
+    height: 400px;
+    margin-top: -483px;
+    margin-bottom: 12%;
 }
 
 iframe#frame-passos{
-    width: 530px;
-    height: 325px;
+    width: 100%;
+    height: 121%;
+    margin-left: 2%;
 }
 
 footer#rodape-full{

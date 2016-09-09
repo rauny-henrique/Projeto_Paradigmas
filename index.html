@@ -1,243 +1,341 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:text-indent="http://www.w3.org/1999/xhtml">
-
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width:device-width">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="all and (max-width:320px)">
-    <link rel="stylesheet" type="text/css" href="css/tablet.css" media="all and(min-width:321px) and (max-width:960px)">
-    <link rel="stylesheet" type="text/css" href="css/full.css" media="all and (min-width:960px)">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+<title>CNDiferente</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="_css/simulado.css"/>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
-    <title>Cálculo Númerico</title>
-    <link rel="stylesheet" href="_css/estilo.css"/>
-    <link rel="stylesheet" href="_css/simulado.css"/>
-
+<style>
+    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+    <!-- Início do código Latex -->
+    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
+        MathJax.Hub.Config({
+            HTML: ["input/TeX","output/HTML-CSS"],
+            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX","output/HTML-CSS"],
+            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true },
+            "HTML-CSS": { availableFonts: ["TeX"],
+                linebreaks: { automatic: true } }
+        });
+    </script>
+    <!-- Fim do código Latex -->
 </head>
+<body class="w3-light-grey">
 
-<script language="JavaScript" src="_javascript/funcoes.js"></script>
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
 
-<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'>
-<link rel="shortcut icon" href="_imagens/favicon.ico" />
-<div id="interface">
-
-    <header id="cabecalho">
-    <hgroup>
-    <h1>Cálculo Númerico</h1>
-    <h2>De uma forma diferente</h2>
-    </hgroup>
-<header class="main_header container"><!-- fsb modificado-->
-<nav id="menu">
-<h1>Menu Principal</h1>
-    <ul type="1">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="specs.html" >Códigos em Python</a></li>
-        <li><a href="calcular-funcao.html">Calcular Função</a></li>
-        <li><a href="multimidia.html" >Multimídia</a></li>
-        <li><a href="fale-conosco.html" >Fale conosco</a></li>
-    </ul>
-</nav>
-</header><!-- fsb modificado-->
-    </header>
-
-<section id="corpo">
-
-<article id="noticia-principal">
-<header id="cabecalho-artigo">
-<hgroup>
-<h3>Home</h3>
-<h1>II – Métodos numéricos para encontrar raízes (zeros) de funções reais</h1>
-<h3 class="direita">Atualizado em 03/Set/2016</h3>
-</hgroup>
-</header>
-
-<h2>Introdução</h2>
-<p>Um dos <span style="font-weight: bold;">problemas</span>   que ocorrem mais frequentemente em trabalhos científicos é
-    calcular as raízes de equações da forma: f(x) = 0. A função f(x) pode ser um polinômio em x ou
-    uma função transcendente. Em raros casos é possível obter as raízes exatas de f(x)= 0, como
-    ocorre, por exemplo, supondo-se f(x) um polinômio fatorável.
-    Resolver a equação f(x) = 0 consiste em determinar a solução (ou soluções) real ou
-    complexa, 𝑥̅, tal que 𝑓(𝑥̅) = 0. Por exemplo, na equação f(x) = cos x + x2 + 5 =0, devemos
-    determinar a solução 𝑥̅ tal que f(𝑥̅) = cos 𝑥̅ + 𝑥̅2 + 5 = 0.
-    Dado 𝑓: ℝ → ℝ com f definida e contínua em [a, b], são denominadas raízes de f os
-    valores de x tais que f(x) = 0.</p>
-   <!-- Video -->
-    <h2>Vídeo Aula 1</h2>
-
-
-    <h3>Método da Bisseção</h3>
-    <iframe width="400" height="250" src="https://www.youtube.com/embed/RDsJBGv6onk" frameborder="0" allowfullscreen></iframe>
-    <!-->
-<!-- Inicio dos testes de conhecimento -->
-    <h2>Teste de conhecimento 1</h2>
-
-
-    <div width=75%>
-        <button id = "nextQuestion">Próxima Questão</button>
-        <br>
-        <div id = "questionDisplay"></div>
-        <br><br>
-        <input type="radio" id= "1" name="answers" value="defaultVal">
-        <label id= "labelOne">Resposta 1</label>
-        <br>
-        <input type="radio" id= "2" name="answers" value="defaultVal">
-        <label id= "labelTwo">Resposta 2</label>
-        <br>
-        <input type="radio" id= "3" name="answers" value="defaultVal">
-        <label id= "labelThree">Resposta 3</label>
-        <br>
-        <input type="radio" id= "4" name="answers" value="defaultVal">
-        <label id= "labelFour">Resposta 4</label>
-        <br>
-        <button id = "submit">Submit</button>
-        <br>
-        <div width=75% id= "result">Selecione uma resposta!</div>
+    <!-- Header -->
+    <div class="w3-container w3-center w3-padding-32">
+        <h1><b>Cálculo Númerico</b></h1>
+        <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
-    <script id="jsbin-javascript">
+    <!-- About Card on medium screens -->
+    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
+        <div class="w3-container w3-padding">
+            <h4><b>Quem somos?</b></h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+            </li>
+        </ul>
+    </div>
 
+    <!-- About Card on small screens -->
+    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
+        <div class="w3-container w3-padding">
+            <h4><b>Quem somos?</b></h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+            </li>
+        </ul>
+    </div>
 
+    <!-- Grid -->
+    <div class="w3-row">
 
-        var triviaGame = {
-            questions: [
-                {
-                    question: "Sejam os vetores u = (1,2), v = (-2,5) e w = (x,y) do R2. Para que w = 3u – v, devemos ter x + y igual a:",
-                    correctAnswer: "6",
-                    choices: [2, "2", "6", "0", "12", "18"]}, //The first item in the array identifies the position of the correct answer in the array
-                {
-                    question: "Sendo as matrizes M = (mij)2x3, N = (nij)axb, P = (pij)cx4, Q = (qij)dxe, é possível determinar M+N, NxP e P-Q, se:",
-                    correctAnswer: "a x b = 6, a + 1 = b = c= d= e – 1",
-                    choices: [4, "b – a = c - d", "a = b = c = d= e – 1", "b = a + 1, c = d= e = 4", "a x b = 6, a + 1 = b = c= d= e – 1", "2b = 2c = 2d = a + c"]},
-                {
-                    question: "Suponha que você tenha determinado umas das raízes da função f(x) = 0 pelo método da bisseção e tenha encontrado o valor 1,010 mas o valor exato é 1,030. Assim, os erros absoluto e relativo valem, respectivamente:",
-                    correctAnswer: "2.10-2 e 1,9%",
-                    choices: [2, "0,020 e 2,0%", "2.10-2 e 1,9%", "0,030 e 3,0%", "3.10-2 e 3,0%", "0,030 e 1,9%"]}
-            ],
+        <!-- Blog entries -->
+        <div class="w3-col l8 s12">
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
+                <div class="w3-container w3-padding-8">
+                    <h3><b>Métodos numéricos para encontrar raízes (zeros) de funções reais</b></h3>
+                    <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
+                </div>
 
-            questionToDisplay:  "x" ,
+                <div class="w3-container">
+                    <h4>Introdução</h4>
+                    <p class="w3-justify">Um dos <span style="font-weight: bold;">problemas</span>   que ocorrem mais frequentemente em trabalhos científicos é
+                        calcular as raízes de equações da forma: $f(x) = 0$. A função $f(x)$ pode ser um polinômio em x ou
+                        uma função transcendente. Em raros casos é possível obter as raízes exatas de $f(x)= 0$, como
+                        ocorre, por exemplo, supondo-se $f(x)$ um polinômio fatorável...</p>
 
-            questionSelectNum: "x",
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <a href="metodos-numericos-introducao.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>LEIA MAIS »</b></button></p></a>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
 
-            correctSelection: "x",
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="_imagens/Video.startup-700x220.jpg" alt="Norway" style="width:100%">
+                <div class="w3-container w3-padding-8">
+                    <h3><b>Vídeo-aulas</b></h3>
+                    <h6>Video aulas, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
+                </div>
 
-            firstAnswer: "x" ,
-            secondAnswer: "x" ,
-            thirdAnswer: "x" ,
-            fourthAnswer: "x" ,
+                <div class="w3-container">
+                    <p>Assista nossas vídeo aulas sobre vários métodos númericos.</p>
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <a href="video-aulas.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>LEIA MAIS »</b></button></p></a>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            nextQuestion: function(){
-                $("#nextQuestion").click(function(){
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="_imagens/MET_NUM.jpg" alt="Norway" style="width:100%">
+                <div class="w3-container w3-padding-8">
+                    <h3><b>Quiz</b></h3>
+                    <h6>Teste seus conhecimentos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
+                </div>
 
-                    var questionSelector = Math.floor(Math.random()*3); //random number between 1 and 3
-
-                    triviaGame.questionSelectNum = questionSelector; //puts the random number in scope of triviaGame object
-
-                    //sets the correctSelection property value and puts in scope of triviaGame object
-                    triviaGame.correctSelection = triviaGame.questions[questionSelector].choices[triviaGame.questions[questionSelector].choices[0]];
-
-                    //sets the questionToDisplay property value and puts in scope of triviaGame object
-                    triviaGame.questionToDisplay = triviaGame.questions[questionSelector].question;
-
-                    //sets the four ...Answer property values and puts in scope of triviaGame object
-                    triviaGame.firstAnswer = triviaGame.questions[questionSelector].choices[1];
-                    triviaGame.secondAnswer = triviaGame.questions[questionSelector].choices[2];
-                    triviaGame.thirdAnswer = triviaGame.questions[questionSelector].choices[3];
-                    triviaGame.fourthAnswer = triviaGame.questions[questionSelector].choices[4];
-
-                    //displays the question and corresponding answers in document
-                    $("#questionDisplay").text(triviaGame.questionToDisplay);
-
-                    
-                    $("#labelOne")  .text(triviaGame.firstAnswer);
-                    $("#labelTwo")  .text(triviaGame.secondAnswer);
-                    $("#labelThree").text(triviaGame.thirdAnswer);
-                    $("#labelFour") .text(triviaGame.fourthAnswer);
-
-                    //sets the values of each radio button to the same value as each radio's corresponding answer
-                    $("#1") .val(triviaGame.firstAnswer);
-                    $("#2") .val(triviaGame.secondAnswer);
-                    $("#3") .val(triviaGame.thirdAnswer);
-                    $("#4") .val(triviaGame.fourthAnswer);
-
-                    //resets the #results text for next question
-                    $("#result").text("Selecione uma resposta!");
-
-                });
-            },
-            //!!! should evaluate the radio button values and compare to correctSelection or correctAnswer of corresponding question and either display corresponding correct or incorrect messages
-            submit: function(){
-                $("#submit").click(function(){
-                    if($("input:radio[name=answers]:checked").val()==triviaGame.correctSelection) {
-                        $("#result").text("Acertou!");
-                    } else {$("#result").text("Errou! Tente outra alternativa");}
-                });
-            }
-        };
-
-        triviaGame.nextQuestion();
-
-        triviaGame.submit();
-
-    </script>
-<!-- Fim do teste de conheciemento-->
-
-
-<h2>Data de lançamento</h2>
-<p>Não há uma data específica e oficial para o dispositivo ser lançado, ainda. Pode ser que ele esteja disponível em demonstrações a partir de 2013, mas seu lançamento para as lojas fica para, pelo menos, 2014.</p>
-
-<h2>Especificações xxxx</h2>
+                <div class="w3-container">
+                    <p>Teste seus conhecimentos com o nosso quiz:</p>
+                    <!-- Inicio dos testes de conhecimento -->
+                    <h2>Teste de conhecimento 1</h2>
 
 
-<h2>zzzzzz</h2>
- <p>De acordo com fontes próximas do Google, os óculos vão contar com uma pequena tela de LCD ou AMOLED na parte superior e em frente aos olhos do usuário. Com o uso de uma câmera e GPS, você pode se situar, assim como selecionar opções com o movimento da cabeça.</p>
+                    <div width=75%>
+                        <button  id = "nextQuestion">Próxima Questão</button>
+                        <br>
+                        <div id = "questionDisplay"></div>
+                        <br><br>
+                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelOne">Resposta 1</label>
+                        <input class="w3-radio" type="radio" id= "1" name="answers" value="defaultVal">
+                        <br>
+                        <label style="margin-left: 5%;margin-top: 50px" id= "labelTwo">Resposta 2</label>
+                        <input class="w3-radio" type="radio" id= "2" name="answers" value="defaultVal">
+                        <br>
+                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelThree">Resposta 3</label>
+                        <input class="w3-radio" type="radio" id= "3" name="answers" value="defaultVal">
+                        <br>
+                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelFour">Resposta 4</label>
+                        <input class="w3-radio" type="radio" id= "4" name="answers" value="defaultVal">
+                        <br>
+                        <button id = "submit">Submit</button>
+                        <br>
+                        <div width=75% id= "result">Selecione uma resposta!</div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
- <h2>ZZZZZ</h2>
- <p></p>
-
-</article>
-</section>
-<aside id="lateral">
-
- <h1>zzzzzzzz</h1>
- <h2>jhdsajdhksjhdskjdh</h2>
-
- <h2>zazazazazazaz</h2>
- <p>shdaklshdalksjdlsjdlskjdlksajd</p>
+                    <script id="jsbin-javascript">
 
 
 
-</aside>
+                        var triviaGame = {
+                            questions: [
+                                {
+                                    question: "Sejam os vetores u = (1,2), v = (-2,5) e w = (x,y) do R2. Para que w = 3u – v, devemos ter x + y igual a:",
+                                    correctAnswer: "6",
+                                    choices: [2, "2", "6", "0", "12", "18"]}, //The first item in the array identifies the position of the correct answer in the array
+                                {
+                                    question: "Sendo as matrizes M = (mij)2x3, N = (nij)axb, P = (pij)cx4, Q = (qij)dxe, é possível determinar M+N, NxP e P-Q, se:",
+                                    correctAnswer: "a x b = 6, a + 1 = b = c= d= e – 1",
+                                    choices: [4, "b – a = c - d", "a = b = c = d= e – 1", "b = a + 1, c = d= e = 4", "a x b = 6, a + 1 = b = c= d= e – 1", "2b = 2c = 2d = a + c"]},
+                                {
+                                    question: "Suponha que você tenha determinado umas das raízes da função f(x) = 0 pelo método da bisseção e tenha encontrado o valor 1,010 mas o valor exato é 1,030. Assim, os erros absoluto e relativo valem, respectivamente:",
+                                    correctAnswer: "2.10-2 e 1,9%",
+                                    choices: [2, "0,020 e 2,0%", "2.10-2 e 1,9%", "0,030 e 3,0%", "3.10-2 e 3,0%", "0,030 e 1,9%"]}
+                            ],
 
-    <div id="disqus_thread"></div>
-    <script>
+                            questionToDisplay:  "x" ,
 
-        /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-        /*
-         var disqus_config = function () {
-         this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-         };
-         */
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = '//cndiferente.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            questionSelectNum: "x",
 
-<footer id="rodape">
-    <p>Copyright 2016 - Computação - UEPB <br>
-    <a href="http://facebook.com" target="_blank" >Facebook</a> |
-    <a href="http://twitter.com" target="_blank">Twitter</a></p>
+                            correctSelection: "x",
+
+                            firstAnswer: "x" ,
+                            secondAnswer: "x" ,
+                            thirdAnswer: "x" ,
+                            fourthAnswer: "x" ,
+
+                            nextQuestion: function(){
+                                $("#nextQuestion").click(function(){
+
+                                    var questionSelector = Math.floor(Math.random()*3); //random number between 1 and 3
+
+                                    triviaGame.questionSelectNum = questionSelector; //puts the random number in scope of triviaGame object
+
+                                    //sets the correctSelection property value and puts in scope of triviaGame object
+                                    triviaGame.correctSelection = triviaGame.questions[questionSelector].choices[triviaGame.questions[questionSelector].choices[0]];
+
+                                    //sets the questionToDisplay property value and puts in scope of triviaGame object
+                                    triviaGame.questionToDisplay = triviaGame.questions[questionSelector].question;
+
+                                    //sets the four ...Answer property values and puts in scope of triviaGame object
+                                    triviaGame.firstAnswer = triviaGame.questions[questionSelector].choices[1];
+                                    triviaGame.secondAnswer = triviaGame.questions[questionSelector].choices[2];
+                                    triviaGame.thirdAnswer = triviaGame.questions[questionSelector].choices[3];
+                                    triviaGame.fourthAnswer = triviaGame.questions[questionSelector].choices[4];
+
+                                    //displays the question and corresponding answers in document
+                                    $("#questionDisplay").text(triviaGame.questionToDisplay);
+
+
+                                    $("#labelOne")  .text(triviaGame.firstAnswer);
+                                    $("#labelTwo")  .text(triviaGame.secondAnswer);
+                                    $("#labelThree").text(triviaGame.thirdAnswer);
+                                    $("#labelFour") .text(triviaGame.fourthAnswer);
+
+                                    //sets the values of each radio button to the same value as each radio's corresponding answer
+                                    $("#1") .val(triviaGame.firstAnswer);
+                                    $("#2") .val(triviaGame.secondAnswer);
+                                    $("#3") .val(triviaGame.thirdAnswer);
+                                    $("#4") .val(triviaGame.fourthAnswer);
+
+                                    //resets the #results text for next question
+                                    $("#result").text("Selecione uma resposta!");
+
+                                });
+                            },
+                            //!!! should evaluate the radio button values and compare to correctSelection or correctAnswer of corresponding question and either display corresponding correct or incorrect messages
+                            submit: function(){
+                                $("#submit").click(function(){
+                                    if($("input:radio[name=answers]:checked").val()==triviaGame.correctSelection) {
+                                        $("#result").text("Acertou!");
+                                    } else {$("#result").text("Errou! Tente outra alternativa");}
+                                });
+                            }
+                        };
+
+                        triviaGame.nextQuestion();
+
+                        triviaGame.submit();
+
+                    </script>
+                    <!-- Fim do teste de conheciemento-->
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <p></p>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END BLOG ENTRIES -->
+        </div>
+
+        <!-- Introduction menu -->
+        <div class="w3-col l4 w3-hide-medium w3-hide-small">
+            <!-- About Card -->
+            <div class="w3-card-2 w3-margin w3-margin-top">
+                <div class="w3-container w3-padding">
+                    <h4><b>Quem somos?</b></h4>
+                </div>
+                <ul class="w3-ul w3-hoverable w3-white">
+                    <li class="w3-padding-16">
+                        <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                    </li>
+                </ul>
+            </div><hr>
+
+
+
+            <!-- Menu -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Menu</h4>
+                </div>
+                <ul class="w3-ul w3-hoverable w3-white">
+                    <li class="w3-padding-16">
+                        <a href="index.html" style="text-decoration: none">
+                            <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Home</span><br>
+                            <span>Página inícial</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="#" style="text-decoration: none">
+                            <img src="_imagens/layers.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Códigos em Python</span><br>
+                            <span>Códigos implementados</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="calcular-funcao.html" style="text-decoration: none">
+                            <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Calcular função</span><br>
+                            <span>Usando métodos númericos</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                        <a href="video-aulas.html" style="text-decoration: none">
+                            <img src="_imagens/idea.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Vídeo-aulas</span><br>
+                            <span>Aprenda mais!</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+
+            <!-- Labels / tags -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Tags</h4>
+                </div>
+                <div class="w3-container w3-white">
+                    <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ponto fixo</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Posição falsa</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Calcular função</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Video-aulas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Quiz</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Códigos em Python</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- END Introduction Menu -->
+        </div>
+
+        <!-- END GRID -->
+    </div><br>
+
+    <!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top w3-center">
+    <p>Computação - UEPB</p>
+    <p><a href="https://www.facebook.com/groups/535760243208087/" target="_blank">Facebook</a></p>
 </footer>
 
- </div>
-<script id="dsq-count-scr" src="//cndiferente.disqus.com/count.js" async></script>
- </body>
+</body>
+</html>
 
- </html>

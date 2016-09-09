@@ -165,6 +165,7 @@ function leitura(aForm, escolha)
 
     // Limpando iframe
     var html = "";
+    //"<html><head><TITLE>Calculando a raiz</TITLE><script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script></head><body>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></body>"
     meuIframe.contentWindow.document.open();
     meuIframe.contentWindow.document.write(html);
     meuIframe.contentWindow.document.close();
@@ -175,7 +176,7 @@ function leitura(aForm, escolha)
         if ((a==null) || (b==null) || (erro==null)) {
             alert("É preciso preencher todos os campos!");
         }else{
-            conteudoIframe.write("Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br>");
+            conteudoIframe.write("<p>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR></p>");
             conteudoIframe.write("Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br>");
         }
 
