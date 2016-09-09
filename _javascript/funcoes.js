@@ -153,7 +153,7 @@ function leitura(aForm, escolha)
     b = eval(aForm.raizDir.value);
     aa = parseFloat(a);
     bb = parseFloat(b);
-    erro=eval(aForm.preci.value);
+    erro = eval(aForm.preci.value);
     EQUACAO = document.getElementById('textAreaEqua').value;
     cop = EQUACAO;
 
@@ -171,58 +171,77 @@ function leitura(aForm, escolha)
     meuIframe.contentWindow.document.close();
 
 
-    if(escolha == 1)
+    if (escolha == 1)
     {
-        if ((a==null) || (b==null) || (erro==null)) {
+        if ((a == null) || (b == null) || (erro == null))
+        {
             alert("É preciso preencher todos os campos!");
-        }else{
-            conteudoIframe.write("<p>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR></p>");
-            conteudoIframe.write("Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br>");
         }
-
-        var achou=false;
-        fa=calcula(aa);
-        fb=calcula(bb);
-        cont=2;
-
-        var fr;
-
-        if ((a!=null) && (b!=null) && (erro!=null)) {
-            while (!achou)
+        else
+        {
+            if(EQUACAO.indexOf("x") > -1)
             {
-                x=((aa+bb)/2);
-                er=((bb-aa)/2);
-                if (er<=erro) {
-                    achou=true;
-                    conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                    conteudoIframe.write("Calculando f("+x+") = 0"+"<br><br>");
-                }else{
-                    if (er>erro){
-                        fr=calcula(x);
-                        conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                        conteudoIframe.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
-                    }
-                    if (fr==0) {
-                        achou=true;
-                    }else{
-                        if (fr<0){
-                            aa=x;
-                        }else{
-                            bb=x;
+                if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
+                {
+                    conteudoIframe.write("<p>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR></p>");
+                    conteudoIframe.write("Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br>");
+
+                    var achou=false;
+                    fa=calcula(aa);
+                    fb=calcula(bb);
+                    cont=2;
+
+                    var fr;
+
+                    if ((a!=null) && (b!=null) && (erro!=null))
+                    {
+                        while (!achou)
+                        {
+                            x=((aa+bb)/2);
+                            er=((bb-aa)/2);
+                            if (er<=erro) {
+                                achou=true;
+                                conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                                conteudoIframe.write("Calculando f("+x+") = 0"+"<br><br>");
+                            }else{
+                                if (er>erro){
+                                    fr=calcula(x);
+                                    conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
+                                    conteudoIframe.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
+                                }
+                                if (fr==0) {
+                                    achou=true;
+                                }else{
+                                    if (fr<0){
+                                        aa=x;
+                                    }else{
+                                        bb=x;
+                                    }
+                                }
+                            }
+                            if (!achou){
+                                conteudoIframe.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
+
+                                cont++;
+                            }
                         }
                     }
-                }
-                if (!achou){
-                    conteudoIframe.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
+                    if (achou){
+                        conteudoIframe.write("Portanto,"+"<br><br>");
+                        conteudoIframe.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
+                        conteudoIframe.write("Raiz:   "+arredonda(x)+" ± "+er)
+                    }
 
-                    cont++;
+                }
+                else
+                {
+                    conteudoIframe.write("<p>O intervalo indicado não possui raiz.</p>");
                 }
             }
-        }
-        if (achou){
-            conteudoIframe.write("Portanto,"+"<br><br>");
-            conteudoIframe.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
-            conteudoIframe.write("Raiz:   "+arredonda(x)+" ± "+er)
+            else
+            {
+                conteudoIframe.write("<p>A equação deve possuir ao menos uma variável (ex: 'x').</p>");
+            }
         }
     }
 }
