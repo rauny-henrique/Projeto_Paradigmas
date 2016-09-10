@@ -14,7 +14,7 @@ input#bt-calcular{
     padding: 5px 20px 5px 20px;
 }
 
-p#textequacao{
+p#textequacao, #textequacaoVerif{
     margin-bottom: -15px;
 }
 
@@ -22,18 +22,27 @@ p#escolhaEquacao{
     margin-bottom: -15px;
 }
 
-div#div-frame{
-    margin-left: 50%;
+input#campoRaizEsq, input#campoVerifRaizEsq, input#campoRaizDir,
+input#campoVerifRaizDir, input#campoPreci, textarea, input#bt-calcular, select#mySelect, input#textAreaEquaVerif{
+    width: 50%;
+}
+
+input#bt-verificar{
+    float: right;
+    margin-top: -55px;
+    margin-left: 51%;
     width: 49%;
-    height: 400px;
-    margin-top: -483px;
-    margin-bottom: 12%;
 }
 
 iframe#frame-passos{
-    width: 100%;
-    height: 121%;
-    margin-left: 2%;
+    position: relative;
+    float: right;
+    height: 483px;
+    width: 49%;
+    margin-top: -483px;
+    margin-right: 2px;
+    margin-bottom: 2%;
+    margin-left: 51%;
 }
 
 footer#rodape-full{
@@ -44,3 +53,20 @@ footer#rodape-full{
 footer#rodape-full p{
     text-align: center;
 }
+
+div#escreveVerif{
+    position: relative;
+    float: right;
+    border:1px solid #808080;
+    width: 49%;
+    height: 118px;
+    margin-left: 51%;
+    margin-top: -209px;
+    margin-bottom: 2%;
+}
+
+
+.conteiner-calcfunc{
+    width: 100%;
+}
+

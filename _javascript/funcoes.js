@@ -133,9 +133,6 @@ function Escolha()
 }
 
 function calcula(x) {
-    //caretReplace = ajeitaEquacao(_s);
-
-    //valor = equacao;
     valor = eval(EQUACAO);
     return valor
 }
@@ -145,7 +142,38 @@ function arredonda(x) {
     return valor
 }
 
-var CLEAR = 0;
+function veficarIntervalo(aForm)
+{
+    a = eval(aForm.raizVerifEsq.value);
+    b = eval(aForm.raizVerifDir.value);
+    aa = parseFloat(a);
+    bb = parseFloat(b);
+    EQUACAO = document.getElementById('textAreaEquaVerif').value;
+    EQUACAO = ajeitaEquacao(EQUACAO);
+
+    fa = arredonda(calcula(aa));
+    fb = arredonda(calcula(bb));
+
+    div = document.getElementById("escreveVerif");
+
+    if ((a == null) || (b == null) || (EQUACAO == ""))
+    {
+        alert("É preciso preencher todos os campos!");
+    }
+    else
+    {
+        if((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
+        {
+            return div.innerHTML = "<h3 style='text-align: justify': center'>f("+a+") = "+fa+"<br>"+"f("+b+") = "+fb+"<br><font color='green'>f("+a+") * f("+b+") < 0</h3>";
+        }
+        else
+        {
+            alert("O intervalo indicado não possui raiz.\nDica: f(a)*f(b) < 0");
+            return div.innerHTML = "<h3 style='text-align: justify': center'>f("+a+") = "+fa+"<br>"+"f("+b+") = "+fb+"<br><font color='red'>f("+a+") * f("+b+") > 0</h3>";
+        }
+    }
+}
+
 
 function leitura(aForm, escolha)
 {
@@ -173,7 +201,7 @@ function leitura(aForm, escolha)
 
     if (escolha == 1)
     {
-        if ((a == null) || (b == null) || (erro == null))
+        if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
         {
             alert("É preciso preencher todos os campos!");
         }
@@ -240,7 +268,7 @@ function leitura(aForm, escolha)
             }
             else
             {
-                alert("A equação deve possuir ao menos uma variável (ex: 'x').");
+                alert("A equação deve possuir ao menos uma variável (ex: 'sen(x)').");
             }
         }
     }

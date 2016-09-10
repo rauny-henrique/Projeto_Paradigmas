@@ -13,7 +13,7 @@ sup{top:-0.5em}sub{bottom:-0.25em}
 img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}
 hr{-moz-box-sizing:content-box;box-sizing:content-box}
 code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
-button,input,select,textarea{font:inherit;margin:0;padding:8px;display:block;border:none;border:1px solid #808080;width:50%}
+button,input,select,textarea{font:inherit;margin:0;padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
 button{overflow:visible}button,select{text-transform:none}
 button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
 button[disabled],html input[disabled]{cursor:default}
@@ -97,7 +97,7 @@ ul.w3-ul li:last-child{border-bottom:none}
 .w3-pagination li a{text-decoration:none;color:#000;float:left;padding:8px 16px}
 .w3-pagination li a:hover{background-color:#ccc}
 .w3-input-group,.w3-group{margin-top:24px;margin-bottom:24px}
-.w3-input{padding:8px;display:block;border:none;border:1px solid #808080;width:50%}
+.w3-input{padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
 .w3-iframe{padding:8px;display:block;border:none;border:1px solid #808080;width:50%}
 .w3-label{color:#009688}.w3-input:not(:valid)~.w3-validate{color:#f44336}
 .w3-select{padding:9px 0;width:100%;color:#000;border:1px solid transparent;border-bottom:1px solid #009688}
