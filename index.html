@@ -29,6 +29,8 @@
     </script>
     <!-- Fim do código Latex -->
 </head>
+<script language="JavaScript" src="_javascript/funcoes.js"></script>
+
 <body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content,
@@ -163,10 +165,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
-                            <a href="metodos-numericos-introducao.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>LEIA MAIS »</b></button></p></a>
+                            <a href="metodos-numericos-introducao.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black" style="width: 50%"><b>LEIA MAIS »</b></button></p></a>
                         </div>
                         <div class="w3-col m4 w3-hide-small">
-                            <p><span class="w3-padding-large w3-right"></span></p>
+                            <p><span class="w3-padding-large w3-right"><b>Comentários  </b><span class="w3-tag"><a href="http://localhost:63342/Projeto_Paradigmas/metodos-numericos-introducao.html#disqus_thread">0</a></span></span></p>
                         </div>
                     </div>
                 </div>
@@ -185,7 +187,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <p>Assista nossas vídeo aulas sobre vários métodos númericos.</p>
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
-                            <a href="video-aulas.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>LEIA MAIS »</b></button></p></a>
+                            <a href="video-aulas.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black" style="width: 50%"><b>LEIA MAIS »</b></button></p></a>
                         </div>
                         <div class="w3-col m4 w3-hide-small">
                             <p><span class="w3-padding-large w3-right"></span></p>
@@ -205,11 +207,17 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <div class="w3-container">
                     <p>Teste seus conhecimentos com o nosso quiz:</p>
                     <!-- Inicio dos testes de conhecimento -->
-                    <h2>Teste de conhecimento 1</h2>
+                    <h2 style="text-align: center">Teste de conhecimento 1</h2>
 
 
                     <div width=75%>
-                        <button  id = "nextQuestion">Próxima Questão</button>
+                        <button  class="w3-btn w3-dark-grey" id = "nextQuestion" onclick="barraProgresso()">Próxima Questão</button>
+                        <p></p>
+                        <div class="w3-progress-container">
+                            <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
+                                <div id="demo" class="w3-center w3-text-white">0%</div>
+                            </div>
+                        </div>
                         <br>
                         <div id = "questionDisplay"></div>
                         <br><br>
@@ -225,8 +233,8 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <label style="margin-left: 5%;margin-bottom: 50px" id= "labelFour">Resposta 4</label>
                         <input class="w3-radio" type="radio" id= "4" name="answers" value="defaultVal">
                         <br>
-                        <button id = "submit">Submit</button>
-                        <br>
+                        <button class="w3-btn w3-dark-grey" id = "submit">Submit</button>
+                        <p></p>
                         <div width=75% id= "result">Selecione uma resposta!</div>
                     </div>
                     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -411,6 +419,9 @@ and is wrapped around the whole page content, except for the footer in this exam
     <p>Computação - UEPB</p>
     <p><a href="https://www.facebook.com/groups/535760243208087/" target="_blank">Facebook</a></p>
 </footer>
+
+<script id="dsq-count-scr" src="//cndiferente.disqus.com/count.js" async></script>
+
 
 </body>
 </html>

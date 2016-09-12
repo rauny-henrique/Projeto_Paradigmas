@@ -9,11 +9,6 @@ section#corpo-full legend{
     margin-bottom: 0px;
 }
 
-input#bt-calcular{
-    margin-left: 0%;
-    padding: 5px 20px 5px 20px;
-}
-
 p#textequacao, #textequacaoVerif{
     margin-bottom: -15px;
 }
@@ -34,24 +29,16 @@ input#bt-verificar{
     width: 49%;
 }
 
-iframe#frame-passos{
+div#escreveCalcFuncao{
+    border: 1px solid #808080;
     position: relative;
     float: right;
-    height: 483px;
+    height: 489px;
     width: 49%;
-    margin-top: -483px;
+    margin-top: -489px;
     margin-right: 2px;
     margin-bottom: 2%;
     margin-left: 51%;
-}
-
-footer#rodape-full{
-    clear: both; /* ajusta o foot... no seu lugar */
-    margin-top: 50px;
-    border-top: 1px solid #606060;
-}
-footer#rodape-full p{
-    text-align: center;
 }
 
 div#escreveVerif{
@@ -65,8 +52,21 @@ div#escreveVerif{
     margin-bottom: 2%;
 }
 
+div#escreveCalcFuncao{
+    overflow: auto;
+}
+
+footer#rodape-full{
+    clear: both; /* ajusta o foot... no seu lugar */
+    margin-top: 50px;
+    border-top: 1px solid #606060;
+}
+footer#rodape-full p{
+    text-align: center;
+}
 
 .conteiner-calcfunc{
     width: 100%;
 }
+
 

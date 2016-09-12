@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<head>
 <title>CNDiferente</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,23 @@
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
-
+<!-- Início do código Latex -->
+<script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+            equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+            linebreaks: { automatic: true } }
+    });
+</script>
+<!-- Fim do código Latex -->
+</head>
 <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
 <body class="w3-light-grey">
@@ -156,7 +173,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                 <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
                                 <p id="textequacaoVerif"><label for="textAreaEquaVerif">Equação:</label>
                                 <p><input name="campoEquacaoVerif" id="textAreaEquaVerif" size="10" maxlength="10" placeholder="Ex: sen(x)^2+4*x-2"/></p>
-                                <input type="button" name="vefificar" value="Verificar intervalo" id="bt-verificar"  onclick="veficarIntervalo(this.form)"/>
+                                <input class=" w3-btn w3-dark-grey" type="button" name="vefificar" value="Verificar intervalo" id="bt-verificar"  onclick="veficarIntervalo(this.form)"/>
 
                                 <div id="escreveVerif">
 
@@ -180,11 +197,13 @@ and is wrapped around the whole page content, except for the footer in this exam
                                         <option value="Secante">Secante
                                         <option value="Ponto fixo">Ponto fixo
                                     </select></p>
-    
-                                    <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
 
-                                <iframe class="w3-iframe" src="calfuncao-passo-a-passo.html" name="janela" id="frame-passos"></iframe>
+                                <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
+                                <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
 
+                                <div id="escreveCalcFuncao">
+
+                                </div>
                             </fieldset>
                         </div>
                     </form>
@@ -278,6 +297,70 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div><br>
 
     <!-- END w3-content -->
+
+    <!-- Modal -->
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-red">
+                <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+                <h2>Atenção</h2>
+            </header>
+            <div class="w3-container">
+                <p>O intervalo indicado não possui raiz.</p>
+            </div>
+            <footer class="w3-container w3-red">
+                <p></p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="id02" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-red">
+                <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn">&times;</span>
+                <h2>Atenção</h2>
+            </header>
+            <div class="w3-container">
+                <p>É preciso preencher todos os campos!</p>
+            </div>
+            <footer class="w3-container w3-red">
+                <p></p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="id03" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-red">
+                <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn">&times;</span>
+                <h2>Atenção</h2>
+            </header>
+            <div class="w3-container">
+                <p>A equação deve possuir ao menos uma variável. Ex: $sen(x)$.</p>
+            </div>
+            <footer class="w3-container w3-red">
+                <p></p>
+            </footer>
+        </div>
+    </div>
+
+    <div id="id04" class="w3-modal">
+        <div class="w3-modal-content">
+            <header class="w3-container w3-red">
+                <span onclick="document.getElementById('id04').style.display='none'" class="w3-closebtn">&times;</span>
+                <h2>Atenção</h2>
+            </header>
+            <div class="w3-container">
+                <p>O intervalo indicado não possui raiz.</p>
+                <p>Dica: utilize $f(a)*f(b) < 0$</p>
+            </div>
+            <footer class="w3-container w3-red">
+                <p></p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Comentários -->
     <div id="disqus_thread"></div>
     <script>
 

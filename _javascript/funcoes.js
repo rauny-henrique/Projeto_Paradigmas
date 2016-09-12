@@ -158,18 +158,23 @@ function veficarIntervalo(aForm)
 
     if ((a == null) || (b == null) || (EQUACAO == ""))
     {
-        alert("É preciso preencher todos os campos!");
+        document.getElementById('id02').style.display='block';
     }
     else
     {
-        if((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
+        if (EQUACAO.indexOf("x") > -1)
         {
-            return div.innerHTML = "<h3 style='text-align: justify': center'>f("+a+") = "+fa+"<br>"+"f("+b+") = "+fb+"<br><font color='green'>f("+a+") * f("+b+") < 0</h3>";
+            if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0) {
+                return div.innerHTML = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
+            }
+            else {
+                document.getElementById('id04').style.display='block';
+                return div.innerHTML = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='red'>f(" + a + ") * f(" + b + ") > 0</h3>";
+            }
         }
         else
         {
-            alert("O intervalo indicado não possui raiz.\nDica: f(a)*f(b) < 0");
-            return div.innerHTML = "<h3 style='text-align: justify': center'>f("+a+") = "+fa+"<br>"+"f("+b+") = "+fb+"<br><font color='red'>f("+a+") * f("+b+") > 0</h3>";
+            document.getElementById('id03').style.display='block';
         }
     }
 }
@@ -188,22 +193,13 @@ function leitura(aForm, escolha)
     EQUACAO = ajeitaEquacao(EQUACAO);
 
     // Recuperando iframe
-    var meuIframe = document.getElementById("frame-passos");
-    var conteudoIframe = meuIframe.contentDocument || meuIframe.contentWindow.document;
-
-    // Limpando iframe
-    var html = "";
-    //"<html><head><TITLE>Calculando a raiz</TITLE><script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script></head><body>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></body>"
-    meuIframe.contentWindow.document.open();
-    meuIframe.contentWindow.document.write(html);
-    meuIframe.contentWindow.document.close();
-
+    meuDiv = document.getElementById("escreveCalcFuncao");
 
     if (escolha == 1)
     {
         if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
         {
-            alert("É preciso preencher todos os campos!");
+            document.getElementById('id02').style.display='block';
         }
         else
         {
@@ -211,8 +207,8 @@ function leitura(aForm, escolha)
             {
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
-                    conteudoIframe.write("<p>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR></p>");
-                    conteudoIframe.write("Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br>");
+                    meuDiv.innerHTML += "<h3>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></h3>"+
+                        "<h3>Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
 
                     var achou=false;
                     fa=calcula(aa);
@@ -229,13 +225,11 @@ function leitura(aForm, escolha)
                             er=((bb-aa)/2);
                             if (er<=erro) {
                                 achou=true;
-                                conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                                conteudoIframe.write("Calculando f("+x+") = 0"+"<br><br>");
+                                meuDiv.innerHTML += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3>";
                             }else{
                                 if (er>erro){
                                     fr=calcula(x);
-                                    conteudoIframe.write("("+aa+"+"+bb+")/2 = "+x+"<br>");
-                                    conteudoIframe.write("Calculando f("+x+") = "+arredonda(fr)+"<br><br>");
+                                    meuDiv.innerHTML += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = "+arredonda(fr)+"<br><br></h3>";
                                 }
                                 if (fr==0) {
                                     achou=true;
@@ -248,28 +242,69 @@ function leitura(aForm, escolha)
                                 }
                             }
                             if (!achou){
-                                conteudoIframe.write("Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br>")
+                                meuDiv.innerHTML += "<h3>Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br></h3>";
 
                                 cont++;
                             }
                         }
                     }
                     if (achou){
-                        conteudoIframe.write("Portanto,"+"<br><br>");
-                        conteudoIframe.write("Intervalo final:   ["+aa+";"+bb+"]<br>");
-                        conteudoIframe.write("Raiz:   "+arredonda(x)+" ± "+er)
+                        meuDiv.innerHTML += "<h3>Portanto,"+"<br><br></h3>"+"<h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3>"+
+                            "<h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3>";
                     }
 
                 }
                 else
                 {
-                    alert("O intervalo indicado não possui raiz.");
+                    document.getElementById('id01').style.display='block';
                 }
             }
             else
             {
-                alert("A equação deve possuir ao menos uma variável (ex: 'sen(x)').");
+                document.getElementById('id03').style.display='block';
             }
         }
     }
 }
+
+
+var limit = 0;
+
+function barraProgresso()
+{
+    if(limit < 100)
+    {
+        var elem = document.getElementById("myBar");
+        limit += 10; // ajustar aqui
+        var width = 0;
+        var id = setInterval(frame,40);
+
+        function frame()
+        {
+            if (width >= limit) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+                document.getElementById("demo").innerHTML = width * 1  + '%';
+            }
+        }
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
