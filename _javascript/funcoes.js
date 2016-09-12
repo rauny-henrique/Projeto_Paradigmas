@@ -296,6 +296,33 @@ function barraProgresso()
     }
 }
 
+var limit2 = 0;
+
+function barraProgresso2()
+{
+    if(limit2 < 100)
+    {
+        var elem = document.getElementById("myBar2");
+        limit2 += 10; // ajustar aqui
+        var width = 0;
+        var id = setInterval(frame,40);
+
+        function frame()
+        {
+            if (width >= limit2) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+                document.getElementById("demo2").innerHTML = width * 1  + '%';
+            }
+        }
+    }
+    else
+    {
+
+    }
+}
 
 
 
