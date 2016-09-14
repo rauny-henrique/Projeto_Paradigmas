@@ -35,23 +35,6 @@
 </script>
 <!-- Fim do código Latex -->
 
-    <script>
-        window.onload = function() {
-            var panZoom = window.panZoom = svgPanZoom('#picture1', {
-                zoomEnabled: true,
-                controlIconsEnabled: true,
-                fit: 1,
-                center: 1
-            });
-
-            $(window).resize(function(){
-                panZoom.resize();
-                panZoom.fit();
-                panZoom.center();
-            })
-        };
-    </script>
-
 </head>
 
 <body class="w3-light-grey">
