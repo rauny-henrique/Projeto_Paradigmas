@@ -100,7 +100,7 @@ ul.w3-ul li:last-child{border-bottom:none}
 .w3-input{padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
 .w3-iframe{padding:8px;display:block;border:none;border:1px solid #808080;width:50%}
 .w3-label{color:#009688}.w3-input:not(:valid)~.w3-validate{color:#f44336}
-.w3-select{padding:9px 0;width:100%;color:#000;border:1px solid transparent;border-bottom:1px solid #009688}
+.w3-select{padding:9px 0;width:100%;color:#000;border:1px solid transparent;border:1px solid #808080}
 .w3-select select:focus{color:#000;border:1px solid #009688}.w3-select option[disabled]{color:#009688}
 .w3-dropdown-click,.w3-dropdown-hover{position:relative;display:inline-block;cursor:pointer}
 .w3-dropdown-hover:hover .w3-dropdown-content{display:block;z-index:1}

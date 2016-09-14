@@ -104,6 +104,11 @@ function ajeitaEquacao(_s) {
         }
     }
 
+    // Troca nx --> n*x
+    _s = _s.replace(/([0-9])([\(a-zA-Z])/g,"$1*$2");
+
+    //Troca (...)n --> (...)*n
+    _s = _s.replace(/\)([\(0-9a-zA-Z])/g,"\)*$1");
 
     return _s;
 }
@@ -192,7 +197,7 @@ function leitura(aForm, escolha)
 
     EQUACAO = ajeitaEquacao(EQUACAO);
 
-    // Recuperando iframe
+    // Recuperando div
     meuDiv = document.getElementById("escreveCalcFuncao");
 
     if (escolha == 1)
@@ -207,6 +212,7 @@ function leitura(aForm, escolha)
             {
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
+                    meuDiv.innerHTML = "";
                     meuDiv.innerHTML += "<h3>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></h3>"+
                         "<h3>Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
 
@@ -249,8 +255,12 @@ function leitura(aForm, escolha)
                         }
                     }
                     if (achou){
+                        document.getElementById('conteiner-grafico').style.display = 'block';
                         meuDiv.innerHTML += "<h3>Portanto,"+"<br><br></h3>"+"<h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3>"+
                             "<h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3>";
+
+                        escreveTextGraf(cop,a,b);
+
                     }
 
                 }
@@ -265,6 +275,71 @@ function leitura(aForm, escolha)
             }
         }
     }
+}
+
+/* Update do grafico plotado */
+function escreveTextGraf(funcao, ax, bx)
+{
+    while (funcao.indexOf("sen") > -1)
+    {
+        funcao = funcao.replace("sen","sin");
+    }
+
+    aw = 1;
+    ay = 1;
+    at = 0.5;
+
+    aa = parseFloat(ax);
+    bb = parseFloat(bx);
+
+    document.getElementById("picture1input").innerHTML = "";
+    document.getElementById("picture1input").innerHTML += "setBorder(25 );";
+
+    if((arredonda(calcula(aa))) < 1 || (arredonda(calcula(bb))) < -1)
+    {
+        document.getElementById("picture1input").innerHTML += "initPicture("+ax+","+bx+",-2,2);";
+        if(ax > 5 && ax < -5 || bx > 5 && bx < -5)
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', "+at+");";
+        }
+        else
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', 5);";
+        }
+
+        if(ax > 99 && ax < -99 || bx > 99 && bx < -99)
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 30);";
+        }
+        else
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 40);";
+        }
+    }
+    else
+    {
+        document.getElementById("picture1input").innerHTML += "initPicture("+ax+","+bx+");";
+        if(ax > 9 && ax < -9 || bx > 9 && bx < -9)
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 15);";
+        }
+        else
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', 5);" ;
+        }
+        if(ax > 99 && ax < -99 || bx > 99 && bx < -99)
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 30);";
+        }
+        else
+        {
+            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 40);";
+        }
+    }
+
+    document.getElementById("picture1input").innerHTML += "stroke = 'blue';" ;
+    document.getElementById("picture1input").innerHTML += "plot("+funcao+");";
+    updatePicture(0);
 }
 
 
@@ -323,9 +398,6 @@ function barraProgresso2()
 
     }
 }
-
-
-
 
 
 

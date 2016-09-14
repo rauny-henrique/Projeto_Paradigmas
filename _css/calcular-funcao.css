@@ -10,11 +10,11 @@ section#corpo-full legend{
 }
 
 p#textequacao, #textequacaoVerif{
-    margin-bottom: -15px;
+    margin-bottom: -5px;
 }
 
 p#escolhaEquacao{
-    margin-bottom: -15px;
+    margin-bottom: -4px;
 }
 
 input#campoRaizEsq, input#campoVerifRaizEsq, input#campoRaizDir,
@@ -24,7 +24,7 @@ input#campoVerifRaizDir, input#campoPreci, textarea, input#bt-calcular, select#m
 
 input#bt-verificar{
     float: right;
-    margin-top: -55px;
+    margin-top: -50px;
     margin-left: 51%;
     width: 49%;
 }
@@ -33,9 +33,9 @@ div#escreveCalcFuncao{
     border: 1px solid #808080;
     position: relative;
     float: right;
-    height: 489px;
+    height: 474px;
     width: 49%;
-    margin-top: -489px;
+    margin-top: -472px;
     margin-right: 2px;
     margin-bottom: 2%;
     margin-left: 51%;
@@ -48,7 +48,7 @@ div#escreveVerif{
     width: 49%;
     height: 118px;
     margin-left: 51%;
-    margin-top: -209px;
+    margin-top: -199px;
     margin-bottom: 2%;
 }
 
@@ -69,4 +69,6 @@ footer#rodape-full p{
     width: 100%;
 }
 
-
+svg#picture1{
+    width: 100%;
+}

@@ -5,12 +5,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="_css/w3.css">
+<link rel="stylesheet" href="_css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="_css/calcular-funcao.css"/>
+<script type="text/javascript" src="_javascript/ASCIIsvg.js"></script>
+<script type="text/javascript" src="_javascript/svg-pan-zoom.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script language="JavaScript" src="_javascript/funcoes.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
 <!-- Início do código Latex -->
 <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
     MathJax.Hub.Config({
@@ -27,8 +34,25 @@
     });
 </script>
 <!-- Fim do código Latex -->
+
+    <script>
+        window.onload = function() {
+            var panZoom = window.panZoom = svgPanZoom('#picture1', {
+                zoomEnabled: true,
+                controlIconsEnabled: true,
+                fit: 1,
+                center: 1
+            });
+
+            $(window).resize(function(){
+                panZoom.resize();
+                panZoom.fit();
+                panZoom.center();
+            })
+        };
+    </script>
+
 </head>
-<script language="JavaScript" src="_javascript/funcoes.js"></script>
 
 <body class="w3-light-grey">
 
@@ -157,10 +181,12 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
 
     <!-- Dicas -->
-    <div class="w3-panel w3-blue">
-        <span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
-        <h3>Dica!</h3>
-        <p>Verifique primeiro se existe uma raiz no intervalo, para depois aplicar a um método de zero da função.</p>
+    <div class="w3-painel">
+        <div class="alert alert-info fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Dica!</strong>
+            <p>Verifique primeiro se existe uma raiz no intervalo, para depois aplicar a um método de zero da função.</p>
+        </div>
     </div>
 
     <!-- Grid -->
@@ -180,6 +206,12 @@ and is wrapped around the whole page content, except for the footer in this exam
 
                     <form class="w3-form">
 
+
+                        <textarea id="picture1input" style="display: none" rows="30" cols="58">
+
+                        </textarea>
+
+
                         <div class="conteiner-calcfunc">
                             <fieldset id="fieldverif">
                                 <legend><h3>Verificar se existe raiz no intervalo</h3></legend>
@@ -194,6 +226,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                 </div>
                             </fieldset>
                         </div>
+                        <br><br>
                         <div class="conteiner-calcfunc">
                             <fieldset id="div-calcBisseccao">
                                 <legend><h3>Calcular zero da função</h3></legend>
@@ -201,10 +234,10 @@ and is wrapped around the whole page content, except for the footer in this exam
                                     <p><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
                                     <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
                                     <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                                    <p><textarea name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
+                                    <p><textarea style="resize:none" name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
 
-                                    <p id="escolhaEquacao">Escolha um método: </p>
-                                    <p><select id="mySelect" onchange="Escolha()" >
+                                    <p id="escolhaEquacao"><label for="mySelect">Escolha um método: </label></p>
+                                    <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
                                         <option value="Bisseccao">Bissecção
                                         <option value="Falsa posição">Falsa posição
                                         <option value="Newton-Raphson">Newton-Raphson
@@ -220,6 +253,39 @@ and is wrapped around the whole page content, except for the footer in this exam
                                 </div>
                             </fieldset>
                         </div>
+                        <div id="conteiner-grafico" class="conteiner-grafico" style="margin-top: 4%; display: none">
+                            <fieldset>
+                                <legend><h3>Gráfico</h3></legend>
+                                <div id="desenharGrafico" style="width: 100%; height: 80%; border:1px solid #808080; ">
+                                    <svg id="picture1" style="display:inline; width: 100%; height: 80%;" width="380" height="500" xunitlength="50" yunitlength="50" xmin="-5" xmax="5" ymin="-5" ymax="5" ox="250"oy="250"></svg>
+
+                                    <script>
+                                        window.onload = function()
+                                        {
+                                            // onmouseover
+                                            document.getElementById('bt-calcular').addEventListener('click', function()
+                                            {
+                                                var panZoom = window.panZoom = svgPanZoom('#picture1', {
+                                                    zoomEnabled: true,
+                                                    controlIconsEnabled: true,
+                                                    fit: 1,
+                                                    center: 1
+                                                });
+
+                                                $(window).resize(function(){
+                                                    panZoom.resize();
+                                                    panZoom.fit();
+                                                    panZoom.center();
+                                                })
+                                            }, false);
+
+                                        };
+                                    </script>
+
+                                </div>
+                            </fieldset>
+                        </div>
+
                     </form>
 
                     <div class="w3-row">
