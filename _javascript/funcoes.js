@@ -252,7 +252,6 @@ function leitura(aForm, escolha)
                                         first = 1;
                                     }
                                     aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3></div></div>";
-                                    alert(aux);
                                     meuDiv.innerHTML += aux; // principal
                                 }
                                 if (fr==0) {
