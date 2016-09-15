@@ -212,16 +212,20 @@ function leitura(aForm, escolha)
             {
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
-                    meuDiv.innerHTML = "";
-                    meuDiv.innerHTML += "<h3>Dados iniciais:<br>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></h3>"+
-                        "<h3>Usando o método da bissecção:<br><br>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
+                    meuDiv.innerHTML = ""; // por para iniciar o Mathjax
+
+                    //"<div class='panel panel-primary'><div class='panel-heading'>Panel with panel-primary class</div> <div class='panel-body'>Panel Content</div></div>"
+
+                    meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></div></div>";
 
                     var achou=false;
                     fa=calcula(aa);
                     fb=calcula(bb);
                     cont=2;
 
+                    var first = 0;
                     var fr;
+                    var aux = "";
 
                     if ((a!=null) && (b!=null) && (erro!=null))
                     {
@@ -231,11 +235,25 @@ function leitura(aForm, escolha)
                             er=((bb-aa)/2);
                             if (er<=erro) {
                                 achou=true;
-                                meuDiv.innerHTML += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3>";
+                                if(first == 0)
+                                {
+                                    aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
+                                    first = 1;
+                                }
+                                aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3></div></div>";
+                                alert(aux);
+                                meuDiv.innerHTML += aux;
                             }else{
                                 if (er>erro){
                                     fr=calcula(x);
-                                    meuDiv.innerHTML += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = "+arredonda(fr)+"<br><br></h3>";
+                                    if(first == 0)
+                                    {
+                                        aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
+                                        first = 1;
+                                    }
+                                    aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3></div></div>";
+                                    alert(aux);
+                                    meuDiv.innerHTML += aux; // principal
                                 }
                                 if (fr==0) {
                                     achou=true;
@@ -248,16 +266,17 @@ function leitura(aForm, escolha)
                                 }
                             }
                             if (!achou){
-                                meuDiv.innerHTML += "<h3>Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br></h3>";
+                                // id='mid'
+                                aux = "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br></h3>";
 
                                 cont++;
                             }
                         }
+                        first = 0;
                     }
                     if (achou){
                         document.getElementById('conteiner-grafico').style.display = 'block';
-                        meuDiv.innerHTML += "<h3>Portanto,"+"<br><br></h3>"+"<h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3>"+
-                            "<h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3>";
+                        meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div> <div class='panel-body'><h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3><h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3></div></div>";
 
                         escreveTextGraf(cop,a,b);
 
