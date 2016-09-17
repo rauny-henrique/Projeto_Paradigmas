@@ -1,6 +1,13 @@
 /* Bissecção */
 
-function ajeitaEquacao(_s) {
+function ajeitaEquacao(_s)
+{
+    // Troca nx --> n*x
+    _s = _s.replace(/([0-9])([\(a-zA-Z])/g,"$1*$2");
+
+    //Troca (...)n --> (...)*n
+    _s = _s.replace(/\)([\(0-9a-zA-Z])/g,"\)*$1");
+
     if (_s.indexOf("^") > -1)
     {
         var tab = [];
@@ -104,11 +111,6 @@ function ajeitaEquacao(_s) {
         }
     }
 
-    // Troca nx --> n*x
-    _s = _s.replace(/([0-9])([\(a-zA-Z])/g,"$1*$2");
-
-    //Troca (...)n --> (...)*n
-    _s = _s.replace(/\)([\(0-9a-zA-Z])/g,"\)*$1");
 
     return _s;
 }
@@ -250,7 +252,7 @@ function leitura(aForm, escolha)
                                         aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
                                         first = 1;
                                     }
-                                    aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3></div></div>";
+                                    aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = "+arredonda(calcula(x))+"<br><br></h3></div></div>";
                                     meuDiv.innerHTML += aux; // principal
                                 }
                                 if (fr==0) {
