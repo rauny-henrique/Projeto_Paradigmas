@@ -148,7 +148,7 @@ header#cabecalho-artigo h3.direita{
     text-align: right;
 }
 
-/* bordas e removeu a linha dupla da tabela e centralizou a tabela */
+/* bordas e removeu a linha dupla da tabela e centralizou a tabelaa */
 table#tabela{
     border: 1px solid #606060;
     border-spacing: 0px;
@@ -213,10 +213,32 @@ aside#lateral h2{
     padding: 5px 0px 5px 10px;
 }
 
+div#disqus_thread{
+    margin-top: 50px;
+}
+
 footer#rodape{
     clear: both; /* ajusta o foot... no seu lugar */
     border-top: 1px solid #606060;
+    margin-top: 50px;
 }
 footer#rodape p{
     text-align: center;
+
 }
+
+
+/* Container para responsividade Adaptado FranklinBasilio*/
+.container{
+    float:left;
+    width:100%;
+}
+.content{
+    width:70%;
+    margin: 0 auto;
+    padding: 1.4% 0;
+}
+/* fim*/
+
+
+

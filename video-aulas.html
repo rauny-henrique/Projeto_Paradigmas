@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>CNDiferente</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="_css/w3.css">
-<link rel="stylesheet" href="_css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="_css/calcular-funcao.css"/>
-<script type="text/javascript" src="_javascript/ASCIIsvg.js"></script>
-<script type="text/javascript" src="_javascript/svg-pan-zoom.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script language="JavaScript" src="_javascript/funcoes.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Vídeo-aulas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="_css/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="_css/simulado.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
-<style>
-    body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
-
-<!-- Início do código Latex -->
-<script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
-    MathJax.Hub.Config({
-        HTML: ["input/TeX","output/HTML-CSS"],
-        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
-            equationNumbers: { autoNumber: "AMS" } },
-        extensions: ["tex2jax.js"],
-        jax: ["input/TeX","output/HTML-CSS"],
-        tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true },
-        "HTML-CSS": { availableFonts: ["TeX"],
-            linebreaks: { automatic: true } }
-    });
-</script>
-<!-- Fim do código Latex -->
-
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+    <!-- Início do código Latex -->
+    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
+        MathJax.Hub.Config({
+            HTML: ["input/TeX","output/HTML-CSS"],
+            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX","output/HTML-CSS"],
+            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true },
+            "HTML-CSS": { availableFonts: ["TeX"],
+                linebreaks: { automatic: true } }
+        });
+    </script>
+    <!-- Fim do código Latex -->
 </head>
-
 <body class="w3-light-grey">
 
-<!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
     <!-- Header -->
@@ -177,15 +167,6 @@ and is wrapped around the whole page content, except for the footer in this exam
         </div>
     </div>
 
-    <!-- Dicas -->
-    <div class="w3-painel">
-        <div class="alert alert-info fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Dica!</strong>
-            <p>Verifique primeiro se existe uma raiz no intervalo, para depois aplicar a um método de zero da função.</p>
-        </div>
-    </div>
-
     <!-- Grid -->
     <div class="w3-row">
 
@@ -193,101 +174,17 @@ and is wrapped around the whole page content, except for the footer in this exam
         <div class="w3-col l8 s12">
             <!-- Blog entry -->
             <div class="w3-card-4 w3-margin w3-white">
-                <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
+                <img src="_imagens/Video.startup-700x220.jpg" alt="Norway" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Calcular função</b></h3>
-                    <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
+                    <h3><b>Vídeo-aulas</b></h3>
+                    <h6>Video aulas, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
 
                 <div class="w3-container">
-
-                    <form class="w3-form">
-
-
-                        <textarea id="picture1input" style="display: none" rows="30" cols="58">
-
-                        </textarea>
-
-
-                        <div class="conteiner-calcfunc">
-                            <fieldset id="fieldverif">
-                                <legend><h3>Verificar se existe raiz no intervalo</h3></legend>
-                                <p><label for="campoVerifRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizVerifEsq" id="campoVerifRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
-                                <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
-                                <p id="textequacaoVerif"><label for="textAreaEquaVerif">Equação:</label>
-                                <p><input name="campoEquacaoVerif" id="textAreaEquaVerif" size="99" maxlength="99" placeholder="Ex: sen(x)^2+4*x-2"/></p>
-                                <input class=" w3-btn w3-dark-grey" type="button" name="vefificar" value="Verificar intervalo" id="bt-verificar"  onclick="veficarIntervalo(this.form)"/>
-
-                                <div id="escreveVerif">
-
-                                </div>
-                            </fieldset>
-                        </div>
-                        <br><br>
-                        <div class="conteiner-calcfunc">
-                            <fieldset id="div-calcBisseccao">
-                                <legend><h3>Calcular zero da função</h3></legend>
-                                    <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
-                                    <p><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
-                                    <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
-                                    <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                                    <p><textarea style="resize:none" name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
-
-                                    <p id="escolhaEquacao"><label for="mySelect">Escolha um método: </label></p>
-                                    <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
-                                        <option value="Bisseccao">Bissecção
-                                        <option value="Falsa posição">Falsa posição
-                                        <option value="Newton-Raphson">Newton-Raphson
-                                        <option value="Secante">Secante
-                                        <option value="Ponto fixo">Ponto fixo
-                                    </select></p>
-
-                                <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
-                                <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
-
-                                <div id="escreveCalcFuncao">
-
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div id="conteiner-grafico" class="conteiner-grafico" style="margin-top: 4%; display: none">
-                            <fieldset>
-                                <legend><h3>Gráfico</h3></legend>
-                                <div id="desenharGrafico" style="width: 100%; height: 80%; border:1px solid #808080; ">
-                                    <svg id="picture1" style="display:inline; width: 100%; height: 80%;" width="380" height="500" xunitlength="50" yunitlength="50" xmin="-5" xmax="5" ymin="-5" ymax="5" ox="250"oy="250"></svg>
-
-                                    <script>
-                                        window.onload = function()
-                                        {
-                                            // onmouseover
-                                            document.getElementById('bt-calcular').addEventListener('click', function()
-                                            {
-                                                var panZoom = window.panZoom = svgPanZoom('#picture1', {
-                                                    zoomEnabled: true,
-                                                    controlIconsEnabled: true,
-                                                    fit: 1,
-                                                    center: 1
-                                                });
-
-                                                $(window).resize(function(){
-                                                    panZoom.resize();
-                                                    panZoom.fit();
-                                                    panZoom.center();
-                                                })
-                                            }, false);
-
-                                        };
-                                    </script>
-
-                                </div>
-                            </fieldset>
-                        </div>
-
-                    </form>
-
+                    <p>Assista nossas vídeo aulas sobre vários métodos númericos.</p>
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
-                            <p></p>
+                            <iframe style="margin-bottom: 10% " width="100%" height="400px" src="https://www.youtube.com/embed/RDsJBGv6onk" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="w3-col m4 w3-hide-small">
                             <p><span class="w3-padding-large w3-right"></span></p>
@@ -296,7 +193,6 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
             </div>
             <hr>
-
             <!-- END BLOG ENTRIES -->
         </div>
 
@@ -388,70 +284,6 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div><br>
 
     <!-- END w3-content -->
-
-    <!-- Modal -->
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>O intervalo indicado não possui raiz.</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id02" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>É preciso preencher todos os campos!</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id03" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>A equação deve possuir ao menos uma variável. Ex: $sen(x)$.</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id04" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id04').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>O intervalo indicado não possui raiz.</p>
-                <p>Dica: utilize $f(a)*f(b) < 0$</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <!-- Comentários -->
     <div id="disqus_thread"></div>
     <script>
 
@@ -482,4 +314,3 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 </body>
 </html>
-
