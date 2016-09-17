@@ -17,44 +17,29 @@ p#escolhaEquacao{
     margin-bottom: -4px;
 }
 
-input#campoRaizEsq, input#campoVerifRaizEsq, input#campoRaizDir,
-input#campoVerifRaizDir, input#campoPreci, textarea, input#bt-calcular, select#mySelect, input#textAreaEquaVerif{
-    width: 50%;
+
+input#bt-verificar, input#bt-calcular{
+    height: 40px;
 }
 
 input#bt-verificar{
-    float: right;
-    margin-top: -50px;
-    margin-left: 51%;
-    width: 49%;
+    margin-top: 31px;
+}
+
+div#escreveVerif{
+    border:1px solid #808080;
+    height: 118px;
+    overflow: auto;
+    margin-top: 27px;
 }
 
 div#escreveCalcFuncao{
     border: 1px solid #808080;
-    position: relative;
-    float: right;
-    height: 474px;
-    width: 49%;
-    margin-top: -472px;
-    margin-right: 2px;
-    margin-bottom: 2%;
-    margin-left: 51%;
-}
-
-div#escreveVerif{
-    position: relative;
-    float: right;
-    border:1px solid #808080;
-    width: 49%;
-    height: 118px;
-    margin-left: 51%;
-    margin-top: -199px;
-    margin-bottom: 2%;
-}
-
-div#escreveCalcFuncao{
+    height: 477px;
+    margin-top: 27px;
     overflow: auto;
 }
+
 
 footer#rodape-full{
     clear: both; /* ajusta o foot... no seu lugar */
@@ -65,9 +50,6 @@ footer#rodape-full p{
     text-align: center;
 }
 
-.conteiner-calcfunc{
-    width: 100%;
-}
 
 svg#picture1{
     width: 100%;
