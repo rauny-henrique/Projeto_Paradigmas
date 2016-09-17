@@ -123,12 +123,22 @@ function Escolha()
     document.getElementById("escolhaEquacao").innerHTML = "Sua escolha: " + x;
 
     if(x=="Bisseccao"){
+        document.getElementById('campoNewton').style.display = 'none';
+
+        document.getElementById('escondCampoEsq').style.display = 'block';
+        document.getElementById('escondCampoDir').style.display = 'block';
+
         return 1;
     }
-    if(x=="Falsa posição"){
+    if(x=="Newton-Raphson"){
+        document.getElementById('campoNewton').style.display = 'block';
+
+        document.getElementById('escondCampoEsq').style.display = 'none';
+        document.getElementById('escondCampoDir').style.display = 'none';
+
         return 2;
     }
-    if(x=="Newton-Raphson"){
+    if(x=="Falsa posição"){
         return 3;
     }
     if(x=="Secante"){
@@ -202,6 +212,10 @@ function leitura(aForm, escolha)
     // Recuperando div
     meuDiv = document.getElementById("escreveCalcFuncao");
 
+    // Newton
+    xinicial = document.getElementById("campoXNew").value;
+
+
     if (escolha == 1)
     {
         if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
@@ -218,7 +232,8 @@ function leitura(aForm, escolha)
 
                     //"<div class='panel panel-primary'><div class='panel-heading'>Panel with panel-primary class</div> <div class='panel-body'>Panel Content</div></div>"
 
-                    meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+ "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></div></div>";
+                    meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+
+                        "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></div></div>";
 
                     var achou=false;
                     fa=calcula(aa);
@@ -293,6 +308,44 @@ function leitura(aForm, escolha)
                 document.getElementById('id03').style.display='block';
             }
         }
+    }
+    if(escolha == 2)
+    {
+        var i = 0;
+
+        var err, x_1, x = parseFloat(xinicial);
+        // '<table border="3"><tr><td align="center">i</td><td align="center">x<sub></sub></td><td align="center">error</td></tr>';
+        var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>x<sub>0</sub> = "+x+"<br>f'("+x+") = "+ arredonda(derivada(x))
+            +"<br>E = "+erro+"<BR><br></h3></div></div>";
+        do {
+            //x_1 = x;
+            var x_1 = arredonda(x - (calcula(x) / derivada(x)));
+            var y = x;
+            var e = Math.abs(x-x_1);
+            x = x_1;
+            err = Math.abs((x - x_1) / x);
+            // '<tr><td>x<sub>' + i + '</sub></td><td>' + x_1 + '</td><td>' + err + '</td></tr>'
+            if(i == 0)
+            {
+                resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método de Newton-Raphson:</h3></div> <div class='panel-body'><h3>f("+y+") = "+arredonda(calcula(y))+"<br>f'("+y+") = "+arredonda(derivada(y))+"<br>" +
+                    "x<sub>"+i+"</sub> = "+y+" - ("+arredonda(calcula(y))+"/"+arredonda(derivada(y))+") = "+x_1+"" +
+                    "<br>E = "+err+"</h3></div></div>";
+            }
+            else
+            {
+                resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>f("+y+") = "+arredonda(calcula(y))+"<br>f'("+y+") = "+arredonda(derivada(y))+"<br>" +
+                    "x<sub>"+i+"</sub> = "+y+" - ("+arredonda(calcula(y))+"/"+arredonda(derivada(y))+") = "+x_1+"<br>E = "+err+"</h3></div></div>";
+            }
+
+            i++;
+            //I imagine that this is your safety so I would implement it like this
+            if(i > 100) break;
+        } while (e > erro);
+        //        document.getElementById('escreveCalcFuncao').innerHTML = resultado + '</tbody></table><br>' + (i == 100 ? 'La solucion no es convergente. ' : 'La solucion es ' + x);
+        veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " +x);
+        aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>"+veriff+"</h3></div></div>";
+        document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
+        //return false;
     }
 }
 
@@ -419,8 +472,11 @@ function barraProgresso2()
 }
 
 
-
-
+// Newton-Raphson
+function derivada(x){
+    var func = document.getElementById("textAreaEqua").value;
+    return nerdamer('diff(' + func + ')').buildFunction().call(undefined, x);
+}
 
 
 
