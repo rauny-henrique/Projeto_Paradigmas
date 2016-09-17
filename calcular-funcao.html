@@ -209,47 +209,57 @@ and is wrapped around the whole page content, except for the footer in this exam
                         </textarea>
 
 
-                        <div class="conteiner-calcfunc">
+                        <div>
                             <fieldset id="fieldverif">
                                 <legend><h3>Verificar se existe raiz no intervalo</h3></legend>
-                                <p><label for="campoVerifRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizVerifEsq" id="campoVerifRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
-                                <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
-                                <p id="textequacaoVerif"><label for="textAreaEquaVerif">Equação:</label>
-                                <p><input name="campoEquacaoVerif" id="textAreaEquaVerif" size="99" maxlength="99" placeholder="Ex: sen(x)^2+4*x-2"/></p>
-                                <input class=" w3-btn w3-dark-grey" type="button" name="vefificar" value="Verificar intervalo" id="bt-verificar"  onclick="veficarIntervalo(this.form)"/>
+                                <div class="w3-half w3-row-padding">
+                                    <p><label for="campoVerifRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizVerifEsq" id="campoVerifRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
+                                    <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
+                                    <p id="textequacaoVerif"><label for="textAreaEquaVerif">Equação:</label>
+                                    <p><input name="campoEquacaoVerif" id="textAreaEquaVerif" size="99" maxlength="99" placeholder="Ex: 3x^2 - e^x"/></p>
+                                </div>
 
-                                <div id="escreveVerif">
+                                <div class="w3-half" id="escreveVerif">
 
+                                </div>
+
+                                <div class="w3-half">
+                                    <input class=" w3-btn w3-dark-grey" type="button" name="vefificar" value="Verificar intervalo" id="bt-verificar"  onclick="veficarIntervalo(this.form)"/>
                                 </div>
                             </fieldset>
                         </div>
                         <br><br>
-                        <div class="conteiner-calcfunc">
+                        <div>
                             <fieldset id="div-calcBisseccao">
                                 <legend><h3>Calcular zero da função</h3></legend>
-                                    <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
-                                    <p><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
-                                    <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
-                                    <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                                    <p><textarea style="resize:none" name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: sen(x)^2+4*x-2"></textarea></p>
+                                    <div class="w3-half w3-row-padding">
+                                        <p><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
+                                        <p><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
+                                        <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
+                                        <p id="textequacao"><label for="textAreaEqua">Equação:</label>
+                                        <p><textarea style="resize:none" name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: 3x^2 - e^x"></textarea></p>
 
-                                    <p id="escolhaEquacao"><label for="mySelect">Escolha um método: </label></p>
-                                    <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
-                                        <option value="Bisseccao">Bissecção
-                                        <option value="Falsa posição">Falsa posição
-                                        <option value="Newton-Raphson">Newton-Raphson
-                                        <option value="Secante">Secante
-                                        <option value="Ponto fixo">Ponto fixo
-                                    </select></p>
+                                        <p id="escolhaEquacao"><label for="mySelect">Escolha um método: </label></p>
+                                        <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
+                                            <option value="Bisseccao">Bissecção
+                                            <option value="Falsa posição">Falsa posição
+                                            <option value="Newton-Raphson">Newton-Raphson
+                                            <option value="Secante">Secante
+                                            <option value="Ponto fixo">Ponto fixo
+                                        </select></p>
 
-                                <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
-                                <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
+                                    <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
+                                        <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
+                                    </div>
 
-                                <div id="escreveCalcFuncao">
+                                    <div class="w3-half" id="escreveCalcFuncao">
 
-                                </div>
+                                    </div>
+
                             </fieldset>
                         </div>
+
+
                         <div id="conteiner-grafico" class="conteiner-grafico" style="margin-top: 4%; display: none">
                             <fieldset>
                                 <legend><h3>Gráfico</h3></legend>
