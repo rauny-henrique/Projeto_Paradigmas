@@ -363,6 +363,8 @@ function leitura(aForm, escolha)
         }
         escreveTextGraf(cop,min,max);
     }
+    
+    $('html, body').animate({ scrollTop: $('#ancoraPassos').offset().top}, 1000);
 }
 
 /* Update do grafico plotado */
