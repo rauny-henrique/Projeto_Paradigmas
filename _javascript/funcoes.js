@@ -290,6 +290,7 @@ function leitura(aForm, escolha)
                         first = 0;
                     }
                     if (achou){
+                        document.getElementById('conteiner-passos').style.display = 'block';
                         document.getElementById('conteiner-grafico').style.display = 'block';
                         meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div> <div class='panel-body'><h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3><h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3></div></div>";
 
@@ -345,7 +346,22 @@ function leitura(aForm, escolha)
         veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " +x);
         aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>"+veriff+"</h3></div></div>";
         document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
-        //return false;
+
+        document.getElementById('conteiner-passos').style.display = 'block';
+        document.getElementById('conteiner-grafico').style.display = 'block';
+        min = 0;
+        max = 0;
+        if(xinicial >= x)
+        {
+            max = xinicial;
+            min = x;
+        }
+        else
+        {
+            min = xinicial;
+            max = x;
+        }
+        escreveTextGraf(cop,min,max);
     }
 }
 
