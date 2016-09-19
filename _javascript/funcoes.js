@@ -294,7 +294,7 @@ function leitura(aForm, escolha)
                         document.getElementById('conteiner-grafico').style.display = 'block';
                         meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div> <div class='panel-body'><h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3><h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3></div></div>";
 
-                        escreveTextGraf(cop,a,b);
+                        escreveTextGraf(cop,arredonda(x));
 
                     }
 
@@ -368,7 +368,7 @@ function leitura(aForm, escolha)
 }
 
 /* Update do grafico plotado */
-function escreveTextGraf(funcao, ax, bx)
+function escreveTextGraf(funcao, raiz)
 {
     while (funcao.indexOf("sen") > -1)
     {
@@ -377,58 +377,39 @@ function escreveTextGraf(funcao, ax, bx)
 
     aw = 1;
     ay = 1;
-    at = 0.5;
+    at = 1;
 
-    aa = parseFloat(ax);
-    bb = parseFloat(bx);
 
-    document.getElementById("picture1input").innerHTML = "";
-    document.getElementById("picture1input").innerHTML += "setBorder(25 );";
 
-    if((arredonda(calcula(aa))) < 1 || (arredonda(calcula(bb))) < -1)
+    if(raiz < 0)
     {
-        document.getElementById("picture1input").innerHTML += "initPicture("+ax+","+bx+",-2,2);";
-        if(ax > 5 && ax < -5 || bx > 5 && bx < -5)
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', "+at+");";
-        }
-        else
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', 5);";
-        }
-
-        if(ax > 99 && ax < -99 || bx > 99 && bx < -99)
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 30);";
-        }
-        else
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 40);";
-        }
+        xmin = raiz-2;
+        xmax = raiz*(-1)+2;
+        ymenor = raiz-2;
+        ymaior = raiz*(-1)+2;
     }
     else
     {
-        document.getElementById("picture1input").innerHTML += "initPicture("+ax+","+bx+");";
-        if(ax > 9 && ax < -9 || bx > 9 && bx < -9)
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 15);";
-        }
-        else
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', 5);" ;
-        }
-        if(ax > 99 && ax < -99 || bx > 99 && bx < -99)
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 30);";
-        }
-        else
-        {
-            document.getElementById("picture1input").innerHTML += "axes("+aw*10+", "+ay+", 'labels', 40);";
-        }
+        xmin = raiz*(-1)-2;
+        xmax = raiz+2;
+        ymenor = raiz*(-1)-2;
+        ymaior = raiz+2;
     }
 
-    document.getElementById("picture1input").innerHTML += "stroke = 'blue';" ;
-    document.getElementById("picture1input").innerHTML += "plot("+funcao+");";
+
+    document.getElementById("picture1input").innerHTML = "";
+    document.getElementById("picture1input").innerHTML += "setBorder(25);";
+    document.getElementById("picture1input").innerHTML += "xunitlength='50';";
+    document.getElementById("picture1input").innerHTML += "yunitlength='50';";
+
+
+    document.getElementById("picture1input").innerHTML += "initPicture("+xmin+","+xmax+",-10,10);";
+    document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', "+at+");";
+
+
+    document.getElementById("picture1input").innerHTML += "stroke = 'blue';";
+    document.getElementById("picture1input").innerHTML += "strokewidth = '2';";
+    document.getElementById("picture1input").innerHTML += "plot("+funcao+","+ymenor+","+ymaior+");";
     updatePicture(0);
 }
 
