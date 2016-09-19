@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="_css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="_css/calcular-funcao.css"/>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
 <script type="text/javascript" src="_javascript/ASCIIsvg.js"></script>
 <script type="text/javascript" src="_javascript/svg-pan-zoom.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -17,6 +19,12 @@
 <script src="http://nerdamer.com/js/nerdamer.core.js"></script>
 <script src="http://nerdamer.com/js/Algebra.js"></script>
 <script src="http://nerdamer.com/js/Calculus.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<script>$(document).ready(function(){$('html, body').animate({scrollTop: $('#ancoraCalcularFuncao').offset().top
+        }, 1500); })</script>
+
 
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -113,6 +121,27 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <span>Veja mais!</span>
                     </a>
                 </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -177,16 +206,28 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <span>Veja mais!</span>
                     </a>
                 </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
             </ul>
-        </div>
-    </div>
-
-    <!-- Dicas -->
-    <div class="w3-painel">
-        <div class="alert alert-info fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Dica!</strong>
-            <p>Verifique primeiro se existe uma raiz no intervalo, para depois aplicar a um método de zero da função.</p>
         </div>
     </div>
 
@@ -199,11 +240,21 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
+                    <a href="#" id="ancoraCalcularFuncao"></a>
                     <h3><b>Calcular função</b></h3>
                     <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
 
                 <div class="w3-container">
+
+                    <!-- Dicas -->
+                    <div class="w3-painel">
+                        <div class="alert alert-info fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Dica!</strong>
+                            <p>Verifique primeiro se existe uma raiz no intervalo, para depois aplicar a um método de zero da função.</p>
+                        </div>
+                    </div>
 
                     <form class="w3-form">
 
@@ -215,7 +266,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
                         <div>
                             <fieldset id="fieldverif">
-                                <legend><h3>Verificar se existe raiz no intervalo</h3></legend>
+                                <legend><h3><i class="fa fa-check-square-o" aria-hidden="true"></i> Verificar se existe raiz no intervalo</h3></legend>
                                 <div class="w3-half w3-row-padding">
                                     <p><label for="campoVerifRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizVerifEsq" id="campoVerifRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
                                     <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
@@ -235,7 +286,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <br><br>
                         <div>
                             <fieldset id="div-calcBisseccao">
-                                <legend><h3>Calcular zero da função</h3></legend>
+                                <legend><h3><i class="fa fa-calculator" aria-hidden="true"></i> Calcular zero da função</h3></legend>
                                     <div class="w3-half w3-row-padding">
                                         <p id="campoNewton" style="display: none"><label for="campoXNew">Valor x inicial:</label><input class="w3-input" type="number" name="raizEsqNewton" id="campoXNew" size="10" maxlength="10" placeholder="Valor x inicial"/></p>
                                         <p id="escondCampoEsq"><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
@@ -257,17 +308,39 @@ and is wrapped around the whole page content, except for the footer in this exam
                                         <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
                                     </div>
 
-                                    <div class="w3-half" id="escreveCalcFuncao">
-
-                                    </div>
+                                <div class="w3-panel w3-card-4 w3-light-grey w3-half" style="height: 490px">
+                                    <h3><i class="fa fa-question-circle-o w3-xxlarge w3-text-red"> Dicas</i></h3>
+                                    <p class=" w3-large w3-serif">
+                                        Para calcular raiz use:<br>
+                                         5^(1/2) = $5^{1\over2}$<br><br>
+                                        Para calcular exponencial:<br>
+                                         e^x = $e^x$<br><br>
+                                        Para funções trigonometricas:<br>
+                                         $sen(x)$<br>
+                                         $cos(x)$<br>
+                                         $tan(x)$<br>
+                                         $log(x)$<br>
+                                        </p>
+                                </div>
 
                             </fieldset>
                         </div>
 
 
-                        <div id="conteiner-grafico" class="conteiner-grafico" style="margin-top: 4%; display: none">
+                        <div id="conteiner-passos" style="margin-top: 4%;display: none">
+                                <a href="#" id="ancoraPassos"></a>
                             <fieldset>
-                                <legend><h3>Gráfico</h3></legend>
+                                <legend><h3><i class="fa fa-list" aria-hidden="true"></i> Passo a passo</h3></legend>
+                                <div id="escreveCalcFuncao" style="width: 100%; height: 500px">
+
+                                </div>
+                            </fieldset>
+                        </div>
+
+
+                        <div id="conteiner-grafico" class="conteiner-grafico" style="margin-top: 4%;display: none">
+                            <fieldset>
+                                <legend><h3><i class="fa fa-line-chart" aria-hidden="true"></i> Gráfico</h3></legend>
                                 <div id="desenharGrafico" style="width: 100%; height: 80%; border:1px solid #808080; ">
                                     <svg id="picture1" style="display:inline; width: 100%; height: 80%;" width="380" height="500" xunitlength="50" yunitlength="50" xmin="-5" xmax="5" ymin="-5" ymax="5" ox="250"oy="250"></svg>
 
@@ -376,6 +449,27 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <a href="material-complementar.html" style="text-decoration: none">
                             <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Material complementar</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-bisseccao.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-newton.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-iterativo.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método Iterativo</span><br>
                             <span>Veja mais!</span>
                         </a>
                     </li>

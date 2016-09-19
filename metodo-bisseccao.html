@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Método da Bissecção</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="_css/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="_css/simulado.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <style>
+        body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+    </style>
+    <!-- Início do código Latex -->
+    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
+        MathJax.Hub.Config({
+            HTML: ["input/TeX","output/HTML-CSS"],
+            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX","output/HTML-CSS"],
+            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true },
+            "HTML-CSS": { availableFonts: ["TeX"],
+                linebreaks: { automatic: true } }
+        });
+    </script>
+    <!-- Fim do código Latex -->
+</head>
+<body class="w3-light-grey">
+
+<div class="w3-content" style="max-width:1400px">
+
+    <!-- Header -->
+    <div class="w3-container w3-center w3-padding-32">
+        <h1><b>Cálculo Númerico</b></h1>
+        <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
+    </div>
+
+    <!-- About Card on medium screens -->
+    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
+        <div class="w3-container w3-padding">
+            <h4><b>Quem somos?</b></h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
+        <div class="w3-card-2 w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Menu</h4>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                <li class="w3-padding-16">
+                    <a href="index.html" style="text-decoration: none">
+                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Home</span><br>
+                        <span>Página inícial</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="calcular-funcao.html" style="text-decoration: none">
+                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Calcular função</span><br>
+                        <span>Usando métodos númericos</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="video-aulas.html" style="text-decoration: none">
+                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Vídeo-aulas</span><br>
+                        <span>Aprenda mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Quiz</span><br>
+                        <span>Teste seu conhecimento</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="#" style="text-decoration: none">
+                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Códigos em Python</span><br>
+                        <span>Códigos implementados</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="material-complementar.html" style="text-decoration: none">
+                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Material complementar</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- About Card on small screens -->
+    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
+        <div class="w3-container w3-padding">
+            <h4><b>Quem somos?</b></h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
+        <div class="w3-card-2 w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Menu</h4>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                <li class="w3-padding-16">
+                    <a href="index.html" style="text-decoration: none">
+                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Home</span><br>
+                        <span>Página inícial</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="calcular-funcao.html" style="text-decoration: none">
+                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Calcular função</span><br>
+                        <span>Usando métodos númericos</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="video-aulas.html" style="text-decoration: none">
+                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Vídeo-aulas</span><br>
+                        <span>Aprenda mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Quiz</span><br>
+                        <span>Teste seu conhecimento</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="#" style="text-decoration: none">
+                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Códigos em Python</span><br>
+                        <span>Códigos implementados</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="material-complementar.html" style="text-decoration: none">
+                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Material complementar</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="w3-row">
+
+        <!-- Blog entries -->
+        <div class="w3-col l8 s12">
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="_imagens/metodos.jpg" alt="Nature" style="width:100%">
+                <div class="w3-container w3-padding-8">
+                    <h3><b>Método da Bissecção</b></h3>
+                    <h6>UEPB, <span class="w3-opacity">16 de Setembro - 2016</span></h6>
+                </div>
+
+                <div class="w3-container">
+                    <h4></h4>
+                    <p class="w3-justify"><b>1.1 Definição</b><br>
+                        Seja uma função $f(x)$ contínua no intervalo $[a, b]$ e tal que $f(a).f(b) <0$. ( Quando
+                        dizemos que $f(a).f(b)$ é menor do que zero, se entende que existe ao menos uma raiz da
+                        função em $[a, b]$, conhecido como Teorema de Bolzano).
+                        O objetivo deste método é reduzir o tamanho desse intervalo que contém a raiz por
+                        meio da subdivisão sucessiva do intervalo até que se encontre uma precisão requerida ($ b-a
+                        < E$, onde esse $E$ é predefinido).</p>
+
+                    <img src="_imagens/grafico-bisseccao.jpg" width=75% height= 75% alt="Grafico da Bissecção" alt="Gráfico da Bissecção" align="justify"/>
+                    <p class="w3-justify"> As iterações do método da bissecção para a função acima são as seguintes:</p>
+                    <table border=1% width=100%>
+                        <tr>
+
+                            <td  width=14% align="center">$n$ (iteração)</td>
+                            <td width=14% align="center">$a$</td>
+                            <td width=14% align="center">$b$</td>
+                            <td width=14% align="center"> $x$($\frac{a+b}{2}$)</td>
+                            <td width=14% align="center">Sinal do $f(a)$</td>
+                            <td width=14% align="center">Sinal do $f(b)$</td>
+                            <td width=14% align="center">Sinal do $f(x)$</td>
+
+                        </tr>
+                        <tr>
+
+                            <td  width=14% align="center">$1$</td>
+                            <td width=14% align="center">$a_0$</td>
+                            <td width=14% align="center">$b_0$</td>
+                            <td width=14% align="center"> $x_0$</td>
+                            <td width=14% align="center">$negativo$</td>
+                            <td width=14% align="center">positivo</td>
+                            <td width=14% align="center">$negativo$</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td  width=14% align="center">$2$</td>
+                            <td width=14% align="center">$a_1$</td>
+                            <td width=14% align="center">$b_1 = x_0$</td>
+                            <td width=14% align="center"> $x_1$</td>
+                            <td width=14% align="center">$negativo$</td>
+                            <td width=14% align="center">positivo</td>
+                            <td width=14% align="center">$negativo$</td>
+
+                        </tr>
+                        <tr>
+
+                            <td  width=14% align="center">$3$</td>
+                            <td width=14% align="center">$a_2 = x_1$</td>
+                            <td width=14% align="center">$b_2$</td>
+                            <td width=14% align="center"> $x_2$</td>
+                            <td width=14% align="center">$negativo$</td>
+                            <td width=14% align="center">positivo</td>
+                            <td width=14% align="center">$negativo$</td>
+
+                        </tr>
+                    </table>
+<color red> ---- falta tabela e gráfico aqui -------</color>
+                    <p class="w3-justify"><b>1.2 Representação Gráfica do método da bissecção</b><br>Ao contrário do que se vê de matemática, onde tudo pode ser exato, o calculo numérico  trabalha
+                        com grandezas físicas do nosso dia-a-dia, que por mais que pareçam ser exatas, na verdade são apenas aproximações
+                        dentro de uma aceitável margem de erro. Por exemplo, quem  garante que quando você mede algo com uma régua você realmente
+                        encontrou o valor que está enxergando? Quem garante que outra pessoa não enxergará o tamanho do mesmo objeto sendo medido
+                        com 0,1 cm a mais? Medições como estas e muitas outras na vida humana estão sujeitas a erro, e embora uma medição de
+                        qualquer objeto com uma régua caseira seja algo nada comprometedor na vida das pessoas, há certas áreas onde erros ínfimos
+                        podem fazer toda a diferença e até provocar desastres ou prejuízos financeiros, áreas estas como a de Engenharia.</p>
+                    <br>
+                    <p class="w3-justify"><b> O que ocorre é o seguinte:</b>
+                        dado o primeiro intervalo $[a,b]$ que satisfaça o teorema de Bolzano,
+                        calcula-se uma média entre esses dois valores, no caso, dado pela fórmula:<br> $x=\frac{a+b}{2}$
+
+                        <br>Obtido esse valor, aplica-se o valor da média $x$ na função que foi determinada, a $f(x)$. Podem ocorrer três casos:<br>
+                        <b>1.</b>Sendo $f(a) < 0$ e $f(b) > 0$.<br>
+
+                            <b>&nbsp;&nbsp;a.</b>Caso $f(x)$ seja um valor positivo, considerando que $f(b) < f(x)$, o valor da média $x$ assume o valor de $b$, ou seja,
+                        o intervalo $[a,b] = [a,x]$.<br>
+
+                            <b>&nbsp;&nbsp;b.</b>Caso $f(x)$ seja um valor negativo, considerando que $f(a) > f(x)$, o valor da média $x$ assume o valor de a, ou seja,
+                        o intervalo $[a,b] = [x,b]$.<br>
+
+                        <b>2.</b>Sendo $f(a) > 0$ e $f(b) < 0$.<br>
+                        <b>&nbsp;&nbsp;a.</b>Caso $f(x)$ seja um valor negativo, considerando que $f(b) >  f(x)$, o valor da média $x$ assume o valor de b, ou seja,
+                        o intervalo $[a,b] = [a,x]$.<br>
+                        <b>&nbsp;&nbsp;a.</b>Caso $f(x)$ seja um valor positivo, considerando que $f(a) < f(x)$, o valor da média $x$ assume o valor de a, ou seja,
+                        o intervalo $[a,b] = [x,b]$.<br>
+                        <b>3.</b>Sendo $f(x) = 0$ ou a precisão entre $[a,x]$ ou $[x,b]$ for assumida, dado o valor predefinido $(E)$.<br>
+                        <b>&nbsp;&nbsp;a.</b>Determina-se, então, que o valor da média $x$ é o valor da raiz procurada. Este último caso é condicional, tanto para
+                        ser verificado na primeira instância, quanto para ser verificado como validação nos casos anteriores.<br>
+
+                        Vale salientar que esses exemplos ocorrem em cada iteração, ou seja, essas verificações devem ser averiguadas em cada
+                        iteração da tabela, até que encontre-se a raiz.</p>
+
+                    <br>
+
+
+
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <p></p>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- END BLOG ENTRIES -->
+        </div>
+
+        <!-- Introduction menu -->
+        <div class="w3-col l4 w3-hide-medium w3-hide-small">
+            <!-- About Card -->
+            <div class="w3-card-2 w3-margin w3-margin-top">
+                <div class="w3-container w3-padding">
+                    <h4><b>Quem somos?</b></h4>
+                </div>
+                <ul class="w3-ul w3-hoverable w3-white">
+                    <li class="w3-padding-16">
+                        <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                    </li>
+                </ul>
+            </div><hr>
+
+
+
+            <!-- Menu -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Menu</h4>
+                </div>
+                <ul class="w3-ul w3-hoverable w3-white">
+                    <li class="w3-padding-16">
+                        <a href="index.html" style="text-decoration: none">
+                            <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Home</span><br>
+                            <span>Página inícial</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="calcular-funcao.html" style="text-decoration: none">
+                            <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Calcular função</span><br>
+                            <span>Usando métodos númericos</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="video-aulas.html" style="text-decoration: none">
+                            <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Vídeo-aulas</span><br>
+                            <span>Aprenda mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                            <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Quiz</span><br>
+                            <span>Teste seu conhecimento</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="#" style="text-decoration: none">
+                            <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Códigos em Python</span><br>
+                            <span>Códigos implementados</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="material-complementar.html" style="text-decoration: none">
+                            <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Material complementar</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-bisseccao.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-newton.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-iterativo.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método Iterativo</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+
+            <!-- Labels / tags -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4>Tags</h4>
+                </div>
+                <div class="w3-container w3-white">
+                    <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ponto fixo</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Posição falsa</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Calcular função</span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Video-aulas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Quiz</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Códigos em Python</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- END Introduction Menu -->
+        </div>
+
+        <!-- END GRID -->
+    </div><br>
+
+    <!-- END w3-content -->
+    <div id="disqus_thread"></div>
+    <script>
+
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//cndiferente.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top w3-center">
+    <p>Computação - UEPB</p>
+    <p><a href="https://www.facebook.com/groups/535760243208087/" target="_blank">Facebook</a></p>
+</footer>
+
+</body>
+</html>
