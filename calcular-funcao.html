@@ -307,7 +307,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                     <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
                                         <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
                                     </div>
-
+<!--
                                 <div class="w3-panel w3-card-4 w3-light-grey w3-half" style="height: 490px">
                                     <h3><i class="fa fa-question-circle-o w3-xxlarge w3-text-red"> Dicas</i></h3>
                                     <p class=" w3-large w3-serif">
@@ -321,6 +321,23 @@ and is wrapped around the whole page content, except for the footer in this exam
                                          $tan(x)$<br>
                                          $log(x)$<br>
                                         </p>
+                                </div>
+-->
+                                <div class='panel panel-primary w3-half' style="height: 490px; margin-top: 20px">
+                                    <div class='panel-heading'><h3><i class="fa fa-question-circle-o w3-xxlarge"> Dicas</i></h3></div>
+                                    <div class='panel-body'> <!-- caso tenha mais conteudo, colocar div com half e por ao lado -->
+                                        <p class=" w3-large w3-serif">
+                                        Para calcular raiz use:<br>
+                                        5^(1/2) = $5^{1\over2}$<br><br>
+                                        Para calcular exponencial:<br>
+                                        e^x = $e^x$<br><br>
+                                        Para funções trigonometricas:<br>
+                                        $sen(x)$<br>
+                                        $cos(x)$<br>
+                                        $tan(x)$<br>
+                                        $log(x)$<br>
+                                        </p>
+                                    </div>
                                 </div>
 
                             </fieldset>
@@ -342,7 +359,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <fieldset>
                                 <legend><h3><i class="fa fa-line-chart" aria-hidden="true"></i> Gráfico</h3></legend>
                                 <div id="desenharGrafico" style="width: 100%; height: 80%; border:1px solid #808080; ">
-                                    <svg id="picture1" style="display:inline; width: 100%; height: 80%;" width="380" height="500" xunitlength="50" yunitlength="50" xmin="-5" xmax="5" ymin="-5" ymax="5" ox="250"oy="250"></svg>
+                                    <svg id="picture1" style="display:inline; width: 100%; height: 80%;" width="500" height="500" xunitlength="50" yunitlength="50" xmin="-5" xmax="5" ymin="-5" ymax="5" ox="250"oy="250"></svg>
 
                                     <script>
                                         window.onload = function()

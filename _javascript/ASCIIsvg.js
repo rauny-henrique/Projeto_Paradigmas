@@ -342,7 +342,7 @@ function updatePicture(obj) {
     });
 
     // zoom out
-    panZoomInstance.zoom(0.8);
+    panZoomInstance.zoom(2);
 
 }
 
