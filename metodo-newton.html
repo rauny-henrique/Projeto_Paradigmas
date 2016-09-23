@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="_css/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="_css/calcular-funcao.css"/>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_css/simulado.css"/>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script language="JavaScript" src="_javascript/funcoes.js"></script>
-
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -34,73 +31,7 @@
 </head>
 <body class="w3-light-grey">
 
-<button id="topBut" class="botaotopo w3-btn w3-dark-grey" onclick="scrollToTop(1000);"><i class="fa fa-chevron-up fa-2x" aria-hidden="true" ></i></button>
-
-<script>
-    Onscroolll();
-</script>
-
 <div class="w3-content" style="max-width:1400px">
-
-    <!-- Para menu em telas medias e pequenas-->
-    <div class="w3-hide-large w3-top w3-margin-bottom">
-        <div class="w3-card-2">
-            <ul class="w3-navbar w3-large w3-left-align w3-hide-large w3-white">
-                <li class="w3-hide-large w3-white w3-opennav w3-right">
-                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')">☰</a>
-                </li>
-                <li><a href="index.html"><img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:25px">Home</a></li>
-            </ul>
-
-            <div id="demo3" class="w3-hide w3-hide-large w3-white">
-                <ul class="w3-navbar w3-left-align w3-large">
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="calcular-funcao.html" style="text-decoration: none">
-                            <span class="w3-large">Calcular função</span><br>
-                        </a>
-                    </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="video-aulas.html" style="text-decoration: none">
-                            <span class="w3-large">Vídeo-aulas</span><br>
-                        </a>
-                    </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="testes-de-conhecimento.html" style="text-decoration: none">
-                            <span class="w3-large">Quiz</span><br>
-                        </a>
-                    </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="#" style="text-decoration: none">
-                            <span class="w3-large">Códigos em Python</span><br>
-                        </a>
-                    </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="material-complementar.html" style="text-decoration: none">
-                            <span class="w3-large">Material complementar</span><br>
-                        </a>
-                    </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a onclick="myAccFunc('demoAcc3')" style="text-decoration: none; cursor:pointer">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
-                        </a>
-                    </li>
-                </ul>
-
-                <div id="demoAcc3" class="w3-accordion-content w3-white" style="margin-left: 15px">
-                    <a class="w3-padding-8" href="metodo-bisseccao.html">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                    </a>
-                    <a class="w3-padding-8" href="metodo-newton.html">
-                        <span class="w3-large">Método de Newton</span><br>
-                    </a>
-                    <a class="w3-padding-8" href="metodo-iterativo.html">
-                        <span class="w3-large">Método Iterativo</span><br>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Header -->
     <div class="w3-container w3-center w3-padding-32">
@@ -108,8 +39,8 @@
         <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
     </div>
 
-    <!-- Card para telas pequenas e medias -->
-    <div class="w3-hide-large w3-margin-top w3-margin-bottom">
+    <!-- About Card on medium screens -->
+    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
         <div class="w3-container w3-padding">
             <h4><b>Quem somos?</b></h4>
         </div>
@@ -118,6 +49,164 @@
                 <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
             </li>
         </ul>
+    </div>
+
+    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
+        <div class="w3-card-2 w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Menu</h4>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                <li class="w3-padding-16">
+                    <a href="index.html" style="text-decoration: none">
+                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Home</span><br>
+                        <span>Página inícial</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="calcular-funcao.html" style="text-decoration: none">
+                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Calcular função</span><br>
+                        <span>Usando métodos númericos</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="video-aulas.html" style="text-decoration: none">
+                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Vídeo-aulas</span><br>
+                        <span>Aprenda mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Quiz</span><br>
+                        <span>Teste seu conhecimento</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="#" style="text-decoration: none">
+                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Códigos em Python</span><br>
+                        <span>Códigos implementados</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="material-complementar.html" style="text-decoration: none">
+                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Material complementar</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- About Card on small screens -->
+    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
+        <div class="w3-container w3-padding">
+            <h4><b>Quem somos?</b></h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+            <li class="w3-padding-16">
+                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
+        <div class="w3-card-2 w3-margin">
+            <div class="w3-container w3-padding">
+                <h4>Menu</h4>
+            </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                <li class="w3-padding-16">
+                    <a href="index.html" style="text-decoration: none">
+                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Home</span><br>
+                        <span>Página inícial</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="calcular-funcao.html" style="text-decoration: none">
+                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Calcular função</span><br>
+                        <span>Usando métodos númericos</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="video-aulas.html" style="text-decoration: none">
+                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Vídeo-aulas</span><br>
+                        <span>Aprenda mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Quiz</span><br>
+                        <span>Teste seu conhecimento</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="#" style="text-decoration: none">
+                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Códigos em Python</span><br>
+                        <span>Códigos implementados</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="material-complementar.html" style="text-decoration: none">
+                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Material complementar</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-bisseccao.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-newton.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+                <li class="w3-padding-16">
+                    <a href="metodo-iterativo.html" style="text-decoration: none">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Grid -->
@@ -132,151 +221,197 @@
                     <h3><b>Método de Newton</b></h3>
                     <h6>UEPB, <span class="w3-opacity">18 de Setembro - 2016</span></h6>
                 </div>
-
+                <h3><b> 2. Método de Newton</b></h3>
+                <h6>UEPB, <span class="w3-opacity">22 de Setembro - 2016</span></h6>
                 <div class="w3-container">
-                    <h4><h4>
-                        <p class="w3-justify"><b>Teorema:</b><br>
-                            Sejam f(x), f’(x) e f’’(x) contínuas num intervalo I que contém a raiz x = 𝜉 de f(x) = 0.
-                            Supor que f’(𝜉) ≠ 0. Então existe um intervalo Ī ⊂ I, contendo a raiz 𝜉  tal que x0 ∈ Ī ,
-                            a sequência {xk} gerada pela Fórmula 1 convergirá para a raiz.</p>
 
-                        <p class="w3-justify">O método de Newton se baseia na reta tangente à curva que liga o f(xk) ao x k+1,
-                            onde k inicia-se com o valor 0, que é a aproximação inicial dada para iniciar o cálculo dado
-                            pela  fórmula abaixo. Com base no x0 , encontra-se o x1 e assim por diante. E a cada iteração,
-                            aproxima-se cada vez mais da raiz, diminuindo o erro.</p>
 
-                        <img src="_imagens/formula_metodo_newton.png" width=75% height= 75% alt="Fórmula do método de Newton" alt="Fórmula do método de Newton" align="justify"/>
 
-                        <p>Fórmula 1</p>
+                    <p class="w3-justify"><b>Teorema :</b><br> Sejam $f(x)$, $f’(x)$ e $f’’(x)$ contínuas num intervalo $I$ que contém a raiz x = $\xi$ de $f(x)
+                    = 0$. Supor que $f’(\xi) ≠ 0$. Então existe um intervalo $Ī ⊂ I$, contendo a raiz $\xi$ tal que $x_0 ∈ Ī$ , a
+                    sequência {$x_k$ } gerada pela Fórmula 1 convergirá para a raiz.<br>
+                    O método de Newton se baseia na reta tangente à curva que liga o $f(x_k)$ ao $x_{k+1}$ , onde
+                    k inicia-se com o valor $0$, que é a aproximação inicial dada para iniciar o cálculo dado pela
+                    fórmula abaixo. Com base no $x_0$ , encontra-se o $x_1$ e assim por diante. E a cada iteração,
+                    aproxima-se cada vez mais da raiz, diminuindo o erro.<br></p>
+                    <p class="w3-center"><h2>$x_{k+1}=x_k - \frac{f(x_k)}{f'(x_k)}$</h2></p>
+                    <br> O erro relativo e dado por:<br>
+                    <h2>$E_r=|\frac{(x_k-x_{k-1})}{x_k}|$</h2><br>
+                    <p class="w3-justify">
+                    É importante também lembrar que a escolha da aproximação inicial ($x_0$ ) é essencial
+                    para um bom desempenho do método de Newton. Geralmente, testa-se valores para o $x_0$ na
+                    função $f(x)$, se o valor de $f(x_0)$ for baixo, o desempenho do método será satisfatório.
 
-                        <p>O erro relativo é dado por:</p>
+                    </p>
 
-                        <p>Er =(xk - xk-1)/xk</p>
+[grafico]
 
-                        <p class="w3-justify">É importante também lembrar que a escolha da aproximação inicial (x0 )
-                            é essencial para um bom desempenho do método de Newton. Geralmente, testa-se valores para o x0
-                            na função f(x), se o valor de f(x0) for baixo, o desempenho do método será satisfatório.</p>
+                    <br>Iterações do método de Newton graficamente<br>
 
-                        <img src="_imagens/grafico-newton.png" width=75% height= 75% alt="Grafico de Newton" alt="Gráfico de Newton" align="justify"/>
 
-                        <p>Iterações do método de Newton graficamente</p>
+                    <p class="w3-justify">
+                    O método de Newton não utiliza o teorema de Bolzano. Assim, determina-se
+                    um elemento $“x”$ para ser aplicado no sistema, conforme foi supracitado.
+                    Após determinar este elemento, calcula-se as aproximações da raiz, seguindo a
+                    equação iterativa. O método de Newton é um método que não realiza verificações sucessivas,
+                    que averiguam se $f(x+1). f(x) < 0$. Assim, analogicamente, há uma descoberta sequencial
+                    dos elementos, até que o erro relativo entre $‘x+1’$ e $‘x’$, seja menor que o erro
+                    pré-determinado no caso aplicado. Ou seja:
 
-                        <p class="w3-justify">O método de Newton não utiliza o teorema de Bolzano. Assim, determina-se um elemento “x”
-                            para ser aplicado no sistema, conforme foi supracitado.</p>
-
-                        <p class="w3-justify">Após determinar este elemento, calcula-se as aproximações da raiz, seguindo
-                            a equação iterativa. O método de Newton é um método que não realiza verificações sucessivas,
-                            que averiguam se f(x+1) x f(x) < 0. Assim, analogicamente, há uma descoberta sequencial dos elementos,
-                            até que o erro relativo entre ‘x+1’ e ‘x’  seja menor que o erro pré-determinado no caso aplicado. Ou seja:</p>
-
-                        <ol>
-                            <li>Determinado o elemento, o mesmo deve ser aplicado na equação iterativa (fórmula 1).</li>
-                            <li>Para se achar o termo ‘x+1’, utiliza-se o elemento ‘‘x’ a ser aplicado na fórmula 1, e seu respectivo f(x) e f’(x);</li>
-                            <li>Após determinado o elemento ‘x+1’, calcula-se o erro relativo entre o elemento ‘x+1’ e o elemento ‘x’:</li>
-                            <ol type="a">
-                                <li>Se o erro relativo for igual a zero, o elemento ‘x+1’ é raiz exata da função;</li>
-                                <li>Se o erro relativo for menor do que o erro determinado no sistema, determina-se o elemento ‘x+1’ como a raiz aproximada da função;</li>
-                                <li>Se o erro relativo for maior que o erro determinado no sistema, determina-se então um próximo elemento, onde o atual elemento ‘x+1’ assume
-                                    o posto do elemento ‘x’ e, consequentemente, o próximo elemento encontrado será o elemento ‘x+1’.</li>
-                            </ol>
+                    <ol>
+                        <li>Determinado o elemento, o mesmo deve ser aplicado na equação iterativa (fórmula 1).</li>
+                        <li>Para se achar o termo $x+1$, utiliza-se o elemento $x$ a ser aplicado na fórmula 1, e seu respectivo $f(x)$ e $f’(x)$;</li>
+                        <li>Após determinado o elemento $x+1$, calcula-se o erro relativo entre o elemento $x+1$ e o elemento $x$:</li>
+                        <ol type="a">
+                            <li>Se o erro relativo for igual a zero, o elemento $x+1$ é raiz exata da função;</li>
+                            <li>Se o erro relativo for menor do que o erro determinado no sistema, determina-se o elemento $x+1$ como a raiz aproximada da função;</li>
+                            <li>Se o erro relativo for maior que o erro determinado no sistema, determina-se então um próximo elemento, onde o atual elemento $x+1$ assume
+                                o posto do elemento $x$ e, consequentemente, o próximo elemento encontrado será o elemento $x+1$.</li>
                         </ol>
+                    </ol>
 
-                        <h6><b>Você sabia?</b></h6>
+                    <h3>Voce sabia?</h3><br>
+                    A maioria dos super computadores não possui a unidade de operação de divisão.<br>
+                    <h3>Por que isso acontece?</h3><br>
+                    Porque uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de
+                    relógio( correspondente ao número de impulsos por segundo, expresso em Hertz ($Hz$)) , isso é
+                    cinco vezes mais tempo que a operação de multiplicação.<br>
+                    Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através
+                    do método de newton,permitimos que operações de divisões sejam feitas de forma mais
+                    rápida.<br>
+                    Exemplo 1: Utilizando o método de newton(ou tangente) determine uma
+                    aproximação, com $e < 10^{-2}$, para a raiz da função:<br>
+                    <h3 align="center">$F(x)=2x^2-5x+2$</h3>
+                    <br>Resolução:<br>
 
-                        <p class="w3-justify">A maioria dos super computadores não possui a unidade de operação de divisão.</p>
+                    Primeiro passo para usarmos o método de newton é calcularmos a derivada
+                    da função $F$ . Assim temos: $F’(x) = 4x - 5$.<br>
+                    Próximo passo é pensarmos em um “chute” inicial que é o $X_0$. Se aplicarmos por
+                    exemplo $0$ em $F$ temos:<br>
+                    $F(0) = 2$x$(0)^2 -5$x$0 + 2$<br>
+                    $F(0) = 2$
+                    <br>
+                    Dessa forma identificamos que o valor $0$ não é raiz de $F$, pois não zerou a função,
+                    assim podemos utilizá-lo para gerar novos valores que convergem para a raiz.
+                    Assim temos:<br>
+                    $x1=x0-\frac{F(x0)}{F'(x0)}$
+                    <br>
+                    Aplicando os respectivos valores temos:<br>
+                    $x1=0-\frac{2}{-5}$    $e=\frac{0,4-0}{0,4}$<br>
+                    $x1=0,4$   $e=1$<br>
+                    E repetimos o processo até obtermos $e < 0,01$.<br>
+                    <table border=0 width=50% style="border-collapse: collapse">
+                        <tr>
 
-                        <h6><b>Por que isso acontece?</b></h6>
-
-                        <p class="w3-justify">Porque  uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de relógio (correspondente ao
-                            número de impulsos por segundo, expresso em Hertz (Hz)), isso é cinco vezes mais tempo que a operação de multiplicação.</p>
-
-                        <p class="w3-justify">Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através do
-                            método de newton,permitimos que  operações de divisões sejam feitas de forma mais rápida.</p>
-
-                        <p class="w3-justify"><b>Exemplo 1:</b> Utilizando o método de newton(ou tangente) determine uma aproximação, com e < 10-2, para a raiz da função:</p>
-
-                        <p>F(x) = 2x² - 5x + 2</p>
-
-                        <p class="w3-justify"><b>Resolução:</b> Primeiro passo para usarmos o método de newton é calcularmos a derivada da função <b>F</b>. Assim temos:</p>
-
-                        <p>F’(x) = 4x - 5.<p class="w3-justify">
-
-                        <p class="w3-justify">Próximo passo é pensarmos em um “chute” inicial que é o X0. Se aplicarmos por exemplo 0 em F temos:</p>
-
-                        <p>F(0) = 2*(0)² - 5*0 + 2</p>
-                        <p>F(0) = 2</p>
-
-                        <p class="w3-justify">Dessa forma identificamos que o valor 0 não é raiz de F, pois não zerou a função, assim podemos
-                            utilizá-lo para gerar novos valores que convergem para a raiz. Assim temos:</p>
-
-                        [Formula]
-
-                        <p class="w3-justify">Aplicando os respectivos valores temos:</p>
-
-                        [Formula]
-
-                        <p class="w3-justify">E repetimos o processo até obtermos e < 0,01.</p>
-
-                        [Formula]
-
-                        <p class="w3-justify">Portanto concluímos que uma das raízes de F é X = 0,5.</p>
-
-                        <p class="w3-justify">Exemplo 2: Seja uma chapa metálica de 30cm X 30cm. Veja figura abaixo:</p>
-
-                        <img src="_imagens/chapa_metallica.png" width=75% height= 75% alt="Imagem da chapa metálica" alt="Imagem da chapa metálica" align="justify"/>
-
-                        <p class="w3-justify">Se cortarmos um quadrado de lado x em cada um dos cantos desta chapa e vincarmos as abas que sobraram
-                            obteremos uma caixa sem a tampa conforme a figura a seguir.</p>
-
-                        <img src="_imagens/caixa_metalica.png" width=75% height= 75% alt="Imagem da caixa metálica" alt="Imagem da caixa metálica" align="justify"/>
-
-                        <p class="w3-justify">Observe que se efetuarmos o produto das 3 dimensões obtemos a função que calcula o volume da caixa. Observe:</p>
-
-                        <p>F(x) = (30 – 2x) * (30 – 2x) * x</p>
-                        <p>F(x) = (30² – 30 * 2x – 2x * 30 + 4x²) * x</p>
-                        <p>F(x) = (900 – 60x – 60x +4x²) * x</p>
-                        <p>F(x) = (900 – 120x + 4x²) * x</p>
-                        <p>F(x) = 4x³ - 120x² + 900x</p>
-
-                        <p class="w3-justify">Sabendo que o volume desta caixa é igual a 1507,1 cm³. Utilize o método de Newton para encontrar a altura x com erro e < 10-2.</p>
-
-                        <p class="w3-justify">Resolução:</p>
-
-                        <p class="w3-justify">Sabendo que F(x) = 4x³ - 120x² + 900x, e que o volume da caixa é 1506,2 cm³. Temos que F(x) = 4x³ - 120x² + 900x - 1507,1 = 0.
-                            Assim podemos usarmos o método de newton para acharmos o valor da altura x.</p>
-
-                        <p class="w3-justify">Primeiro passo para usarmos o método de newton é calcularmos a derivada da função F. Assim temos:</p>
-
-                        F’(x) = 12x² - 240x + 900
-
-                        <p class="w3-justify">Próximo passo é pensarmos em um “chute” inicial que é o X0. Se aplicarmos por exemplo 0 em F temos:</p>
-
-                        <p>F(x) = 4(0)³ - 120(0)² + 900(0) – 1507,1</p>
-                        <p>F(x) = – 1507,1</p>
-
-                        <p class="w3-justify">Assim encontramos um valor muito distante de 0. Portanto não é uma boa utilizarmos 0 como chute inicial,
-                            pois seria necessário muitas iterações(vale lembrar que funcionaria, porém levaria mais tempo). Se tomarmos X0 = 8 tem-se o seguinte:</p>
-
-                        <p>F(x) = 4(8)³ - 120(8)² + 900(8) - 1507,1</p>
-                        <p>F(x) = 4*512 – 120 * 64 + 7200 - 1507,1</p>
-                        <p>F(x) = 2048 - 7680 + 5692,9</p>
-                        <p>F(x) = 60,9.</p>
-
-                        <p class="w3-justify">Assim, aplicamos os respectivos valores.</p>
-
-                        [Formula]
-
-                        <p class="w3-justify">Portanto concluímos que a altura é x = 8,237 cm.</p>
+                            <td  width=24% align="left">$x2=0,4-\frac{0,32}{-3,4}$</td>
+                            <td width=24% align="left">$e=\frac{0,494-0,4}{0,494}$</td>
 
 
-                        <div class="w3-row">
-                            <div class="w3-col m8 s12">
-                                <p></p>
-                            </div>
-                            <div class="w3-col m4 w3-hide-small">
-                                <p><span class="w3-padding-large w3-right"></span></p>
-                            </div>
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x2=0,494$</td>
+                            <td width=24% align="left">$e=0,19$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">&nbsp;</td>
+                            <td width=24% align="left">&nbsp;</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x3=0,494-\frac{0,018}{-3,024}$</td>
+                            <td width=24% align="left">$e=\frac{0,499-0,494}{0,499}$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x3=0,499$</td>
+                            <td width=24% align="left">$e=0,01$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left"> &nbsp;</td>
+                            <td width=24% align="left"> &nbsp;</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=14% align="left">$x4=0,499-\frac{0,003}{-3}$</td>
+                            <td width=14% align="left">$e=\frac{0,5-0,499}{0,5}$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=14% align="left">$x4=0,5$</td>
+                            <td width=14% align="left">$e=0,002$</td>
+
+
+                        </tr>
+
+                    </table>
+<br>Portanto concluímos que uma das raízes de $F$ é $x=0,5$.<br>
+                    Exemplo 2: Seja uma chapa metálica de 30cm X 30cm. Veja figura abaixo:
+
+                    [figura]
+
+                    <br>
+                    Se cortarmos um quadrado de lado x em cada um dos cantos desta chapa e
+                    vincarmos as abas que sobraram obteremos uma caixa sem a tampa conforme a
+                    figura a seguir.<br>
+                    [figura]
+                    <br>
+                    Observe que se efetuarmos o produto das 3 dimensões obtemos a função
+                    que calcula o volume da caixa. Observe:<br>
+                    $F(x) = (30 – 2x)*(30 – 2x)*x$ <br>
+                    $F(x) = (30² – 30 * 2x – 2x*30 + 4x^2)*x$ <br>
+                    $F(x) = (900 – 60x – 60x +4x²) * x$ <br>
+                    $F(x) = (900 – 120x + 4x²) * x$ <br>
+                    $F(x) = 4x^3 120x^2 + 900x$ <br>
+                    Sabendo que o volume desta caixa é igual a $1507,1 cm^3$. Utilize o método de
+                    Newton para encontrar a altura $x$ com erro $e < 10^{-2}$. <br>
+                    Resolução:<br>
+                    Sabendo que $F(x) = 4x^3-120x^2+ 900x$ , e que o volume da caixa é $1506,2 cm^3$.
+                    Temos que $F(x) = 4x^3 120x^2+ 900x-1507,1=0$. Assim podemos usarmos o método
+                    de newton para acharmos o valor da altura $x$ .
+                    Primeiro passo para usarmos o método de newton é calcularmos a derivada
+                    da função $F$ . Assim temos:<br>
+                    $F’(x) = 12x^2 240x+ 900$
+                    Próximo passo é pensarmos em um “chute” inicial que é o X0 . Se aplicarmos por
+                    exemplo 0 em F temos:<br>
+                    $F(x) = 4(0)^3 120(0)^2 + 900(0) – 1507,1$<br>
+                    $F(x) = – 1507,1$
+                    <br>
+                    Assim encontramos um valor muito distante de 0. Portanto não é uma boa
+                    utilizarmos 0 como chute inicial, pois seria necessário muitas iterações(vale lembrar
+                    que funcionaria, porém levaria mais tempo).
+                    Se tomarmos X0 = 8 tem-se o seguinte:<br>
+                    $F(x) = 4(8)^3 - 120(8)^2 + 900(8)-1507,1$<br>
+                    $F(x) = (4*512) – (120*64) + (7200-1507,1)$<br>
+                    $F(x) = 2048 - 7680 + 5692,9$<br>
+                    $F(x) = 60,9$.
+                    Assim, aplicamos os respectivos valores.
+                    <h3>$x1=8-\frac{60,9}{-252}</h3>
+
+
+
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <p></p>
                         </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <p><span class="w3-padding-large w3-right"></span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -299,79 +434,76 @@
 
 
 
-            <!-- Menu para telas grandes-->
+            <!-- Menu -->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
                     <h4>Menu</h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="index.html" style="text-decoration: none">
                             <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Home</span><br>
                             <span>Página inícial</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Calcular função</span><br>
                             <span>Usando métodos númericos</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="video-aulas.html" style="text-decoration: none">
                             <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Vídeo-aulas</span><br>
                             <span>Aprenda mais!</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="testes-de-conhecimento.html" style="text-decoration: none">
                             <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Quiz</span><br>
                             <span>Teste seu conhecimento</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="#" style="text-decoration: none">
                             <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Códigos em Python</span><br>
                             <span>Códigos implementados</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                    <li class="w3-padding-16">
                         <a href="material-complementar.html" style="text-decoration: none">
                             <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Material complementar</span><br>
                             <span>Veja mais!</span>
                         </a>
                     </li>
-                    <li id="dropmenumetodos" class="w3-padding-16">
-                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
+                    <li class="w3-padding-16">
+                        <a href="metodo-bisseccao.html" style="text-decoration: none">
                             <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-newton.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <li class="w3-padding-16">
+                        <a href="metodo-iterativo.html" style="text-decoration: none">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Método Iterativo</span><br>
                             <span>Veja mais!</span>
                         </a>
                     </li>
                 </ul>
-                <div id="demoAcc" class="w3-accordion-content w3-white">
-                    <a class="w3-padding-16" href="metodo-bisseccao.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-newton.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-iterativo.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </div>
             </div>
             <hr>
 
@@ -397,6 +529,7 @@
     <!-- END w3-content -->
     <div id="disqus_thread"></div>
     <script>
+
         /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
