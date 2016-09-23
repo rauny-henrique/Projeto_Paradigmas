@@ -338,11 +338,11 @@ function updatePicture(obj) {
         controlIconsEnabled: true,
         fit: true,
         center: true,
-        minZoom: 0.1
+        minZoom: 1
     });
 
     // zoom out
-    panZoomInstance.zoom(2);
+    panZoomInstance.zoom(1);
 
 }
 

@@ -51,9 +51,75 @@
 
 <body class="w3-light-grey">
 
+<button id="topBut" class="botaotopo w3-btn w3-dark-grey" onclick="scrollToTop(1000);"><i class="fa fa-chevron-up fa-2x" aria-hidden="true" ></i></button>
+
+<script>
+    Onscroolll();
+</script>
+
 <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
+
+    <!-- Para menu em telas medias e pequenas-->
+    <div class="w3-hide-large w3-top w3-margin-bottom">
+        <div class="w3-card-2">
+            <ul class="w3-navbar w3-large w3-left-align w3-hide-large w3-white">
+                <li class="w3-hide-large w3-white w3-opennav w3-right">
+                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')">☰</a>
+                </li>
+                <li><a href="index.html"><img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:25px">Home</a></li>
+            </ul>
+
+            <div id="demo3" class="w3-hide w3-hide-large w3-white">
+                <ul class="w3-navbar w3-left-align w3-large">
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a href="calcular-funcao.html" style="text-decoration: none">
+                            <span class="w3-large">Calcular função</span><br>
+                        </a>
+                    </li>
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a href="video-aulas.html" style="text-decoration: none">
+                            <span class="w3-large">Vídeo-aulas</span><br>
+                        </a>
+                    </li>
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a href="testes-de-conhecimento.html" style="text-decoration: none">
+                            <span class="w3-large">Quiz</span><br>
+                        </a>
+                    </li>
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a href="#" style="text-decoration: none">
+                            <span class="w3-large">Códigos em Python</span><br>
+                        </a>
+                    </li>
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a href="material-complementar.html" style="text-decoration: none">
+                            <span class="w3-large">Material complementar</span><br>
+                        </a>
+                    </li>
+                    <li class="w3-padding-8" style="width: 100%">
+                        <a onclick="myAccFunc('demoAcc3')" style="text-decoration: none; cursor:pointer">
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                        </a>
+                    </li>
+                </ul>
+
+                <div id="demoAcc3" class="w3-accordion-content w3-white" style="margin-left: 15px">
+                    <a class="w3-padding-8" href="metodo-bisseccao.html">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                    </a>
+                    <a class="w3-padding-8" href="metodo-newton.html">
+                        <span class="w3-large">Método de Newton</span><br>
+                    </a>
+                    <a class="w3-padding-8" href="metodo-iterativo.html">
+                        <span class="w3-large">Método Iterativo</span><br>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Header -->
     <div class="w3-container w3-center w3-padding-32">
@@ -61,8 +127,8 @@ and is wrapped around the whole page content, except for the footer in this exam
         <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
     </div>
 
-    <!-- About Card on medium screens -->
-    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
+    <!-- Card para telas pequenas e medias -->
+    <div class="w3-hide-large w3-margin-top w3-margin-bottom">
         <div class="w3-container w3-padding">
             <h4><b>Quem somos?</b></h4>
         </div>
@@ -73,163 +139,6 @@ and is wrapped around the whole page content, except for the footer in this exam
         </ul>
     </div>
 
-    <div class="w3-hide-large w3-hide-small w3-margin-top w3-margin-bottom">
-        <div class="w3-card-2 w3-margin">
-            <div class="w3-container w3-padding">
-                <h4>Menu</h4>
-            </div>
-            <ul class="w3-ul w3-hoverable w3-white">
-                <li class="w3-padding-16">
-                    <a href="index.html" style="text-decoration: none">
-                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Home</span><br>
-                        <span>Página inícial</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="calcular-funcao.html" style="text-decoration: none">
-                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Calcular função</span><br>
-                        <span>Usando métodos númericos</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="video-aulas.html" style="text-decoration: none">
-                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Vídeo-aulas</span><br>
-                        <span>Aprenda mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
-                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Quiz</span><br>
-                        <span>Teste seu conhecimento</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="#" style="text-decoration: none">
-                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Códigos em Python</span><br>
-                        <span>Códigos implementados</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="material-complementar.html" style="text-decoration: none">
-                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Material complementar</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-bisseccao.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-newton.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-iterativo.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- About Card on small screens -->
-    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
-        <div class="w3-container w3-padding">
-            <h4><b>Quem somos?</b></h4>
-        </div>
-        <ul class="w3-ul w3-hoverable w3-white">
-            <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
-            </li>
-        </ul>
-    </div>
-
-    <div class="w3-hide-large w3-hide-medium w3-margin-top w3-margin-bottom">
-        <div class="w3-card-2 w3-margin">
-            <div class="w3-container w3-padding">
-                <h4>Menu</h4>
-            </div>
-            <ul class="w3-ul w3-hoverable w3-white">
-                <li class="w3-padding-16">
-                    <a href="index.html" style="text-decoration: none">
-                        <img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Home</span><br>
-                        <span>Página inícial</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="calcular-funcao.html" style="text-decoration: none">
-                        <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Calcular função</span><br>
-                        <span>Usando métodos númericos</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="video-aulas.html" style="text-decoration: none">
-                        <img src="_imagens/1474098782_24.TV.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Vídeo-aulas</span><br>
-                        <span>Aprenda mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="testes-de-conhecimento.html" style="text-decoration: none">
-                        <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Quiz</span><br>
-                        <span>Teste seu conhecimento</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="#" style="text-decoration: none">
-                        <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Códigos em Python</span><br>
-                        <span>Códigos implementados</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="material-complementar.html" style="text-decoration: none">
-                        <img src="_imagens/1474099143_10.Folder.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Material complementar</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-bisseccao.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-newton.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-                <li class="w3-padding-16">
-                    <a href="metodo-iterativo.html" style="text-decoration: none">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
 
     <!-- Grid -->
     <div class="w3-row">
@@ -307,35 +216,26 @@ and is wrapped around the whole page content, except for the footer in this exam
                                     <!-- <input type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/> ASSIM QDO QUER EM UMA UNICA TAG -->
                                         <input class=" w3-btn w3-dark-grey" type="button" name="Calcular!" value="Calcular" id="bt-calcular"  onclick="leitura(this.form, Escolha())"/>
                                     </div>
-<!--
-                                <div class="w3-panel w3-card-4 w3-light-grey w3-half" style="height: 490px">
-                                    <h3><i class="fa fa-question-circle-o w3-xxlarge w3-text-red"> Dicas</i></h3>
-                                    <p class=" w3-large w3-serif">
-                                        Para calcular raiz use:<br>
-                                         5^(1/2) = $5^{1\over2}$<br><br>
-                                        Para calcular exponencial:<br>
-                                         e^x = $e^x$<br><br>
-                                        Para funções trigonometricas:<br>
-                                         $sen(x)$<br>
-                                         $cos(x)$<br>
-                                         $tan(x)$<br>
-                                         $log(x)$<br>
-                                        </p>
-                                </div>
--->
-                                <div class='panel panel-primary w3-half' style="height: 490px; margin-top: 20px">
+
+                                <div id="sha-painel" class='panel panel-primary w3-half' style="height: 490px; margin-top: 20px">
                                     <div class='panel-heading'><h3><i class="fa fa-question-circle-o w3-xxlarge"> Dicas</i></h3></div>
-                                    <div class='panel-body'> <!-- caso tenha mais conteudo, colocar div com half e por ao lado -->
-                                        <p class=" w3-large w3-serif">
+                                    <div class='panel-body colunas'> <!-- caso tenha mais conteudo, colocar div com half e por ao lado -->
+                                        <p class=" w3-medium w3-serif" style="height: 370px">
                                         Para calcular raiz use:<br>
-                                        5^(1/2) = $5^{1\over2}$<br><br>
+                                        25^(1/2) ou $raiz(25)$ = $\sqrt25$<br><br>
                                         Para calcular exponencial:<br>
-                                        e^x = $e^x$<br><br>
+                                        e^x ou exp(x) = $e^x$<br><br>
                                         Para funções trigonometricas:<br>
                                         $sen(x)$<br>
                                         $cos(x)$<br>
                                         $tan(x)$<br>
                                         $log(x)$<br>
+                                            </p>
+                                        <p class=" w3-medium w3-serif" style="height: 370px">
+                                        Para funções trigonometricas inversas:<br>
+                                        $asen(x)$<br>
+                                        $acos(x)$<br>
+                                        $atan(x)$<br><br>
                                         </p>
                                     </div>
                                 </div>
@@ -421,7 +321,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 
 
-            <!-- Menu -->
+            <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
                     <h4>Menu</h4>
@@ -469,28 +369,31 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <span>Veja mais!</span>
                         </a>
                     </li>
-                    <li class="w3-padding-16">
-                        <a href="metodo-bisseccao.html" style="text-decoration: none">
+                    <li id="dropmenumetodos" class="w3-padding-16">
+                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
                             <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Método da Bissecção</span><br>
-                            <span>Veja mais!</span>
-                        </a>
-                    </li>
-                    <li class="w3-padding-16">
-                        <a href="metodo-newton.html" style="text-decoration: none">
-                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Método de Newton</span><br>
-                            <span>Veja mais!</span>
-                        </a>
-                    </li>
-                    <li class="w3-padding-16">
-                        <a href="metodo-iterativo.html" style="text-decoration: none">
-                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Método Iterativo</span><br>
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
                             <span>Veja mais!</span>
                         </a>
                     </li>
                 </ul>
+                <div id="demoAcc" class="w3-accordion-content w3-white">
+                    <a class="w3-padding-16" href="metodo-bisseccao.html">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                        <span class="w3-large">Método da Bissecção</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                    <a class="w3-padding-16" href="metodo-newton.html">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                        <span class="w3-large">Método de Newton</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                    <a class="w3-padding-16" href="metodo-iterativo.html">
+                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                        <span class="w3-large">Método Iterativo</span><br>
+                        <span>Veja mais!</span>
+                    </a>
+                </div>
             </div>
             <hr>
 

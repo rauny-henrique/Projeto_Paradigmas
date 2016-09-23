@@ -111,6 +111,70 @@ function ajeitaEquacao(_s)
         }
     }
 
+    if (_s.indexOf("asen") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.asin";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\basen\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+            });
+        }
+    }
+
+    if (_s.indexOf("acos") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.acos";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\bacos\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+            });
+        }
+    }
+
+    if (_s.indexOf("atan") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.atan";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\batan\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+            });
+        }
+    }
+
+    if (_s.indexOf("raiz") > -1)
+    {
+        var tab = [];
+        var expfunc="Math.sqrt";
+        var joker = "___joker___";
+
+        tab.push(_s);
+        _s = joker + (tab.length - 1);
+        while (_s.indexOf(joker) > -1)
+        {
+            _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
+                return tab[d].replace(/(\braiz\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+            });
+        }
+    }
+
 
     return _s;
 }
@@ -172,6 +236,7 @@ function veficarIntervalo(aForm)
     fb = arredonda(calcula(bb));
 
     div = document.getElementById("escreveVerif");
+    auxescreve = "";
 
     if ((a == null) || (b == null) || (EQUACAO == ""))
     {
@@ -182,11 +247,11 @@ function veficarIntervalo(aForm)
         if (EQUACAO.indexOf("x") > -1)
         {
             if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0) {
-                return div.innerHTML = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
+                auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
             }
             else {
                 document.getElementById('id04').style.display='block';
-                return div.innerHTML = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='red'>f(" + a + ") * f(" + b + ") > 0</h3>";
+                auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='red'>f(" + a + ") * f(" + b + ") > 0</h3>";
             }
         }
         else
@@ -194,6 +259,8 @@ function veficarIntervalo(aForm)
             document.getElementById('id03').style.display='block';
         }
     }
+
+    return div.innerHTML = auxescreve;
 }
 
 
@@ -229,8 +296,6 @@ function leitura(aForm, escolha)
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
                     meuDiv.innerHTML = ""; // por para iniciar o Mathjax
-
-                    //"<div class='panel panel-primary'><div class='panel-heading'>Panel with panel-primary class</div> <div class='panel-body'>Panel Content</div></div>"
 
                     meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+
                         "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></div></div>";
@@ -342,7 +407,6 @@ function leitura(aForm, escolha)
             //I imagine that this is your safety so I would implement it like this
             if(i > 100) break;
         } while (e > erro);
-        //        document.getElementById('escreveCalcFuncao').innerHTML = resultado + '</tbody></table><br>' + (i == 100 ? 'La solucion no es convergente. ' : 'La solucion es ' + x);
         veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " +x);
         aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>"+veriff+"</h3></div></div>";
         document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
@@ -370,46 +434,55 @@ function leitura(aForm, escolha)
 /* Update do grafico plotado */
 function escreveTextGraf(funcao, raiz)
 {
-    while (funcao.indexOf("sen") > -1)
+    while (funcao.indexOf("sen") > -1 || funcao.indexOf("raiz") > -1)
     {
         funcao = funcao.replace("sen","sin");
+        funcao = funcao.replace("raiz","sqrt");
     }
 
     aw = 1;
     ay = 1;
     at = 1;
 
+    // colocar para aparecer de acordo com a raiz, o eixo Y... testar com x^2-400 .. 0 e 500.. Math.max(0,500);
 
 
     if(raiz < 0)
     {
         xmin = raiz-2;
         xmax = raiz*(-1)+2;
-        ymenor = raiz-2;
-        ymaior = raiz*(-1)+2;
+        ymenor = raiz;
+        ymaior = raiz*(-1);
     }
     else
     {
         xmin = raiz*(-1)-2;
         xmax = raiz+2;
-        ymenor = raiz*(-1)-2;
-        ymaior = raiz+2;
+        ymenor = raiz*(-1);
+        ymaior = raiz;
     }
 
+    maximoY = 500;
+    minimoY = -500;
+
+    aux = "";
 
     document.getElementById("picture1input").innerHTML = "";
-    document.getElementById("picture1input").innerHTML += "setBorder(25);";
-    document.getElementById("picture1input").innerHTML += "xunitlength='50';";
-    document.getElementById("picture1input").innerHTML += "yunitlength='50';";
+    aux += "setBorder(25);";
+    aux += "xunitlength='50';";
+    aux += "yunitlength='50';";
 
 
-    document.getElementById("picture1input").innerHTML += "initPicture("+xmin+","+xmax+",-10,10);";
-    document.getElementById("picture1input").innerHTML += "axes("+aw+", "+ay+", 'labels', "+at+");";
+    aux += "initPicture("+xmin+","+xmax+", "+minimoY+", "+maximoY+");";
+    aux += "axes("+aw+", "+ay+", 'labels', "+at+");";
 
 
-    document.getElementById("picture1input").innerHTML += "stroke = 'blue';";
-    document.getElementById("picture1input").innerHTML += "strokewidth = '2';";
-    document.getElementById("picture1input").innerHTML += "plot("+funcao+","+ymenor+","+ymaior+");";
+    aux += "stroke = 'blue';";
+    aux += "strokewidth = '2';";
+    aux += "plot("+funcao+","+ymenor+","+ymaior+");";
+
+    document.getElementById("picture1input").innerHTML = aux;
+
     updatePicture(0);
 }
 
@@ -479,5 +552,41 @@ function derivada(x){
 
 
 
+function scrollToTop(scrollDuration) {
+    var cosParameter = window.scrollY / 2,
+        scrollCount = 0,
+        oldTimestamp = performance.now();
+    function step (newTimestamp) {
+        scrollCount += Math.PI / (scrollDuration / (newTimestamp - oldTimestamp));
+        if (scrollCount >= Math.PI) window.scrollTo(0, 0);
+        if (window.scrollY === 0) return;
+        window.scrollTo(0, Math.round(cosParameter + cosParameter * Math.cos(scrollCount)));
+        oldTimestamp = newTimestamp;
+        window.requestAnimationFrame(step);
+    }
+    window.requestAnimationFrame(step);
+}
 
 
+function myAccFunc(acord) {
+    var x = document.getElementById(acord);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+function Onscroolll()
+{
+    window.onscroll = function(){
+        var top = window.pageYOffset || document.documentElement.scrollTop
+        if( top > 500 ) {
+            document.getElementById("topBut").style.display = "block";
+        }
+        else
+        {
+            document.getElementById("topBut").style.display = "none";
+        }
+    }
+}
