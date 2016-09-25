@@ -1,43 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:b="http://www.w3.org/1999/XSL/Transform">
 <head>
-    <title>CNDiferente</title>
+    <title>Códigos em Python</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="_css/w3.css">
-    <link rel="stylesheet" href="_css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="_css/calcular-funcao.css"/>
+
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <script type="text/javascript" src="_javascript/ASCIIsvg.js"></script>
-    <script type="text/javascript" src="_javascript/svg-pan-zoom.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </style>
 
-    <!-- Início do código Latex -->
-    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
-        MathJax.Hub.Config({
-            HTML: ["input/TeX","output/HTML-CSS"],
-            TeX: { extensions: ["AMSmath.js","AMSsymbols.js"],
-                equationNumbers: { autoNumber: "AMS" } },
-            extensions: ["tex2jax.js"],
-            jax: ["input/TeX","output/HTML-CSS"],
-            tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                processEscapes: true },
-            "HTML-CSS": { availableFonts: ["TeX"],
-                linebreaks: { automatic: true } }
-        });
-    </script>
-    <!-- Fim do código Latex -->
+
+    <!-- SyntaxHighlighter -->
+    <script type="text/javascript" src="scripts/shCore.js"></script>
+    <script type="text/javascript" src="scripts/shBrushPython.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+    <!-- SyntaxHighlighter -->
+
 
 </head>
-
 <body class="w3-light-grey">
 
 <button id="topBut" class="botaotopo w3-btn w3-dark-grey" onclick="scrollToTop(1000);"><i class="fa fa-chevron-up fa-2x" aria-hidden="true" ></i></button>
@@ -46,8 +34,6 @@
     Onscroolll();
 </script>
 
-<!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
     <!-- Para menu em telas medias e pequenas-->
@@ -128,7 +114,6 @@ and is wrapped around the whole page content, except for the footer in this exam
         </ul>
     </div>
 
-
     <!-- Grid -->
     <div class="w3-row">
 
@@ -138,11 +123,142 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Material Complementar</b></h3>
+                    <h3><b>Códigos em Python</b></h3>
                     <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
 
                 <div class="w3-container">
+                    <br><h4>Bissecção:</h4>
+
+                    <pre class="brush: python;">
+                        import os
+                        from math import exp
+
+                        def f(x):
+                            return pow(3*x, 2)-exp(x) #3x^2-e^x
+
+                        def bisseccao(x0, x1, f, E):
+                            while True:
+                                fx0 = f(x0)
+                                fx1 = f(x1)
+                                if fx0 * fx1 > 0:
+                                    return 'nao existe raiz'
+                                xn = (x0 + x1)/2
+                                fxn = f(xn)
+                                if fx0 * fxn < 0:
+                                    x1 = xn
+                                else:
+                                    x0 = xn
+                                erro = abs((x1 - x0)/x1)
+                                print(x1)
+                                if erro < E:
+                                    return x1
+
+                        if __name__ == "__main__":
+                            bisseccao(0, 1, f, 0.01)
+                    </pre>
+
+                    <br><h4>Newton-Raphson:</h4>
+                    <pre class="brush: python;">
+                        import os
+
+                        def f(x):
+                            return pow(x, 2)-4 #x^2-4
+
+                        def fd(x):
+                            return 2*x # derivada de f(x)
+
+                        def newton(x0, f, fd, E):
+                            while True:
+                                x1 = x0 - f(x0)/fd(x0)
+                                erro = abs((x1 - x0)/x1)
+                                print(x1)
+                                if erro < E:
+                                    return x1
+                                else:
+                                    x0 = x1
+
+                        if __name__ == "__main__":
+                            newton(1, f, fd, 0.01)
+                    </pre>
+
+                    <br><h4>Iterativo linear:</h4>
+                    <pre class="brush: python;">
+                        # -*- coding: utf-8 -*-
+                        #
+                        # fixedpoint.py
+                        #
+                        #
+                        # Autor: Pedro Garcia Freitas sawp@sawp.com.br
+                        # License: Creative Commons
+                        #      http://creativecommons.org/licenses/by-nc-nd/2.5/br/
+                        #
+
+                        # Modificado
+
+                        from math import fabs, exp
+
+                        def fixedPoint(G, x0, errto, imax):
+                            x1 = G(x0)
+                            errno = errto + 1
+                            iterCount = 0
+
+                            while errno > errto and iterCount < imax:
+                                x0 = x1
+                                x1 = G(x0)
+                                iterCount += 1
+
+                                if x1 != 0:
+                                    errno = fabs((x1 - x0)/x1)
+
+                            print(x1)
+
+
+                        # se f(x) = exp(-x) - x, escolhemos x = g(x) = exp(-x)
+                        f = lambda x: exp(-x)
+                        fixedPoint(f, 1, 0.0001,1000)
+                    </pre>
+
+                    <br><h4>Secante:</h4>
+                    <pre class="brush: python;">
+                        # -*- coding: utf-8 -*-
+                        #
+                        # secante.py
+                        #
+                        #
+                        # Autor: Pedro Garcia Freitas sawp@sawp.com.br
+                        # License: Creative Commons
+                        #      http://creativecommons.org/licenses/by-nc-nd/2.5/br/
+                        #
+
+                        #Modificado
+
+                        from math import fabs, exp
+
+                        def secante(F, x0=1.0, xminus1=0.0, errto=0.001, imax=100):
+                            iterCount = 0
+                            errno = errto + 1
+                            x1 = x0
+                            x0 = xminus1
+
+                            while errno > errto and iterCount < imax:
+                                xminus1 = x0
+                                x0 = x1
+
+                                # in Newton-Raphson will be x1 = x0 - G(x0)/diffG(x0)
+                                # in fixed point will be x1 = G(x0)
+                                x1 = x0 - (F(x0)*(xminus1 - x0))/(F(xminus1) - F(x0))
+
+                                iterCount += 1
+
+                                if x1 != 0:
+                                    errno = fabs((x1 - x0)/x1)
+
+                            print(x1)
+
+                        if __name__ == "__main__":
+                            secante((lambda x: exp(-x) - x), 0, 1, 0.0001,100)
+                    </pre>
 
 
                     <div class="w3-row">
@@ -156,7 +272,6 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
             </div>
             <hr>
-
             <!-- END BLOG ENTRIES -->
         </div>
 
@@ -272,8 +387,6 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div><br>
 
     <!-- END w3-content -->
-
-    <!-- Comentários -->
     <div id="disqus_thread"></div>
     <script>
 
@@ -304,4 +417,3 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 </body>
 </html>
-

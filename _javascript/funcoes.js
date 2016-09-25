@@ -377,55 +377,75 @@ function leitura(aForm, escolha)
     }
     if(escolha == 2)
     {
-        var i = 0;
-
-        var err, x_1, x = parseFloat(xinicial);
-        // '<table border="3"><tr><td align="center">i</td><td align="center">x<sub></sub></td><td align="center">error</td></tr>';
-        var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>x<sub>0</sub> = "+x+"<br>f'("+x+") = "+ arredonda(derivada(x))
-            +"<br>E = "+erro+"<BR><br></h3></div></div>";
-        do {
-            //x_1 = x;
-            var x_1 = arredonda(x - (calcula(x) / derivada(x)));
-            var y = x;
-            var e = Math.abs(x-x_1);
-            x = x_1;
-            err = Math.abs((x - x_1) / x);
-            // '<tr><td>x<sub>' + i + '</sub></td><td>' + x_1 + '</td><td>' + err + '</td></tr>'
-            if(i == 0)
-            {
-                resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método de Newton-Raphson:</h3></div> <div class='panel-body'><h3>f("+y+") = "+arredonda(calcula(y))+"<br>f'("+y+") = "+arredonda(derivada(y))+"<br>" +
-                    "x<sub>"+i+"</sub> = "+y+" - ("+arredonda(calcula(y))+"/"+arredonda(derivada(y))+") = "+x_1+"" +
-                    "<br>E = "+err+"</h3></div></div>";
-            }
-            else
-            {
-                resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>f("+y+") = "+arredonda(calcula(y))+"<br>f'("+y+") = "+arredonda(derivada(y))+"<br>" +
-                    "x<sub>"+i+"</sub> = "+y+" - ("+arredonda(calcula(y))+"/"+arredonda(derivada(y))+") = "+x_1+"<br>E = "+err+"</h3></div></div>";
-            }
-
-            i++;
-            //I imagine that this is your safety so I would implement it like this
-            if(i > 100) break;
-        } while (e > erro);
-        veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " +x);
-        aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>"+veriff+"</h3></div></div>";
-        document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
-
-        document.getElementById('conteiner-passos').style.display = 'block';
-        document.getElementById('conteiner-grafico').style.display = 'block';
-        min = 0;
-        max = 0;
-        if(xinicial >= x)
+        if ((xinicial == null) || (erro == null) || (EQUACAO == ""))
         {
-            max = xinicial;
-            min = x;
+            document.getElementById('id02').style.display='block';
         }
         else
         {
-            min = xinicial;
-            max = x;
+            if(EQUACAO.indexOf("x") > -1)
+            {
+                var i = 0;
+                flag = 0;
+
+                var err, x_1, x = parseFloat(xinicial);
+                // '<table border="3"><tr><td align="center">i</td><td align="center">x<sub></sub></td><td align="center">error</td></tr>';
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = " + cop + "<br>x<sub>0</sub> = " + x + "<br>f'(" + x + ") = " + arredonda(derivada(x))
+                    + "<br>E = " + erro + "<BR><br></h3></div></div>";
+                do {
+                    //x_1 = x;
+
+                    // Verifica se a derivada é 0
+                    if(derivada(x) == 0)
+                    {
+                        flag = 1;
+                        x = 1;
+                        var x_1 = arredonda(x - (calcula(x) / derivada(x)));
+                    }
+                    else
+                    {
+                        var x_1 = arredonda(x - (calcula(x) / derivada(x)));
+                        flag = 0;
+                    }
+                    var y = x;
+                    var e = Math.abs(x - x_1);
+                    x = x_1;
+                    err = Math.abs((x - x_1) / x);
+                    // '<tr><td>x<sub>' + i + '</sub></td><td>' + x_1 + '</td><td>' + err + '</td></tr>'
+                    if (i == 0)
+                    {
+                        auxDerivada = "";
+                        if(flag == 1){
+                            auxDerivada = "<font color='blue'>Como f'(x) = 0, x<sub>" + 0 + "</sub> = 1</font><br>";
+                        }
+                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método de Newton-Raphson:</h3></div> <div class='panel-body'><h3>"+auxDerivada+"f(" + y + ") = " + arredonda(calcula(y)) + "<br>f'(" + y + ") = " + arredonda(derivada(y)) + "<br>" +
+                            "x<sub>" + i + "</sub> = " + y + " - (" + arredonda(calcula(y)) + "/" + arredonda(derivada(y)) + ") = " + x_1 + "" +
+                            "<br>E = " + err + "</h3></div></div>";
+                    }
+                    else {
+                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>f(" + y + ") = " + arredonda(calcula(y)) + "<br>f'(" + y + ") = " + arredonda(derivada(y)) + "<br>" +
+                            "x<sub>" + i + "</sub> = " + y + " - (" + arredonda(calcula(y)) + "/" + arredonda(derivada(y)) + ") = " + x_1 + "<br>E = " + err + "</h3></div></div>";
+                    }
+
+                    i++;
+                    //I imagine that this is your safety so I would implement it like this
+                    if (i > 100) break;
+                } while (e > erro);
+                veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " + x);
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>" + veriff + "</h3></div></div>";
+                document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
+
+                document.getElementById('conteiner-passos').style.display = 'block';
+                document.getElementById('conteiner-grafico').style.display = 'block';
+
+                escreveTextGraf(cop, x_1);
+            }
+            else
+            {
+                document.getElementById('id03').style.display='block';
+
+            }
         }
-        escreveTextGraf(cop,min,max);
     }
     
     $('html, body').animate({ scrollTop: $('#ancoraPassos').offset().top}, 1000);
@@ -451,19 +471,26 @@ function escreveTextGraf(funcao, raiz)
     {
         xmin = raiz-2;
         xmax = raiz*(-1)+2;
-        ymenor = raiz;
-        ymaior = raiz*(-1);
+        ymenor = raiz-1;
+        ymaior = raiz*(-1)+1;
     }
     else
     {
         xmin = raiz*(-1)-2;
         xmax = raiz+2;
-        ymenor = raiz*(-1);
-        ymaior = raiz;
+        ymenor = raiz*(-1)-1;
+        ymaior = raiz+1;
     }
 
-    maximoY = 500;
-    minimoY = -500;
+    maximoY = Math.pow(raiz,2)+5;
+    minimoY = Math.pow(raiz,2)*(-1)-5;
+
+    if(maximoY >= 100)
+    {
+        aw = 10;
+        ay = 10;
+        at = 10;
+    }
 
     aux = "";
 
@@ -472,13 +499,16 @@ function escreveTextGraf(funcao, raiz)
     aux += "xunitlength='50';";
     aux += "yunitlength='50';";
 
-
+    // define o tamanho dos eixos
     aux += "initPicture("+xmin+","+xmax+", "+minimoY+", "+maximoY+");";
+    // define o intervalo em cada eixo
     aux += "axes("+aw+", "+ay+", 'labels', "+at+");";
 
 
     aux += "stroke = 'blue';";
     aux += "strokewidth = '2';";
+
+    // plota a função e define os pontos dela
     aux += "plot("+funcao+","+ymenor+","+ymaior+");";
 
     document.getElementById("picture1input").innerHTML = aux;
