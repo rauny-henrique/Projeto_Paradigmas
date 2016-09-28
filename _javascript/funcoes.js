@@ -179,7 +179,7 @@ function ajeitaEquacao(_s)
     return _s;
 }
 
-var EQUACAO;
+var EQUACAO,VERFEQUACAO;
 
 function Escolha()
 {
@@ -220,6 +220,11 @@ function calcula(x) {
     return valor
 }
 
+function calculaVERIF(x) {
+    valor = eval(VERFEQUACAO);
+    return valor
+}
+
 function arredonda(x) {
     valor = Math.floor(10000000 * x)/10000000;
     return valor
@@ -251,24 +256,24 @@ function veficarIntervalo(aForm)
     b = eval(aForm.raizVerifDir.value);
     aa = parseFloat(a);
     bb = parseFloat(b);
-    EQUACAO = document.getElementById('textAreaEquaVerif').value;
-    EQUACAO = ajeitaEquacao(EQUACAO);
+    //EQUACAO = document.getElementById('textAreaEquaVerif').value;
+    VERFEQUACAO = ajeitaEquacao(VERFEQUACAO);
 
-    fa = arredonda(calcula(aa));
-    fb = arredonda(calcula(bb));
+    fa = arredonda(calculaVERIF(aa));
+    fb = arredonda(calculaVERIF(bb));
 
     div = document.getElementById("escreveVerif");
     auxescreve = "";
 
-    if ((a == null) || (b == null) || (EQUACAO == ""))
+    if ((a == null) || (b == null) || (VERFEQUACAO == ""))
     {
         document.getElementById('id02').style.display='block';
     }
     else
     {
-        if (EQUACAO.indexOf("x") > -1)
+        if (VERFEQUACAO.indexOf("x") > -1)
         {
-            if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0) {
+            if ((arredonda(calculaVERIF(aa)) * arredonda(calculaVERIF(bb))) < 0) {
                 auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
             }
             else {
@@ -293,8 +298,8 @@ function leitura(aForm, escolha)
     aa = parseFloat(a);
     bb = parseFloat(b);
     erro = eval(aForm.preci.value);
-    EQUACAO = document.getElementById('textAreaEqua').value;
-    cop = EQUACAO;
+    //EQUACAO = document.getElementById('textAreaEqua').value;
+    cop = codecop;
 
     EQUACAO = ajeitaEquacao(EQUACAO);
 
@@ -703,4 +708,43 @@ function Onscroolll()
             document.getElementById("topBut").style.display = "none";
         }
     }
+}
+
+var flag = 0;
+var codecop = "";
+var codecop2 = "";
+function refreshMathJax(code, aux, divesc)
+{
+    if(code == "")
+    {
+
+    }
+    else
+    {
+        if(aux == 1)
+        {
+            codecop = code;
+            var html = "\<span id='"+divesc+"'\>\<script type='math/tex;mode=in-line'\> "+ code + "\</script\></span>";
+        }
+        else
+        {
+            codecop2 = code;
+            var html = "\<span id='"+divesc+"'\>\<script type='math/tex;mode=in-line'\> "+ code + "\</script\></span>";
+        }
+        flag = 1;
+    }
+
+    if(aux == 1)
+    {
+        $('#textAreaEqua').html('');
+        EQUACAO = code;
+    }
+    else
+    {
+        $('#textAreaEquaVerif').html('');
+        VERFEQUACAO = code;
+    }
+    document.execCommand('insertHTML', false, html);
+
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, divesc]);
 }

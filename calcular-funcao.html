@@ -22,9 +22,6 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
-<script>$(document).ready(function(){$('html, body').animate({scrollTop: $('#ancoraCalcularFuncao').offset().top
-        }, 1500); })</script>
-
 
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -149,7 +146,6 @@ and is wrapped around the whole page content, except for the footer in this exam
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <a href="#" id="ancoraCalcularFuncao"></a>
                     <h3><b>Calcular função</b></h3>
                     <h6>Métodos númericos, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
@@ -180,7 +176,8 @@ and is wrapped around the whole page content, except for the footer in this exam
                                     <p><label for="campoVerifRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizVerifEsq" id="campoVerifRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
                                     <p><label for="campoVerifRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizVerifDir" id="campoVerifRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
                                     <p id="textequacaoVerif"><label for="textAreaEquaVerif">Equação:</label>
-                                    <p><input name="campoEquacaoVerif" id="textAreaEquaVerif" size="99" maxlength="99" placeholder="Ex: 3x^2 - e^x"/></p>
+                                    <p><div name="campoEquacaoVerif" id="textAreaEquaVerif" contentEditable="true" class="w3-input"></div></p>
+
                                 </div>
 
                                 <div class="w3-half" id="escreveVerif">
@@ -202,7 +199,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                         <p id="escondCampoDir"><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
                                         <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
                                         <p id="textequacao"><label for="textAreaEqua">Equação:</label>
-                                        <p><textarea style="resize:none" name="campoEquacao" id="textAreaEqua" cols="45" rows="5" placeholder="Insira uma equação aqui. Ex: 3x^2 - e^x"></textarea></p>
+                                        <p><div name="campoEquacao" id="textAreaEqua" contentEditable="true" class="w3-input"></div></p>
 
                                         <p id="escolhaEquacao"><label for="mySelect">Escolha um método: </label></p>
                                         <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
@@ -280,6 +277,40 @@ and is wrapped around the whole page content, except for the footer in this exam
                                                     panZoom.center();
                                                 })
                                             }, false);
+
+
+                                            // atualiza div calcular função
+                                            $(document).ready(function () {
+                                                var code = '';
+                                                refreshMathJax(code,1, "math1");
+                                            });
+
+
+                                            $('#textAreaEqua').focus(function() {
+                                                $('#textAreaEqua').html(codecop);
+                                            });
+
+
+                                            $('#textAreaEqua').blur(function() {
+                                                refreshMathJax($('#textAreaEqua').html(),1,"math1");
+                                            });
+
+                                            // atualiza div de verificar função
+                                            $(document).ready(function () {
+                                                //$('#textAreaEquaVerif').focus(); // tirar esse foco...
+                                                var code = '';
+                                                refreshMathJax(code,0, "math2");
+                                            });
+
+
+                                            $('#textAreaEquaVerif').focus(function() {
+                                                $('#textAreaEquaVerif').html(codecop2);
+                                            });
+
+
+                                            $('#textAreaEquaVerif').blur(function() {
+                                                refreshMathJax($('#textAreaEquaVerif').html(),0, "math2");
+                                            });
 
                                         };
                                     </script>

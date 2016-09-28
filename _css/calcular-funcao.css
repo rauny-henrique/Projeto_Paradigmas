@@ -10,7 +10,7 @@ section#corpo-full legend{
 }
 
 p#textequacao, #textequacaoVerif{
-    margin-bottom: -5px;
+    margin-bottom: -15px;
 }
 
 p#escolhaEquacao{
@@ -90,4 +90,8 @@ div#sha-painel{
     position:fixed;
     bottom:5px;
     right:5px;
+}
+
+div#textAreaEqua{
+    height: 120px;
 }
