@@ -202,14 +202,16 @@ function Escolha()
 
         return 2;
     }
-    if(x=="Falsa posição"){
+    if(x=="Ponto fixo"){
         return 3;
     }
     if(x=="Secante"){
+        document.getElementById('campoNewton').style.display = 'none';
+
+        document.getElementById('escondCampoEsq').style.display = 'block';
+        document.getElementById('escondCampoDir').style.display = 'block';
+
         return 4;
-    }
-    if(x=="Ponto fixo"){
-        return 5;
     }
 }
 
@@ -221,6 +223,26 @@ function calcula(x) {
 function arredonda(x) {
     valor = Math.floor(10000000 * x)/10000000;
     return valor
+}
+
+function decimalAdjust(type, value, exp){
+
+        // If the exp is undefined or zero...
+        if (typeof exp === 'undefined' || +exp === 0) {
+            return Math[type](value);
+        }
+        value = +value;
+        exp = +exp;
+        // If the value is not a number or the exp is not an integer...
+        if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+            return NaN;
+        }
+        // Shift
+        value = value.toString().split('e');
+        value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+        // Shift back
+        value = value.toString().split('e');
+        return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
 }
 
 function veficarIntervalo(aForm)
@@ -282,7 +304,7 @@ function leitura(aForm, escolha)
     // Newton
     xinicial = document.getElementById("campoXNew").value;
 
-
+    // Bissecção
     if (escolha == 1)
     {
         if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
@@ -375,6 +397,8 @@ function leitura(aForm, escolha)
             }
         }
     }
+
+    // Newton-Raphson
     if(escolha == 2)
     {
         if ((xinicial == null) || (erro == null) || (EQUACAO == ""))
@@ -399,7 +423,7 @@ function leitura(aForm, escolha)
                     if(derivada(x) == 0)
                     {
                         flag = 1;
-                        x = 1;
+                        x += 1;
                         var x_1 = arredonda(x - (calcula(x) / derivada(x)));
                     }
                     else
@@ -411,7 +435,6 @@ function leitura(aForm, escolha)
                     var e = Math.abs(x - x_1);
                     x = x_1;
                     err = Math.abs((x - x_1) / x);
-                    // '<tr><td>x<sub>' + i + '</sub></td><td>' + x_1 + '</td><td>' + err + '</td></tr>'
                     if (i == 0)
                     {
                         auxDerivada = "";
@@ -439,6 +462,67 @@ function leitura(aForm, escolha)
                 document.getElementById('conteiner-grafico').style.display = 'block';
 
                 escreveTextGraf(cop, x_1);
+            }
+            else
+            {
+                document.getElementById('id03').style.display='block';
+
+            }
+        }
+    }
+
+    // Secante
+    if(escolha == 4)
+    {
+        if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
+        {
+            document.getElementById('id02').style.display='block';
+        }
+        else
+        {
+            // verificar se existe ao menos uma letra.. por expressão regular
+            if(EQUACAO.indexOf("x") > -1)
+            {
+                var i = 2;
+
+                x_0 = aa;
+                x_1 = bb;
+                var err, x_2;
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = " + cop + "<br>x<sub>0</sub> = " + x_0 + "<br>f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "<br>x<sub>1</sub> = "+x_1+"<br>f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "<br>E = " + erro + "<BR><br></h3></div></div>";
+                do {
+                    var x_2 = arredonda(x_0 - (calcula(x_0)*(x_1 - x_0))/(calcula(x_1) - calcula(x_0)));
+
+                    var e = Math.abs(x_2 - x_1);
+                    // salvar o valor antes de mudar...
+                    antx0 = x_0;
+                    antx1 = x_1;
+                    x_0 = x_1;
+                    x_1 = x_2;
+
+                    err = Math.abs((x_1 - x_0) / x_1);
+                    if (i == 2)
+                    {
+                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da Secante:</h3></div> <div class='panel-body'><h3>x<sub>0</sub> = " + antx0 + "<br>x<sub>1</sub> = " + antx1 + "<br>f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "<br>f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "<br>" +
+                            "x<sub>" + i + "</sub> = ("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+"-"+arredonda(calcula(antx0))+"*"+arredonda(antx1)+") / "+arredonda(calcula(antx1))+"-"+arredonda(calcula(antx0))+"= "+x_2+"<br>E = " + erro + "</h3></div></div>";
+                    }
+                    else {
+                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>x<sub>"+(i-2)+"</sub> = " + antx0 + "<br>x<sub>"+(i-1)+"</sub> = " + antx1 + "<br>f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "<br>f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "<br>" +
+                            "x<sub>" + i + "</sub> = ("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+"-"+arredonda(calcula(antx0))+"*"+arredonda(antx1)+") / "+arredonda(calcula(antx1))+"-"+arredonda(calcula(antx0))+"= "+x_2+"<br>E = " + erro + "</h3></div></div>";
+                    }
+
+                    i++;
+                    //I imagine that this is your safety so I would implement it like this
+                    if (i > 100) break;
+                } while (e > erro);
+
+                veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " + x_2);
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>" + veriff + "</h3></div></div>";
+                document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
+
+                document.getElementById('conteiner-passos').style.display = 'block';
+                document.getElementById('conteiner-grafico').style.display = 'block';
+
+                escreveTextGraf(cop, x_2);
             }
             else
             {
