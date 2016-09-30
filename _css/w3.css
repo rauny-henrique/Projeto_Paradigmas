@@ -361,10 +361,19 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
     min-width: 245px;
     min-height: 201px;
 }
+.imgCenterNew{
+    min-width: 245px;
+    min-height: 89px;
+}
 
 .imgensAju{
     display:         flex;
     display: -webkit-flex; /* Garante compatibilidade com navegador Safari. */
     justify-content: center;
     align-items: center;
+}
+
+div#disqus_thread{
+    margin-left: 5px;
+    margin-right: 5px;
 }

@@ -16,9 +16,9 @@
 <script language="JavaScript" src="_javascript/funcoes.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="http://nerdamer.com/js/nerdamer.core.js"></script>
-<script src="http://nerdamer.com/js/Algebra.js"></script>
-<script src="http://nerdamer.com/js/Calculus.js"></script>
+<script src="_javascript/nerdamer.core.js"></script>
+<script src="_javascript/Algebra.js"></script>
+<script src="_javascript/Calculus.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
@@ -233,6 +233,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                         $asen(x)$<br>
                                         $acos(x)$<br>
                                         $atan(x)$<br><br>
+                                        OBS: Utilize a variável "$x$" para os calculos.
                                         </p>
                                     </div>
                                 </div>
@@ -450,66 +451,10 @@ and is wrapped around the whole page content, except for the footer in this exam
     <!-- END w3-content -->
 
     <!-- Modal -->
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>O intervalo indicado não possui raiz.</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id02" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id02').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>É preciso preencher todos os campos!</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id03" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id03').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>A equação deve possuir ao menos uma variável. Ex: $sen(x)$.</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
-
-    <div id="id04" class="w3-modal">
-        <div class="w3-modal-content">
-            <header class="w3-container w3-red">
-                <span onclick="document.getElementById('id04').style.display='none'" class="w3-closebtn">&times;</span>
-                <h2>Atenção</h2>
-            </header>
-            <div class="w3-container">
-                <p>O intervalo indicado não possui raiz.</p>
-                <p>Dica: utilize $f(a)*f(b) < 0$</p>
-            </div>
-            <footer class="w3-container w3-red">
-                <p></p>
-            </footer>
-        </div>
-    </div>
+    <div id="snackbar01"><h2>Atenção</h2><br><p>O intervalo indicado não possui raiz.</p></div>
+    <div id="snackbar02"><h2>Atenção</h2><br><p>É preciso preencher todos os campos!</p></div>
+    <div id="snackbar03"><h2>Atenção</h2><br><p>A equação deve possuir ao menos uma variável. Ex: $sen(x)$.</p></div>
+    <div id="snackbar04"><h2>Atenção</h2><br><p>O intervalo indicado não possui raiz.</p><p>Dica: utilize $f(a)*f(b) < 0$</p></div>
 
     <!-- Comentários -->
     <div id="disqus_thread"></div>

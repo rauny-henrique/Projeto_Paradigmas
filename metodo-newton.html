@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="_css/w3.css">
+    <link rel="stylesheet" href="_css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="_css/calcular-funcao.css"/>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -184,17 +185,21 @@
                         </ol>
                     </ol>
 
-                    <h3><br>Voce sabia?</h3>
-                    <p class="w3-justify w3-recuo">
-                    A maioria dos super computadores não possui a unidade de operação de divisão.
-                    <h4>Por que isso acontece?</h4>
-                    <p class="w3-justify w3-recuo">
-                        Porque uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de
-                        relógio( correspondente ao número de impulsos por segundo, expresso em Hertz ($Hz$) ) , isso é
-                        cinco vezes mais tempo que a operação de multiplicação.<br>
-                        Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através
-                        do método de newton,permitimos que operações de divisões sejam feitas de forma mais
-                        rápida.</p><br>
+
+                    <div class="panel panel-default"><div class="panel-heading"><h3>Voce sabia?</h3></div>
+                        <div class="panel-body">
+                        <p class="w3-justify w3-recuo">A maioria dos super computadores não possui a unidade de operação de divisão.</p>
+                        <h4>Por que isso acontece?</h4>
+                        <p class="w3-justify w3-recuo">
+                            Porque uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de
+                            relógio( correspondente ao número de impulsos por segundo, expresso em Hertz ($Hz$) ) , isso é
+                            cinco vezes mais tempo que a operação de multiplicação.<br>
+                            Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através
+                            do método de newton,permitimos que operações de divisões sejam feitas de forma mais
+                            rápida.</p>
+                        </div>
+                    </div>
+
 
                     <p><h3>Exemplos:</h3></p>
 
@@ -302,7 +307,7 @@
                     vincarmos as abas que sobraram obteremos uma caixa sem a tampa conforme a
                     figura a seguir.</p>
                     <div class="imgensAju">
-                        <img src="_imagens/cubo-newton.jpg" alt="Cubo" width="602" height="219">
+                        <img class="imgCenterNew" src="_imagens/cubo-newton.jpg" alt="Cubo" width="602" height="219">
                     </div>
                     <p class="w3-justify">Observe que se efetuarmos o produto das 3 dimensões obtemos a função
                     que calcula o volume da caixa. Observe:</p>

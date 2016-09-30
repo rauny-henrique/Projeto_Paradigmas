@@ -179,7 +179,7 @@ function ajeitaEquacao(_s)
     return _s;
 }
 
-var EQUACAO,VERFEQUACAO;
+var EQUACAO,VERFEQUACAO,cop;
 
 function Escolha()
 {
@@ -215,7 +215,8 @@ function Escolha()
     }
 }
 
-function calcula(x) {
+function calcula(x)
+{
     valor = eval(EQUACAO);
     return valor
 }
@@ -267,7 +268,7 @@ function veficarIntervalo(aForm)
 
     if ((a == null) || (b == null) || (VERFEQUACAO == ""))
     {
-        document.getElementById('id02').style.display='block';
+        showSnackbar("snackbar02");
     }
     else
     {
@@ -277,13 +278,13 @@ function veficarIntervalo(aForm)
                 auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
             }
             else {
-                document.getElementById('id04').style.display='block';
+                showSnackbar("snackbar04");
                 auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='red'>f(" + a + ") * f(" + b + ") > 0</h3>";
             }
         }
         else
         {
-            document.getElementById('id03').style.display='block';
+            showSnackbar("snackbar03");
         }
     }
 
@@ -300,6 +301,9 @@ function leitura(aForm, escolha)
     erro = eval(aForm.preci.value);
     //EQUACAO = document.getElementById('textAreaEqua').value;
     cop = codecop;
+    //var myRe = /([A-Za-z]+)/g;
+    //var myArray = myRe.exec(cop);
+    //veriforma = myRe.lastIndex;
 
     EQUACAO = ajeitaEquacao(EQUACAO);
 
@@ -314,7 +318,7 @@ function leitura(aForm, escolha)
     {
         if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
         {
-            document.getElementById('id02').style.display='block';
+            showSnackbar("snackbar02");
         }
         else
         {
@@ -322,10 +326,10 @@ function leitura(aForm, escolha)
             {
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
-                    meuDiv.innerHTML = ""; // por para iniciar o Mathjax
+                    meuDiv.innerHTML = ""; // (1+2)/2 = 1.5
 
-                    meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = "+cop+"<br>f("+aa+") = "+ arredonda(calcula(aa))+
-                        "<br>f("+bb+") = "+ arredonda(calcula(bb))+"<br>E = "+erro+"<BR><br></h3></div></div>";
+                    meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = "+cop+"$<br>$f("+aa+") = "+ arredonda(calcula(aa))+
+                        "$<br>$f("+bb+") = "+ arredonda(calcula(bb))+"$<br>$E = "+erro+"$<br></h3></div></div>";
 
                     var achou=false;
                     fa=calcula(aa);
@@ -340,26 +344,26 @@ function leitura(aForm, escolha)
                     {
                         while (!achou)
                         {
-                            x=((aa+bb)/2);
-                            er=((bb-aa)/2);
+                            x=arredonda((aa+bb)/2);
+                            er=arredonda((bb-aa)/2);
                             if (er<=erro) {
                                 achou=true;
                                 if(first == 0)
                                 {
-                                    aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
+                                    aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: $["+aa+","+bb+"]$<br></h3>";
                                     first = 1;
                                 }
-                                aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = 0"+"<br><br></h3></div></div>";
+                                aux += "<h3>$\\frac{("+aa+"+"+bb+")}{2} = "+x+"$<br></h3>"+"<h3>Calculando $f("+x+") = 0$"+"<h3>$E = "+er+"$<br></h3>"+"<br><br></h3></div></div>";
                                 meuDiv.innerHTML += aux;
                             }else{
                                 if (er>erro){
                                     fr=calcula(x);
                                     if(first == 0)
                                     {
-                                        aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: ["+aa+","+bb+"]<br></h3>";
+                                        aux += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da bissecção:</h3></div> <div class='panel-body'><h3>Invervalo 1: $["+aa+","+bb+"]$<br></h3>";
                                         first = 1;
                                     }
-                                    aux += "<h3>("+aa+"+"+bb+")/2 = "+x+"<br></h3>"+"<h3>Calculando f("+x+") = "+arredonda(calcula(x))+"<br><br></h3></div></div>";
+                                    aux += "<h3>$\\frac{("+aa+"+"+bb+")}{2} = "+x+"$<br></h3>"+"<h3>Calculando $f("+x+") = "+arredonda(calcula(x))+"$<h3>$E = "+er+"$<br></h3><br><br></h3></div></div>";
                                     meuDiv.innerHTML += aux; // principal
                                 }
                                 if (fr==0) {
@@ -374,7 +378,7 @@ function leitura(aForm, escolha)
                             }
                             if (!achou){
                                 // id='mid'
-                                aux = "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>Intervalo "+cont+" :   ["+arredonda(aa)+";"+arredonda(bb)+"]<br></h3>";
+                                aux = "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>Intervalo "+cont+" :   $["+arredonda(aa)+";"+arredonda(bb)+"]$<br></h3>";
 
                                 cont++;
                             }
@@ -384,7 +388,7 @@ function leitura(aForm, escolha)
                     if (achou){
                         document.getElementById('conteiner-passos').style.display = 'block';
                         document.getElementById('conteiner-grafico').style.display = 'block';
-                        meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div> <div class='panel-body'><h3>Intervalo final:   ["+aa+";"+bb+"]<br></h3><h3>Raiz:   "+arredonda(x)+" ± "+er+"</h3></div></div>";
+                        meuDiv.innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div> <div class='panel-body'><h3>Intervalo final:   $["+aa+";"+bb+"]$<br></h3><h3>Raiz:   $"+arredonda(x)+" ± "+er+"$</h3></div></div>";
 
                         escreveTextGraf(cop,arredonda(x));
 
@@ -393,12 +397,12 @@ function leitura(aForm, escolha)
                 }
                 else
                 {
-                    document.getElementById('id01').style.display='block';
+                    showSnackbar("snackbar01");
                 }
             }
             else
             {
-                document.getElementById('id03').style.display='block';
+                showSnackbar("snackbar03");
             }
         }
     }
@@ -418,9 +422,8 @@ function leitura(aForm, escolha)
                 flag = 0;
 
                 var err, x_1, x = parseFloat(xinicial);
-                // '<table border="3"><tr><td align="center">i</td><td align="center">x<sub></sub></td><td align="center">error</td></tr>';
-                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = " + cop + "<br>x<sub>0</sub> = " + x + "<br>f'(" + x + ") = " + arredonda(derivada(x))
-                    + "<br>E = " + erro + "<BR><br></h3></div></div>";
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$</h3><h3>$x_{0} = " + x + "$</h3><h3>$f'(" + x + ") = " + arredonda(derivada(x))
+                    + "$</h3><h3>$E = " + erro + "$<br></h3></div></div>";
                 do {
                     //x_1 = x;
 
@@ -438,29 +441,29 @@ function leitura(aForm, escolha)
                     }
                     var y = x;
                     var e = Math.abs(x - x_1);
+                    err = arredonda(Math.abs((x - x_1) / x));
                     x = x_1;
-                    err = Math.abs((x - x_1) / x);
                     if (i == 0)
                     {
                         auxDerivada = "";
                         if(flag == 1){
-                            auxDerivada = "<font color='blue'>Como f'(x) = 0, x<sub>" + 0 + "</sub> = 1</font><br>";
+                            auxDerivada = "<font color='blue'><h3>Como $f'(x) = 0$, $x_{0} = 1$</h3></font>";
                         }
-                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método de Newton-Raphson:</h3></div> <div class='panel-body'><h3>"+auxDerivada+"f(" + y + ") = " + arredonda(calcula(y)) + "<br>f'(" + y + ") = " + arredonda(derivada(y)) + "<br>" +
-                            "x<sub>" + i + "</sub> = " + y + " - (" + arredonda(calcula(y)) + "/" + arredonda(derivada(y)) + ") = " + x_1 + "" +
-                            "<br>E = " + err + "</h3></div></div>";
+                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método de Newton-Raphson:</h3></div> <div class='panel-body'><h3>"+auxDerivada+"$f(" + y + ") = " + arredonda(calcula(y)) + "$</h3><h3>$f'(" + y + ") = " + arredonda(derivada(y)) + "$</h3><h3>" +
+                            "$x_{"+i+"} = " + y + " - (\\frac{" + arredonda(calcula(y)) + "}{" + arredonda(derivada(y)) + "}) = " + x_1 + "$" +
+                            "</h3><h3>$E = " + err + "$</h3><br><br></div></div>";
                     }
                     else {
-                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>f(" + y + ") = " + arredonda(calcula(y)) + "<br>f'(" + y + ") = " + arredonda(derivada(y)) + "<br>" +
-                            "x<sub>" + i + "</sub> = " + y + " - (" + arredonda(calcula(y)) + "/" + arredonda(derivada(y)) + ") = " + x_1 + "<br>E = " + err + "</h3></div></div>";
+                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>$f(" + y + ") = " + arredonda(calcula(y)) + "$</h3><h3>$f'(" + y + ") = " + arredonda(derivada(y)) + "$</h3><h3>" +
+                            "$x_{"+i+"} = " + y + " - (\\frac{" + arredonda(calcula(y)) + "}{" + arredonda(derivada(y)) + "}) = " + x_1 + "$</h3><h3>$E = " + err + "$</h3><br><br></div></div>";
                     }
 
                     i++;
                     //I imagine that this is your safety so I would implement it like this
                     if (i > 100) break;
                 } while (e > erro);
-                veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " + x);
-                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>" + veriff + "</h3></div></div>";
+                veriff = (i == 100 ? "O resultado é divergente." : x);
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
                 document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                 document.getElementById('conteiner-passos').style.display = 'block';
@@ -493,26 +496,42 @@ function leitura(aForm, escolha)
                 x_0 = aa;
                 x_1 = bb;
                 var err, x_2;
-                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>f(x) = " + cop + "<br>x<sub>0</sub> = " + x_0 + "<br>f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "<br>x<sub>1</sub> = "+x_1+"<br>f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "<br>E = " + erro + "<BR><br></h3></div></div>";
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
                 do {
                     var x_2 = arredonda(x_0 - (calcula(x_0)*(x_1 - x_0))/(calcula(x_1) - calcula(x_0)));
 
                     var e = Math.abs(x_2 - x_1);
-                    // salvar o valor antes de mudar...
+                    // salva o valor antes de mudar
                     antx0 = x_0;
                     antx1 = x_1;
                     x_0 = x_1;
                     x_1 = x_2;
 
-                    err = Math.abs((x_1 - x_0) / x_1);
+                    err = arredonda(Math.abs((x_1 - x_0) / x_1));
+                    if(err === Infinity || isNaN(err))
+                    {
+                        err = 0;
+                    }
+
+                    eqq = arredonda(calcula(antx0));
+                    if(eqq < 0)
+                    {
+                        sinal = "+";
+                        eqq *= -1;
+                    }
+                    else
+                    {
+                        sinal = "-";
+                    }
+
                     if (i == 2)
                     {
-                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da Secante:</h3></div> <div class='panel-body'><h3>x<sub>0</sub> = " + antx0 + "<br>x<sub>1</sub> = " + antx1 + "<br>f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "<br>f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "<br>" +
-                            "x<sub>" + i + "</sub> = ("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+"-"+arredonda(calcula(antx0))+"*"+arredonda(antx1)+") / "+arredonda(calcula(antx1))+"-"+arredonda(calcula(antx0))+"= "+x_2+"<br>E = " + erro + "</h3></div></div>";
+                        resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da Secante:</h3></div> <div class='panel-body'><h3>$x_{0} = " + antx0 + "$<br></h3><h3>$x_{1} = " + antx1 + "$<br></h3><h3>$f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "$<br></h3><h3>$f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "$<br></h3><h3>" +
+                            "$x_{"+i+"} = \\frac{("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+sinal+eqq+"*"+arredonda(antx1)+")}{"+arredonda(calcula(antx1))+sinal+eqq+"} = "+x_2+"$<br></h3><h3>$E = " + err + "$</h3><br><br></div></div>";
                     }
                     else {
-                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>x<sub>"+(i-2)+"</sub> = " + antx0 + "<br>x<sub>"+(i-1)+"</sub> = " + antx1 + "<br>f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "<br>f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "<br>" +
-                            "x<sub>" + i + "</sub> = ("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+"-"+arredonda(calcula(antx0))+"*"+arredonda(antx1)+") / "+arredonda(calcula(antx1))+"-"+arredonda(calcula(antx0))+"= "+x_2+"<br>E = " + erro + "</h3></div></div>";
+                        resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>$x_{"+(i-2)+"} = " + antx0 + "$<br></h3><h3>$x_{"+(i-1)+"} = " + antx1 + "$<br></h3><h3>$f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "$<br></h3><h3>$f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "$<br></h3><h3>" +
+                            "$x_{"+i+"} = \\frac{("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+sinal+eqq+"*"+arredonda(antx1)+")}{"+arredonda(calcula(antx1))+sinal+eqq+"} = "+x_2+"$<br></h3><h3>$E = " + err + "$</h3><br><br></div></div>";
                     }
 
                     i++;
@@ -520,8 +539,8 @@ function leitura(aForm, escolha)
                     if (i > 100) break;
                 } while (e > erro);
 
-                veriff = (i == 100 ? "O resultado é divergente." : "Raiz: " + x_2);
-                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>" + veriff + "</h3></div></div>";
+                veriff = (i == 100 ? "O resultado é divergente." : x_2);
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
                 document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                 document.getElementById('conteiner-passos').style.display = 'block';
@@ -538,6 +557,7 @@ function leitura(aForm, escolha)
     }
     
     $('html, body').animate({ scrollTop: $('#ancoraPassos').offset().top}, 1000);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, "escreveCalcFuncao"]);
 }
 
 /* Update do grafico plotado */
@@ -665,7 +685,7 @@ function barraProgresso2()
 
 // Newton-Raphson
 function derivada(x){
-    var func = document.getElementById("textAreaEqua").value;
+    var func = cop;
     return nerdamer('diff(' + func + ')').buildFunction().call(undefined, x);
 }
 
@@ -747,4 +767,12 @@ function refreshMathJax(code, aux, divesc)
     document.execCommand('insertHTML', false, html);
 
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, divesc]);
+}
+
+
+
+function showSnackbar(id) {
+    var x = document.getElementById(id);
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
