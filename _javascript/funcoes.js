@@ -202,7 +202,7 @@ function Escolha()
 
         return 2;
     }
-    if(x=="Ponto fixo"){
+    if(x=="Pontofixo"){
         return 3;
     }
     if(x=="Secante"){
@@ -212,6 +212,14 @@ function Escolha()
         document.getElementById('escondCampoDir').style.display = 'block';
 
         return 4;
+    }
+    if(x=="Falsaposicao"){
+        document.getElementById('campoNewton').style.display = 'none';
+
+        document.getElementById('escondCampoEsq').style.display = 'block';
+        document.getElementById('escondCampoDir').style.display = 'block';
+
+        return 5;
     }
 }
 
@@ -272,14 +280,16 @@ function veficarIntervalo(aForm)
     }
     else
     {
+        div.innerHTML = ""; // (1+2)/2 = 1.5
+
         if (VERFEQUACAO.indexOf("x") > -1)
         {
             if ((arredonda(calculaVERIF(aa)) * arredonda(calculaVERIF(bb))) < 0) {
-                auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='green'>f(" + a + ") * f(" + b + ") < 0</h3>";
+                auxescreve = "<h4>$f(" + a + ") = " + fa + "$</h4><h4>" + "$f(" + b + ") = " + fb + "$</h4><h4><font color='green'>$f(" + a + ") * f(" + b + ") < 0$</h4>";
             }
             else {
                 showSnackbar("snackbar04");
-                auxescreve = "<h3>f(" + a + ") = " + fa + "<br>" + "f(" + b + ") = " + fb + "<br><font color='red'>f(" + a + ") * f(" + b + ") > 0</h3>";
+                auxescreve = "<h4>$f(" + a + ") = " + fa + "$</h4><h4>" + "$f(" + b + ") = " + fb + "$</h4><h4><font color='red'>$f(" + a + ") * f(" + b + ") > 0$</h4>";
             }
         }
         else
@@ -287,8 +297,8 @@ function veficarIntervalo(aForm)
             showSnackbar("snackbar03");
         }
     }
-
-    return div.innerHTML = auxescreve;
+    div.innerHTML = auxescreve;
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, "escreveVerif"]); // sempre chamar por ultimo!!!
 }
 
 
@@ -552,6 +562,88 @@ function leitura(aForm, escolha)
             {
                 document.getElementById('id03').style.display='block';
 
+            }
+        }
+    }
+
+    // Falsa Posição
+    if (escolha == 5)
+    {
+        if ((a == null) || (b == null) || (erro == null) || (EQUACAO == ""))
+        {
+            showSnackbar("snackbar02");
+        }
+        else
+        {
+            if(EQUACAO.indexOf("x") > -1)
+            {
+                if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
+                {
+                    var i = 2;
+
+                    x_0 = aa;
+                    x_1 = bb;
+                    var err, x_2;
+                    var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
+                    do {
+                        var x_2 = arredonda(x_0 - (calcula(x_0)*(x_1 - x_0))/(calcula(x_1) - calcula(x_0)));
+
+                        var e = Math.abs(x_2 - x_1);
+                        // salva o valor antes de mudar
+                        antx0 = x_0;
+                        antx1 = x_1;
+                        x_0 = x_1;
+                        x_1 = x_2;
+
+                        err = arredonda(Math.abs((x_1 - x_0) / x_1));
+                        if(err === Infinity || isNaN(err))
+                        {
+                            err = 0;
+                        }
+
+                        eqq = arredonda(calcula(antx0));
+                        if(eqq < 0)
+                        {
+                            sinal = "+";
+                            eqq *= -1;
+                        }
+                        else
+                        {
+                            sinal = "-";
+                        }
+
+                        if (i == 2)
+                        {
+                            resultado += "<div class='panel panel-primary'><div class='panel-heading'><h3>Usando o método da Falsa posição:</h3></div> <div class='panel-body'><h3>$x_{0} = " + antx0 + "$<br></h3><h3>$x_{1} = " + antx1 + "$<br></h3><h3>$f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "$<br></h3><h3>$f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "$<br></h3><h3>" +
+                                "$x_{"+i+"} = \\frac{("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+sinal+eqq+"*"+arredonda(antx1)+")}{"+arredonda(calcula(antx1))+sinal+eqq+"} = "+x_2+"$<br></h3><h3>$E = " + err + "$</h3><br><br></div></div>";
+                        }
+                        else {
+                            resultado += "<div id='mid' class='panel panel-primary'><div class='panel-body'><h3>$x_{"+(i-2)+"} = " + antx0 + "$<br></h3><h3>$x_{"+(i-1)+"} = " + antx1 + "$<br></h3><h3>$f(" + antx0 + ") = " + arredonda(calcula(antx0)) + "$<br></h3><h3>$f(" + antx1 + ") = " + arredonda(calcula(antx1)) + "$<br></h3><h3>" +
+                                "$x_{"+i+"} = \\frac{("+arredonda(calcula(antx1))+"*"+arredonda(antx0)+sinal+eqq+"*"+arredonda(antx1)+")}{"+arredonda(calcula(antx1))+sinal+eqq+"} = "+x_2+"$<br></h3><h3>$E = " + err + "$</h3><br><br></div></div>";
+                        }
+
+                        i++;
+                        //I imagine that this is your safety so I would implement it like this
+                        if (i > 100) break;
+                    } while (e > erro);
+
+                    veriff = (i == 100 ? "O resultado é divergente." : x_2);
+                    aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
+                    document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
+
+                    document.getElementById('conteiner-passos').style.display = 'block';
+                    document.getElementById('conteiner-grafico').style.display = 'block';
+
+                    escreveTextGraf(cop, x_2);
+                }
+                else
+                {
+                    showSnackbar("snackbar01");
+                }
+            }
+            else
+            {
+                showSnackbar("snackbar03");
             }
         }
     }
