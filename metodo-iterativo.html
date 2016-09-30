@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li class="w3-padding-8" style="width: 100%">
-                        <a href="#" style="text-decoration: none">
+                        <a href="codigos-python.html" style="text-decoration: none">
                             <span class="w3-large">Códigos em Python</span><br>
                         </a>
                     </li>
@@ -134,9 +134,178 @@
                 </div>
 
                 <div class="w3-container">
-
-
-
+					 <br><h4>Método do Ponto Fixo (Iterativo Linear)</h4>
+					 <p class="w3-justify w3-recuo">
+                        Seja f(x) uma função contínua no intervalo [a,b], intervalo que contém uma raiz da equação f(x) = 0. O método do Ponto 
+						Fixo consiste em fazer com que esta equação f(x) = 0 se torne uma equação equivalente da forma x =  (x).</p>
+					<p class="w3-justify w3-recuo">
+						Após determinar uma função x que satisfaça o teorema, deve-se determinar um elemento x0, ou seja, uma aproximação inicial.
+						Com isso, gera-se uma sequência  xk de aproximações que convirjam para uma raiz x, tal que:<br></p>
+						
+					<ul>
+						<li>x1=  (x0)</li>
+						<li>x2=  (x1)</li>
+						<li>x3=  (x2)</li>
+						<li>xn=  (xn-1)</li>		
+					</ul>
+					
+					<p class="w3-justify w3-recuo">
+						Para que a convergência da iteração linear seja assegurada, deve obedecer ao teorema, que afirma que:<br></p>
+						
+					<ul>
+						<li>Seja  (x)uma função contínua, onde ' (x) e  ''(x) sejam contínuas num intervalo I = [ x-h,  x+h], com  x sendo o centro e soluç]ao de x =   (x).</li>
+						<li>Seja x0pertencente ao intervalo I, e M uma limitante, tal que |' (x)|  M < 1 em I. Assim,</li>		
+					</ul>
+					
+					<ol>
+						<li>A iteração  xk+1=  (xk) , com k Epode ser executada de maneira indefinida;</li>
+						<li>|xk-x'| → 0</li>
+						<li>Se ' (x) 0ou Se ' (x) = 0 e Se '' (x) 0e  |xk-x'| for bem pequeno, logo a sequência xn será oscilante.</li>	
+					</ol>
+					
+					<p class="w3-justify w3-recuo">
+						O processo iterativo terá a convergência mais rápida quanto menor for o valor de ' (x) . Entretanto, se a declividade ' (x)
+						for maior que 1 em valor absoluto, para todo x que pertença ao intervalo I divergirá. O método iterativo linear é mais conceitual
+						do que eficiente em relação ao uso computacional. Além do mais, é necessário realizar o teste de convergência, onde |  ' (x)| < 1.<br></p>
+					
+					<p class="w3-justify w3-recuo">
+						Para uma determinada f(x) = 0, podem existir várias funções (x), para a  equação x2-x-6=0, por exemplo, temos:<br></p>
+						
+					<p>a) 1(x) = 6-x2</p>
+					<p>b) 2(x) = 6-x</p>
+					<p>c) 3(x) =6x- 1</p>
+					<p>d) 4(x) =6x + 1</p>
+					
+					<p class="w3-justify w3-recuo">
+						O erro relativo do método é dado por :<br></p>
+						
+						[Er =(xk - xk-1)/xk]
+						
+					<p class="w3-justify w3-recuo">
+						E o critério de parada é dado de modo que este Erro relativo seja menor que algum valor pré-determinado.<br></p>
+						
+					<p class="w3-justify w3-recuo">
+						Graficamente, uma raiz da equação x=  (x) é a abcissa do ponto de intersecção da reta y = x e da curva  y=  (x), como mostrado nas .<br></p>
+						
+					<div class="imgensAju">
+                        
+						<figure>
+								<img src="_imagens/grafico-raiz.png" alt="Grafico Raiz" width="466" height="303">
+								<figcaption>Gráfico Raiz - Método Iterativo</figcaption>
+						</figure>
+                    </div>
+					
+					<div class="imgensAju">
+                        
+						<figure>
+								<img src="_imagens/grafico-iteracoes.png" alt="Grafico Iterações" width="476" height="302">
+								<figcaption>Gráfico das Iterações</figcaption>
+						</figure>
+                    </div>
+					
+					<p class="w3-justify w3-recuo">
+						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função <b>F</b>, com e < 0.01.<br></p>
+					
+					<p>[F(x) = x³ - 9x + 3]<br></p>
+					
+					
+					
+					<table border="1">
+						<tr>
+							<td>X</td>
+							<td>-1</td>
+							<td>0</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>F(X)</td>
+							<td>11</td>
+							<td>3</td>
+							<td>-5</td>
+						</tr>
+					</table>
+					
+					<p class="w3-justify w3-recuo">
+						Agora já sabemos que entre [ 0 , 1] possui pelo menos uma raiz, próximo passo é encontramos uma φ(x) que | φ’(x)| < 1 para todo x pertencente
+						ao intervalo [ 0 , 1] . Assim temos: <br></p>
+						
+						[Fómulas]
+						
+					<p class="w3-justify w3-recuo">
+						Portanto podemos utilizar  φ(x) para encontramos x =  φ(x).  Utilizando 0 com X0 temos: <br></p>
+					
+						[Fómulas]
+					
+					<p class="w3-justify w3-recuo">
+						Portanto X3 = 0.3376 é raiz de F. <br></p>
+						
+					<p class="w3-justify w3-recuo">	
+						Uma aplicação do ponto fixo em algo cotidiano<br></p>
+						
+					<p class="w3-justify w3-recuo">	
+						Se você tomar um elástico como o da imagem abaixo e esticar o máximo que puder, é graças ao ponto fixo que podemos afirmar que algum ponto do elástico
+						está na mesma posição que se encontrava antes do elástico ser esticado<br></p>
+						
+					<div class="imgensAju">                        
+						<figure>
+								<img src="_imagens/elastico.png" alt="Elástico" width="263" height="191">
+								<figcaption>Elástico</figcaption>
+						</figure>
+                    </div>
+					
+					<p class="w3-justify w3-recuo">	
+						Vamos explicar:<br>
+						Considere l o comprimento do elástico antes de ser esticado e L o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma 
+						translação e uma dilatação, assim o procedimento corresponde a uma função da forma<br></p>
+						
+					[f(x) = ax+b   (1)]
+						
+					<p class="w3-justify w3-recuo">	
+						se considerarmos o intervalo fechado  [0, L] da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
+						esquerda está sobre o ponto x1e a ponta direita está sobre o ponto x2. Desse modol=x2-x1, conforme a figura abaixo:<br></p>
+						
+					<div class="imgensAju">
+						<figure>
+								<img src="_imagens/intervalo-elastico.png" alt="Elástico" width="588" height="78">
+								<figcaption></figcaption>
+						</figure>
+                    </div>
+					
+						
+					<p class="w3-justify w3-recuo">	
+						Assim, vemos que a extremidade esquerda x1 será esticada até o ponto f(x1)=0 e a extremidade direita x2 será esticada até o ponto f(x2) = L. substituindo
+						valores em (1), temos que:<br></p>
+					
+					<p>ax1+b=0</p>
+					<p>ax2+b=L</p>
+					
+					<p class="w3-justify w3-recuo">	
+						resolvendo o sistema temos:<br></p>
+					
+					<p>a=L/l</p>
+					<p>b = -Lx1/l</p>
+					
+					<p class="w3-justify w3-recuo">	
+						assim, a nossa função f:[0,L] →[0,L] é definida por <br></p>
+						
+					<p>f(x) = L/l(x-x1)</p>
+					
+					<p class="w3-justify w3-recuo">	
+						Gráfico:<br></p>
+						
+					<div class="imgensAju">
+						<figure>
+								<img src="_imagens/grafico-pf.png" alt="grafico-pf" width="343" height="475">
+								<figcaption>Gráfico do Ponto Fixo</figcaption>
+						</figure>
+                    </div>	
+						
+					<p class="w3-justify w3-recuo">	
+						Essa função é contínua. O método Ponto Fixo já nos garantiu que existe pelo menos um ponto fixo e agora fica claro que tal ponto fixo é o ponto:<br>
+						x = Lx1/(L-l)<br></p>	
+					
+					
+					
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
                             <p></p>
@@ -201,7 +370,7 @@
                         </a>
                     </li>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-                        <a href="#" style="text-decoration: none">
+                        <a href="codigos-python.html" style="text-decoration: none">
                             <img src="_imagens/py.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Códigos em Python</span><br>
                             <span>Códigos implementados</span>
