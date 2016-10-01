@@ -13,7 +13,7 @@ sup{top:-0.5em}sub{bottom:-0.25em}
 img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}
 hr{-moz-box-sizing:content-box;box-sizing:content-box}
 code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
-button,input,select,textarea{font:inherit;margin:0;padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
+button,input,select,textarea{font:inherit;margin:0;padding:8px;border:none;border:1px solid #808080}
 button{overflow:visible}button,select{text-transform:none}
 button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
 button[disabled],html input[disabled]{cursor:default}

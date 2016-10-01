@@ -195,6 +195,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                 <legend><h3><i class="fa fa-calculator" aria-hidden="true"></i> Calcular zero da função</h3></legend>
                                     <div class="w3-half w3-row-padding">
                                         <p id="campoNewton" style="display: none"><label for="campoXNew">Valor x inicial:</label><input class="w3-input" type="number" name="raizEsqNewton" id="campoXNew" size="10" maxlength="10" placeholder="Valor x inicial"/></p>
+                                        <p id="qntIteracoes" style="display: none"><label for="qntIteracoes">Quantidade de Iterações:</label><input class="w3-input" type="number" name="campIt" id="campoIteracoes" size="10" maxlength="10" placeholder="Quantidade de iterações"/></p>
                                         <p id="escondCampoEsq"><label for="campoRaizEsq">Valor a esquerda da raiz:</label><input class="w3-input" type="number" name="raizEsq" id="campoRaizEsq" size="10" maxlength="10" placeholder="Valor a esquerda da raiz"/></p>
                                         <p id="escondCampoDir"><label for="campoRaizDir">Valor a direita da raiz:</label><input class="w3-input" type="number" name="raizDir" id="campoRaizDir" size="10" maxlength="10" placeholder="Valor a direita da raiz"/></p>
                                         <p><label for="campoPreci">Valor da precisão de erro:</label><input class="w3-input" type="number" name="preci" id="campoPreci" size="10" maxlength="10" placeholder="Valor da precisão de erro"/></p>
@@ -205,7 +206,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                                         <p><select class="w3-select" id="mySelect" onchange="Escolha()" >
                                             <option value="Bisseccao">Bissecção
                                             <option value="Newton-Raphson">Newton-Raphson
-                                            <option value="Pontofixo">Ponto fixo
+                                            <option value="Pontofixo">Iterativo linear
                                             <option value="Secante">Secante
                                             <option value="Falsaposicao">Falsa posição
                                         </select></p>
@@ -450,7 +451,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
     <!-- END w3-content -->
 
-    <!-- Modal -->
+    <!-- Snackbar -->
     <div id="snackbar01"><h2>Atenção</h2><br><p>O intervalo indicado não possui raiz.</p></div>
     <div id="snackbar02"><h2>Atenção</h2><br><p>É preciso preencher todos os campos!</p></div>
     <div id="snackbar03"><h2>Atenção</h2><br><p>A equação deve possuir ao menos uma variável. Ex: $sen(x)$.</p></div>
