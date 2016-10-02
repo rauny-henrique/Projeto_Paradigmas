@@ -4,15 +4,21 @@
 <title>CNDiferente</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="_css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="_css/calcular-funcao.css"/>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<link rel="stylesheet" href="_css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+<link href="_css/_slickquiz/slickQuiz.css" media="screen" rel="stylesheet" type="text/css">
+<link href="_css/_slickquiz/master.css" media="screen" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="_css/resetindex.css">
+
 
 <style>
     body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+
     <!-- Início do código Latex -->
     <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
         MathJax.Hub.Config({
@@ -117,7 +123,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
             <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite), em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html">(leia mais...)</a></p>
             </li>
         </ul>
     </div>
@@ -182,126 +188,34 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
 
                 <div class="w3-container">
-                    <p>Teste seus conhecimentos com o nosso quiz:</p>
+
                     <!-- Inicio dos testes de conhecimento -->
-                    <h2 style="text-align: center">Teste de conhecimento 1</h2>
+                    <div id="slickQuiz">
+                        <h1 class="quizName"><!-- where the quiz name goes --></h1>
 
+                        <div class="quizArea">
+                            <div class="quizHeader">
+                                <!-- where the quiz main copy goes -->
 
-                    <div width=75%>
-                        <button  class="w3-btn w3-dark-grey" id = "nextQuestion" onclick="barraProgresso()">Próxima Questão</button>
-                        <p></p>
-                        <div class="w3-progress-container">
-                            <div id="myBar" class="w3-progressbar w3-green" style="width:0%">
-                                <div id="demo" class="w3-center w3-text-white">0%</div>
+                                <a class="button startQuiz" href="#">Começar!</a>
+                            </div>
+
+                            <!-- where the quiz gets built -->
+                        </div>
+
+                        <div class="quizResults">
+                            <h3 class="quizScore">Seus acertos: <span><!-- where the quiz score goes --></span></h3>
+
+                            <h3 class="quizLevel"><strong>Ranking:</strong> <span><!-- where the quiz ranking level goes --></span></h3>
+
+                            <div class="quizResultsCopy">
+                                <!-- where the quiz result copy goes -->
                             </div>
                         </div>
-                        <br>
-                        <div id = "questionDisplay"></div>
-                        <br><br>
-                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelOne">Resposta 1</label>
-                        <input class="w3-radio" type="radio" id= "1" name="answers" value="defaultVal">
-                        <br>
-                        <label style="margin-left: 5%;margin-top: 50px" id= "labelTwo">Resposta 2</label>
-                        <input class="w3-radio" type="radio" id= "2" name="answers" value="defaultVal">
-                        <br>
-                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelThree">Resposta 3</label>
-                        <input class="w3-radio" type="radio" id= "3" name="answers" value="defaultVal">
-                        <br>
-                        <label style="margin-left: 5%;margin-bottom: 50px" id= "labelFour">Resposta 4</label>
-                        <input class="w3-radio" type="radio" id= "4" name="answers" value="defaultVal">
-                        <br>
-                        <button class="w3-btn w3-dark-grey" id = "submit">Submit</button>
-                        <p></p>
-                        <div width=75% id= "result">Selecione uma resposta!</div>
                     </div>
-                    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-
-                    <script id="jsbin-javascript">
-
-
-
-                        var triviaGame = {
-                            questions: [
-                                {
-                                    question: "Sejam os vetores u = (1,2), v = (-2,5) e w = (x,y) do R2. Para que w = 3u – v, devemos ter x + y igual a:",
-                                    correctAnswer: "6",
-                                    choices: [2, "2", "6", "0", "12", "18"]}, //The first item in the array identifies the position of the correct answer in the array
-                                {
-                                    question: "Sendo as matrizes M = (mij)2x3, N = (nij)axb, P = (pij)cx4, Q = (qij)dxe, é possível determinar M+N, NxP e P-Q, se:",
-                                    correctAnswer: "a x b = 6, a + 1 = b = c= d= e – 1",
-                                    choices: [4, "b – a = c - d", "a = b = c = d= e – 1", "b = a + 1, c = d= e = 4", "a x b = 6, a + 1 = b = c= d= e – 1", "2b = 2c = 2d = a + c"]},
-                                {
-                                    question: "Suponha que você tenha determinado umas das raízes da função f(x) = 0 pelo método da bisseção e tenha encontrado o valor 1,010 mas o valor exato é 1,030. Assim, os erros absoluto e relativo valem, respectivamente:",
-                                    correctAnswer: "2.10-2 e 1,9%",
-                                    choices: [2, "0,020 e 2,0%", "2.10-2 e 1,9%", "0,030 e 3,0%", "3.10-2 e 3,0%", "0,030 e 1,9%"]}
-                            ],
-
-                            questionToDisplay:  "x" ,
-
-                            questionSelectNum: "x",
-
-                            correctSelection: "x",
-
-                            firstAnswer: "x" ,
-                            secondAnswer: "x" ,
-                            thirdAnswer: "x" ,
-                            fourthAnswer: "x" ,
-
-                            nextQuestion: function(){
-                                $("#nextQuestion").click(function(){
-
-                                    var questionSelector = Math.floor(Math.random()*3); //random number between 1 and 3
-
-                                    triviaGame.questionSelectNum = questionSelector; //puts the random number in scope of triviaGame object
-
-                                    //sets the correctSelection property value and puts in scope of triviaGame object
-                                    triviaGame.correctSelection = triviaGame.questions[questionSelector].choices[triviaGame.questions[questionSelector].choices[0]];
-
-                                    //sets the questionToDisplay property value and puts in scope of triviaGame object
-                                    triviaGame.questionToDisplay = triviaGame.questions[questionSelector].question;
-
-                                    //sets the four ...Answer property values and puts in scope of triviaGame object
-                                    triviaGame.firstAnswer = triviaGame.questions[questionSelector].choices[1];
-                                    triviaGame.secondAnswer = triviaGame.questions[questionSelector].choices[2];
-                                    triviaGame.thirdAnswer = triviaGame.questions[questionSelector].choices[3];
-                                    triviaGame.fourthAnswer = triviaGame.questions[questionSelector].choices[4];
-
-                                    //displays the question and corresponding answers in document
-                                    $("#questionDisplay").text(triviaGame.questionToDisplay);
-
-
-                                    $("#labelOne")  .text(triviaGame.firstAnswer);
-                                    $("#labelTwo")  .text(triviaGame.secondAnswer);
-                                    $("#labelThree").text(triviaGame.thirdAnswer);
-                                    $("#labelFour") .text(triviaGame.fourthAnswer);
-
-                                    //sets the values of each radio button to the same value as each radio's corresponding answer
-                                    $("#1") .val(triviaGame.firstAnswer);
-                                    $("#2") .val(triviaGame.secondAnswer);
-                                    $("#3") .val(triviaGame.thirdAnswer);
-                                    $("#4") .val(triviaGame.fourthAnswer);
-
-                                    //resets the #results text for next question
-                                    $("#result").text("Selecione uma resposta!");
-
-                                });
-                            },
-                            //!!! should evaluate the radio button values and compare to correctSelection or correctAnswer of corresponding question and either display corresponding correct or incorrect messages
-                            submit: function(){
-                                $("#submit").click(function(){
-                                    if($("input:radio[name=answers]:checked").val()==triviaGame.correctSelection) {
-                                        $("#result").text("Acertou!");
-                                    } else {$("#result").text("Errou! Tente outra alternativa");}
-                                });
-                            }
-                        };
-
-                        triviaGame.nextQuestion();
-
-                        triviaGame.submit();
-
-                    </script>
+                    <br>
                     <!-- Fim do teste de conheciemento-->
+
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
                             <a href="testes-de-conhecimento.html"><p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black" style="width: 50%"><b>MAIS TESTES »</b></button></p></a>
@@ -324,7 +238,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite), em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html">(leia mais...)</a></p>
                     </li>
                 </ul>
             </div><hr>
@@ -333,7 +247,7 @@ and is wrapped around the whole page content, except for the footer in this exam
             <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Menu</h4>
+                    <h4><b>Menu</b></h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -406,10 +320,66 @@ and is wrapped around the whole page content, except for the footer in this exam
             </div>
             <hr>
 
+
+            <!-- Slider -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4><b>Vídeos</b></h4>
+                </div>
+                    <div id="myCarousel" class="carousel slide w3-white" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+
+                            <div class="item active">
+                                <a href="video-aulas.html"><img src="_imagens/001.JPG" alt="Chania" width="460" height="345"></a>
+                                <div class="carousel-caption">
+                                    <h3>Bissecção</h3>
+                                    <p>Veja mais.</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <a href="video-aulas.html"><img src="_imagens/002.jpg" alt="Chania" width="460" height="345"></a>
+                                <div class="carousel-caption">
+                                    <h3>Newton-Raphson</h3>
+                                    <p>Veja mais.</p>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <a href="video-aulas.html"><img src="_imagens/003.jpg" alt="Flower" width="460" height="345"></a>
+                                <div class="carousel-caption">
+                                    <h3>Secante</h3>
+                                    <p>Veja mais.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+            </div>
+            <hr>
+
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Tags</h4>
+                    <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
                     <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
@@ -418,6 +388,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                     </p>
                 </div>
             </div>
+
 
             <!-- END Introduction Menu -->
         </div>
@@ -436,6 +407,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <script id="dsq-count-scr" src="//cndiferente.disqus.com/count.js" async></script>
 
+<!-- Quiz -->
+<script src="_javascript/_slickquizjs/slickQuiz-config.js"></script>
+<script src="_javascript/_slickquizjs/slickQuiz.js"></script>
+<script src="_javascript/_slickquizjs/master.js"></script>
 
 </body>
 </html>
