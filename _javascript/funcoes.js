@@ -284,6 +284,16 @@ function veficarIntervalo(aForm)
     fa = arredonda(calculaVERIF(aa));
     fb = arredonda(calculaVERIF(bb));
 
+    if(isNaN(fa) || isNaN(fa))
+    {
+        fa = "Indefinido";
+    }
+    if(isNaN(fb) || isNaN(fb))
+    {
+        fb = "Indefinido";
+    }
+
+
     div = document.getElementById("escreveVerif");
     auxescreve = "";
 
@@ -828,12 +838,37 @@ function leitura(aForm, escolha)
                 if ((arredonda(calcula(aa)) * arredonda(calcula(bb))) < 0)
                 {
                     var i = 2;
+                    flagaux = 1;
 
                     x_0 = aa;
                     x_1 = bb;
+
+                    pt0 = arredonda(calcula(x_0));
+                    pt1 = arredonda(calcula(x_1));
+                    if(pt0 === Infinity || isNaN(pt0))
+                    {
+                        pt0 = "Indefinido";
+                    }
+                    if(pt1 === Infinity || isNaN(pt1))
+                    {
+                        pt1 = "Indefinido";
+                    }
+
                     var err, x_2;
-                    var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
+                    var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " +pt0+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " +pt1+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
                     do {
+                        //verifica raizes negativas
+                        if(EQUACAO.indexOf("Math.sqrt") > -1)
+                        {
+                            auxeq = calcula(x_0);
+                            auxeq2 = calcula(x_1);
+                            if(isNaN(auxeq) || isNaN(auxeq2))
+                            {
+                                flagaux = 0;
+                                break;
+                            }
+                        }
+
                         var x_2 = arredonda(x_0 - (calcula(x_0)*(x_1 - x_0))/(calcula(x_1) - calcula(x_0)));
 
                         var e = Math.abs(x_2 - x_1);
@@ -874,15 +909,23 @@ function leitura(aForm, escolha)
                         //I imagine that this is your safety so I would implement it like this
                         if (i > 100) break;
                     } while (e > erro);
-
-                    veriff = (i == 100 ? "O resultado é divergente." : x_2);
-                    aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
+                    veriff = (i == 100 || flagaux == 0 ? "<font color='red'>O resultado é divergente.</font>" : "$"+x_2+"$");
+                    aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: " + veriff + "</h3></div></div>";
                     document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                     document.getElementById('conteiner-passos').style.display = 'block';
-                    document.getElementById('conteiner-grafico').style.display = 'block';
 
-                    escreveTextGraf(cop, x_2);
+                    if(flagaux == 0)
+                    {
+                        document.getElementById('conteiner-grafico').style.display = 'none';
+                    }
+
+                    if(flagaux == 1)
+                    {
+                        document.getElementById('conteiner-grafico').style.display = 'block';
+                        escreveTextGraf(cop, x_2);
+                    }
+
 
                     flagInter = 1;
 
