@@ -41,7 +41,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\bsen\b)\((\w+)\)/g, sinfunc+"($2)");
+                return tab[d].replace(/(\bsen\b)(\([^\(\)]*\))/g, sinfunc+"$2");
             });
             // oq sai aqui, já sai prontoo
         }
@@ -58,7 +58,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\bcos\b)\((\w+)\)/g, cosfunc+"($2)");
+                return tab[d].replace(/(\bcos\b)(\([^\(\)]*\))/g, cosfunc+"$2");
             });
         }
     }
@@ -74,7 +74,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\btan\b)\((\w+)\)/g, tanfunc+"($2)");
+                return tab[d].replace(/(\btan\b)(\([^\(\)]*\))/g, tanfunc+"$2");
             });
         }
     }
@@ -90,7 +90,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\blog\b)\((\w+)\)/g, logfunc+"($2)");
+                return tab[d].replace(/(\blog\b)(\([^\(\)]*\))/g, logfunc+"$2");
             });
         }
     }
@@ -106,7 +106,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\bexp\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\bexp\b)(\([^\(\)]*\))/g, expfunc+"$2"); // vai ser parecida com a pow
             });
         }
     }
@@ -122,7 +122,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\basen\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\basen\b)(\([^\(\)]*\))/g, expfunc+"$2"); // vai ser parecida com a pow
             });
         }
     }
@@ -138,7 +138,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\bacos\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\bacos\b)(\([^\(\)]*\))/g, expfunc+"$2"); // vai ser parecida com a pow
             });
         }
     }
@@ -154,7 +154,7 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\batan\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\batan\b)(\([^\(\)]*\))/g, expfunc+"$2"); // vai ser parecida com a pow
             });
         }
     }
@@ -170,11 +170,10 @@ function ajeitaEquacao(_s)
         while (_s.indexOf(joker) > -1)
         {
             _s = _s.replace(new RegExp(joker + "(\\d+)", "g"), function(m, d) {
-                return tab[d].replace(/(\braiz\b)\((\w+)\)/g, expfunc+"($2)"); // vai ser parecida com a pow
+                return tab[d].replace(/(\braiz\b)(\([^\(\)]*\))/g, expfunc+"$2"); // vai ser parecida com a pow
             });
         }
     }
-
 
     return _s;
 }
@@ -330,6 +329,7 @@ function leitura(aForm, escolha)
     //veriforma = myRe.lastIndex;
 
     EQUACAO = ajeitaEquacao(EQUACAO);
+    //alert(EQUACAO);
 
     // Recuperando div
     meuDiv = document.getElementById("escreveCalcFuncao");
@@ -339,6 +339,9 @@ function leitura(aForm, escolha)
 
     //Ponto Fixo
     niteracoes = document.getElementById("campoIteracoes").value;
+
+    //Flag para verificar se o intervalo é valido
+    flagInter = 0;
 
 
     // Bissecção
@@ -422,9 +425,14 @@ function leitura(aForm, escolha)
 
                     }
 
+                    flagInter = 1;
+
                 }
                 else
                 {
+                    document.getElementById('conteiner-passos').style.display = 'none';
+                    document.getElementById('conteiner-grafico').style.display = 'none';
+
                     showSnackbar("snackbar01");
                 }
             }
@@ -446,14 +454,45 @@ function leitura(aForm, escolha)
         {
             if(EQUACAO.indexOf("x") > -1)
             {
+                //copia da equação "bruta"... ex: x^2-4 (sem Math).. só para mostrar ao usuário
+                var cop2 = cop;
+
+                // Foi preciso tirar o "Math.sqrt", que estava vindo da conversão de raiz(x+2) => Math.sqrt(x+2), pois a derivada(neramer) não aceita Math... só aceita ex: (x+2)^(1/2) ou sqrt(x+2).. usei a ultima
+                // tudo isso para ficar mais facil a vida do usuário :)
+                if(cop.indexOf("raiz") > -1)
+                {
+                    while (cop.indexOf("raiz") > -1)
+                    {
+                        cop = cop.replace(/(\braiz\b)(\([^\(\)]*\))/g, "sqrt"+"$2");
+                    }
+                }
+
+
                 var i = 0;
                 flag = 0;
+                flagaux = 1;
 
                 var err, x_1, x = parseFloat(xinicial);
-                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$</h3><h3>$x_{0} = " + x + "$</h3><h3>$f'(" + x + ") = " + arredonda(derivada(x))
+
+                dervv = arredonda(derivada(x));
+                if(dervv === Infinity || isNaN(dervv))
+                {
+                    dervv = "Indefinido";
+                }
+
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop2 + "$</h3><h3>$x_{0} = " + x + "$</h3><h3>$f'(" + x + ") = " + dervv
                     + "$</h3><h3>$E = " + erro + "$<br></h3></div></div>";
                 do {
-                    //x_1 = x;
+                    //verifica raizes negativas
+                    if(EQUACAO.indexOf("Math.sqrt") > -1)
+                    {
+                        auxeq = calcula(x);
+                        if(isNaN(auxeq))
+                        {
+                            flagaux = 0;
+                            break;
+                        }
+                    }
 
                     // Verifica se a derivada é 0
                     if(derivada(x) == 0)
@@ -470,6 +509,10 @@ function leitura(aForm, escolha)
                     var y = x;
                     var e = Math.abs(x - x_1);
                     err = arredonda(Math.abs((x - x_1) / x));
+                    if(err === Infinity || isNaN(err))
+                    {
+                        err = "Indefinido";
+                    }
                     x = x_1;
                     if (i == 0)
                     {
@@ -490,14 +533,26 @@ function leitura(aForm, escolha)
                     //I imagine that this is your safety so I would implement it like this
                     if (i > 100) break;
                 } while (e > erro);
-                veriff = (i == 100 ? "O resultado é divergente." : x);
-                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
+                veriff = (i == 100 || flagaux == 0 ? "<font color='red'>O resultado é divergente.</font>" : "$"+x+"$");
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: " + veriff + "</h3></div></div>";
                 document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                 document.getElementById('conteiner-passos').style.display = 'block';
-                document.getElementById('conteiner-grafico').style.display = 'block';
 
-                escreveTextGraf(cop, x_1);
+                if(flagaux == 0)
+                {
+                    document.getElementById('conteiner-grafico').style.display = 'none';
+
+                }
+
+                if(flagaux == 1)
+                {
+                    document.getElementById('conteiner-grafico').style.display = 'block';
+                    escreveTextGraf(cop2, x_1);
+                }
+
+                flagInter = 1;
+
             }
             else
             {
@@ -517,13 +572,40 @@ function leitura(aForm, escolha)
         {
             if(EQUACAO.indexOf("x") > -1)
             {
+                //copia da equação "bruta"... ex: x^2-4 (sem Math)
+                var cop2 = cop;
+
+                // Foi preciso tirar o "Math.sqrt", que estava vindo da conversão de raiz(x+2) => Math.sqrt(x+2), pois a derivada(neramer) não aceita Math... só aceita ex: (x+2)^(1/2) ou sqrt(x+2).. usei a ultima
+                // tudo isso para ficar mais facil a vida do usuário :)
+                if(cop.indexOf("raiz") > -1)
+                {
+                    while (cop.indexOf("raiz") > -1)
+                    {
+                        cop = cop.replace(/(\braiz\b)(\([^\(\)]*\))/g, "sqrt"+"$2");
+                    }
+                }
+
+
                 var i = 0;
                 flag = 0;
+                flagaux = 1;
+
 
                 var err, x_1, x = parseFloat(xinicial);
-                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$</h3><h3>$x_{0} = " + x + "$</h3><h3>$f'(" + x + ") = " + arredonda(derivada(x))
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop2 + "$</h3><h3>$x_{0} = " + x + "$</h3><h3>$f'(" + x + ") = " + arredonda(derivada(x))
                     + "$</h3><h3>$E = " + erro + "$<br></h3></div></div>";
                 do {
+                    //verifica raizes negativas
+                    if(EQUACAO.indexOf("Math.sqrt") > -1)
+                    {
+                        auxeq = calcula(x);
+                        if(isNaN(auxeq))
+                        {
+                            flagaux = 0;
+                            break;
+                        }
+                    }
+
                     if(i == 0 && derivada(x) < 1)
                     {
                         flag = 1;
@@ -567,7 +649,7 @@ function leitura(aForm, escolha)
                     err = arredonda(Math.abs((x - x_1) / x));
                     if(err === Infinity || isNaN(err))
                     {
-                        err = 0;
+                        err = "Indefinido";
                     }
 
                     x = x_1;
@@ -589,23 +671,26 @@ function leitura(aForm, escolha)
 
                     if (i > niteracoes) break;
                 } while (e > erro);
-                veriff = (i == niteracoes || flag == 0 ? "<font color='red'>O resultado é divergente.</font>" : "$"+x+"$");
+                veriff = (i == niteracoes || flag == 0 || flagaux == 0 ? "<font color='red'>O resultado é divergente.</font>" : "$"+x_1+"$");
                 aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: " + veriff + "</h3></div></div>";
                 document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                 document.getElementById('conteiner-passos').style.display = 'block';
 
-                if(flag == 0)
+                if(flag == 0 || flagaux == 0)
                 {
                     document.getElementById('conteiner-grafico').style.display = 'none';
 
                 }
 
-                if(flag == 1)
+                if(flag == 1 || flagaux == 1)
                 {
                     document.getElementById('conteiner-grafico').style.display = 'block';
-                    escreveTextGraf(cop, x_1);
+                    escreveTextGraf(cop2, x_1);
                 }
+
+                flagInter = 1;
+
             }
             else
             {
@@ -630,12 +715,38 @@ function leitura(aForm, escolha)
             if(EQUACAO.indexOf("x") > -1)
             {
                 var i = 2;
+                flagaux = 1;
 
                 x_0 = aa;
                 x_1 = bb;
+
+                pt0 = arredonda(calcula(x_0));
+                pt1 = arredonda(calcula(x_1));
+                if(pt0 === Infinity || isNaN(pt0))
+                {
+                    pt0 = "Indefinido";
+                }
+                if(pt1 === Infinity || isNaN(pt1))
+                {
+                    pt1 = "Indefinido";
+                }
+
+
                 var err, x_2;
-                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " + arredonda(calcula(x_0))+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " + arredonda(calcula(x_1))+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
+                var resultado = "<div class='panel panel-primary'><div class='panel-heading'><h3>Dados iniciais:</h3></div> <div class='panel-body'><h3>$f(x) = " + cop + "$<br></h3><h3>$x_{0} = " + x_0 + "$<br></h3><h3>$f(" + x_0 + ") = " +pt0+ "$<br></h3><h3>$x_{1} = "+x_1+"$<br></h3><h3>$f(" + x_1 + ") = " +pt1+ "$<br></h3><h3>$E = " + erro + "$<br></h3></div></div>";
                 do {
+                    //verifica raizes negativas
+                    if(EQUACAO.indexOf("Math.sqrt") > -1)
+                    {
+                        auxeq = calcula(x_0);
+                        auxeq2 = calcula(x_1);
+                        if(isNaN(auxeq) || isNaN(auxeq2))
+                        {
+                            flagaux = 0;
+                            break;
+                        }
+                    }
+
                     var x_2 = arredonda(x_0 - (calcula(x_0)*(x_1 - x_0))/(calcula(x_1) - calcula(x_0)));
 
                     var e = Math.abs(x_2 - x_1);
@@ -648,7 +759,7 @@ function leitura(aForm, escolha)
                     err = arredonda(Math.abs((x_1 - x_0) / x_1));
                     if(err === Infinity || isNaN(err))
                     {
-                        err = 0;
+                        err = "Indefinido";
                     }
 
                     eqq = arredonda(calcula(antx0));
@@ -676,15 +787,25 @@ function leitura(aForm, escolha)
                     //I imagine that this is your safety so I would implement it like this
                     if (i > 100) break;
                 } while (e > erro);
-
-                veriff = (i == 100 ? "O resultado é divergente." : x_2);
-                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: $" + veriff + "$</h3></div></div>";
+                veriff = (i == 100 || flagaux == 0 ? "<font color='red'>O resultado é divergente.</font>" : "$"+x_2+"$");
+                aux = "<div class='panel panel-primary'><div class='panel-heading'><h3>Portanto:</h3></div><div class='panel-body'><h3>Raiz: " + veriff + "</h3></div></div>";
                 document.getElementById('escreveCalcFuncao').innerHTML = resultado + aux;
 
                 document.getElementById('conteiner-passos').style.display = 'block';
-                document.getElementById('conteiner-grafico').style.display = 'block';
 
-                escreveTextGraf(cop, x_2);
+                if(flagaux == 0)
+                {
+                    document.getElementById('conteiner-grafico').style.display = 'none';
+                }
+
+                if(flagaux == 1)
+                {
+                    document.getElementById('conteiner-grafico').style.display = 'block';
+                    escreveTextGraf(cop, x_2);
+                }
+
+                flagInter = 1;
+
             }
             else
             {
@@ -725,7 +846,7 @@ function leitura(aForm, escolha)
                         err = arredonda(Math.abs((x_1 - x_0) / x_1));
                         if(err === Infinity || isNaN(err))
                         {
-                            err = 0;
+                            err = "Indefinido";
                         }
 
                         eqq = arredonda(calcula(antx0));
@@ -762,9 +883,15 @@ function leitura(aForm, escolha)
                     document.getElementById('conteiner-grafico').style.display = 'block';
 
                     escreveTextGraf(cop, x_2);
+
+                    flagInter = 1;
+
                 }
                 else
                 {
+                    document.getElementById('conteiner-passos').style.display = 'none';
+                    document.getElementById('conteiner-grafico').style.display = 'none';
+
                     showSnackbar("snackbar01");
                 }
             }
@@ -774,9 +901,13 @@ function leitura(aForm, escolha)
             }
         }
     }
-    
-    $('html, body').animate({ scrollTop: $('#ancoraPassos').offset().top}, 1000);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, "escreveCalcFuncao"]);
+
+    if(flagInter == 1)
+    {
+        $('html, body').animate({ scrollTop: $('#ancoraPassos').offset().top}, 1000);
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, "escreveCalcFuncao"]);
+        flagInter = 0;
+    }
 }
 
 
@@ -988,7 +1119,6 @@ function refreshMathJax(code, aux, divesc)
 
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, divesc]);
 }
-
 
 
 function showSnackbar(id) {
