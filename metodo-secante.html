@@ -120,7 +120,9 @@
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
             <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                    em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo
+                    auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
             </li>
         </ul>
     </div>
@@ -141,16 +143,140 @@
                 <div class="w3-container">
                     <br><h4><!--Teorema: --></h4>
                     <p class="w3-justify w3-recuo">
-                        xxxxxxxxxxx.</p>
-                    <p class="w3-justify w3-recuo">xxxxxxxxxxx<br></p>
+                        Método baseado em aproximação linear, que vem pra diminuir as desvantagens que o método de Newton tem de calcular o $f’(x)$.</p>
+                    <p class="w3-justify w3-recuo">Para eliminar essa desvantagem, substituímos a derivada $f’(x)$ pela subtração entre $x_k$ e $x_{k-1}$<br></p>
+                    <h3 class="w3-center">$x_{k+1}=x_k - \frac{f(x_k)}{f'(x_k)}$</h3>
 
-                    <h3 class="w3-center">xxxxxxxxx</h3>
+                    <p class="w3-justify w3-recuo"> $f'(x_k) ≃ \frac{f(x_{k}) - f(x_{k-1})}{x_{k} - x_{k-1} }$</p>
+                     
+                     
+                   <p class="w3-justify w3-recuo"> Onde $x_k$ e  $x_(k-1)$ são duas aproximações para a raiz. Nesse caso a função de iteração fica:</p>
+                       
+<h3 class="w3-justify w3-recuo">$x_{k+1}=x_{k} - \frac{ 
+                                                        \frac{
+                                                        f(x_{k})
+                                                            }{
+                                                             f(x_{k}) - f(x_{k-1})
+                                                             }
+                                                            }
+                                                       {
+                                                                x_{k}- x_{k-1} 
+                                                            }$</h3>
+ 
+
+                    
+                    
+                    <p class="w3-justify w3-recuo"> Colocando sobre o mesmo denominador, temos a equação mais simples:</p>
+                    
+                    $x_{k+1} = \frac{ (x_{k-1} x f(x_{k}) - x_{k} x f(x_{k-1})}{x_{k} - x_{k-1} }$
+                    
+                    <h3 class="w3-center">Interpretação geométrica</h3>
+<p class="w3-justify w3-recuo">A partir de duas aproximações  e, o ponto  é obtido como a abcissa do ponto de interseção do eixo ox e da reta secante que passa por (, ) e (,), como mostra a figura abaixo:</p>
 
 
+<h3 class="w3-center">Exemplos:</h3>
+<p class="w3-justify w3-recuo">
+    Exemplo 1: Utilizando o método da Secante determine uma aproximação para a raiz da função F, com e < 0.01 </p>
+<p class="w3-center">$F(x)= ....$
+    
+<p class="w3-justify w3-recuo">Resolução:</p>
+<p class="w3-justify w3-recuo"> Para facilitar o processo podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em F temos:</p>
+<div class="w3-responsive">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
+    <tr>
+        <th width ="25%" class="w3-center" >$x$</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th><th width ="25%" class="w3-center">2</th>
+    </tr>
+    <tr>
+        <th width ="25%" class="w3-center">$F(x)$ </th><th width ="25%" class="w3-center">-5 </th><th width ="25%" class="w3-center">-0.839 </th><th width ="25%" class="w3-center">0.738 </th>
+    </tr>
+    <tr><th width="25%" class="w3-center"></th> <th width="25%" class="w3-center"></th><th width="50%" class="w3-center">
+        [+ -] ←  Possui raiz</th>
+        </tr>
+</table>
+</div>
 
 
+<p class="w3-justify w3-recuo">
+Agora já sabemos que entre [ 1 , 2 ] possui pelo menos uma raiz, basta aplicarmos os valores na fórmula da secante. Assim temos:</p> 
+<p class="w3-justify w3-recuo">$  X_0 = 1 →  F(X_0)=-0.839 $</p>
+<p class="w3-justify w3-recuo"> $ X_1 = 2 →  F(X_1)=0.738 $</p>
+
+<p class="w3-justify w3-recuo"> Utilizando os dados acima e aplicando na fórmula temos:</p>
+
+<p class="w3-justify w3-recuo"> Exemplo 2: O volume v de um líquido em um tanque esférico de raio r está relacionado com a profundidade h do líquido da seguinte forma:</p>
+
+<p class="w3-justify w3-recuo"> Calcule, utilizando o método da secante, a profundidade h em um tanque de raio r = 1 para um volume de 0.5. Utilize para aproximação inicial o intervalo [0.25, 0.5] e considere E < 10-².</p>
+
+ <p class="w3-justify w3-recuo"> Resolução:
+        	O primeiro passo que devemos fazer é aplicar os valores dados no problema e isolarmos o h. Fazendo isso temos:</p>
+
+<p class="w3-justify w3-recuo">Agora que encontramos nossa $F(h)$, podemos aplicar na fórmula da secante utilizando o intervalo dado no problema. Assim temos:</p>
+<p class="w3-justify w3-recuo">$H_0 = 0.25  → F(H_0) = -0.96$</p>
+<p class="w3-justify w3-recuo">$H_1 = 0.5    →   F(H_0) = 0.46$</p>
 
 
+<h3 class="w3-center"> Método da Falsa Posição (Regula Falsi)</h3> 
+
+<p class="w3-justify w3-recuo">	O método Regula Falsi (ou falsa posição) é uma extensão aprimorada do método da secante, no sentido de realizar menos iterações para se descobrir a raiz. Consiste no seguinte:</p> 
+<p class="w3-justify w3-recuo">1.	Determina-se os valores $[a,b]$ tal que $f(a) x f(b) < 0$, para que esse intervalo contenha a raiz;</p>
+<p class="w3-justify w3-recuo">2.	Aplica-se então a mesma fórmula do método da secante, que é</p>
+<p class="w3-justify w3-recuo">3.	Eis então o ponto que diferencia o método Regula Falsi do método da secante: toda iteração</p> 
+
+<p class="w3-justify w3-recuo">Ou seja,</p>
+	<p class="w3-justify w3-recuo">Consideremos um intervalo $[x_1,x_2]$ , onde  $f(x_1) > 0 $  e $f(x_2) < 0$ </p>
+	<p class="w3-justify w3-recuo">Se o elemento $x_3$ descoberto resultar em  $f(x_3) > 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_2$</p>
+	<p class="w3-justify w3-recuo">Se o elemento $x_3$ descoberto resultar em  $f(x_3) < 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_1$</p>
+        
+        
+       <p class="w3-justify w3-recuo"> Essa regra se aplica aos próximos elementos descobertos na fórmula $x_(k+1)$. Com isso, o número de iterações é significativamente reduzido, caso comparado ao método da secante.</p> 
+
+<p class="w3-justify w3-recuo">Vale salientar que o cálculo do erro é o mesmo utilizado no método da secante, e serve para que, de acordo com a aproximação do erro, seja determinado a raiz do problema.</p>
+
+Resolução dos exemplos 1 e 2 utilizando o método da Falsa Posição (Regula Falsi)
+
+
+<p class="w3-justify w3-recuo">Exemplo 1: Utilizando o método da Falsa Posição (ou Regula Falsi) determine uma aproximação para a raiz da função $F$, com $e < 0.01$.
+    
+    <p class="w3-justify w3-recuo">Do exemplo resolvido pelo método da Secante, sabemos que entre $[ 1 , 2 ]$ há pelo menos uma raiz. Assim temos: 
+
+<p class="w3-justify w3-recuo">$X0 = 1 →  F(X0)=-0.839$
+<p class="w3-justify w3-recuo">$X1 = 2 →  F(X1)=0.738$
+
+<p class="w3-justify w3-recuo">Primeira iteração
+
+<p class="w3-justify w3-recuo">A primeira iteração será idêntica ao método da secante visto anteriormente, teremos:
+
+
+<p class="w3-justify w3-recuo">Segunda iteração
+
+<p class="w3-justify w3-recuo"> Como $F(x_0)*F(x_2) < 0 $, serão utilizados o $x_0$ e o $x_2$ para que seja determinado o $x_3$:</p>
+<p class="w3-justify w3-recuo">$x_0 = 1    →     F(x_0) = -0.839$
+<p class="w3-justify w3-recuo">$x_2 = 1.532 → F(x_2)= 0.157$
+
+<p class="w3-justify w3-recuo">Teremos,
+
+<p class="w3-justify w3-recuo">$x_3=\frac{x_0*F(x_2) - x_2*F(x_0)}{F(x_2) -F(x_0)} =$   
+<p class="w3-justify w3-recuo">$x_3  =\frac{1*0.157 - 1.532*(-0.839)}{0.157- (-0.839)}$
+<p class="w3-justify w3-recuo">$x_3=1.448 ⇒F(x_3)= 0.028$
+
+<p class="w3-justify w3-recuo">Cálculo do Erro:
+
+<p class="w3-justify w3-recuo">$е = |\frac{x_3  - x_2}{x_3} |= |\frac{1.448 - 1.532}{1.448}|  = 0.058$ . Maior do que 0.01, então vamos para a terceira iteração.
+
+<p class="w3-justify w3-recuo">Terceira iteração
+
+<p class="w3-justify w3-recuo">Utilizando a comparação explicada na iteração anterior, serão utilizados os seguintes parâmetros para a determinação do $x_4$:
+
+<p class="w3-justify w3-recuo">$x_0 = 1          F(x_0) = -0.839$
+<p class="w3-justify w3-recuo">$x_3 = 1.448   F(x_3)= 0.028$
+
+<p class="w3-justify w3-recuo">$x_4=\frac {x_{0}*F(x_{3}) - x_{3}*F(x_{0})}{F(x_{3}) -F(x_{0})} =$   
+<p class="w3-justify w3-recuo">$x_4  =\frac { 1*0.028 - 1.448 * (-0.839)}{0.028- (-0.839)}$
+<p class="w3-justify w3-recuo">$x_4= 1.434⇒F(x_4) = 0.0057$
+
+<p class="w3-justify w3-recuo">Cálculo do Erro:
+
+<p class="w3-justify w3-recuo">$е = |\frac{x_4  - x_3}{x_4} |= |\frac{1.434 - 1.448}{1.434}|  =0.009$ .  Erro menor do que $0.01$, então paramos por aqui e obtemos o resultado satisfatório para a raiz que é 1.434.
 
 
 
@@ -177,7 +303,9 @@
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Esté site é um projeto da disciplina de paradigmas educacionais, da turma do curso de Ciências da Computação - UEPB. Voltado para aprendizagem de cáculo númerico.</p>
+                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                            em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo
+                            auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
                     </li>
                 </ul>
             </div><hr>
