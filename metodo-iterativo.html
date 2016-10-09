@@ -141,56 +141,58 @@
                 <div class="w3-container">
 					 <br><h4>Método do Ponto Fixo (Iterativo Linear)</h4>
 					 <p class="w3-justify w3-recuo">
-                        Seja f(x) uma função contínua no intervalo [a,b], intervalo que contém uma raiz da equação f(x) = 0. O método do Ponto 
-						Fixo consiste em fazer com que esta equação f(x) = 0 se torne uma equação equivalente da forma x =  (x).</p>
+                        Seja $f(x)$ uma função contínua no intervalo $[a,b]$, intervalo que contém uma raiz da equação $f(x) = 0$. O método do Ponto 
+						Fixo consiste em fazer com que esta equação $f(x) = 0$ se torne uma equação equivalente da forma $x = \varphi (x)$.</p>
 					<p class="w3-justify w3-recuo">
-						Após determinar uma função x que satisfaça o teorema, deve-se determinar um elemento x0, ou seja, uma aproximação inicial.
-						Com isso, gera-se uma sequência  xk de aproximações que convirjam para uma raiz x, tal que:<br></p>
+						Após determinar uma função $\varphi_x$ que satisfaça o teorema, deve-se determinar um elemento $x_0$, ou seja, uma aproximação inicial.
+						Com isso, gera-se uma sequência  $x_k$ de aproximações que convirjam para uma raiz $\bar{x}$, tal que:<br></p>
 						
 					<ul>
-						<li>x1=  (x0)</li>
-						<li>x2=  (x1)</li>
-						<li>x3=  (x2)</li>
-						<li>xn=  (xn-1)</li>		
+						<li>$x_1= \varphi (x_0)$</li>
+						<li>$x_2= \varphi (x_1)$</li>
+						<li>$x_3= \varphi (x_2)$</li>
+						<li>$x_n= \varphi (x_{n-1})$</li>		
 					</ul>
 					
 					<p class="w3-justify w3-recuo">
 						Para que a convergência da iteração linear seja assegurada, deve obedecer ao teorema, que afirma que:<br></p>
 						
 					<ul>
-						<li>Seja  (x)uma função contínua, onde ' (x) e  ''(x) sejam contínuas num intervalo I = [ x-h,  x+h], com  x sendo o centro e soluç]ao de x =   (x).</li>
-						<li>Seja x0pertencente ao intervalo I, e M uma limitante, tal que |' (x)|  M < 1 em I. Assim,</li>		
+						<li>Seja  $\varphi(x)$ uma função contínua, onde $\varphi'(x)$ e  $\varphi''(x)$ sejam contínuas num intervalo
+						$I = [ \bar{x}-h,  \bar{x}+h]$, com  $\bar{x}$ sendo o centro e solução de $x =  \varphi (x)$.</li>
+						<li>Seja x0 pertencente ao intervalo $I$, e $M$ uma limitante, tal que $|\varphi' (x)| \leq M < 1$ em $I$. Assim,</li>		
 					</ul>
 					
 					<ol>
-						<li>A iteração  xk+1=  (xk) , com k Epode ser executada de maneira indefinida;</li>
-						<li>|xk-x'| → 0</li>
-						<li>Se ' (x) 0ou Se ' (x) = 0 e Se '' (x) 0e  |xk-x'| for bem pequeno, logo a sequência xn será oscilante.</li>	
+						<li>A iteração  $x_{k+1}= \varphi(x_k)$ , com $k$ e pode ser executada de maneira indefinida;</li>
+						<li>$|x_k-x'| → 0$</li>
+						<li>Se $\varphi'(x) \neq 0$ ou Se $\varphi'(x) = 0$ e Se $\varphi''(x) 0$ e  $|x_k-x'|$ for bem pequeno, logo a sequência $x_n$ será oscilante.</li>	
 					</ol>
 					
 					<p class="w3-justify w3-recuo">
-						O processo iterativo terá a convergência mais rápida quanto menor for o valor de ' (x) . Entretanto, se a declividade ' (x)
-						for maior que 1 em valor absoluto, para todo x que pertença ao intervalo I divergirá. O método iterativo linear é mais conceitual
-						do que eficiente em relação ao uso computacional. Além do mais, é necessário realizar o teste de convergência, onde |  ' (x)| < 1.<br></p>
+						O processo iterativo terá a convergência mais rápida quanto menor for o valor de \varphi'(x) . Entretanto, se a declividade $\varphi'(x)$
+						for maior que 1 em valor absoluto, para todo $x$ que pertença ao intervalo $I$ divergirá. O método iterativo linear é mais conceitual
+						do que eficiente em relação ao uso computacional. Além do mais, é necessário realizar o teste de convergência, onde $|\varphi'(x)| < 1$.<br></p>
 					
 					<p class="w3-justify w3-recuo">
-						Para uma determinada f(x) = 0, podem existir várias funções (x), para a  equação x2-x-6=0, por exemplo, temos:<br></p>
+						Para uma determinada $f(x) = 0$, podem existir várias funções $\varphi(x)$, para a  equação $x2-x-6=0$, por exemplo, temos:<br></p>
 						
-					<p>a) 1(x) = 6-x2</p>
-					<p>b) 2(x) = 6-x</p>
-					<p>c) 3(x) =6x- 1</p>
-					<p>d) 4(x) =6x + 1</p>
+					<p>a) $\varphi_1(x) = 6-x^2$</p>
+					<p>b) $\varphi_2(x) = \mp\sqrt{6-x}$</p>
+					<p>c) $\varphi_3(x) =\frac{6}{x}-1$</p>
+					<p>d) $\varphi_4(x) =\frac{6}{x+1}$</p>
 					
 					<p class="w3-justify w3-recuo">
 						O erro relativo do método é dado por :<br></p>
 						
-						[Er =(xk - xk-1)/xk]
+						<p align="center">$E_r =\left|\frac{(x_k - x_{k-1})}{x_k}\right|$<br></p>
+						
 						
 					<p class="w3-justify w3-recuo">
 						E o critério de parada é dado de modo que este Erro relativo seja menor que algum valor pré-determinado.<br></p>
 						
 					<p class="w3-justify w3-recuo">
-						Graficamente, uma raiz da equação x=  (x) é a abcissa do ponto de intersecção da reta y = x e da curva  y=  (x), como mostrado nas .<br></p>
+						Graficamente, uma raiz da equação $x=\varphi(x)$ é a abcissa do ponto de intersecção da reta $y = x$ e da curva  $y=\varphi(x)$, como mostrado nas .<br></p>
 						
 					<div class="imgensAju">
                         
@@ -209,40 +211,97 @@
                     </div>
 					
 					<p class="w3-justify w3-recuo">
-						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função <b>F</b>, com e < 0.01.<br></p>
+						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função $F$, com $e < 0.01$.<br></p>
 					
-					<p>[F(x) = x³ - 9x + 3]<br></p>
+					<p align="center">$F(x) = x³ - 9x + 3$<br></p>
 					
+					<div class="w3-responsive">
+						<table class="w3-table w3-striped w3-bordered w3-border">
+							<tr>
+								<th width ="25%" class="w3-center" >$X$</th><th width ="25%" class="w3-center">-1</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th>
+							</tr>
+							<tr>
+								<th width ="25%" class="w3-center">$F(x)$ </th><th width ="25%" class="w3-center">11 </th><th width ="25%" class="w3-center">3</th><th width ="25%" class="w3-center">-5 </th>
+							</tr>
+							<tr><th width="25%" class="w3-center"></th> <th width="25%" class="w3-center"></th><th width="50%" class="w3-center">
+								[+ -] ←  Possui raiz</th>
+								</tr>
+						</table>
+					</div>
 					
-					
-					<table border="1">
-						<tr>
-							<td>X</td>
-							<td>-1</td>
-							<td>0</td>
-							<td>1</td>
-						</tr>
-						<tr>
-							<td>F(X)</td>
-							<td>11</td>
-							<td>3</td>
-							<td>-5</td>
-						</tr>
-					</table>
 					
 					<p class="w3-justify w3-recuo">
-						Agora já sabemos que entre [ 0 , 1] possui pelo menos uma raiz, próximo passo é encontramos uma φ(x) que | φ’(x)| < 1 para todo x pertencente
-						ao intervalo [ 0 , 1] . Assim temos: <br></p>
+						Agora já sabemos que entre $[ 0 , 1]$ possui pelo menos uma raiz, próximo passo é encontramos uma $φ(x)$ que $| φ’(x)| < 1$ para todo $x$ pertencente
+						ao intervalo $[ 0 , 1]$ . Assim temos: <br></p>
 						
-						[Fómulas]
+						$φ(x)=\frac{x^3+3}{9}$     $φ(x)=\frac{3x^2}{9}$
+						$φ'(0) = 0 < 1$
+						$φ'(1) = 0.3333... < 1$
+						
 						
 					<p class="w3-justify w3-recuo">
-						Portanto podemos utilizar  φ(x) para encontramos x =  φ(x).  Utilizando 0 com X0 temos: <br></p>
+						Portanto podemos utilizar  $φ(x)$ para encontramos $x =  φ(x)$.  Utilizando $0$ com $X_0$ temos: <br></p>
 					
-						[Fómulas]
+						 <table border=0 width=60% style="border-collapse: collapse">
+                        <tr>
+
+                            <td  width=24% align="left">$x1=\frac{0^3+3}{9} $</td>
+                            <td width=24% align="left">$e=\frac{0.3333-0}{0.3333}$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x1= 0.3333...$</td>
+                            <td width=24% align="left">$e=1$</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">&nbsp;</td>
+                            <td width=24% align="left">&nbsp;</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x1=\frac{(0.3333)^3+3}{9} $</td>
+                            <td width=24% align="left">$e=\frac{0.3374-0.3333}{0.3374}$</td>
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x2=0.3374$</td>
+                            <td width=24% align="left">$e=0.012$</td>
+
+
+                        </tr>
+						<tr>
+
+                            <td  width=24% align="left">&nbsp;</td>
+                            <td width=24% align="left">&nbsp;</td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x1=\frac{(0.3374)^3+3}{9} $</td>
+                            <td width=24% align="left">$e=\frac{0.3376-0.3333}{0.3376}$</td>
+
+                        </tr>
+                        <tr>
+
+                            <td  width=24% align="left">$x2=0.3376$</td>
+                            <td width=24% align="left">$e=0.0006$</td>
+
+
+                        </tr>
+
+                    </table>
 					
 					<p class="w3-justify w3-recuo">
-						Portanto X3 = 0.3376 é raiz de F. <br></p>
+						Portanto $x3 = 0.3376$ é raiz de $F$. <br></p>
 						
 					<p class="w3-justify w3-recuo">	
 						Uma aplicação do ponto fixo em algo cotidiano<br></p>
@@ -260,14 +319,14 @@
 					
 					<p class="w3-justify w3-recuo">	
 						Vamos explicar:<br>
-						Considere l o comprimento do elástico antes de ser esticado e L o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma 
+						Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma 
 						translação e uma dilatação, assim o procedimento corresponde a uma função da forma<br></p>
 						
-					[f(x) = ax+b   (1)]
+					$f(x) = ax+b   (1)$
 						
 					<p class="w3-justify w3-recuo">	
-						se considerarmos o intervalo fechado  [0, L] da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
-						esquerda está sobre o ponto x1e a ponta direita está sobre o ponto x2. Desse modol=x2-x1, conforme a figura abaixo:<br></p>
+						se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
+						esquerda está sobre o ponto $x1$ e a ponta direita está sobre o ponto $x2$. Desse modo $l=x2-x1$, conforme a figura abaixo:<br></p>
 						
 					<div class="imgensAju">
 						<figure>
@@ -278,22 +337,22 @@
 					
 						
 					<p class="w3-justify w3-recuo">	
-						Assim, vemos que a extremidade esquerda x1 será esticada até o ponto f(x1)=0 e a extremidade direita x2 será esticada até o ponto f(x2) = L. substituindo
-						valores em (1), temos que:<br></p>
+						Assim, vemos que a extremidade esquerda x_1 será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
+						valores em $(1)$, temos que:<br></p>
 					
-					<p>ax1+b=0</p>
-					<p>ax2+b=L</p>
+					<p>$ax_1+b=0$</p>
+					<p>$ax_2+b=L$</p>
 					
 					<p class="w3-justify w3-recuo">	
 						resolvendo o sistema temos:<br></p>
 					
-					<p>a=L/l</p>
-					<p>b = -Lx1/l</p>
+					<p>$a=\frac{L}{l}$</p>
+					<p>$b = \frac{-Lx1}{l}$</p>
 					
 					<p class="w3-justify w3-recuo">	
-						assim, a nossa função f:[0,L] →[0,L] é definida por <br></p>
+						assim, a nossa função $f:[0,L] →[0,L]$ é definida por <br></p>
 						
-					<p>f(x) = L/l(x-x1)</p>
+					<p>$f(x) = \frac{L}{l(x-x_1)}$</p>
 					
 					<p class="w3-justify w3-recuo">	
 						Gráfico:<br></p>
@@ -307,7 +366,7 @@
 						
 					<p class="w3-justify w3-recuo">	
 						Essa função é contínua. O método Ponto Fixo já nos garantiu que existe pelo menos um ponto fixo e agora fica claro que tal ponto fixo é o ponto:<br>
-						x = Lx1/(L-l)<br></p>	
+						$x = \frac{Lx_1}{(L-l)}$<br></p>	
 					
 					
 					
