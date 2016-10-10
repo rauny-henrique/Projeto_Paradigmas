@@ -17,6 +17,9 @@
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+        .city {display:none;}
+        .cityShow {display:block;}
     </style>
 
     <!-- Início do código Latex -->
@@ -60,54 +63,53 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <li><a href="index.html"><img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:25px">Home</a></li>
             </ul>
 
-            <div id="demo3" class="w3-hide w3-hide-large w3-white">
+            <div id="demo3" class="w3-hide w3-hide-large w3-white w3-animate-left">
                 <ul class="w3-navbar w3-left-align w3-large">
-                    <li class="w3-padding-8" style="width: 100%">
+                    <li style="width: 100%">
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <span class="w3-large">Calcular função</span><br>
                         </a>
                     </li>
-                    <li class="w3-padding-8" style="width: 100%">
+                    <li style="width: 100%">
                         <a href="video-aulas.html" style="text-decoration: none">
                             <span class="w3-large">Vídeo-aulas</span><br>
                         </a>
                     </li>
-                    <li class="w3-padding-8" style="width: 100%">
+                    <li style="width: 100%">
+                        <a onclick="myAccFunc('demoAcc3')" style="text-decoration: none; cursor:pointer">
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                        </a>
+                        <div id="demoAcc3" class="w3-accordion-content w3-white" style="margin-left: 15px">
+                            <a class="w3-padding-8" href="metodo-bisseccao.html">
+                                <span class="w3-large">Método da Bissecção</span><br>
+                            </a>
+                            <a class="w3-padding-8" href="metodo-newton.html">
+                                <span class="w3-large">Método de Newton</span><br>
+                            </a>
+                            <a class="w3-padding-8" href="metodo-iterativo.html">
+                                <span class="w3-large">Método Iterativo</span><br>
+                            </a>
+                            <a class="w3-padding-8" href="metodo-secante.html">
+                                <span class="w3-large">Método da Secante</span><br>
+                            </a>
+                        </div>
+                    </li>
+                    <li style="width: 100%">
                         <a href="testes-de-conhecimento.html" style="text-decoration: none">
                             <span class="w3-large">Quiz</span><br>
                         </a>
                     </li>
-                    <li class="w3-padding-8" style="width: 100%">
+                    <li style="width: 100%">
                         <a href="codigos-python.html" style="text-decoration: none">
                             <span class="w3-large">Códigos em Python</span><br>
                         </a>
                     </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a href="material-complementar.html" style="text-decoration: none">
+                    <li style="width: 100%">
+                        <a class="w3-dark-grey" href="material-complementar.html" style="text-decoration: none">
                             <span class="w3-large">Material complementar</span><br>
                         </a>
                     </li>
-                    <li class="w3-padding-8" style="width: 100%">
-                        <a onclick="myAccFunc('demoAcc3')" style="text-decoration: none; cursor:pointer">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
-                        </a>
-                    </li>
                 </ul>
-
-                <div id="demoAcc3" class="w3-accordion-content w3-white" style="margin-left: 15px">
-                    <a class="w3-padding-8" href="metodo-bisseccao.html">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                    </a>
-                    <a class="w3-padding-8" href="metodo-newton.html">
-                        <span class="w3-large">Método de Newton</span><br>
-                    </a>
-                    <a class="w3-padding-8" href="metodo-iterativo.html">
-                        <span class="w3-large">Método Iterativo</span><br>
-                    </a>
-                    <a class="w3-padding-8" href="metodo-secante.html">
-                        <span class="w3-large">Método da Secante</span><br>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
@@ -146,42 +148,89 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <h3><b>Material Complementar</b></h3>
                     <h6>Métodos númericos, <span class="w3-opacity">08 de Outubro - 2016</span></h6>
                 </div>
-
+<br>
                 <div class="w3-container">
                     
-<p class="w3-justify w3-recuo">PDFs desenvolvidos por professores da USP sobre o assunto que abordamos neste site </p>
+<h3 class="w3-justify">PDFs desenvolvidos por professores da USP sobre o assunto que abordamos neste site:</h3>
 <p class="w3-justify w3-recuo"><b><font color="blue">Marina Andretta, professora doutora em Ciência da Computação-USP</font></b> / andretta@icmc.usp.br</p>
 
+<ul>
+    <li><p class="w3-justify"><b>Método da Bissecção</b>. Disponível em:<a href=http://conteudo.icmc.usp.br/pessoas/andretta/ensino/aulas/sme0301-1-11/bisseccao.pdf> http://conteudo.icmc.usp.br/pessoas /andretta/ensino/aulas /sme0301-1-11/bisseccao.pdf</a>. Acesso em 08 de outubro de 2016</p></li>
+    <li><p class="w3-justify"><b>Método do ponto fixo (iterativo linear)</b>. Disponível em:<a href="http://conteudo.icmc.usp.br/pessoas/andretta/ensino/aulas/sme0301-1-10/PontoFixo.pdf"> < http://conteudo.icmc.usp.br/pessoas /andretta/ensino/aulas /sme0301-1-10/PontoFixo.pdf ></a>. Acesso em 08 de outubro de 2016</p></li>
+</ul>
 
-<p class="w3-justify w3-recuo"><b>Método da Bissecção</b>. Disponível em:<a href=http://conteudo.icmc.usp.br/pessoas/andretta/ensino/aulas/sme0301-1-11/bisseccao.pdf> http://conteudo.icmc.usp.br/pessoas /andretta/ensino/aulas /sme0301-1-11/bisseccao.pdf</a>. Acesso em 08 de outubro de 2016</p>
-<p class="w3-justify w3-recuo"><b>Método do ponto fixo (iterativo linear)</b>. Disponível em:<a href="http://conteudo.icmc.usp.br/pessoas/andretta/ensino/aulas/sme0301-1-10/PontoFixo.pdf"> < http://conteudo.icmc.usp.br/pessoas /andretta/ensino/aulas /sme0301-1-10/PontoFixo.pdf ></a>. Acesso em 08 de outubro de 2016</p>
 
-
+<br>
 <p class="w3-justify w3-recuo"><b><font color="blue">Maristela Oliveira dos Santos, professora doutora em Ciência da Computação e Matemática Computacional-USP</font></b> / mari@icmc.usp.br</p>
-<p class="w3-justify w3-recuo"><b>Método de Newton</b>. Disponível em: <a href="http://conteudo.icmc.usp.br/pessoas/mari/NumPri2012/Newton.pdf">< http://conteudo.icmc.usp.br/pessoas /mari/NumPri2012/Newton.pdf></a>. Acesso em 08 de outubro de 2016</p>
 
+<ul>
+    <li><p class="w3-justify"><b>Método de Newton</b>. Disponível em: <a href="http://conteudo.icmc.usp.br/pessoas/mari/NumPri2012/Newton.pdf">< http://conteudo.icmc.usp.br/pessoas /mari/NumPri2012/Newton.pdf></a>. Acesso em 08 de outubro de 2016</p></li>
+    <li><p class="w3-justify"><b>Método das Secantes</b>. Disponível em: <a href="http://conteudo.icmc.usp.br/pessoas/mari/NumPri2012/Secantes.pdf"> < http://conteudo.icmc.usp.br/pessoas /mari/NumPri2012/Secantes.pdf ></a>. Acesso em 08 de outubro de 2016</p></li>
+</ul>
+<br>
+<h3 class="w3-justify">Mais vídeos explicativos com metodologias parecidas com a nossa:</h3>
+                    <div class="w3-container">
+                        <h4>Selecione uma aba abaixo:</h4>
 
-<p class="w3-justify w3-recuo"><b>Método das Secantes</b>. Disponível em: <a href="http://conteudo.icmc.usp.br/pessoas/mari/NumPri2012/Secantes.pdf"> < http://conteudo.icmc.usp.br/pessoas /mari/NumPri2012/Secantes.pdf ></a>. Acesso em 08 de outubro de 2016</p>
-<p class="w3-justify w3-recuo">Mais vídeos explicativos com metodologias parecidas com a nossa</p>
-<table >
+                        <ul class="w3-navbar w3-light-grey w3-border">
+                            <li><a style="cursor: pointer" class="tablink w3-dark-grey" onclick="openCity(event, 'London');">Bissecção</a></li>
+                            <li><a style="cursor: pointer" class="tablink" onclick="openCity(event, 'Paris');">Newton-Raphson</a></li>
+                            <li><a style="cursor: pointer" class="tablink" onclick="openCity(event, 'Iterativo');">Iterativo linear/ponto fixo</a></li>
+                            <li><a style="cursor: pointer" class="tablink" onclick="openCity(event, 'Tokyo');">Secante</a></li>
+                        </ul>
+
+                        <div id="London" class="w3-container w3-border city cityShow">
+                            <h2>Bissecção</h2>
+                            <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/8KEd4NaLGQ4" frameborder="0" allowfullscreen></iframe>
+                            <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/TczufNvoVzk" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                        <div id="Paris" class="w3-container w3-border city">
+                            <h2>Método de Newton</h2>
+                            <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/k7pem_6z5_c" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                        <div id="Iterativo" class="w3-container w3-border city">
+                            <h2>Iterativo linear/ponto fixo</h2>
+                            <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/me4yp3rVS8Y" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                        <div id="Tokyo" class="w3-container w3-border city">
+                            <h2>Secante</h2>
+                            <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/V9cvKVF46Rc" frameborder="0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+
+                    <script>
+                        function openCity(evt, cityName) {
+                            var i, x, tablinks;
+                            x = document.getElementsByClassName("city");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablink");
+                            for (i = 0; i < x.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+                            }
+                            document.getElementById(cityName).style.display = "block";
+                            evt.currentTarget.className += " w3-dark-grey";
+                        }
+                    </script>
+<table>
 <tr><td>
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8KEd4NaLGQ4" frameborder="0" allowfullscreen></iframe>
     </td><td>
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TczufNvoVzk" frameborder="0" allowfullscreen></iframe>
         </td>
 </tr>
 <tr><td>
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/k7pem_6z5_c" frameborder="0" allowfullscreen></iframe>        
-    
+
     </td><td>
     
         </td>
 </tr>
  <tr><td>
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/me4yp3rVS8Y" frameborder="0" allowfullscreen></iframe>     
             </td><td>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/V9cvKVF46Rc" frameborder="0" allowfullscreen></iframe>
-                
+
                 </td>
 </tr>
 </table>
@@ -316,7 +365,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <a href="video-aulas.html"><img src="_imagens/001.JPG" alt="Chania" width="460" height="345"></a>
+                            <a href="video-aulas.html"><img src="_imagens/001.jpg" alt="Chania" width="460" height="345"></a>
                             <div class="carousel-caption">
                                 <h3>Bissecção</h3>
                                 <p>Veja mais.</p>
@@ -324,7 +373,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                         </div>
 
                         <div class="item">
-                            <a href="video-aulas.html"><img src="_imagens/002.jpg" alt="Chania" width="460" height="345"></a>
+                            <a href="video-aulas.html"><img src="_imagens/001.jpg" alt="Chania" width="460" height="345"></a>
                             <div class="carousel-caption">
                                 <h3>Newton-Raphson</h3>
                                 <p>Veja mais.</p>
@@ -332,7 +381,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                         </div>
 
                         <div class="item">
-                            <a href="video-aulas.html"><img src="_imagens/003.jpg" alt="Flower" width="460" height="345"></a>
+                            <a href="video-aulas.html"><img src="_imagens/001.jpg" alt="Flower" width="460" height="345"></a>
                             <div class="carousel-caption">
                                 <h3>Secante</h3>
                                 <p>Veja mais.</p>
