@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Quem somos</title>
+    <title>CNDiferente</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="_css/w3.css">
-    <link rel="stylesheet" href="_css/estilo.css">
+    <link rel="stylesheet" href="_css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="_css/calcular-funcao.css"/>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script type="text/javascript" src="_javascript/ASCIIsvg.js"></script>
+    <script type="text/javascript" src="_javascript/svg-pan-zoom.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
-
-    <link rel="stylesheet" href="_css/bootstrap.min.css">
-    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+        .city {display:none;}
+        .cityShow {display:block;}
     </style>
+
     <!-- Início do código Latex -->
     <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
         MathJax.Hub.Config({
@@ -34,7 +38,9 @@
         });
     </script>
     <!-- Fim do código Latex -->
+
 </head>
+
 <body class="w3-light-grey">
 
 <button id="topBut" class="botaotopo w3-btn w3-dark-grey" onclick="scrollToTop(1000);"><i class="fa fa-chevron-up fa-2x" aria-hidden="true" ></i></button>
@@ -43,6 +49,8 @@
     Onscroolll();
 </script>
 
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
     <!-- Para menu em telas medias e pequenas-->
@@ -113,19 +121,6 @@
         <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
     </div>
 
-    <!-- Card para telas pequenas e medias -->
-   <!-- <div class="w3-hide-large w3-margin-top w3-margin-bottom">
-        <div class="w3-container w3-padding">
-            <h4><b>Quem somos:</b></h4>
-        </div>
-        <ul class="w3-ul w3-hoverable w3-white">
-            <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
-                    em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo
-                    auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
-            </li>
-        </ul>
-    </div>-->
 
     <!-- Grid -->
     <div class="w3-row">
@@ -134,107 +129,102 @@
         <div class="w3-col l8 s12">
             <!-- Blog entry -->
             <div class="w3-card-4 w3-margin w3-white">
-                <img src="_imagens/Video.startup-700x220.jpg" alt="Nature" style="width:100%">
+                <img src="_imagens/simbolos-matematicos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Quem somos:</b></h3>
-                    <h6><span class="w3-opacity">30 de Setembro - 2016</span></h6>
+                    <h3><b>Quem somos</b></h3>
+                    <h6>Apresentação, <span class="w3-opacity">08 de Outubro - 2016</span></h6>
                 </div>
-
+                <br>
                 <div class="w3-container">
-                    <br><h4></h4>
                     <p class="w3-justify w3-recuo">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite), em parceria com a
                         disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo auxiliar a compreensão da última
                         disciplina, utilizando recursos digitais produzidos pelos próprios alunos.
-                        </p>
-                    <h4>
-                    <p class="w3-justify w3-recuo">Alunos envolvidos:
-                        </p></h4>
-                    < POR UMA LISTA, E DIVIDIR EM GRUPOS PARA MELHOR ORGANIZAÇÃO >
-<style>
-#rauny { 
-    border-radius: 45%;
-    background: url(_imagens/rauny.jpg);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="rauny"></p>
-                       
-                    <p class="w3-justify w3-recuo" >Rauny Henrique (Coordenador)- HTML, Java Script, CSS, Latex, Python;</p>
-<style>
-    #fabricio { 
-    border-radius: 45%;
-    background: url(_imagens/fabricio.jpg);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="fabricio"></p>
-                    <p class="w3-justify w3-recuo">Aleksandro Fabricio- Java Script, CSS, Latex, Python;</p>
-<style>
-                   #pablicio { 
-    border-radius: 45%;
-    background: url(_imagens/pablicio.jpg);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="pablicio"></p>
+                    </p>
+                    <h3>Alunos envolvidos:</h3>
 
-                    <p class="w3-justify w3-recuo">Thiago Pablício - HTML, CSS, Latex;</p>
-<style>
-                   #franklin { 
-    border-radius: 45%;
-    background: url(_imagens/franklin.jpg);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="franklin"></p>
+                    <h4>HTML, JavaScript, CSS:</h4>
+                    <ul class="w3-ul w3-card">
+                        <li class="w3-padding-16">
+                            <img src="_imagens/rauny.jpg" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Rauny Henrique Bezerra</span><br>
+                            <span>(Coordenador) - HTML, JavaScript, CSS</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/fabricio.jpg" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Aleksandro Fabricio</span><br>
+                            <span>HTML, JavaScript, CSS</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/pablicio.jpg" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Thiago Pablício</span><br>
+                            <span>HTML, CSS</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/franklin.jpg" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Franklin Basilio</span><br>
+                            <span>HTML, CSS</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Eduardo</span><br>
+                            <span>HTML, CSS</span>
+                        </li>
+                    </ul>
 
-                    <p class="w3-justify w3-recuo">Franklin Basilio - HTML, CSS; Latex</p>
-                    <h4><p class="w3-justify w3-recuo">Professores envolvidos:</p></h4>
-<style>
-                   #tavares { 
-    border-radius: 45%;
-    background: url(_imagens/tavares.jpg);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="tavares"></p>
+                    <br>
+                    <h4>Conteudo:</h4>
+                    <ul class="w3-ul w3-card">
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                    </ul>
 
-                    <p class="w3-justify w3-recuo">Aline Tavares Costa - Professora da disciplina de Paradigmas Educacionais</p>
-<style>
-                   #thiago { 
-    border-radius: 45%;
-    background: url(_imagens/perfil.png);
-    background-position: left top;
-    
-    padding: 5%;
-    width: 116px;
-    height: 116px;
-}
-</style>
-<p id="thiago"></p>
+                    <br>
+                    <h4>Video-aulas:</h4>
+                    <ul class="w3-ul w3-card">
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">..</span><br>
+                            <span>...</span>
+                        </li>
+                    </ul>
 
-                    <p class="w3-justify w3-recuo">Thiago Meneses - Professor da disciplina de Cálculo Numérico</p>
-
+                    <br>
+                    <h3>Professores envolvidos:</h3>
+                    <ul class="w3-ul w3-card">
+                        <li class="w3-padding-16">
+                            <img src="_imagens/tavares.jpg" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Aline Tavares Costa</span><br>
+                            <span>Professora da disciplina de Paradigmas Educacionais</span>
+                        </li>
+                        <li class="w3-padding-16">
+                            <img src="_imagens/avatarperfil.png" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                            <span class="w3-xlarge">Thiago Meneses</span><br>
+                            <span>Professor da disciplina de Cálculo Numérico</span>
+                        </li>
+                    </ul>
 
 
                     <div class="w3-row">
@@ -248,27 +238,12 @@
                 </div>
             </div>
             <hr>
+
             <!-- END BLOG ENTRIES -->
         </div>
 
         <!-- Introduction menu -->
         <div class="w3-col l4 w3-hide-medium w3-hide-small">
-            <!-- About Card -->
-          <!--  <div class="w3-card-2 w3-margin w3-margin-top">
-                <div class="w3-container w3-padding">
-                    <h4><b>Quem somos:</b></h4>
-                </div>
-                <ul class="w3-ul w3-hoverable w3-white">
-                    <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
-                            em parceria com a disciplina de Cálculo Numérico, do curso de Ciências da Computação - UEPB. Tem por objetivo
-                            auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
-                    </li>
-                </ul>
-            </div><hr>
--->
-
-
             <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
@@ -425,6 +400,8 @@
     </div><br>
 
     <!-- END w3-content -->
+
+    <!-- Comentários -->
     <div id="disqus_thread"></div>
     <script>
 
@@ -455,3 +432,4 @@
 
 </body>
 </html>
+
