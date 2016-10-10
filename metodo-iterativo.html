@@ -11,6 +11,9 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
+    <link rel="stylesheet" href="_css/bootstrap.min.css">
+    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -134,12 +137,12 @@
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/metodos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Método Iterativo</b></h3>
+                    <h3><b>Método Iterativo Linear (Ponto Fixo)</b></h3>
                     <h6>UEPB, <span class="w3-opacity">18 de Setembro - 2016</span></h6>
                 </div>
 
                 <div class="w3-container">
-					 <br><h4>Método do Ponto Fixo (Iterativo Linear)</h4>
+                    <br>
 					 <p class="w3-justify w3-recuo">
                         Seja $f(x)$ uma função contínua no intervalo $[a,b]$, intervalo que contém uma raiz da equação $f(x) = 0$. O método do Ponto 
 						Fixo consiste em fazer com que esta equação $f(x) = 0$ se torne uma equação equivalente da forma $x = φ (x)$.</p>
@@ -148,26 +151,26 @@
 						Com isso, gera-se uma sequência  $x_k$ de aproximações que convirjam para uma raiz $\bar{x}$, tal que:<br></p>
 						
 					<ul>
-						<li>$x_1= φ (x_0)$</li>
-						<li>$x_2= φ (x_1)$</li>
-						<li>$x_3= φ (x_2)$</li>
-						<li>$x_n= φ (x_{n-1})$</li>		
+						<li><p>$x_1= φ (x_0)$</p></li>
+						<li><p>$x_2= φ (x_1)$</p></li>
+						<li><p>$x_3= φ (x_2)$</p></li>
+						<li><p>$x_n= φ (x_{n-1})$</p></li>
 					</ul>
 					
 					<p class="w3-justify w3-recuo">
 						Para que a convergência da iteração linear seja assegurada, deve obedecer ao teorema, que afirma que:<br></p>
 						
 					<ul>
-						<li>Seja  $φ(x)$ uma função contínua, onde $φ'(x)$ e  $φ''(x)$ sejam contínuas num intervalo
-						$I = [ \bar{x}-h,  \bar{x}+h]$, com  $\bar{x}$ sendo o centro e solução de $x =  φ (x)$.</li>
-						<li>Seja $x_0$ pertencente ao intervalo $I$, e $M$ uma limitante, tal que $|φ' (x)| \leq M < 1$ em $I$. Assim,</li>		
-					</ul>
+						<li><p>Seja  $φ(x)$ uma função contínua, onde $φ'(x)$ e  $φ''(x)$ sejam contínuas num intervalo
+						$I = [ \bar{x}-h,  \bar{x}+h]$, com  $\bar{x}$ sendo o centro e solução de $x =  φ (x)$.</p></li>
+						<li><p>Seja $x_0$ pertencente ao intervalo $I$, e $M$ uma limitante, tal que $|φ' (x)| \leq M < 1$ em $I$. Assim,</p></li>
 					
 					<ol>
-						<li>A iteração  $x_{k+1}= φ(x_k)$ , com $k$ e pode ser executada de maneira indefinida;</li>
-						<li>$|x_k-x'| → 0$</li>
-						<li>Se $φ'(x) \neq 0$ ou Se $φ'(x) = 0$ e Se $φ''(x) \neq 0$ e  $|x_k-x'|$ for bem pequeno, logo a sequência $x_n$ será oscilante.</li>	
+						<li><p>A iteração  $x_{k+1}= φ(x_k)$ , com $k$ e pode ser executada de maneira indefinida;</p></li>
+						<li><p>$|x_k-x'| → 0$</p></li>
+						<li><p>Se $φ'(x) \neq 0$ ou Se $φ'(x) = 0$ e Se $φ''(x) \neq 0$ e  $|x_k-x'|$ for bem pequeno, logo a sequência $x_n$ será oscilante.</p></li>	
 					</ol>
+                    </ul>
 					
 					<p class="w3-justify w3-recuo">
 						O processo iterativo terá a convergência mais rápida quanto menor for o valor de φ'(x) . Entretanto, se a declividade $φ'(x)$
@@ -176,29 +179,31 @@
 					
 					<p class="w3-justify w3-recuo">
 						Para uma determinada $f(x) = 0$, podem existir várias funções $φ(x)$, para a  equação $x2-x-6=0$, por exemplo, temos:<br></p>
-						
-					<p>a) $φ_1(x) = 6-x^2$</p>
-					<p>b) $φ_2(x) = \mp\sqrt{6-x}$</p>
-					<p>c) $φ_3(x) =\frac{6}{x}-1$</p>
-					<p>d) $φ_4(x) =\frac{6}{x+1}$</p>
+
+                    <ol type="a">
+                        <li><p>  $φ_1(x) = 6-x^2$</p></li>
+                        <li><p>  $φ_2(x) = \mp\sqrt{6-x}$</p></li>
+                        <li><p>  $φ_3(x) =\frac{6}{x}-1$</p></li>
+                        <li><p>  $φ_4(x) =\frac{6}{x+1}$</p></li>
+                    </ol>
 					
 					<p class="w3-justify w3-recuo">
 						O erro relativo do método é dado por :<br></p>
 						
-						<p align="center">$E_r =\left|\frac{(x_k - x_{k-1})}{x_k}\right|$<br></p>
+						<h3 class="w3-center">$E_r =\left|\frac{(x_k - x_{k-1})}{x_k}\right|$<br></h3>
 						
 						
 					<p class="w3-justify w3-recuo">
 						E o critério de parada é dado de modo que este Erro relativo seja menor que algum valor pré-determinado.<br></p>
 						
 					<p class="w3-justify w3-recuo">
-						Graficamente, uma raiz da equação $x=φ(x)$ é a abcissa do ponto de intersecção da reta $y = x$ e da curva  $y=φ(x)$, como mostrado nas .<br></p>
+						Graficamente, uma raiz da equação $x=φ(x)$ é a abcissa do ponto de intersecção da reta $y = x$ e da curva  $y=φ(x)$, como mostrado nas imagens abaixo.<br></p>
 						
 					<div class="imgensAju">
                         
 						<figure>
 								<img src="_imagens/grafico-raiz.png" alt="Grafico Raiz" width="466" height="303">
-								<figcaption>Gráfico Raiz - Método Iterativo</figcaption>
+								<figcaption class="w3-center">Gráfico Raiz - Método Iterativo</figcaption>
 						</figure>
                     </div>
 					
@@ -206,40 +211,45 @@
                         
 						<figure>
 								<img src="_imagens/grafico-iteracoes.png" alt="Grafico Iterações" width="476" height="302">
-								<figcaption>Gráfico das Iterações</figcaption>
+								<figcaption class="w3-center">Gráfico das Iterações</figcaption>
 						</figure>
                     </div>
+                    <br>
+
+                    <h3>Exemplos:</h3>
 					
 					<p class="w3-justify w3-recuo">
-						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função $F$, com $e < 0.01$.<br></p>
+						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função $f$, com $e < 0.01$.</p>
 					
-					<p align="center">$F(x) = x³ - 9x + 3$<br></p>
+					<h3 class="w3-center">$f(x) = x³ - 9x + 3$</h3><br>
+
+                    <p class="w3-recuo"><b>Resolução:</b></p>
+                    <p class="w3-justify w3-recuo">Para começarmos podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em $f$ temos:</p>
 					
 					<div class="w3-responsive">
 						<table class="w3-table w3-striped w3-bordered w3-border">
 							<tr>
-								<th width ="25%" class="w3-center" >$X$</th><th width ="25%" class="w3-center">-1</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th>
+								<th width ="25%" class="w3-center" >$x$</th><th width ="25%" class="w3-center">-1</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th>
 							</tr>
 							<tr>
-								<th width ="25%" class="w3-center">$F(x)$ </th><th width ="25%" class="w3-center">11 </th><th width ="25%" class="w3-center">3</th><th width ="25%" class="w3-center">-5 </th>
+								<th width ="25%" class="w3-center">$f(x)$ </th><th width ="25%" class="w3-center">11 </th><th width ="25%" class="w3-center">3</th><th width ="25%" class="w3-center">-5 </th>
 							</tr>
-							<tr><th width="25%" class="w3-center"></th> <th width="25%" class="w3-center"></th><th width="50%" class="w3-center">
-								[+ -] ←  Possui raiz</th>
-								</tr>
+							<tr><th width="25%" class="w3-center"></th>
+                                <th width="25%" class="w3-center">$+$</th>
+                                <th width="25%" class="w3-center">$+$</th>
+                                <th width="50%" class="w3-center">$-$</th>
+                            </tr>
 						</table>
+                        <h4 class="w3-recuo">Logo, o intervalo $[0,1]$ possui raiz.</h4>
 					</div>
-					
+                    <br>
+
 					
 					<p class="w3-justify w3-recuo">
 						Agora já sabemos que entre $[ 0 , 1]$ possui pelo menos uma raiz, próximo passo é encontramos uma $φ(x)$ que $| φ’(x)| < 1$ para todo $x$ pertencente
 						ao intervalo $[ 0 , 1]$ . Assim temos: <br></p>
-						
-						<!--
-						$φ(x)=\frac{x^3+3}{9}$     $φ(x)=\frac{3x^2}{9}$
-						$φ'(0) = 0 < 1$
-						$φ'(1) = 0.3333... < 1$
-						-->
-						 <table border=0 width=60% style="border-collapse: collapse" align="center">
+
+                    <table border=0 width=60% style="border-collapse: collapse" align="center">
                         <tr>
 
                             <td  width=24% align="left">$φ(x)=\frac{x^3+3}{9} $ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ → $</td>
@@ -263,9 +273,10 @@
                         </tr>
                       				
 					</table>
+                    <br>
 					
 					<p class="w3-justify w3-recuo">
-						Portanto podemos utilizar  $φ(x)$ para encontramos $x =  φ(x)$.  Utilizando $0$ com $X_0$ temos: <br></p>
+						Portanto podemos utilizar  $φ(x)$ para encontramos $x =  φ(x)$.  Utilizando $0$ com $x_0$ temos: <br></p>
 					
 						 <table border=0 width=60% style="border-collapse: collapse" align="center">
                         <tr>
@@ -324,76 +335,77 @@
                         </tr>
 
                     </table>
+                    <br>
 					
 					<p class="w3-justify w3-recuo">
-						Portanto $x_3 = 0.3376$ é raiz de $F$. <br></p>
-						
-					<p class="w3-justify w3-recuo">	
-						Uma aplicação do ponto fixo em algo cotidiano<br></p>
-						
-					<p class="w3-justify w3-recuo">	
-						Se você tomar um elástico como o da imagem abaixo e esticar o máximo que puder, é graças ao ponto fixo que podemos afirmar que algum ponto do elástico
-						está na mesma posição que se encontrava antes do elástico ser esticado<br></p>
-						
-					<div class="imgensAju">                        
-						<figure>
-								<img src="_imagens/elastico.png" alt="Elástico" width="263" height="191">
-								<figcaption>Elástico</figcaption>
-						</figure>
+						Portanto $x_3 = 0.3376$ é raiz de $f$.</p><br><br>
+
+                    <div class="panel panel-default"><div class="panel-heading"><h3><i class="fa fa-question-circle-o w3-xxlarge"> Uma aplicação do ponto fixo em algo cotidiano?</i></h3></div>
+                        <div class="panel-body">
+                            <p class="w3-justify w3-recuo">
+                                Se você tomar um elástico como o da imagem abaixo e esticar o máximo que puder, é graças ao ponto fixo que podemos afirmar que algum ponto do elástico
+                                está na mesma posição que se encontrava antes do elástico ser esticado.<br></p>
+                            <div class="imgensAju">
+                                <figure>
+                                    <img src="_imagens/elastico.png" alt="Elástico" width="263" height="191">
+                                    <figcaption class="w3-center">Elástico</figcaption>
+                                </figure>
+                            </div>
+                        </div>
                     </div>
+
 					
-					<p class="w3-justify w3-recuo">	
-						Vamos explicar:<br>
-						Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma 
-						translação e uma dilatação, assim o procedimento corresponde a uma função da forma<br></p>
+					<h4>Vamos explicar:</h4>
+						<p class="w3-justify w3-recuo">Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma
+						translação e uma dilatação, assim o procedimento corresponde a uma função da forma:<br></p>
 						
-					<p align="center">$f(x) = ax+b   (1)$</p>
+					<h3 class="w3-center">$f(x) = ax+b   (1)$</h3>
 						
 					<p class="w3-justify w3-recuo">	
-						se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
+						Se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
 						esquerda está sobre o ponto $x1$ e a ponta direita está sobre o ponto $x2$. Desse modo $l=x2-x1$, conforme a figura abaixo:<br></p>
 						
 					<div class="imgensAju">
 						<figure>
 								<img src="_imagens/intervalo-elastico.png" alt="Elástico" width="588" height="78">
-								<figcaption>Intervalo</figcaption>
+								<figcaption class="w3-center">Intervalo</figcaption>
 						</figure>
                     </div>
+                    <br>
 					
 						
 					<p class="w3-justify w3-recuo">	
 						Assim, vemos que a extremidade esquerda x_1 será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
 						valores em $(1)$, temos que:<br></p>
 					
-					<p align="center">$ax_1+b=0$<br>
-									  $ax_2+b=L$</p>
+					<h3 class="w3-center">$ax_1+b=0$<br>
+									  $ax_2+b=L$</h3>
 					
 					<p class="w3-justify w3-recuo">	
-						resolvendo o sistema temos:<br></p>
+						Resolvendo o sistema temos:<br></p>
 					
-					<p align="center">$a=\frac{L}{l}$<br>
-									  $b = \frac{-Lx1}{l}$</p>
+					<h3 class="w3-center">$a=\frac{L}{l}$</h3><h3 class="w3-center">$b = \frac{-Lx1}{l}$</h3>
 					
 					<p class="w3-justify w3-recuo">	
-						assim, a nossa função $f:[0,L] →[0,L]$ é definida por <br></p>
+						Assim, a nossa função $f:[0,L] →[0,L]$ é definida por:<br></p>
 						
-					<p align="center">$f(x) = \frac{L}{l(x-x_1)}$</p>
+					<h3 class="w3-center">$f(x) = \frac{L}{l(x-x_1)}$</h3><br>
 					
-					<p class="w3-justify w3-recuo">	
-						Gráfico:<br></p>
+					<h4>Gráfico:</h4>
 						
 					<div class="imgensAju">
 						<figure>
 								<img src="_imagens/grafico-pf.png" alt="grafico-pf" width="343" height="475">
-								<figcaption>Gráfico do Ponto Fixo</figcaption>
+								<figcaption class="w3-center">Gráfico do Ponto Fixo</figcaption>
 						</figure>
-                    </div>	
-						
+                    </div>
+                    <br>
+
 					<p class="w3-justify w3-recuo">	
 						Essa função é contínua. O método Ponto Fixo já nos garantiu que existe pelo menos um ponto fixo e agora fica claro que tal ponto fixo é o ponto:</p>
 						
 						
-					<p align="center">	$x = \frac{Lx_1}{(L-l)}$</p>
+					<h3 class="w3-center">$x = \frac{Lx_1}{(L-l)}$</h3>
 					
 					
 					
@@ -431,7 +443,7 @@
             <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Menu</h4>
+                    <h4><b>Menu</b></h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -445,7 +457,7 @@
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Calcular função</span><br>
-                            <span>Usando métodos numérico</span>
+                            <span>Usando métodos numéricos</span>
                         </a>
                     </li>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -455,6 +467,35 @@
                             <span>Aprenda mais!</span>
                         </a>
                     </li>
+                    <li id="dropmenumetodos" class="w3-padding-16">
+                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <div id="demoAcc" class="w3-accordion-content w3-white">
+                        <a class="w3-padding-16" href="metodo-bisseccao.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-newton.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-iterativo.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método Iterativo</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-secante.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Secante</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </div>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
                         <a href="testes-de-conhecimento.html" style="text-decoration: none">
                             <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
@@ -476,34 +517,60 @@
                             <span>Veja mais!</span>
                         </a>
                     </li>
-                    <li id="dropmenumetodos" class="w3-padding-16">
-                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
-                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
-                            <span>Veja mais!</span>
-                        </a>
-                    </li>
                 </ul>
-                <div id="demoAcc" class="w3-accordion-content w3-white">
-                    <a class="w3-padding-16" href="metodo-bisseccao.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
+            </div>
+            <hr>
+
+            <!-- Slider -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4><b>Assista nossos vídeos</b></h4>
+                </div>
+                <div id="myCarousel" class="carousel slide w3-white" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="item active">
+                            <a href="video-aulas.html"><img src="_imagens/001.JPG" alt="Chania" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Bissecção</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <a href="video-aulas.html"><img src="_imagens/002.jpg" alt="Chania" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Newton-Raphson</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <a href="video-aulas.html"><img src="_imagens/003.jpg" alt="Flower" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Secante</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
                     </a>
-                    <a class="w3-padding-16" href="metodo-newton.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-iterativo.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-secante.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Secante</span><br>
-                        <span>Veja mais!</span>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
                     </a>
                 </div>
             </div>
@@ -512,12 +579,12 @@
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Tags</h4>
+                    <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ponto fixo</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Posição falsa</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Calcular função</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Video-aulas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Quiz</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Códigos em Python</span>
+                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
                     </p>
                 </div>
             </div>

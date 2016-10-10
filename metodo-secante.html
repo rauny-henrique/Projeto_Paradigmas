@@ -12,6 +12,9 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
+    <link rel="stylesheet" href="_css/bootstrap.min.css">
+    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -144,15 +147,14 @@
                     <br><h4><!--Teorema: --></h4>
                     <p class="w3-justify w3-recuo">
                         Método baseado em aproximação linear, que vem pra diminuir as desvantagens que o método de Newton tem de calcular o $f’(x)$.</p>
-                    <p class="w3-justify w3-recuo">Para eliminar essa desvantagem, substituímos a derivada $f’(x)$ pela subtração entre $x_k$ e $x_{k-1}$<br></p>
-                   
+                    <p class="w3-justify w3-recuo">Para eliminar essa desvantagem, substituímos a derivada $f’(x)$ pela subtração entre $x_k$ e $x_{k-1}$:<br></p>
 
-                    <p class="w3-justify w3-recuo"> $f'(x_{k}) ≃ \frac{f(x_{k}) - f(x_{k-1})}{x_{k} - x_{k-1} }$</p>
+                    <h3 class="w3-center"> $f'(x_{k}) ≃ \frac{f(x_{k}) - f(x_{k-1})}{x_{k} - x_{k-1} }$</h3>
                      
                      
                    <p class="w3-justify w3-recuo"> Onde $x_{k}$ e  $x_{k-1}$ são duas aproximações para a raiz. Nesse caso a função de iteração fica:</p>
                        
-<h3 class="w3-justify w3-recuo">$x_{k+1}=x_{k} - \frac{ 
+                    <h3 class="w3-center">$x_{k+1}=x_{k} - \frac{
                                                         \frac{
                                                         f(x_{k})
                                                             }{
@@ -161,175 +163,190 @@
                                                             }
                                                        {
                                                                 x_{k}- x_{k-1} 
-                                                            }$</h3>
- 
-
-                    
+                                                            }$
+                    </h3>
                     
                     <p class="w3-justify w3-recuo"> Colocando sobre o mesmo denominador, temos a equação mais simples:</p>
                     
-                    $x_{k+1} = \frac{ (x_{k-1} x f(x_{k}) - x_{k} x f(x_{k-1})}{x_{k} - x_{k-1} }$
+                    <h3 class="w3-center">$x_{k+1} = \frac{ (x_{k-1} x f(x_{k}) - x_{k} x f(x_{k-1})}{x_{k} - x_{k-1} }$</h3><br>
                     
-                    <h3 class="w3-center">Interpretação geométrica</h3>
+                    <h3>Interpretação geométrica</h3>
 <p class="w3-justify w3-recuo">A partir de duas aproximações  e, o ponto  é obtido como a abcissa do ponto de interseção do eixo ox e da reta secante que passa por (, ) e (,), como mostra a figura abaixo:</p>
-<p class="w3-justify w3-recuo"><img src="_imagens/grafico-metodo-secante-1.png"></a></p>
+<p class="w3-center"><img src="_imagens/grafico-metodo-secante-1.png"></a></p>
 
 
-<h3 class="w3-center">Exemplos:</h3>
+<h3>Exemplos:</h3>
 <p class="w3-justify w3-recuo">
-    <b>Exemplo 1:</b> Utilizando o método da Secante determine uma aproximação para a raiz da função $F$, com $e < 0.01$ </p>
-<p class="w3-center">$F(x)= \sqrt{5} - 4.e^{-x}$
+    <b>Exemplo 1:</b> Utilizando o método da Secante determine uma aproximação para a raiz da função $f$, com $e < 0.01$ </p>
+<h3 class="w3-center">$f(x)= \sqrt{5} - 4.e^{-x}$</h3>
     
-<p class="w3-justify w3-recuo">Resolução:</p>
-<p class="w3-justify w3-recuo"> Para facilitar o processo podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em $F$ temos:</p>
+<p class="w3-justify w3-recuo"><b>Resolução:</b></p>
+<p class="w3-justify w3-recuo"> Para facilitar o processo podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em $f$ temos:</p>
 <div class="w3-responsive">
                         <table class="w3-table w3-striped w3-bordered w3-border">
     <tr>
         <th width ="25%" class="w3-center" >$x$</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th><th width ="25%" class="w3-center">2</th>
     </tr>
     <tr>
-        <th width ="25%" class="w3-center">$F(x)$ </th><th width ="25%" class="w3-center">-5 </th><th width ="25%" class="w3-center">-0.839 </th><th width ="25%" class="w3-center">0.738 </th>
+        <th width ="25%" class="w3-center">$f(x)$ </th><th width ="25%" class="w3-center">-5 </th><th width ="25%" class="w3-center">-0.839 </th><th width ="25%" class="w3-center">0.738 </th>
     </tr>
-    <tr><th width="25%" class="w3-center"></th> <th width="25%" class="w3-center"></th><th width="50%" class="w3-center">
-        [+ -] ←  Possui raiz</th>
-        </tr>
+    <tr>
+        <th width="25%" class="w3-center">sinal</th>
+        <th width="25%" class="w3-center">$-$</th>
+        <th width="25%" class="w3-center">$-$</th>
+        <th width="50%" class="w3-center">$+$</th>
+    </tr>
 </table>
 </div>
+<h4 class="w3-recuo">Logo, o intervalo $[1,2]$ possui raiz.</h4>
 
 
 <p class="w3-justify w3-recuo">
 Agora já sabemos que entre $[ 1 , 2 ]$ possui pelo menos uma raiz, basta aplicarmos os valores na fórmula da secante. Assim temos:</p> 
-<p class="w3-justify w3-recuo">$  X_0 = 1 →  F(X_0)=-0.839 $</p>
-<p class="w3-justify w3-recuo"> $ X_1 = 2 →  F(X_1)=0.738 $</p>
+<p class="w3-justify w3-recuo">$x_0 = 1 →  f(x_0)=-0.839 $</p>
+<p class="w3-justify w3-recuo"> $x_1 = 2 →  f(x_1)=0.738 $</p>
 
 <p class="w3-justify w3-recuo"> Utilizando os dados acima e aplicando na fórmula temos:</p>
 
+<p class="w3-justify w3-recuo"><b>Primeira iteração:</b></p>
+<h3 class="w3-center"> $x_2 =\frac{1*(0.738)-2*(-0.839)}{(0.738)-(-0.839)} → x_2 = 1.532$</h3>
+<h3 class="w3-center">$f(x_2) = 0.157$</h3>
 
-<p class="w3-justify w3-recuo">  Primeira iteração</p>
-<p class="w3-justify w3-recuo"> $X_2 =\frac{1*(0.738)-2*(-0.839)}{(0.738)-(-0.839)} → X_2 = 1.532 → F(x_2) = 0.157$
-</p>
-<p class="w3-justify w3-recuo"> Segunda iteração</p>
-<p class="w3-justify w3-recuo">$X_3 = \frac{2*(0.157)- 1.532*(0.738)}{(0.157)-(0.738)} → X_3 = 1.405 → F(X_3) = 0.042 $</p>
-    <p class="w3-justify w3-recuo">$  e=\left|\frac{1.405-1.532}{1.405}\right| = 0.09 $</p>
+<p class="w3-justify w3-recuo"><b>Segunda iteração:</b></p>
+<h3 class="w3-center">$x_3 = \frac{2*(0.157)- 1.532*(0.738)}{(0.157)-(0.738)} → x_3 = 1.405$</h3>
+<h3 class="w3-center">$f(x_3) = 0.042 $</h3>
+<h3 class="w3-center">$  e=\left|\frac{1.405-1.532}{1.405}\right| = 0.09 $</h3>
 
-<p class="w3-justify w3-recuo">Terceira iteração</p>
-<p class="w3-justify w3-recuo"> $X_4={1.532*(-0.042)-(1.405)*(0.157)}{(-0.042)-(0.157)} → X_4 = 1.432 → F(X_4)=0.003$</p>
-<p class="w3-justify w3-recuo"> $e = \left|\frac{1.432 - 1.405}{1.432}\right| = 0.02 $</p>
+<p class="w3-justify w3-recuo"><b>Terceira iteração:</b></p>
+<h3 class="w3-center"> $x_4= \frac{1.532*(-0.042)-(1.405)*(0.157)}{(-0.042)-(0.157)} → x_4 = 1.432$</h3>
+<h3 class="w3-center">$f(x_4)=0.003$</h3>
+<h3 class="w3-center"> $e = \left|\frac{1.432 - 1.405}{1.432}\right| = 0.02 $</h3>
 
-<p class="w3-justify w3-recuo">Quarta iteração</p>
-<p class="w3-justify w3-recuo"> $ X_5 = {1.405*(0.003)-(1.432)*(-0.042)}{(0.003)-(-0.042)} → X_5 = 1.4302 → F(X_5) = -0.0004  $</p>
-<p class="w3-justify w3-recuo">$ e= \left|\frac{1.4302 - 1.432}{1.4302}\right| = 0.001  $ </p>
+<p class="w3-justify w3-recuo"><b>Quarta iteração:</b></p>
+<h3 class="w3-center"> $ x_5 = \frac{1.405*(0.003)-(1.432)*(-0.042)}{(0.003)-(-0.042)} → x_5 = 1.4302$</h3>
+<h3 class="w3-center">$f(x_5) = -0.0004$</h3>
+<h3 class="w3-center">$ e= \left|\frac{1.4302 - 1.432}{1.4302}\right| = 0.001  $ </h3>
 
-<p class="w3-justify w3-recuo">Portanto $X5 = 1.4302$ é uma aproximação da raiz de $F$.</p>
+<br>
+<p class="w3-justify w3-recuo">Portanto $x_5 = 1.4302$ é uma aproximação da raiz de $f$.</p>
 
 
 
-
+<br><br>
 <p class="w3-justify w3-recuo"> <b>Exemplo 2:</b> O volume $v$ de um líquido em um tanque esférico de raio $r$ está relacionado com a profundidade h do líquido da seguinte forma:</p>
 
-<p class="w3-justify w3-recuo"> <img src="_imagens\grafico-secante-volume-esfera.png" ></a> 
-<br> $v=\frac{\pi .h^2.(3r-h)}{3}$
-</p>
+<p class="w3-center"> <img src="_imagens\grafico-secante-volume-esfera.png" ></a><br><h3 class="w3-center">$v=\frac{\pi .h^2.(3r-h)}{3}$</h3></p>
 
 <p class="w3-justify w3-recuo"> Calcule, utilizando o método da secante, a profundidade $h$ em um tanque de raio $r = 1$ para um volume de $0.5$. Utilize para aproximação inicial o intervalo $[0.25, 0.5]$ e considere $E < 10^{-2}$.</p>
 
- <p class="w3-justify w3-recuo"> Resolução:<br>
+ <p class="w3-justify w3-recuo"><b>Resolução:</b><br>
        <p class="w3-justify w3-recuo"> 	O primeiro passo que devemos fazer é aplicar os valores dados no problema e isolarmos o $h$. Fazendo isso temos:</p>
 <p class="w3-justify w3-recuo">$0.5 = \frac{ \pi .h^2 * (3*1 - h)}{3} → 3 \pi .h^2 - \pi .h^3 = 1.5 → 3 \pi .h^2 - \pi h^3 - 1.5$</p>
-<p class="w3-justify w3-recuo">$F(h) → 3\pi h^2 - \pi h^3 - 1.5 = 0 $</p>
+<p class="w3-justify w3-recuo">$f(h) → 3\pi h^2 - \pi h^3 - 1.5 = 0 $</p>
+
+<br>
+<p class="w3-justify w3-recuo"><b>Primeira iteração:</b></p>
+<h3 class="w3-center">$ h_2 = \frac{0.25*(-0.46) -0.5*(-0.96)}{(0.46)-(-0.96)} →  h_2 = 0.419$</h3>
+<h3 class="w3-center">$f(h_2) = -0.076$</h3>
+
+<p class="w3-justify w3-recuo"><b>Segunda iteração:</b></p>
+<h3 class="w3-center">$h_3 = \frac{0.5*(-0.076) -0.419*(0.46)}{(-0.076)-(0.46)} → h_3 = 0.43$</h3>
+<h3 class="w3-center">$f(h_3) = -0.007$</h3>
+<h3 class="w3-center"> $e=\left|\frac{0.43 - 0.419}{0.43}\right| = 0.026$</h3>
 
 
-<p class="w3-justify w3-recuo">Primeira iteração</p>
-$ H_2 = \frac{0.25*(-0.46) -0.5*(-0.96)}{(0.46)-(-0.96)} →  H_2 = 0.419  →  F(H_2) = -0.076$
+<p class="w3-justify w3-recuo"><b>Terceira iteração:</b></p>
+<h3 class="w3-center">$h_4 = \frac{0.419*(-0.007) -0.43*(-0.076)}{(-0.007)-(-0.076)} → h_4 = 0.431$</h3>
+<h3 class="w3-center">$f(h_4) = -0.0007$</h3>
+<h3 class="w3-center">$e=\left|\frac{0.431-0.43}{0.431}\right| = 0.002 $</h3>
+<br>
 
-<p class="w3-justify w3-recuo">Segunda iteração</p>
-<p class="w3-justify w3-recuo">$H_3 = \frac{0.5*(-0.076) -0.419*(0.46)}{(-0.076)-(0.46)} → H_3 = 0.43 → F(H_3) = -0.007$ <br>
-<p class="w3-justify w3-recuo"> $e=\left|\frac{0.43 - 0.419}{0.43}\right| = 0.026$</p>
+<p class="w3-justify w3-recuo">Portanto $h_4 = 0.431$ é uma aproximação da raiz de $f$.</p>
+<p class="w3-justify w3-recuo">Agora que encontramos nossa $f(h)$, podemos aplicar na fórmula da secante utilizando o intervalo dado no problema. Assim temos:</p>
+<p class="w3-justify w3-recuo">$h_0 = 0.25  → f(h_0) = -0.96$</p>
+<p class="w3-justify w3-recuo">$h_1 = 0.5    →   f(h_0) = 0.46$</p>
 
+<br><br>
 
-<p class="w3-justify w3-recuo">Terceira iteração</p>
-<p class="w3-justify w3-recuo">$H_4 = \frac{0.419*(-0.007) -0.43*(-0.076)}{(-0.007)-(-0.076)} → H_4 = 0.431 → F(H_4) = -0.0007$</p>
-<p class="w3-justify w3-recuo">$e=\left|\frac{0.431-0.43}{0.431}\right| = 0.002 $</p>
-<p class="w3-justify w3-recuo">Portanto H_4 = 0.431 é uma aproximação da raiz de $F$</p>
-
-
-
-<p class="w3-justify w3-recuo">Agora que encontramos nossa $F(h)$, podemos aplicar na fórmula da secante utilizando o intervalo dado no problema. Assim temos:</p>
-<p class="w3-justify w3-recuo">$H_0 = 0.25  → F(H_0) = -0.96$</p>
-<p class="w3-justify w3-recuo">$H_1 = 0.5    →   F(H_0) = 0.46$</p>
-
-
-<h3 class="w3-center"> Método da Falsa Posição (Regula Falsi)</h3> 
+<h3>Método da Falsa Posição (Regula Falsi)</h3>
 
 <p class="w3-justify w3-recuo">	O método Regula Falsi (ou falsa posição) é uma extensão aprimorada do método da secante, no sentido de realizar menos iterações para se descobrir a raiz. Consiste no seguinte:</p> 
 <p class="w3-justify w3-recuo">1.	Determina-se os valores $[a,b]$ tal que $f(a) x f(b) < 0$, para que esse intervalo contenha a raiz;</p>
 <p class="w3-justify w3-recuo">2.	Aplica-se então a mesma fórmula do método da secante, que é:</p>
 
-$X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
-<p class="w3-center">3.	Eis então o ponto que diferencia o método Regula Falsi do método da secante: toda iteração $X_{k+1}$ deverá obedecer a regra:
-	 $f(X_{k+1}) * f( X_k) < 0$</p>
+<h3 class="w3-center">$x_{k+1} = \frac{x_{k-1}*f(x_k) - x_k*f(x_{k-1})}{f(x_k)- f(x_{k-1})}$</h3>
+<p class="w3-justify w3-recuo">3.	Eis então o ponto que diferencia o método Regula Falsi do método da secante: toda iteração $x_{k+1}$ deverá obedecer a regra:</p>
+<h3 class="w3-center">$f(x_{k+1}) * f(x_k) < 0$</h3>
 
 <p class="w3-justify w3-recuo">Ou seja,</p>
 	 
-         <p class="w3-justify w3-recuo">Consideremos um intervalo $[x_1,x_2]$ , onde  $f(x_1) > 0 $  e $f(x_2) < 0$ </p>
-   <ul><li>
-	<p class="w3-justify w3-recuo">Se o elemento $x_3$ descoberto resultar em  $f(x_3) > 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_2$</p>
-    </li>
-    <li>
-	<p class="w3-justify w3-recuo">Se o elemento $x_3$ descoberto resultar em  $f(x_3) < 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_1$</p>
-        </li>
-        </ul>
+   <ol>
+       <ol>
+           <li><p class="w3-justify">Consideremos um intervalo $[x_1,x_2]$ , onde  $f(x_1) > 0 $  e $f(x_2) < 0$ </p></li>
+           <ol type="a">
+               <li>
+                   <p class="w3-justify">Se o elemento $x_3$ descoberto resultar em  $f(x_3) > 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_2$</p>
+               </li>
+               <li>
+                   <p class="w3-justify">Se o elemento $x_3$ descoberto resultar em  $f(x_3) < 0$ , o elemento $x_4$ será calculado com o elemento  $x_3$ e o elemento  $x_1$</p>
+               </li>
+           </ol>
+       </ol>
+    </ol>
         
-       <p class="w3-justify w3-recuo"> Essa regra se aplica aos próximos elementos descobertos na fórmula $x_(k+1)$. Com isso, o número de iterações é significativamente reduzido, caso comparado ao método da secante.</p> 
+       <p class="w3-justify w3-recuo">Essa regra se aplica aos próximos elementos descobertos na fórmula $x_{k+1}$. Com isso, o número de iterações é significativamente reduzido, caso comparado ao método da secante.</p>
 
 <p class="w3-justify w3-recuo">Vale salientar que o cálculo do erro é o mesmo utilizado no método da secante, e serve para que, de acordo com a aproximação do erro, seja determinado a raiz do problema.</p>
+<br><h3>Exemplos:</h3>
+<p class="w3-justify w3-recuo"> <b>Resolução dos exemplos 1 e 2 utilizando o método da Falsa Posição (Regula Falsi):</b></p>
 
-<p class="w3-justify w3-recuo"> <b>Resolução dos exemplos 1 e 2 utilizando o método da Falsa Posição (Regula Falsi)</b></p>
 
-
-<p class="w3-justify w3-recuo"><b> Exemplo 1:</b> Utilizando o método da Falsa Posição (ou Regula Falsi) determine uma aproximação para a raiz da função $F$, com $e < 0.01$.</p>
+<p class="w3-justify w3-recuo"><b> Exemplo 1:</b> Utilizando o método da Falsa Posição (ou Regula Falsi) determine uma aproximação para a raiz da função $f$, com $e < 0.01$.</p>
     
     <p class="w3-justify w3-recuo">Do exemplo resolvido pelo método da Secante, sabemos que entre $[ 1 , 2 ]$ há pelo menos uma raiz. Assim temos:</p> 
 
-<p class="w3-justify w3-recuo">$X0 = 1 →  F(X0)=-0.839$</p>
-<p class="w3-justify w3-recuo">$X1 = 2 →  F(X1)=0.738$</p>
+<p class="w3-justify w3-recuo">$x_0 = 1 →  f(x_0)=-0.839$</p>
+<p class="w3-justify w3-recuo">$x_1 = 2 →  f(x_1)=0.738$</p>
 
-<p class="w3-justify w3-recuo">Primeira iteração</p>
-
+<br><p class="w3-justify w3-recuo"><b>Primeira iteração:</b></p>
 <p class="w3-justify w3-recuo">A primeira iteração será idêntica ao método da secante visto anteriormente, teremos:</p>
+<h3 class="w3-center">$x_{2} = \frac{1*(0.738)-2*(-0.839)}{(0.738)-(-0.839)} → x_2 = 1.532$</h3>
+<h3 class="w3-center">$f(x_2) = 0.157$</h3>
 
 
-<p class="w3-justify w3-recuo">Segunda iteração</p>
 
-<p class="w3-justify w3-recuo"> Como $F(x_0)*F(x_2) < 0 $, serão utilizados o $x_0$ e o $x_2$ para que seja determinado o $x_3$:</p>
-<p class="w3-justify w3-recuo">$x_0 = 1    →     F(x_0) = -0.839$</p>
-<p class="w3-justify w3-recuo">$x_2 = 1.532 → F(x_2)= 0.157$</p>
+<p class="w3-justify w3-recuo"><b>Segunda iteração:</b></p>
+
+<p class="w3-justify w3-recuo">Como $f(x_0)*f(x_2) < 0 $, serão utilizados o $x_0$ e o $x_2$ para que seja determinado o $x_3$:</p>
+<p class="w3-justify w3-recuo">$x_0 = 1    →     f(x_0) = -0.839$</p>
+<p class="w3-justify w3-recuo">$x_2 = 1.532 → f(x_2)= 0.157$</p>
 
 <p class="w3-justify w3-recuo">Teremos,</p>
 
-<p class="w3-justify w3-recuo">$x_3=\frac{x_0*F(x_2) - x_2*F(x_0)}{F(x_2) -F(x_0)} =$   </p>
-<p class="w3-justify w3-recuo">$x_3  =\frac{1*0.157 - 1.532*(-0.839)}{0.157- (-0.839)}$</p>
-<p class="w3-justify w3-recuo">$x_3=1.448 ⇒F(x_3)= 0.028$</p>
+<h3 class="w3-center">$x_3  =\frac{1*0.157 - 1.532*(-0.839)}{0.157- (-0.839)}$</h3>
+<h3 class="w3-center">$x_3=1.448 ⇒f(x_3)= 0.028$</h3>
 
 <p class="w3-justify w3-recuo">Cálculo do Erro:</p>
 
-<p class="w3-justify w3-recuo">$е = \left|\frac{x_3  - x_2}{x_3}\right| = \left|\frac{1.448 - 1.532}{1.448}\right|  = 0.058$ . Maior do que 0.01, então vamos para a terceira iteração.</p>
-
-<p class="w3-justify w3-recuo">Terceira iteração</p>
+<h3 class="w3-center">$е = \left|\frac{x_3  - x_2}{x_3}\right| = \left|\frac{1.448 - 1.532}{1.448}\right|  = 0.058$</h3>
+<p class="w3-justify w3-recuo">Como o erro é maior do que 0.01, então vamos para a terceira iteração.</p>
+<br>
+<p class="w3-justify w3-recuo"><b>Terceira iteração:</b></p>
 
 <p class="w3-justify w3-recuo">Utilizando a comparação explicada na iteração anterior, serão utilizados os seguintes parâmetros para a determinação do $x_4$:</p>
 
-<p class="w3-justify w3-recuo">$x_0 = 1          F(x_0) = -0.839$</p>
-<p class="w3-justify w3-recuo">$x_3 = 1.448   F(x_3)= 0.028$ </p>
+<p class="w3-justify w3-recuo">$x_0 = 1    →     f(x_0) = -0.839$</p>
+<p class="w3-justify w3-recuo">$x_3 = 1.448    →     f(x_3)= 0.028$ </p>
 
-<p class="w3-justify w3-recuo">$x_4=\frac {x_{0}*F(x_{3}) - x_{3}*F(x_{0})}{F(x_{3}) -F(x_{0})} =$</p>   
-<p class="w3-justify w3-recuo">$x_4  =\frac { 1*0.028 - 1.448 * (-0.839)}{0.028- (-0.839)}$</p>
-<p class="w3-justify w3-recuo">$x_4= 1.434⇒F(x_4) = 0.0057$</p>
+<p class="w3-justify w3-recuo">Teremos,</p>
+
+<h3 class="w3-center">$x_4  =\frac { 1*0.028 - 1.448 * (-0.839)}{0.028- (-0.839)}$</h3>
+<h3 class="w3-center">$x_4= 1.434⇒f(x_4) = 0.0057$</h3>
 
 <p class="w3-justify w3-recuo">Cálculo do Erro: </p>
-
-<p class="w3-justify w3-recuo">$е = \left|\frac{x_4  - x_3}{x_4}\right| = \left|\frac{1.434 - 1.448}{1.434}\right|  =0.009$ .  Erro menor do que $0.01$, então paramos por aqui e obtemos o resultado satisfatório para a raiz que é 1.434.</p>
-
+<h3 class="w3-center">$е = \left|\frac{x_4  - x_3}{x_4}\right| = \left|\frac{1.434 - 1.448}{1.434}\right|  =0.009$</h3>
+<p class="w3-justify w3-recuo">Erro menor do que $0.01$, então paramos por aqui e obtemos o resultado satisfatório para a raiz que é $1.434$.</p>
+<br>
 
 
 
@@ -367,7 +384,7 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
             <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Menu</h4>
+                    <h4><b>Menu</b></h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -381,7 +398,7 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Calcular função</span><br>
-                            <span>Usando métodos numérico</span>
+                            <span>Usando métodos numéricos</span>
                         </a>
                     </li>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -391,6 +408,35 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
                             <span>Aprenda mais!</span>
                         </a>
                     </li>
+                    <li id="dropmenumetodos" class="w3-padding-16">
+                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <div id="demoAcc" class="w3-accordion-content w3-white">
+                        <a class="w3-padding-16" href="metodo-bisseccao.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-newton.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-iterativo.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método Iterativo</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-secante.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Secante</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </div>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
                         <a href="testes-de-conhecimento.html" style="text-decoration: none">
                             <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
@@ -412,34 +458,60 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
                             <span>Veja mais!</span>
                         </a>
                     </li>
-                    <li id="dropmenumetodos" class="w3-padding-16">
-                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
-                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
-                            <span>Veja mais!</span>
-                        </a>
-                    </li>
                 </ul>
-                <div id="demoAcc" class="w3-accordion-content w3-white">
-                    <a class="w3-padding-16" href="metodo-bisseccao.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
+            </div>
+            <hr>
+
+            <!-- Slider -->
+            <div class="w3-card-2 w3-margin">
+                <div class="w3-container w3-padding">
+                    <h4><b>Assista nossos vídeos</b></h4>
+                </div>
+                <div id="myCarousel" class="carousel slide w3-white" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+
+                        <div class="item active">
+                            <a href="video-aulas.html"><img src="_imagens/001.JPG" alt="Chania" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Bissecção</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <a href="video-aulas.html"><img src="_imagens/002.jpg" alt="Chania" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Newton-Raphson</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <a href="video-aulas.html"><img src="_imagens/003.jpg" alt="Flower" width="460" height="345"></a>
+                            <div class="carousel-caption">
+                                <h3>Secante</h3>
+                                <p>Veja mais.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
                     </a>
-                    <a class="w3-padding-16" href="metodo-newton.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-iterativo.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-secante.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método Secante</span><br>
-                        <span>Veja mais!</span>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
                     </a>
                 </div>
             </div>
@@ -448,12 +520,12 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Tags</h4>
+                    <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ponto fixo</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Posição falsa</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Calcular função</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Video-aulas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Quiz</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Códigos em Python</span>
+                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
                     </p>
                 </div>
             </div>

@@ -17,6 +17,9 @@
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+         .city {display:none;}
+        .cityShow {display:block;}
     </style>
 
     <!-- Início do código Latex -->
@@ -147,38 +150,50 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <h6>Video aulas, <span class="w3-opacity">8 de Setembro - 2016</span></h6>
                 </div>
 
+                <br>
                 <div class="w3-container">
-                    <p>Assista nossas vídeo aulas sobre vários métodos númericos.</p>
-                    <div class="w3-row">
-                        <div class="w3-col m8 s12">
-                            <table>
-                                <tr>
-                                    <p class="w3-justify w3-recuo">Método da Bissecção</p><br>
-                                    <iframe style="margin-bottom: 10% " width="50%" height="100%" src="https://www.youtube.com/embed/_R85v5Bq9jg" frameborder="0" allowfullscreen></iframe></tr>
-                                <tr><!-- Zero de Funcoes Metodo de Newton - Parte 1 -->
-                                    <p class="w3-justify w3-recuo"> Método de Newton - Parte I</p><br>
-                                    <iframe style="margin-bottom: 10% " width="50%" height="100%" src="https://www.youtube.com/embed/BOZ17jFCw2U" frameborder="0" allowfullscreen></iframe>
-                                </tr>
-                                <tr><!-- Zero de Funcoes Metodo de Newton - Parte 2 -->
-                                    <p class="w3-justify w3-recuo">Método de Newton - Parte II</p><br>
-                                    <iframe style="margin-bottom: 10% " width="50%" height="100%" src="https://www.youtube.com/embed/x5Xqbyv5IkQ" frameborder="0" allowfullscreen></iframe>
-                                </tr>
-                            </table>
+                    <h4>Selecione uma aba abaixo:</h4>
 
+                    <ul class="w3-navbar w3-light-grey w3-border">
+                        <li><a style="cursor: pointer" class="tablink w3-dark-grey" onclick="openCity(event, 'London');">Bissecção</a></li>
+                        <li><a style="cursor: pointer" class="tablink" onclick="openCity(event, 'Paris');">Newton-Raphson</a></li>
+                        <li><a style="cursor: pointer" class="tablink" onclick="openCity(event, 'Tokyo');">Secante</a></li>
+                    </ul>
 
-
-
-                        </div>
-                        <div class="w3-col m4 w3-hide-small">
-                            <p><span class="w3-padding-large w3-right"></span></p>
-
-
-
-
-
-                        </div>
+                    <div id="London" class="w3-container w3-border city cityShow">
+                        <h2>Bissecção</h2>
+                        <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/_R85v5Bq9jg" frameborder="0" allowfullscreen></iframe>
                     </div>
+
+                    <div id="Paris" class="w3-container w3-border city">
+                        <h2>Método de Newton - Parte I</h2>
+                        <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/BOZ17jFCw2U" frameborder="0" allowfullscreen></iframe>
+                        <h2>Método de Newton - Parte II</h2>
+                        <iframe style="margin-bottom: 10% " width="100%" height="500" src="https://www.youtube.com/embed/x5Xqbyv5IkQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <div id="Tokyo" class="w3-container w3-border city">
+                        <h2>Secante</h2>
+                    </div>
+
                 </div>
+
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, x, tablinks;
+                        x = document.getElementsByClassName("city");
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablink");
+                        for (i = 0; i < x.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " w3-dark-grey";
+                    }
+                </script>
+                <br>
             </div>
             <hr>
 
@@ -206,7 +221,7 @@ and is wrapped around the whole page content, except for the footer in this exam
             <!-- Menu para telas grandes-->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Menu</h4>
+                    <h4><b>Menu</b></h4>
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -220,7 +235,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Calcular função</span><br>
-                            <span>Usando métodos númericos</span>
+                            <span>Usando métodos numéricos</span>
                         </a>
                     </li>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
@@ -230,6 +245,35 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <span>Aprenda mais!</span>
                         </a>
                     </li>
+                    <li id="dropmenumetodos" class="w3-padding-16">
+                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </li>
+                    <div id="demoAcc" class="w3-accordion-content w3-white">
+                        <a class="w3-padding-16" href="metodo-bisseccao.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Bissecção</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-newton.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método de Newton</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-iterativo.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método Iterativo</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                        <a class="w3-padding-16" href="metodo-secante.html">
+                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
+                            <span class="w3-large">Método da Secante</span><br>
+                            <span>Veja mais!</span>
+                        </a>
+                    </div>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">
                         <a href="testes-de-conhecimento.html" style="text-decoration: none">
                             <img src="_imagens/247442-200.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
@@ -251,48 +295,20 @@ and is wrapped around the whole page content, except for the footer in this exam
                             <span>Veja mais!</span>
                         </a>
                     </li>
-                    <li id="dropmenumetodos" class="w3-padding-16">
-                        <a onclick="myAccFunc('demoAcc')" style="text-decoration: none; cursor:pointer">
-                            <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                            <span class="w3-large">Métodos <i class="fa fa-caret-down"></i></span><br>
-                            <span>Veja mais!</span>
-                        </a>
-                    </li>
                 </ul>
-                <div id="demoAcc" class="w3-accordion-content w3-white">
-                    <a class="w3-padding-16" href="metodo-bisseccao.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Bissecção</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-newton.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método de Newton</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-iterativo.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método Iterativo</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                    <a class="w3-padding-16" href="metodo-secante.html">
-                        <img src="_imagens/1474099128_11.Notebook.png" alt="Image" class="w3-left w3-margin-right" style="width:50px; margin-left: 40px">
-                        <span class="w3-large">Método da Secante</span><br>
-                        <span>Veja mais!</span>
-                    </a>
-                </div>
             </div>
             <hr>
+
 
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
                 <div class="w3-container w3-padding">
-                    <h4>Tags</h4>
+                    <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom">Bissecção</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Newton-Raphson</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Secante</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ponto fixo</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Posição falsa</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Calcular função</span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Video-aulas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Quiz</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Códigos em Python</span>
+                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
                     </p>
                 </div>
             </div>
