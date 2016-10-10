@@ -109,8 +109,8 @@
 
     <!-- Header -->
     <div class="w3-container w3-center w3-padding-32">
-        <h1><b>Cálculo Númerico</b></h1>
-        <h2>Cálculo númerico de uma forma <span class="w3-tag">diferente</span></h2>
+        <h1><b>Cálculo Numérico</b></h1>
+        <h2>Cálculo numérico de uma forma <span class="w3-tag">diferente</span></h2>
     </div>
 
     <!-- Card para telas pequenas e medias -->
@@ -210,15 +210,15 @@ Agora já sabemos que entre $[ 1 , 2 ]$ possui pelo menos uma raiz, basta aplica
 </p>
 <p class="w3-justify w3-recuo"> Segunda iteração</p>
 <p class="w3-justify w3-recuo">$X_3 = \frac{2*(0.157)- 1.532*(0.738)}{(0.157)-(0.738)} → X_3 = 1.405 → F(X_3) = 0.042 $</p>
-  <p class="w3-justify w3-recuo">$  e=\frac{|1.405-1.532|}{|1.405|} = 0.09 $</p>
+    <p class="w3-justify w3-recuo">$  e=\left|\frac{1.405-1.532}{1.405}\right| = 0.09 $</p>
 
 <p class="w3-justify w3-recuo">Terceira iteração</p>
 <p class="w3-justify w3-recuo"> $X_4={1.532*(-0.042)-(1.405)*(0.157)}{(-0.042)-(0.157)} → X_4 = 1.432 → F(X_4)=0.003$</p>
-<p class="w3-justify w3-recuo"> $e = \frac{|1.432 - 1.405|}{|1.432|} = 0.02 $</p>
+<p class="w3-justify w3-recuo"> $e = \left|\frac{1.432 - 1.405}{1.432}\right| = 0.02 $</p>
 
 <p class="w3-justify w3-recuo">Quarta iteração</p>
 <p class="w3-justify w3-recuo"> $ X_5 = {1.405*(0.003)-(1.432)*(-0.042)}{(0.003)-(-0.042)} → X_5 = 1.4302 → F(X_5) = -0.0004  $</p>
-<p class="w3-justify w3-recuo">$ e= \frac{|1.4302 - 1.432|}{|1.4302|} = 0.001  $ </p>
+<p class="w3-justify w3-recuo">$ e= \left|\frac{1.4302 - 1.432}{1.4302}\right| = 0.001  $ </p>
 
 <p class="w3-justify w3-recuo">Portanto $X5 = 1.4302$ é uma aproximação da raiz de $F$.</p>
 
@@ -244,12 +244,12 @@ $ H_2 = \frac{0.25*(-0.46) -0.5*(-0.96)}{(0.46)-(-0.96)} →  H_2 = 0.419  →  
 
 <p class="w3-justify w3-recuo">Segunda iteração</p>
 <p class="w3-justify w3-recuo">$H_3 = \frac{0.5*(-0.076) -0.419*(0.46)}{(-0.076)-(0.46)} → H_3 = 0.43 → F(H_3) = -0.007$ <br>
-<p class="w3-justify w3-recuo"> $e=\frac{|0.43 - 0.419|}{|0.43|} = 0.026$</p>
+<p class="w3-justify w3-recuo"> $e=\left|\frac{0.43 - 0.419}{0.43}\right| = 0.026$</p>
 
 
 <p class="w3-justify w3-recuo">Terceira iteração</p>
 <p class="w3-justify w3-recuo">$H_4 = \frac{0.419*(-0.007) -0.43*(-0.076)}{(-0.007)-(-0.076)} → H_4 = 0.431 → F(H_4) = -0.0007$</p>
-<p class="w3-justify w3-recuo">$e=\frac{|0.431-0.43|}{|0.431|} = 0.002 $</p>
+<p class="w3-justify w3-recuo">$e=\left|\frac{0.431-0.43}{0.431}\right| = 0.002 $</p>
 <p class="w3-justify w3-recuo">Portanto H_4 = 0.431 é uma aproximação da raiz de $F$</p>
 
 
@@ -313,7 +313,7 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
 
 <p class="w3-justify w3-recuo">Cálculo do Erro:</p>
 
-<p class="w3-justify w3-recuo">$е = |\frac{x_3  - x_2}{x_3} |= |\frac{1.448 - 1.532}{1.448}|  = 0.058$ . Maior do que 0.01, então vamos para a terceira iteração.</p>
+<p class="w3-justify w3-recuo">$е = \left|\frac{x_3  - x_2}{x_3}\right| = \left|\frac{1.448 - 1.532}{1.448}\right|  = 0.058$ . Maior do que 0.01, então vamos para a terceira iteração.</p>
 
 <p class="w3-justify w3-recuo">Terceira iteração</p>
 
@@ -328,7 +328,7 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
 
 <p class="w3-justify w3-recuo">Cálculo do Erro: </p>
 
-<p class="w3-justify w3-recuo">$е = |\frac{x_4  - x_3}{x_4} |= |\frac{1.434 - 1.448}{1.434}|  =0.009$ .  Erro menor do que $0.01$, então paramos por aqui e obtemos o resultado satisfatório para a raiz que é 1.434.</p>
+<p class="w3-justify w3-recuo">$е = \left|\frac{x_4  - x_3}{x_4}\right| = \left|\frac{1.434 - 1.448}{1.434}\right|  =0.009$ .  Erro menor do que $0.01$, então paramos por aqui e obtemos o resultado satisfatório para a raiz que é 1.434.</p>
 
 
 
@@ -381,7 +381,7 @@ $X_{k+1} = \frac{X_{k-1}*F(X_k) - X_k*F(X_{k-1})}{F(X_k)- F(X_{k-1})}$
                         <a href="calcular-funcao.html" style="text-decoration: none">
                             <img src="_imagens/fx.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                             <span class="w3-large">Calcular função</span><br>
-                            <span>Usando métodos númericos</span>
+                            <span>Usando métodos numérico</span>
                         </a>
                     </li>
                     <li class="w3-padding-16 w3-hide-medium w3-hide-small">

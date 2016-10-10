@@ -1,0 +1,9 @@
+﻿
+
+/*Configuração de rodapés*/
+
+#rod{ text-align: center;margin: 0;}
+
+#rod ul li{display: inline; list-style: none; padding: 2px 5px;margin: 5px;}
+
+#rod ul li a{text-decoration: none;margin: 5px;}

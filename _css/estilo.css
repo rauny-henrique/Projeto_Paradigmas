@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import 'https://fonts.googleapis.com/css?family=Titillium+Web'; /* Importando da Web */
 @font-face { /* definindo uma fonte com um arquivo de fonte */
     font-family: 'FonteLogo';
@@ -237,6 +237,9 @@ footer#rodape p{
     width:70%;
     margin: 0 auto;
     padding: 1.4% 0;
+}
+
+
 }
 /* fim*/
 
