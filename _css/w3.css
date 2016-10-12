@@ -98,7 +98,7 @@ ul.w3-ul li:last-child{border-bottom:none}
 .w3-pagination li a:hover{background-color:#ccc}
 .w3-input-group,.w3-group{margin-top:24px;margin-bottom:24px}
 .w3-input{padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
-.w3-iframe{padding:8px;display:block;border:none;border:1px solid #808080;width:50%}
+.w3-iframe{padding:8px;display:block;border:none;border:1px solid #808080;width:100%}
 .w3-label{color:#009688}.w3-input:not(:valid)~.w3-validate{color:#f44336}
 .w3-select{padding:9px 0;width:100%;color:#000;border:1px solid transparent;border:1px solid #808080}
 .w3-select select:focus{color:#000;border:1px solid #009688}.w3-select option[disabled]{color:#009688}
@@ -364,6 +364,28 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .imgCenterNew{
     min-width: 245px;
     min-height: 89px;
+}
+
+/* Iterativo */
+.imgiterativoprim{
+    min-width: 255px;
+    min-height: 166px;
+}
+.imgiterativoseg{
+    min-width: 255px;
+    min-height: 162px;
+}
+.imgiterativo03{
+    min-width: 255px;
+    min-height: 34px;
+}
+.imgiterativo04{
+    min-width: 255px;
+    min-height: 353px;
+}
+.imgiterativo05{
+    min-width: 255px;
+    min-height: 235px;
 }
 
 .imgensAju{
