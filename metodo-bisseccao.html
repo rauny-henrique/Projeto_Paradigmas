@@ -50,7 +50,7 @@
         <div class="w3-card-2">
             <ul class="w3-navbar w3-large w3-left-align w3-hide-large w3-white">
                 <li class="w3-hide-large w3-white w3-opennav w3-right">
-                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')">☰</a>
+                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 </li>
                 <li><a href="index.html"><img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:25px">Home</a></li>
             </ul>
@@ -136,7 +136,7 @@
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/metodos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Método da Bissecção</b></h3>
+                    <h3><b>Método da Bissecção</b><div class="fb-share-button w3-right" data-href="http://cndiferente.esy.es/metodo-bisseccao.html" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcndiferente.esy.es%2Fmetodo-bisseccao.html&amp;src=sdkpreparse">Compartilhar</a></div></h3>
                     <h6>UEPB, <span class="w3-opacity">16 de Setembro - 2016</span></h6>
                 </div>
 
@@ -251,11 +251,20 @@
                         <p class="w3-justify w3-recuo">Vale salientar que esses exemplos ocorrem em cada iteração, ou seja, essas verificações devem ser averiguadas em cada
                         iteração da tabela, até que encontre-se a raiz.</p>
 
-        <div class="w3-responsive">
+
+                    <br>
+                    <h3>Exemplos:</h3>
+                    <p class="w3-justify w3-recuo">
+                    <b>Exemplo 1:</b> Determinar usando o método da bissecção uma aproximação para a raiz de:</p>
+                    <h3 class="w3-center">$f(x) = 3x^2 - e^x$,      $E < 10^{-2}$</h3>
+                    <p class="w3-justify w3-recuo"><b>Resolução:</b>
+                    Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que possua raiz.</p>
+
+                    <div class="w3-responsive">
                         <table class="w3-table w3-striped w3-bordered w3-border">
 
                         <tr>
-                            <td   class="w3-dark-grey" width=14% align="center">$x$</td>
+                            <td class="w3-dark-grey w3-center" width=14%>$x$</td>
                             <td width=14% align="center">$-2$</td>
                             <td width=14% align="center">$-1$</td>
                             <td width=14% align="center"> $0$</td>
@@ -266,7 +275,7 @@
 
                         <tr>
 
-                            <td  class="w3-dark-grey"  width=14% align="center">$f(x)$</td>
+                            <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
                             <td width=14% align="center">$11.86$</td>
                             <td width=14% align="center">$2.63$</td>
                             <td width=14% align="center"> $-1$</td>
@@ -276,7 +285,6 @@
                         </tr>
 
                         <tr>
-
                             <td class="w3-dark-grey" width=14% align="center"></td>
                             <td width=14% align="center">$5$</td>
                             <td width=14% align="center">$2$</td>
@@ -286,37 +294,34 @@
 
                         </tr>
 
-                    </table>
-                    <table class="w3-table w3-striped w3-bordered w3-border">
-
-                        <tr>
-                            <td  width=14% align="center"></td>
-                            <td  width=14% align="center"></td>
-                            <td width=14% align="center"></td>
-                            <td width=14% align="center">$[ -$</td>
-                            <td width=14% align="center">$+ ]$</td>
-                            <td  width=14% align="center">$←$Possui raiz</td>
+                            <tr>
+                                <td  width=14% align="center"></td>
+                                <td  width=14% align="center"></td>
+                                <td width=14% align="center"></td>
+                                <td width=14% align="center">$[ -$</td>
+                                <td width=14% align="center">$+ ]$</td>
+                                <td  width=14% align="center">$←$Possui raiz</td>
 
 
-                        </tr>
+                            </tr>
 
                     </table>
         </div>
                     <br>
-                    <p class="w3-justify"> Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Agora já
-                        já podemos utilizar o método da bissecção para encontrarmos uma aproximação da raiz de $F$.
+                    <p class="w3-justify w3-recuo"> Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Agora já
+                        já podemos utilizar o método da bissecção para encontrarmos uma aproximação da raiz de $f$.</p>
 
-                        <br>Temos,<br> $a=0$ &nbsp;&nbsp; e &nbsp;&nbsp;$F(a)= -1$
-                        <br>$b=1$ &nbsp;&nbsp; e &nbsp;&nbsp; $F(b)=0.282$<br>
+                        Temos,<br>
+                        $a=0$ &nbsp;&nbsp; e &nbsp;&nbsp;$f(a)= -1$
+                        <br>$b=1$ &nbsp;&nbsp; e &nbsp;&nbsp; $f(b)=0.282$<br><br>
 
                         Calculando o ponto médio entre $a$ e $b$ temos,<br>
-                        $x_n = \frac{( 0 + 1 )} { 2}$ $→ x_n =0.5$ &nbsp;&nbsp;e &nbsp;&nbsp;$F(x_n )= -0.899$<br>
+                        $x_n = \frac{( 0 + 1 )} { 2}$ $→ x_n =0.5$ &nbsp;&nbsp;e &nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
                         Agora analisamos onde ocorre inversão de sinal.<br>
-                        $F(a)= -1,$&nbsp;&nbsp;
-                        $F(b)= 0.282$ &nbsp;&nbsp;&nbsp;&nbsp;$F(x_n )= -0.899$<br>
-                        Assim temos nosso novo intervalo: $[x_n , b] → [0.5 , 1]$
-                        <br>Repetindo as etapas anteriores temos a seguinte tabela:
-                        <br>
+                        $f(a)= -1,$&nbsp;&nbsp;
+                        $f(b)= 0.282$ &nbsp;&nbsp;&nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
+                        Assim temos nosso novo intervalo: $[x_n , b] → [0.5 , 1]$.<br>
+                        <br>Repetindo as etapas anteriores temos a seguinte tabela:<br><br>
                <div class="w3-responsive">
                     <table class="w3-table w3-striped w3-bordered w3-border">
                     <thead>
@@ -326,9 +331,9 @@
                             <td width=12% align="center">$a$</td>
                             <td width=12% align="center">$b$</td>
                             <td width=12% align="center"> $x_n$</td>
-                            <td width=12% align="center">$F(a)$</td>
-                            <td width=12% align="center">$F(b)$</td>
-                            <td width=12% align="center">$F(x_n)$</td>
+                            <td width=12% align="center">$f(a)$</td>
+                            <td width=12% align="center">$f(b)$</td>
+                            <td width=12% align="center">$f(x_n)$</td>
                             <td width=12% align="center">$Erro$</td>
 
                         </tr>
@@ -426,84 +431,92 @@
                         </tr>
                     </table>
                </div>
-                    <p class="w3-justify"><br>Portanto usando o método da bissecção chegamos a uma aproximação igual a $0.914$, que
-                        representa uma das raízes da função $F(x) = 3x²-e^x$.<br>
-                        <b>Exemplo2:</b> Uma pessoa tomou um empréstimo de $A$ reais, que acrescenta os juros no total
+                    <br>
+                    <p class="w3-justify w3-recuo">Portanto usando o método da bissecção chegamos a uma aproximação igual a $0.914$, que
+                        representa uma das raízes da função $f(x) = 3x^2-e^x$.</p>
+                        <br><br>
+
+
+                        <p class="w3-justify w3-recuo">
+                            <b>Exemplo 2:</b> Uma pessoa tomou um empréstimo de $A$ reais, que acrescenta os juros no total
                         antes de computar o pagamento mensal. Assim, se a taxa mensal de juros, em
                         porcentagem, é $q$ e o empréstimo é pelo prazo de $n$ meses, a quantia total que o tomador
-                        concorda em pagar é:<br>
-                        $C=A+A.n.\frac{q}{100}$ <br>
-                        Isto é dividido por n para dar o total de cada pagamento P , ou seja:<br>
-                        $P=\frac{C}{n}=A(\frac{1}{n}+\frac{q}{100})$<br>
+                        concorda em pagar é:</p>
+                        <h3 class="w3-center">$C=A+A*n*\frac{q}{100}$</h3>
+                        <p class="w3-justify">Isto é dividido por n para dar o total de cada pagamento P , ou seja:</p>
+                        <h3 class="w3-center">$P=\frac{C}{n}=A(\frac{1}{n}+\frac{q}{100})$</h3>
 
-                        Isto é perfeitamente legal e muito usado em lojas de departamento. (E chamado de
+                        <p class="w3-justify w3-recuo">Isto é perfeitamente legal e muito usado em lojas de departamento. (E chamado de
                         empréstimo com acréscimo). Mas a verdadeira taxa de juros que o tomador está pagando é
                         alguma coisa além de $q%$, porque ele não conserva o total do empréstimo por todos os $n$
                         meses. Ele está pagandoo
                         de volta com o decorrer do tempo. A verdadeira taxa de juros
-                        pode ser encontrada pela determinação de uma raiz $x$ da equação:<br>
-                        $F(x)=(Ax-P)(1+x)^n+P=0$ <br>
+                        pode ser encontrada pela determinação de uma raiz $x$ da equação:</p>
+                        <h3 class="w3-center">$f(x)=(Ax-P)(1+x)^n+P=0$</h3>
 
-                        Isto fornece a taxa de juros por período de pagamento, que pode ser convertida em
-                        taxa anual multiplicando-se a mesma por 12. Seja A = R$1000, <b>n=24</b> e <b>q=5%</b>. Determine a
-                        verdadeira taxa de juros, considere $E<10^{-2}$.
-                        <br>Resolução:
-                        <br>A = 1000 reais
-                        <br>N = 24 meses = 2 anos
-                        <br>q = 5% a.m à 5*12 = 60% a.a.
-                        <br>Substituindo esses dados na segunda equação do enunciado, que dá o valor de $P$ , temos:
-                        $P = 1000$.
-                        <br>Agora, substituindo os valores de $A$, $P$ e $n$ na equação de $F(x)$, temos:
-                        <br>$F(x) = (1000x – 1100)(1+x)² + 1100 = 0$
-                        <br>$F(x) = 10x³ + 9x² 12x = 0$
-                        <br>$F(x) = 10x² + 9x 12= 0. ←$ Encontramos nossa $F(x)$.<br>
-                        Usando o teorema de Bolzano aplicamos valores em $F$ para encontramos um intervalo que
-                        possua raiz.<br>
+                        <p class="w3-justify w3-recuo">Isto fornece a taxa de juros por período de pagamento, que pode ser convertida em
+                        taxa anual multiplicando-se a mesma por 12. Seja <b>A = R$1000</b>, <b>n=24</b> e <b>q=5%</b>. Determine a
+                        verdadeira taxa de juros, considere $E<10^{-2}$.</p>
+                        <b>Resolução:</b><br>
+                        <br><b>A = 1000 reais</b>
+                        <br><b>N = 24 meses = 2 anos</b>
+                        <br><b>q = 5% a.m à 5*12 = 60% a.a. (ao ano)</b>
+                        <br><br>
+                        <p class="w3-justify">Substituindo esses dados na segunda equação do enunciado, que dá o valor de $P$ , temos:
+                        $P = 1000$.</p>
+                        <p>Agora, substituindo os valores de $A$, $P$ e $n$ na equação de $f(x)$, temos:</p>
+                        <p>$f(x) = (1000x – 1100)(1+x)^2 + 1100 = 0$</p>
+                        <p>$f(x) = 10x^3 + 9x^2 12x = 0$</p>
+                        <p>$f(x) = 10x^2 + 9x 12= 0. ←$ Encontramos nossa $f(x)$.</p>
+                        <p class="w3-justify">Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que
+                        possua raiz.</p>
                      <div class="w3-responsive">
-                    <table class="w3-table w3-striped w3-bordered w3-border">
-                        <tr>
 
-                            <td class="w3-dark-grey" width=14% align="center">$x$</td>
-                            <td width=14% align="center">$-2$</td>
-                            <td width=14% align="center">$-1$</td>
-                            <td width=14% align="center">$0$</td>
-                            <td width=14% align="center">$1$</td>
-                            <td width=14% align="center">$2$</td>
+                         <table class="w3-table w3-striped w3-bordered w3-border">
 
-                        </tr>
-                        <tr>
+                             <tr>
+                                 <td   class="w3-dark-grey w3-center" width=14%>$x$</td>
+                                 <td width=14% align="center">$-2$</td>
+                                 <td width=14% align="center">$-1$</td>
+                                 <td width=14% align="center"> $0$</td>
+                                 <td width=14% align="center">$1$</td>
+                                 <td width=14% align="center">$2$</td>
 
-                            <td  class="w3-dark-grey" width=14% align="center">$F(x)$</td>
-                            <td width=14% align="center">10</td>
-                            <td width=14% align="center">-11</td>
-                            <td width=14% align="center">-12</td>
-                            <td width=14% align="center">7</td>
-                            <td width=14% align="center">46</td>
+                             </tr>
 
-                        </tr>
+                             <tr>
 
-                    </table>
+                                 <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
+                                 <td width=14% align="center">$10$</td>
+                                 <td width=14% align="center">$-11$</td>
+                                 <td width=14% align="center"> $-12$</td>
+                                 <td width=14% align="center">$7$</td>
+                                 <td width=14% align="center">$46$</td>
+
+                             </tr>
+
+                             <tr>
+                                 <td  width=14% align="center"></td>
+                                 <td  width=14% align="center"></td>
+                                 <td width=14% align="center"></td>
+                                 <td width=14% align="center">$[ -$</td>
+                                 <td width=14% align="center">$+ ]$</td>
+                                 <td  width=14% align="center">$←$Possui raiz</td>
+
+
+                             </tr>
+
+                         </table>
+
                      </div>
-                      <div class="w3-responsive">
-                    <table border="0" width=100%>
-                        <tr>
 
-                            <td  width=14% align="center"></td>
-                            <td width=14% align="center"></td>
-                            <td width=14% align="center">$[ -$</td>
-                            <td width=14% align="center">$+ ]$</td>
-                            <td colspan="2" width=28% align="center">$←$Possui raiz</td>
-
-
-                        </tr>
-                    </table>
-                      </div>
-
-                    <p class="w3-justify"><br>
+                    <br>
+                    <p class="w3-justify w3-recuo">
                         Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Já que não faz
                         sentido termos um intervalo negativo, pois a questão quer saber a taxa de juros). Agora já
-                        podemos utilizar o método da bissecção para encontramos uma aproximação da raiz de F. A
-                        tabela a seguir expressa os resultados obtidos:<br></p>
+                        podemos utilizar o método da bissecção para encontramos uma aproximação da raiz de $f$. A
+                        tabela a seguir expressa os resultados obtidos:</p>
+
                      <div class="w3-responsive">
                     <table class="w3-table w3-striped w3-bordered w3-border">
                         <thead>
@@ -513,9 +526,9 @@
                             <td width=10% align="center">$a$</td>
                             <td width=10% align="center">$b$</td>
                             <td width=10% align="center">$x_n$</td>
-                            <td width=10% align="center">$F(a)$</td>
-                            <td width=10% align="center">$F(b)$</td>
-                            <td width=10% align="center">$F(x_n)$</td>
+                            <td width=10% align="center">$f(a)$</td>
+                            <td width=10% align="center">$f(b)$</td>
+                            <td width=10% align="center">$f(x_n)$</td>
                             <td width=10% align="center">$Erro$</td>
 
                         </tr>
@@ -619,7 +632,7 @@
                     </table>
                      </div>
                     <br><p class="w3-justify">
-                    Portanto, uma aproximação da raiz de $F(x)$ é $x= 0,73$ que corresponde a <b>73%</b>&nbsp; a.a (ao ano).
+                    Portanto, uma aproximação da raiz de $f(x)$ é $x= 0,73$ que corresponde a <b>73%</b>&nbsp; a.a (ao ano).
                     Ou  <b>6,08%</b> &nbsp;a.m (ao mês).</p><br>
 
                     </p>
@@ -638,6 +651,21 @@
             </div>
             <hr>
             <!-- END BLOG ENTRIES -->
+
+            <!-- Redes sociais -->
+            <div class="w3-card-2 w3-margin w3-hide-large">
+                <div class="w3-container w3-padding">
+                    <h4><b>Redes sociais</b></h4>
+                </div>
+                <div class="w3-container w3-white w3-center">
+                    <div class="fb-page"
+                         data-href="https://www.facebook.com/cndiferente"
+                         data-hide-cover="false"
+                         data-show-facepile="false"
+                         data-show-posts="false" data-width="500" data-adapt-container-width="true"></div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Introduction menu -->
@@ -793,6 +821,15 @@
                 </div>
             </div>
             <hr>
+            <!-- Redes sociais -->
+            <div class="w3-card-2 w3-margin w3-hide-small w3-hide-medium">
+                <div class="w3-container w3-padding">
+                    <h4><b>Redes sociais</b></h4>
+                </div>
+                <div class="w3-container w3-white w3-center">
+                    <div class="fb-page" data-href="https://www.facebook.com/cndiferente" data-tabs="timeline" data-width="460" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cndiferente" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cndiferente">Cálculo Numérico de Uma Forma Diferente</a></blockquote></div>                </div>
+            </div>
+            <hr>
 
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
@@ -839,8 +876,17 @@
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top w3-center">
     <p>Computação - UEPB</p>
-    <p><a href="https://www.facebook.com/groups/535760243208087/" target="_blank">Facebook</a></p>
+    <p><a href="https://www.facebook.com/cndiferente/" target="_blank"><img src="_imagens/facebook.png" alt="Facebook"></a></p>
 </footer>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 </body>
 </html>

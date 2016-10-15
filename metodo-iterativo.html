@@ -50,7 +50,7 @@
         <div class="w3-card-2">
             <ul class="w3-navbar w3-large w3-left-align w3-hide-large w3-white">
                 <li class="w3-hide-large w3-white w3-opennav w3-right">
-                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')">☰</a>
+                    <a href="javascript:void(0);" onclick="myAccFunc('demo3')"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 </li>
                 <li><a href="index.html"><img src="_imagens/hhome.png" alt="Image" class="w3-left w3-margin-right" style="width:25px">Home</a></li>
             </ul>
@@ -136,7 +136,7 @@
             <div class="w3-card-4 w3-margin w3-white">
                 <img src="_imagens/metodos.jpg" alt="Nature" style="width:100%">
                 <div class="w3-container w3-padding-8">
-                    <h3><b>Método Iterativo Linear (Ponto Fixo)</b></h3>
+                    <h3><b>Método Iterativo Linear (Ponto Fixo)</b><div class="fb-share-button w3-right" data-href="http://cndiferente.esy.es/metodo-iterativo.html" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcndiferente.esy.es%2Fmetodo-iterativo.html&amp;src=sdkpreparse">Compartilhar</a></div></h3>
                     <h6>UEPB, <span class="w3-opacity">18 de Setembro - 2016</span></h6>
                 </div>
 
@@ -352,11 +352,11 @@
 						<p class="w3-justify w3-recuo">Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma
 						translação e uma dilatação, assim o procedimento corresponde a uma função da forma:<br></p>
 						
-					<h3 class="w3-center">$f(x) = ax+b   (1)$</h3>
+					<h3 class="w3-center">$f(x) = ax+b$ $(1)$</h3>
 						
 					<p class="w3-justify w3-recuo">	
 						Se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
-						esquerda está sobre o ponto $x1$ e a ponta direita está sobre o ponto $x2$. Desse modo $l=x2-x1$, conforme a figura abaixo:<br></p>
+						esquerda está sobre o ponto $x_1$ e a ponta direita está sobre o ponto $x_2$. Desse modo $l=x_2-x_1$, conforme a figura abaixo:<br></p>
 						
 					<div class="imgensAju">
                         <img class="imgiterativo03" src="_imagens/intervalo-elastico.png" alt="Elástico" width="588" height="78">
@@ -367,11 +367,10 @@
 					
 						
 					<p class="w3-justify w3-recuo">	
-						Assim, vemos que a extremidade esquerda x_1 será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
+						Assim, vemos que a extremidade esquerda $x_1$ será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
 						valores em $(1)$, temos que:<br></p>
 					
-					<h3 class="w3-center">$ax_1+b=0$<br>
-									  $ax_2+b=L$</h3>
+					<h3 class="w3-center"><p>$ax_1+b=0$</p><p>$ax_2+b=L$</p></h3>
 					
 					<p class="w3-justify w3-recuo">	
 						Resolvendo o sistema temos:<br></p>
@@ -412,6 +411,21 @@
             </div>
             <hr>
             <!-- END BLOG ENTRIES -->
+
+            <!-- Redes sociais -->
+            <div class="w3-card-2 w3-margin w3-hide-large">
+                <div class="w3-container w3-padding">
+                    <h4><b>Redes sociais</b></h4>
+                </div>
+                <div class="w3-container w3-white w3-center">
+                    <div class="fb-page"
+                         data-href="https://www.facebook.com/cndiferente"
+                         data-hide-cover="false"
+                         data-show-facepile="false"
+                         data-show-posts="false" data-width="500" data-adapt-container-width="true"></div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Introduction menu -->
@@ -566,6 +580,15 @@
                 </div>
             </div>
             <hr>
+            <!-- Redes sociais -->
+            <div class="w3-card-2 w3-margin w3-hide-small w3-hide-medium">
+                <div class="w3-container w3-padding">
+                    <h4><b>Redes sociais</b></h4>
+                </div>
+                <div class="w3-container w3-white w3-center">
+                    <div class="fb-page" data-href="https://www.facebook.com/cndiferente" data-tabs="timeline" data-width="460" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/cndiferente" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cndiferente">Cálculo Numérico de Uma Forma Diferente</a></blockquote></div>                </div>
+            </div>
+            <hr>
 
             <!-- Labels / tags -->
             <div class="w3-card-2 w3-margin">
@@ -612,8 +635,17 @@
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top w3-center">
     <p>Computação - UEPB</p>
-    <p><a href="https://www.facebook.com/groups/535760243208087/" target="_blank">Facebook</a></p>
+    <p><a href="https://www.facebook.com/cndiferente/" target="_blank"><img src="_imagens/facebook.png" alt="Facebook"></a></p>
 </footer>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 </body>
 </html>
