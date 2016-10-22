@@ -178,7 +178,6 @@ function ajeitaEquacao(_s)
     return _s;
 }
 
-var alfa,beta,gama,teta;
 var EQUACAO,VERFEQUACAO,cop;
 
 function Escolha()
@@ -252,26 +251,6 @@ function arredonda(x) {
     return valor
 }
 
-function decimalAdjust(type, value, exp){
-
-        // If the exp is undefined or zero...
-        if (typeof exp === 'undefined' || +exp === 0) {
-            return Math[type](value);
-        }
-        value = +value;
-        exp = +exp;
-        // If the value is not a number or the exp is not an integer...
-        if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-            return NaN;
-        }
-        // Shift
-        value = value.toString().split('e');
-        value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-        // Shift back
-        value = value.toString().split('e');
-        return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-}
-
 function veficarIntervalo(aForm)
 {
     a = eval(aForm.raizVerifEsq.value);
@@ -284,11 +263,11 @@ function veficarIntervalo(aForm)
     fa = arredonda(calculaVERIF(aa));
     fb = arredonda(calculaVERIF(bb));
 
-    if(isNaN(fa) || isNaN(fa))
+    if(isNaN(fa))
     {
         fa = "Indefinido";
     }
-    if(isNaN(fb) || isNaN(fb))
+    if(isNaN(fb))
     {
         fb = "Indefinido";
     }
@@ -1020,63 +999,6 @@ function escreveTextGraf(funcao, raiz)
 }
 
 
-var limit = 0;
-
-function barraProgresso()
-{
-    if(limit < 100)
-    {
-        var elem = document.getElementById("myBar");
-        limit += 10; // ajustar aqui
-        var width = 0;
-        var id = setInterval(frame,40);
-
-        function frame()
-        {
-            if (width >= limit) {
-                clearInterval(id);
-            } else {
-                width++;
-                elem.style.width = width + '%';
-                document.getElementById("demo").innerHTML = width * 1  + '%';
-            }
-        }
-    }
-    else
-    {
-
-    }
-}
-
-var limit2 = 0;
-
-function barraProgresso2()
-{
-    if(limit2 < 100)
-    {
-        var elem = document.getElementById("myBar2");
-        limit2 += 10; // ajustar aqui
-        var width = 0;
-        var id = setInterval(frame,40);
-
-        function frame()
-        {
-            if (width >= limit2) {
-                clearInterval(id);
-            } else {
-                width++;
-                elem.style.width = width + '%';
-                document.getElementById("demo2").innerHTML = width * 1  + '%';
-            }
-        }
-    }
-    else
-    {
-
-    }
-}
-
-
 // Newton-Raphson
 function derivada(x){
     var func = cop;
@@ -1101,15 +1023,6 @@ function scrollToTop(scrollDuration) {
 }
 
 
-function myAccFunc(acord) {
-    var x = document.getElementById(acord);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
 function Onscroolll()
 {
     window.onscroll = function(){
@@ -1123,6 +1036,18 @@ function Onscroolll()
         }
     }
 }
+
+
+function myAccFunc(acord) {
+    var x = document.getElementById(acord);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+
 
 var flag = 0;
 var codecop = "";

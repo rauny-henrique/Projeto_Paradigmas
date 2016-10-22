@@ -13,11 +13,15 @@
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
     <link rel="stylesheet" href="_css/bootstrap.min.css">
-    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="_imagens/CND.ico" />
 
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        p{
+            text-align: justify;
+            text-indent: 1.5em;
+        }
     </style>
     <!-- Início do código Latex -->
     <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
@@ -121,7 +125,7 @@
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
             <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                <p class=" w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
                     em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
                     auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
             </li>
@@ -143,19 +147,19 @@
 
                 <div class="w3-container">
                     <br><h4><!--Teorema: --></h4>
-                    <p class="w3-justify w3-recuo">
+                    <p>
                         Sejam $f(x)$, $f’(x)$ e $f’’(x)$ contínuas num intervalo $I$ que contém a raiz x = $\xi$ de $f(x)
                         = 0$, supor que $f’(\xi) ≠ 0$, então existe um intervalo $Ī ⊂ I$, contendo a raiz $\xi$ tal que $x_0 ∈ Ī$ , e a
                         sequência {$x_k$ } gerada pela Fórmula 1 convergirá para a raiz.</p>
-                        <p class="w3-justify w3-recuo">O método de Newton se baseia na reta tangente à curva que liga o $f(x_k)$ ao $x_{k+1}$ , onde
+                    <p>O método de Newton se baseia na reta tangente à curva que liga o $f(x_k)$ ao $x_{k+1}$ , onde
                         k inicia-se com o valor $0$, que é a aproximação inicial dada para iniciar o cálculo dado pela
                         fórmula abaixo. Com base no $x_0$ , encontra-se o $x_1$ e assim por diante. E a cada iteração,
                         aproxima-se cada vez mais da raiz, diminuindo o erro.<br></p>
 
                     <h3 class="w3-center">$x_{k+1}=x_k - \frac{f(x_k)}{f'(x_k)}$</h3>
-                    <p class="w3-justify">O erro relativo e dado por:</p>
+                    <p>O erro relativo e dado por:</p>
                     <h3 class="w3-center">$E_r=\left|\frac{(x_k-x_{k-1})}{x_k}\right|$</h3>
-                    <p class="w3-justify w3-recuo">
+                    <p>
                         É importante lembrar também que a escolha da aproximação inicial ($x_0$ ) é essencial
                         para um bom desempenho do método de Newton. Geralmente, testa-se valores para o $x_0$ na
                         função $f(x)$, e se o valor de $f(x_0)$ for baixo, o desempenho do método será satisfatório.
@@ -167,7 +171,7 @@
                     <p class="w3-center">Iterações do método de Newton graficamente</p>
 
 
-                    <p class="w3-justify w3-recuo">
+                    <p>
                         O método de Newton não utiliza o teorema de Bolzano. Assim, determina-se
                         um elemento $“x”$ para ser aplicado no sistema, conforme foi supracitado.
                         Após determinar este elemento, calcula-se as aproximações da raiz, seguindo a
@@ -183,11 +187,11 @@
                         <ol type="1">
                             <li>Se o erro relativo for igual a zero, o elemento $x+1$ é raiz exata da função;</li>
                             <li>
-                                <p class="w3-justify">Se o erro relativo for menor do que o erro determinado no sistema, determina-se o elemento $x+1$ como a raiz aproximada da função;</p>
+                                <p>Se o erro relativo for menor do que o erro determinado no sistema, determina-se o elemento $x+1$ como a raiz aproximada da função;</p>
                             </li>
                             <li>
-                                <p class="w3-justify">Se o erro relativo for maior que o erro determinado no sistema, determina-se então um próximo elemento, onde o atual elemento $x+1$ assume
-                                o posto do elemento $x$ e, consequentemente, o próximo elemento encontrado será o elemento $x+1$.</p>
+                                <p>Se o erro relativo for maior que o erro determinado no sistema, determina-se então um próximo elemento, onde o atual elemento $x+1$ assume
+                                    o posto do elemento $x$ e, consequentemente, o próximo elemento encontrado será o elemento $x+1$.</p>
                             </li>
                         </ol>
                     </ol>
@@ -195,46 +199,46 @@
 
                     <div class="panel panel-default"><div class="panel-heading"><h3><i class="fa fa-question-circle-o w3-xxlarge"> Voce sabia?</i></h3></div>
                         <div class="panel-body">
-                        <p class="w3-justify w3-recuo">A maioria dos super computadores não possui a unidade de operação de divisão.</p>
-                        <h4>Por que isso acontece?</h4>
-                        <p class="w3-justify w3-recuo">
-                            Porque uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de
-                            relógio( correspondente ao número de impulsos por segundo, expresso em Hertz ($Hz$) ) , isso é
-                            cinco vezes mais tempo que a operação de multiplicação.<br>
-                            Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através
-                            do método de Newton,permitimos que operações de divisões sejam feitas de forma mais
-                            rápida.</p>
+                            <p>A maioria dos super computadores não possui a unidade de operação de divisão.</p>
+                            <h4>Por que isso acontece?</h4>
+                            <p>
+                                Porque uma operação de divisão em um computador pode levar cerca de 20 a 25 ciclos de
+                                relógio( correspondente ao número de impulsos por segundo, expresso em Hertz ($Hz$) ) , isso é
+                                cinco vezes mais tempo que a operação de multiplicação.<br>
+                                Em vez disso, uma outra unidade de divisão, usando uma base de cálculo numérico, através
+                                do método de Newton,permitimos que operações de divisões sejam feitas de forma mais
+                                rápida.</p>
                         </div>
                     </div><br>
 
 
                     <h3>Exemplos:</h3>
 
-                    <p class="w3-justify w3-recuo"><b>Exemplo 1:</b> Utilizando o método de Newton(ou tangente) determine uma
-                    aproximação, com $e < 10^{-2}$, para a raiz da função:</p>
+                    <p><b>Exemplo 1:</b> Utilizando o método de Newton(ou tangente) determine uma
+                        aproximação, com $e < 10^{-2}$, para a raiz da função:</p>
                     <h3 align="center">$f(x)=2x^2-5x+2$</h3>
 
-                    <p class="w3-justify w3-recuo"><b>Resolução:</b>
-                    Primeiro passo para usarmos o método de Newton é calcularmos a derivada
-                    da função $f$ . Assim temos:</p>
+                    <p><b>Resolução:</b>
+                        Primeiro passo para usarmos o método de Newton é calcularmos a derivada
+                        da função $f$ . Assim temos:</p>
                     <h3 align="center">$f’(x) = 4x - 5$</h3>
 
-                    <p class="w3-justify w3-recuo">Próximo passo é pensarmos em um “chute” inicial que é o $x_0$. Se aplicarmos por
-                    exemplo $0$ em $f$ temos:</p>
+                    <p>Próximo passo é pensarmos em um “chute” inicial que é o $x_0$. Se aplicarmos por
+                        exemplo $0$ em $f$ temos:</p>
                     <h3 align="center">$f(0) = 2$x$(0)^2 -5$x$0 + 2$<br>
-                    $f(0) = 2$</h3>
-                    <p class="w3-justify w3-recuo">
-                    Dessa forma identificamos que o valor $0$ não é raiz de $f$, pois não zerou a função,
-                    assim podemos utilizá-lo para gerar novos valores que convergem para a raiz.
-                    Assim temos:</p>
+                        $f(0) = 2$</h3>
+                    <p>
+                        Dessa forma identificamos que o valor $0$ não é raiz de $f$, pois não zerou a função,
+                        assim podemos utilizá-lo para gerar novos valores que convergem para a raiz.
+                        Assim temos:</p>
                     <h3 class="w3-center">$x_{1}=x_{0}-\frac{f(x_{0})}{f'(x_{0})}$</h3>
                     <br>
-                    <p class="w3-justify">Aplicando os respectivos valores temos:</p>
+                    <p>Aplicando os respectivos valores temos:</p>
 
                     <table border=0 width=50% style="border-collapse: collapse">
                         <tr>
 
-                            <td  width=24% align="left"><p class="w3-justify">$x_{1}=0-\frac{2}{-5}$</p></td>
+                            <td  width=24% align="left"><p>$x_{1}=0-\frac{2}{-5}$</p></td>
                             <td width=24% align="left"><p>$e=\left|\frac{0,4-0}{0,4}\right| $</p></td>
                         </tr>
                         <tr>
@@ -243,7 +247,7 @@
                         </tr>
                     </table>
                     <p>E repetimos o processo até obtermos $e < 0,01$:</p>
-                    <table border=0 width=50% style="border-collapse: collapse">
+                    <table border=0 width=50% style="border-collapse: collapse" class="w3-recuo">
                         <tr>
 
                             <td  width=24% align="left">$x_{2}=0,4-\frac{0,32}{-3,4}$</td>
@@ -303,24 +307,24 @@
 
                     </table>
                     <br>
-                    <p class="w3-justify">Portanto concluímos que uma das raízes de $f$ é $x=0,5$.</p><br>
+                    <p>Portanto concluímos que uma das raízes de $f$ é $x=0,5$.</p><br>
 
                     <br>
-                    <p class="w3-justify w3-recuo"><b>Exemplo 2:</b> Seja uma chapa metálica de 30cm X 30cm. Veja figura abaixo:</p>
+                    <p><b>Exemplo 2:</b> Seja uma chapa metálica de 30cm X 30cm. Veja figura abaixo:</p>
                     <div class="imgensAju">
                         <img src="_imagens/quadrado-newton.jpg" alt="Quadrado" width="194" height="183">
                     </div>
 
-                    <p class="w3-justify w3-recuo">
-                    Se cortarmos um quadrado de lado x em cada um dos cantos desta chapa e
-                    vincarmos as abas que sobraram obteremos uma caixa sem a tampa conforme a
-                    figura a seguir.</p>
+                    <p>
+                        Se cortarmos um quadrado de lado x em cada um dos cantos desta chapa e
+                        vincarmos as abas que sobraram obteremos uma caixa sem a tampa conforme a
+                        figura a seguir.</p>
                     <div class="imgensAju">
                         <img class="imgCenterNew" src="_imagens/cubo-newton.jpg" alt="Cubo" width="602" height="219">
                     </div>
                     <br>
-                    <p class="w3-justify">Observe que se efetuarmos o produto das 3 dimensões obtemos a função
-                    que calcula o volume da caixa. Veja:</p>
+                    <p>Observe que se efetuarmos o produto das 3 dimensões obtemos a função
+                        que calcula o volume da caixa. Veja:</p>
 
                     <p>$f(x) = (30 – 2x)*(30 – 2x)*x$</p>
                     <p>$f(x) = (30² – 30 * 2x – 2x*30 + 4x^2)*x$</p>
@@ -328,35 +332,35 @@
                     <p>$f(x) = (900 – 120x + 4x²) * x$</p>
                     <p>$f(x) = 4x^3 120x^2 + 900x$</p>
 
-                    <p class="w3-justify w3-recuo">Sabendo que o volume desta caixa é igual a $1507,1 cm^3$. Utilize o método de
-                    Newton para encontrar a altura $x$ com erro $e < 10^{-2}$.</p>
+                    <p>Sabendo que o volume desta caixa é igual a $1507,1 cm^3$. Utilize o método de
+                        Newton para encontrar a altura $x$ com erro $e < 10^{-2}$.</p>
 
                     <br>
-                    <p class="w3-justify w3-recuo"><b>Resolução:</b></p>
-                    <p class="w3-justify w3-recuo">
-                    Sabendo que $f(x) = 4x^3-120x^2+ 900x$ , e que o volume da caixa é $1506,2 cm^3$.
-                    Temos que $f(x) = 4x^3 120x^2+ 900x-1507,1=0$. Assim podemos usar o método
-                    de Newton para acharmos o valor da altura $x$ .</p>
+                    <p><b>Resolução:</b></p>
+                    <p>
+                        Sabendo que $f(x) = 4x^3-120x^2+ 900x$ , e que o volume da caixa é $1506,2 cm^3$.
+                        Temos que $f(x) = 4x^3 120x^2+ 900x-1507,1=0$. Assim podemos usar o método
+                        de Newton para acharmos o valor da altura $x$ .</p>
 
-                    <p class="w3-justify">Primeiro passo para usarmos o método de Newton é calcularmos a derivada
-                    da função $f$ . Assim temos:</p>
+                    <p>Primeiro passo para usarmos o método de Newton é calcularmos a derivada
+                        da função $f$ . Assim temos:</p>
                     <p>$f’(x) = 12x^2 240x+ 900$</p>
-                    <p class="w3-justify">Próximo passo é pensarmos em um “chute” inicial que é o $x_{0}$ . Se aplicarmos por
-                    exemplo $0$ em $f$ temos:</p>
+                    <p>Próximo passo é pensarmos em um “chute” inicial que é o $x_{0}$ . Se aplicarmos por
+                        exemplo $0$ em $f$ temos:</p>
                     <p>$f(x) = 4(0)^3 120(0)^2 + 900(0) – 1507,1$</p>
                     <p>$f(x) = – 1507,1$</p>
 
-                    <p class="w3-justify w3-recuo">
-                    Assim encontramos um valor muito distante de zero. Portanto não é uma boa
-                    utilizarmos zero como chute inicial, pois seria necessário muitas iterações (vale lembrar
-                    que funcionaria, porém levaria mais tempo).</p>
+                    <p>
+                        Assim encontramos um valor muito distante de zero. Portanto não é uma boa
+                        utilizarmos zero como chute inicial, pois seria necessário muitas iterações (vale lembrar
+                        que funcionaria, porém levaria mais tempo).</p>
                     <p>Se tomarmos $x_{0} = 8$ tem-se o seguinte:</p>
                     <p>$f(x) = 4(8)^3 - 120(8)^2 + 900(8)-1507,1$</p>
                     <p>$f(x) = (4*512) – (120*64) + (7200-1507,1)$</p>
                     <p>$f(x) = 2048 - 7680 + 5692,9$</p>
                     <p>$f(x) = 60,9$.</p>
                     <p>Assim, aplicamos os respectivos valores:</p>
-                    <table border=0 width=50% style="border-collapse: collapse">
+                    <table border=0 width=50% style="border-collapse: collapse" class="w3-recuo">
                         <tr>
 
                             <td  width=24% align="left">$x1=8-\frac{60,9}{-252}$</td>
@@ -396,7 +400,7 @@
 
                     </table>
                     <br>
-                    <p class="w3-justify">Portanto concluímos que a altura e $x=8,237$ cm.</p>
+                    <p>Portanto concluímos que a altura e $x=8,237$ cm.</p>
 
 
                     <div class="w3-row">
@@ -439,7 +443,7 @@
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                        <p class=" w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
                             em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
                             auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
                     </li>
@@ -599,10 +603,10 @@
                     <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                    <span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
-                    </p>
+
                 </div>
             </div>
 
@@ -648,6 +652,10 @@
     js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+
 
 </body>
 </html>

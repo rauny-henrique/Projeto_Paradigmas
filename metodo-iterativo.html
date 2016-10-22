@@ -12,11 +12,15 @@
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
     <link rel="stylesheet" href="_css/bootstrap.min.css">
-    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="_imagens/CND.ico" />
 
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        p{
+            text-align: justify;
+            text-indent: 1.5em;
+        }
     </style>
     <!-- Início do código Latex -->
     <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
@@ -120,7 +124,7 @@
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
             <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                <p class=" w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
                     em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
                     auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
             </li>
@@ -142,42 +146,42 @@
 
                 <div class="w3-container">
                     <br>
-					 <p class="w3-justify w3-recuo">
-                        Seja $f(x)$ uma função contínua no intervalo $[a,b]$, intervalo que contém uma raiz da equação $f(x) = 0$. O método do Ponto 
-						Fixo consiste em fazer com que esta equação $f(x) = 0$ se torne uma equação equivalente da forma $x = φ (x)$.</p>
-					<p class="w3-justify w3-recuo">
-						Após determinar uma função $φ_x$ que satisfaça o teorema, deve-se determinar um elemento $x_0$, ou seja, uma aproximação inicial.
-						Com isso, gera-se uma sequência  $x_k$ de aproximações que convirjam para uma raiz $\bar{x}$, tal que:<br></p>
-						
-					<ul>
-						<li><p>$x_1= φ (x_0)$</p></li>
-						<li><p>$x_2= φ (x_1)$</p></li>
-						<li><p>$x_3= φ (x_2)$</p></li>
-						<li><p>$x_n= φ (x_{n-1})$</p></li>
-					</ul>
-					
-					<p class="w3-justify w3-recuo">
-						Para que a convergência da iteração linear seja assegurada, deve obedecer ao teorema, que afirma que:<br></p>
-						
-					<ul>
-						<li><p>Seja  $φ(x)$ uma função contínua, onde $φ'(x)$ e  $φ''(x)$ sejam contínuas num intervalo
-						$I = [ \bar{x}-h,  \bar{x}+h]$, com  $\bar{x}$ sendo o centro e solução de $x =  φ (x)$.</p></li>
-						<li><p>Seja $x_0$ pertencente ao intervalo $I$, e $M$ uma limitante, tal que $|φ' (x)| \leq M < 1$ em $I$. Assim,</p></li>
-					
-					<ol>
-						<li><p>A iteração  $x_{k+1}= φ(x_k)$ , com $k$ e pode ser executada de maneira indefinida;</p></li>
-						<li><p>$|x_k-x'| → 0$</p></li>
-						<li><p>Se $φ'(x) \neq 0$ ou Se $φ'(x) = 0$ e Se $φ''(x) \neq 0$ e  $|x_k-x'|$ for bem pequeno, logo a sequência $x_n$ será oscilante.</p></li>	
-					</ol>
+                    <p>
+                        Seja $f(x)$ uma função contínua no intervalo $[a,b]$, intervalo que contém uma raiz da equação $f(x) = 0$. O método do Ponto
+                        Fixo consiste em fazer com que esta equação $f(x) = 0$ se torne uma equação equivalente da forma $x = φ (x)$.</p>
+                    <p>
+                        Após determinar uma função $φ_x$ que satisfaça o teorema, deve-se determinar um elemento $x_0$, ou seja, uma aproximação inicial.
+                        Com isso, gera-se uma sequência  $x_k$ de aproximações que convirjam para uma raiz $\bar{x}$, tal que:<br></p>
+
+                    <ul>
+                        <li><p>$x_1= φ (x_0)$</p></li>
+                        <li><p>$x_2= φ (x_1)$</p></li>
+                        <li><p>$x_3= φ (x_2)$</p></li>
+                        <li><p>$x_n= φ (x_{n-1})$</p></li>
                     </ul>
-					
-					<p class="w3-justify w3-recuo">
-						O processo iterativo terá a convergência mais rápida quanto menor for o valor de φ'(x) . Entretanto, se a declividade $φ'(x)$
-						for maior que 1 em valor absoluto, para todo $x$ que pertença ao intervalo $I$ divergirá. O método iterativo linear é mais conceitual
-						do que eficiente em relação ao uso computacional. Além do mais, é necessário realizar o teste de convergência, onde $|φ'(x)| < 1$.<br></p>
-					
-					<p class="w3-justify w3-recuo">
-						Para uma determinada $f(x) = 0$, podem existir várias funções $φ(x)$, para a  equação $x2-x-6=0$, por exemplo, temos:<br></p>
+
+                    <p>
+                        Para que a convergência da iteração linear seja assegurada, deve obedecer ao teorema, que afirma que:<br></p>
+
+                    <ul>
+                        <li><p>Seja  $φ(x)$ uma função contínua, onde $φ'(x)$ e  $φ''(x)$ sejam contínuas num intervalo
+                            $I = [ \bar{x}-h,  \bar{x}+h]$, com  $\bar{x}$ sendo o centro e solução de $x =  φ (x)$.</p></li>
+                        <li><p>Seja $x_0$ pertencente ao intervalo $I$, e $M$ uma limitante, tal que $|φ' (x)| \leq M < 1$ em $I$. Assim,</p></li>
+
+                        <ol>
+                            <li><p>A iteração  $x_{k+1}= φ(x_k)$ , com $k$ e pode ser executada de maneira indefinida;</p></li>
+                            <li><p>$|x_k-x'| → 0$</p></li>
+                            <li><p>Se $φ'(x) \neq 0$ ou Se $φ'(x) = 0$ e Se $φ''(x) \neq 0$ e  $|x_k-x'|$ for bem pequeno, logo a sequência $x_n$ será oscilante.</p></li>
+                        </ol>
+                    </ul>
+
+                    <p>
+                        O processo iterativo terá a convergência mais rápida quanto menor for o valor de φ'(x) . Entretanto, se a declividade $φ'(x)$
+                        for maior que 1 em valor absoluto, para todo $x$ que pertença ao intervalo $I$ divergirá. O método iterativo linear é mais conceitual
+                        do que eficiente em relação ao uso computacional. Além do mais, é necessário realizar o teste de convergência, onde $|φ'(x)| < 1$.<br></p>
+
+                    <p>
+                        Para uma determinada $f(x) = 0$, podem existir várias funções $φ(x)$, para a  equação $x2-x-6=0$, por exemplo, temos:<br></p>
 
                     <ol type="a">
                         <li><p>  $φ_1(x) = 6-x^2$</p></li>
@@ -185,20 +189,20 @@
                         <li><p>  $φ_3(x) =\frac{6}{x}-1$</p></li>
                         <li><p>  $φ_4(x) =\frac{6}{x+1}$</p></li>
                     </ol>
-					
-					<p class="w3-justify w3-recuo">
-						O erro relativo do método é dado por :<br></p>
-						
-						<h3 class="w3-center">$E_r =\left|\frac{(x_k - x_{k-1})}{x_k}\right|$<br></h3>
-						
-						
-					<p class="w3-justify w3-recuo">
-						E o critério de parada é dado de modo que este Erro relativo seja menor que algum valor pré-determinado.<br></p>
-						
-					<p class="w3-justify w3-recuo">
-						Graficamente, uma raiz da equação $x=φ(x)$ é a abcissa do ponto de intersecção da reta $y = x$ e da curva  $y=φ(x)$, como mostrado nas imagens abaixo.<br></p>
 
-					<div class="imgensAju">
+                    <p>
+                        O erro relativo do método é dado por :<br></p>
+
+                    <h3 class="w3-center">$E_r =\left|\frac{(x_k - x_{k-1})}{x_k}\right|$<br></h3>
+
+
+                    <p>
+                        E o critério de parada é dado de modo que este Erro relativo seja menor que algum valor pré-determinado.<br></p>
+
+                    <p>
+                        Graficamente, uma raiz da equação $x=φ(x)$ é a abcissa do ponto de intersecção da reta $y = x$ e da curva  $y=φ(x)$, como mostrado nas imagens abaixo.<br></p>
+
+                    <div class="imgensAju">
                         <img class="imgiterativoprim" src="_imagens/grafico-raiz.png" width="466" height="303" alt="Grafico Raiz"/>
                     </div>
                     <p class="w3-center">Gráfico Raiz - Método Iterativo</p>
@@ -210,37 +214,37 @@
                     <p class="w3-center">Gráfico das Iterações</p>
 
                     <h3>Exemplos:</h3>
-					
-					<p class="w3-justify w3-recuo">
-						<b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função $f$, com $e < 0.01$.</p>
-					
-					<h3 class="w3-center">$f(x) = x³ - 9x + 3$</h3><br>
 
-                    <p class="w3-recuo"><b>Resolução:</b></p>
-                    <p class="w3-justify w3-recuo">Para começarmos podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em $f$ temos:</p>
-					
-					<div class="w3-responsive">
-						<table class="w3-table w3-striped w3-bordered w3-border">
-							<tr>
-								<th width ="25%" class="w3-center" >$x$</th><th width ="25%" class="w3-center">-1</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th>
-							</tr>
-							<tr>
-								<th width ="25%" class="w3-center">$f(x)$ </th><th width ="25%" class="w3-center">11 </th><th width ="25%" class="w3-center">3</th><th width ="25%" class="w3-center">-5 </th>
-							</tr>
-							<tr><th width="25%" class="w3-center"></th>
+                    <p>
+                        <b>Exemplo 1</b>: Utilizando o método Iterativo Linear (Ponto Fixo) determine uma aproximação para a raiz da função $f$, com $e < 0.01$.</p>
+
+                    <h3 class="w3-center">$f(x) = x³ - 9x + 3$</h3><br>
+
+                    <p><b>Resolução:</b></p>
+                    <p>Para começarmos podemos utilizar o teorema de Bolzano para encontramos um intervalo que contenha a raiz. Aplicando valores em $f$ temos:</p>
+
+                    <div class="w3-responsive">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
+                            <tr>
+                                <th width ="25%" class="w3-center" >$x$</th><th width ="25%" class="w3-center">-1</th><th width ="25%" class="w3-center">0</th><th width ="25%" class="w3-center">1</th>
+                            </tr>
+                            <tr>
+                                <th width ="25%" class="w3-center">$f(x)$ </th><th width ="25%" class="w3-center">11 </th><th width ="25%" class="w3-center">3</th><th width ="25%" class="w3-center">-5 </th>
+                            </tr>
+                            <tr><th width="25%" class="w3-center"></th>
                                 <th width="25%" class="w3-center">$+$</th>
                                 <th width="25%" class="w3-center">$+$</th>
                                 <th width="50%" class="w3-center">$-$</th>
                             </tr>
-						</table>
-                        <h4 class="w3-recuo">Logo, o intervalo $[0,1]$ possui raiz.</h4>
-					</div>
+                        </table>
+                        <h4>Logo, o intervalo $[0,1]$ possui raiz.</h4>
+                    </div>
                     <br>
 
-					
-					<p class="w3-justify w3-recuo">
-						Agora já sabemos que entre $[ 0 , 1]$ possui pelo menos uma raiz, próximo passo é encontramos uma $φ(x)$ que $| φ’(x)| < 1$ para todo $x$ pertencente
-						ao intervalo $[ 0 , 1]$ . Assim temos: <br></p>
+
+                    <p>
+                        Agora já sabemos que entre $[ 0 , 1]$ possui pelo menos uma raiz, próximo passo é encontramos uma $φ(x)$ que $| φ’(x)| < 1$ para todo $x$ pertencente
+                        ao intervalo $[ 0 , 1]$ . Assim temos: <br></p>
 
                     <table border=0 width=60% style="border-collapse: collapse" align="center">
                         <tr>
@@ -264,16 +268,16 @@
 
 
                         </tr>
-                      				
-					</table>
+
+                    </table>
                     <br>
-					
-					<p class="w3-justify w3-recuo">
-						Portanto podemos utilizar  $φ(x)$ para encontramos $x =  φ(x)$.  Utilizando $0$ com $x_0$ temos: <br></p>
-					
-						 <table border=0 width=60% style="border-collapse: collapse" align="center">
+
+                    <p>
+                        Portanto podemos utilizar  $φ(x)$ para encontramos $x =  φ(x)$.  Utilizando $0$ com $x_0$ temos: <br></p>
+
+                    <table border=0 width=60% style="border-collapse: collapse" align="center">
                         <tr>
-								
+
                             <td  width=24% align="left">$x_1=\frac{0^3+3}{9} $</td>
                             <td width=24% align="left">$e=\left|\frac{0.3333-0}{0.3333}\right|$</td>
 
@@ -306,7 +310,7 @@
 
 
                         </tr>
-						<tr>
+                        <tr>
 
                             <td  width=24% align="left">&nbsp;</td>
                             <td width=24% align="left">&nbsp;</td>
@@ -329,13 +333,13 @@
 
                     </table>
                     <br>
-					
-					<p class="w3-justify w3-recuo">
-						Portanto $x_3 = 0.3376$ é raiz de $f$.</p><br><br>
+
+                    <p>
+                        Portanto $x_3 = 0.3376$ é raiz de $f$.</p><br><br>
 
                     <div class="panel panel-default"><div class="panel-heading"><h3><i class="fa fa-question-circle-o w3-xxlarge"> Uma aplicação do ponto fixo em algo cotidiano?</i></h3></div>
                         <div class="panel-body">
-                            <p class="w3-justify w3-recuo">
+                            <p>
                                 Se você tomar um elástico como o da imagem abaixo e esticar o máximo que puder, é graças ao ponto fixo que podemos afirmar que algum ponto do elástico
                                 está na mesma posição que se encontrava antes do elástico ser esticado.<br></p>
                             <div class="imgensAju">
@@ -347,58 +351,58 @@
                         </div>
                     </div>
 
-					
-					<h4>Vamos explicar:</h4>
-						<p class="w3-justify w3-recuo">Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma
-						translação e uma dilatação, assim o procedimento corresponde a uma função da forma:<br></p>
-						
-					<h3 class="w3-center">$f(x) = ax+b$ $(1)$</h3>
-						
-					<p class="w3-justify w3-recuo">	
-						Se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
-						esquerda está sobre o ponto $x_1$ e a ponta direita está sobre o ponto $x_2$. Desse modo $l=x_2-x_1$, conforme a figura abaixo:<br></p>
-						
-					<div class="imgensAju">
+
+                    <h4>Vamos explicar:</h4>
+                    <p>Considere l o comprimento do elástico antes de ser esticado e $L$ o comprimento do elástico depois de esticado. esticar o elástico corresponde a uma
+                        translação e uma dilatação, assim o procedimento corresponde a uma função da forma:<br></p>
+
+                    <h3 class="w3-center">$f(x) = ax+b$ $(1)$</h3>
+
+                    <p>
+                        Se considerarmos o intervalo fechado  $[0, L]$ da reta, o elástico esticado corresponde ao intervalo todo, e suponha que em condição normal, a ponta
+                        esquerda está sobre o ponto $x_1$ e a ponta direita está sobre o ponto $x_2$. Desse modo $l=x_2-x_1$, conforme a figura abaixo:<br></p>
+
+                    <div class="imgensAju">
                         <img class="imgiterativo03" src="_imagens/intervalo-elastico.png" alt="Elástico" width="588" height="78">
                     </div>
                     <p class="w3-center">Intervalo</p>
 
                     <br>
-					
-						
-					<p class="w3-justify w3-recuo">	
-						Assim, vemos que a extremidade esquerda $x_1$ será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
-						valores em $(1)$, temos que:<br></p>
-					
-					<h3 class="w3-center"><p>$ax_1+b=0$</p><p>$ax_2+b=L$</p></h3>
-					
-					<p class="w3-justify w3-recuo">	
-						Resolvendo o sistema temos:<br></p>
-					
-					<h3 class="w3-center">$a=\frac{L}{l}$</h3><h3 class="w3-center">$b = \frac{-Lx1}{l}$</h3>
-					
-					<p class="w3-justify w3-recuo">	
-						Assim, a nossa função $f:[0,L] →[0,L]$ é definida por:<br></p>
-						
-					<h3 class="w3-center">$f(x) = \frac{L}{l(x-x_1)}$</h3><br>
-					
-					<h4>Gráfico:</h4>
-						
-					<div class="imgensAju">
+
+
+                    <p>
+                        Assim, vemos que a extremidade esquerda $x_1$ será esticada até o ponto $f(x_1)=0$ e a extremidade direita $x_2$ será esticada até o ponto $f(x_2) = L$. substituindo
+                        valores em $(1)$, temos que:<br></p>
+
+                    <h3 class="w3-center"><p>$ax_1+b=0$</p><p>$ax_2+b=L$</p></h3>
+
+                    <p>
+                        Resolvendo o sistema temos:<br></p>
+
+                    <h3 class="w3-center">$a=\frac{L}{l}$</h3><h3 class="w3-center">$b = \frac{-Lx1}{l}$</h3>
+
+                    <p>
+                        Assim, a nossa função $f:[0,L] →[0,L]$ é definida por:<br></p>
+
+                    <h3 class="w3-center">$f(x) = \frac{L}{l(x-x_1)}$</h3><br>
+
+                    <h4>Gráfico:</h4>
+
+                    <div class="imgensAju">
                         <img class="imgiterativo04" src="_imagens/grafico-pf.png" alt="grafico-pf" width="343" height="475">
                     </div>
                     <p class="w3-center">Gráfico do Ponto Fixo</p>
 
                     <br>
 
-					<p class="w3-justify w3-recuo">	
-						Essa função é contínua. O método Ponto Fixo já nos garantiu que existe pelo menos um ponto fixo e agora fica claro que tal ponto fixo é o ponto:</p>
-						
-						
-					<h3 class="w3-center">$x = \frac{Lx_1}{(L-l)}$</h3>
-					
-					
-					
+                    <p>
+                        Essa função é contínua. O método Ponto Fixo já nos garantiu que existe pelo menos um ponto fixo e agora fica claro que tal ponto fixo é o ponto:</p>
+
+
+                    <h3 class="w3-center">$x = \frac{Lx_1}{(L-l)}$</h3>
+
+
+
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
                             <p></p>
@@ -437,7 +441,7 @@
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                        <p class=" w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
                             em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
                             auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
                     </li>
@@ -596,10 +600,10 @@
                     <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                    <span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
-                    </p>
+
                 </div>
             </div>
 
@@ -646,6 +650,9 @@
     js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+<script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+
 
 </body>
 </html>

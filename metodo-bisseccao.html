@@ -12,11 +12,15 @@
     <script language="JavaScript" src="_javascript/funcoes.js"></script>
 
     <link rel="stylesheet" href="_css/bootstrap.min.css">
-    <script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="_imagens/CND.ico" />
 
 
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        p{
+            text-align: justify;
+            text-indent: 1.5em;
+        }
     </style>
     <!-- Início do código Latex -->
     <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js' type='text/javascript'>
@@ -120,9 +124,9 @@
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
             <li class="w3-padding-16">
-                <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
-                    em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
-                    auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
+                <p class="w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
+                auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
             </li>
         </ul>
     </div>
@@ -142,7 +146,7 @@
 
                 <div class="w3-container">
                     <br><!--<h4>1.1 Definição </h4>-->
-                    <p class="w3-justify w3-recuo">
+                    <p>
                         Seja uma função $f(x)$ contínua no intervalo $[a, b]$ e tal que $f(a).f(b) <0$. Quando
                         dizemos que $f(a).f(b)$ é menor do que zero, se entende que existe ao menos uma raiz da
                         função em $[a, b]$, conhecido como Teorema de Bolzano).
@@ -153,7 +157,7 @@
                     <div class="imgensAju">
                         <img class="imgCentralizada" src="_imagens/grafico-bisseccao.jpg" width="510" height="384" alt="Grafico da Bissecção"/>
                     </div>
-                    <p class="w3-justify"> As iterações do método da bissecção para a função acima são as seguintes:</p>
+                    <p> As iterações do método da bissecção para a função acima são as seguintes:</p>
 
 
                     <div class="w3-responsive">
@@ -201,7 +205,7 @@
 
 
                     <h4><br><!--1.2 Representação Gráfica do método da bissecção --></h4>
-                    <p class="w3-justify w3-recuo">Ao contrário do que se vê de matemática, onde tudo pode ser exato, o calculo numérico  trabalha
+                    <p>Ao contrário do que se vê de matemática, onde tudo pode ser exato, o calculo numérico  trabalha
                         com grandezas físicas do nosso dia-a-dia, que por mais que pareçam ser exatas, na verdade são apenas aproximações
                         dentro de uma aceitável margem de erro. Por exemplo, quem  garante que quando você mede algo com uma régua você realmente
                         encontrou o valor que está enxergando? Quem garante que outra pessoa não enxergará o tamanho do mesmo objeto sendo medido
@@ -209,90 +213,90 @@
                         qualquer objeto com uma régua caseira seja algo nada comprometedor na vida das pessoas, há certas áreas onde erros ínfimos
                         podem fazer toda a diferença e até provocar desastres ou prejuízos financeiros, áreas estas como a de Engenharia.</p>
 
-                    <p class="w3-justify w3-recuo"><b>O que ocorre é o seguinte:</b>
+                    <p><b>O que ocorre é o seguinte:</b>
                         dado o primeiro intervalo $[a,b]$ que satisfaça o teorema de Bolzano,
                         calcula-se uma média entre esses dois valores, no caso, dado pela fórmula:
-                        <h3 class="w3-center">$x=\frac{a+b}{2}$</h3>
+                    <h3 class="w3-center">$x=\frac{a+b}{2}$</h3>
 
-                        <p>Obtido esse valor, aplica-se o valor da média $x$ na função que foi determinada, a $f(x)$. Podem ocorrer três casos:</p>
+                    <p>Obtido esse valor, aplica-se o valor da média $x$ na função que foi determinada, a $f(x)$. Podem ocorrer três casos:</p>
 
-                        <ol>
-                            <li><p>Sendo $f(a) < 0$ e $f(b) > 0$.</p></li>
-                            <ol type="a">
-                                <li>
-                                    <p>Caso $f(x)$ seja um valor positivo, considerando que $f(b) < f(x)$, o valor da média $x$ assume o valor de $b$, ou seja,
+                    <ol>
+                        <li><p>Sendo $f(a) < 0$ e $f(b) > 0$.</p></li>
+                        <ol type="a">
+                            <li>
+                                <p>Caso $f(x)$ seja um valor positivo, considerando que $f(b) < f(x)$, o valor da média $x$ assume o valor de $b$, ou seja,
                                     o intervalo $[a,b] = [a,x]$.</p>
-                                </li>
-                                <li>
-                                    <p>Caso $f(x)$ seja um valor negativo, considerando que $f(a) > f(x)$, o valor da média $x$ assume o valor de a, ou seja,
+                            </li>
+                            <li>
+                                <p>Caso $f(x)$ seja um valor negativo, considerando que $f(a) > f(x)$, o valor da média $x$ assume o valor de a, ou seja,
                                     o intervalo $[a,b] = [x,b]$.</p>
-                                </li>
-                            </ol>
-                            <li><p>Sendo $f(a) > 0$ e $f(b) < 0$.</p></li>
-                            <ol type="a">
-                                <li>
-                                    <p>Caso $f(x)$ seja um valor negativo, considerando que $f(b) >  f(x)$, o valor da média $x$ assume o valor de b, ou seja,
-                                    o intervalo $[a,b] = [a,x]$.</p>
-                                </li>
-                                <li>
-                                    <p>Caso $f(x)$ seja um valor positivo, considerando que $f(a) < f(x)$, o valor da média $x$ assume o valor de a, ou seja,
-                                    o intervalo $[a,b] = [x,b]$.</p>
-                                </li>
-                            </ol>
-                            <li><p>Sendo $f(x) = 0$ ou a precisão entre $[a,x]$ ou $[x,b]$ for assumida, dado o valor predefinido $(E)$.</p></li>
-                            <ol type="a">
-                                <li>
-                                    <p>Determina-se, então, que o valor da média $x$ é o valor da raiz procurada. Este último caso é condicional, tanto para
-                                    ser verificado na primeira instância, quanto para ser verificado como validação nos casos anteriores.</p>
-                                </li>
-                            </ol>
+                            </li>
                         </ol>
+                        <li><p>Sendo $f(a) > 0$ e $f(b) < 0$.</p></li>
+                        <ol type="a">
+                            <li>
+                                <p>Caso $f(x)$ seja um valor negativo, considerando que $f(b) >  f(x)$, o valor da média $x$ assume o valor de b, ou seja,
+                                    o intervalo $[a,b] = [a,x]$.</p>
+                            </li>
+                            <li>
+                                <p>Caso $f(x)$ seja um valor positivo, considerando que $f(a) < f(x)$, o valor da média $x$ assume o valor de a, ou seja,
+                                    o intervalo $[a,b] = [x,b]$.</p>
+                            </li>
+                        </ol>
+                        <li><p>Sendo $f(x) = 0$ ou a precisão entre $[a,x]$ ou $[x,b]$ for assumida, dado o valor predefinido $(E)$.</p></li>
+                        <ol type="a">
+                            <li>
+                                <p>Determina-se, então, que o valor da média $x$ é o valor da raiz procurada. Este último caso é condicional, tanto para
+                                    ser verificado na primeira instância, quanto para ser verificado como validação nos casos anteriores.</p>
+                            </li>
+                        </ol>
+                    </ol>
 
-                        <p class="w3-justify w3-recuo">Vale salientar que esses exemplos ocorrem em cada iteração, ou seja, essas verificações devem ser averiguadas em cada
+                    <p>Vale salientar que esses exemplos ocorrem em cada iteração, ou seja, essas verificações devem ser averiguadas em cada
                         iteração da tabela, até que encontre-se a raiz.</p>
 
 
                     <br>
                     <h3>Exemplos:</h3>
-                    <p class="w3-justify w3-recuo">
-                    <b>Exemplo 1:</b> Determinar usando o método da bissecção uma aproximação para a raiz de:</p>
+                    <p>
+                        <b>Exemplo 1:</b> Determinar usando o método da bissecção uma aproximação para a raiz de:</p>
                     <h3 class="w3-center">$f(x) = 3x^2 - e^x$,      $E < 10^{-2}$</h3>
-                    <p class="w3-justify w3-recuo"><b>Resolução:</b>
-                    Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que possua raiz.</p>
+                    <p><b>Resolução:</b>
+                        Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que possua raiz.</p>
 
                     <div class="w3-responsive">
                         <table class="w3-table w3-striped w3-bordered w3-border">
 
-                        <tr>
-                            <td class="w3-dark-grey w3-center" width=14%>$x$</td>
-                            <td width=14% align="center">$-2$</td>
-                            <td width=14% align="center">$-1$</td>
-                            <td width=14% align="center"> $0$</td>
-                            <td width=14% align="center">$1$</td>
-                            <td width=14% align="center">$2$</td>
+                            <tr>
+                                <td class="w3-dark-grey w3-center" width=14%>$x$</td>
+                                <td width=14% align="center">$-2$</td>
+                                <td width=14% align="center">$-1$</td>
+                                <td width=14% align="center"> $0$</td>
+                                <td width=14% align="center">$1$</td>
+                                <td width=14% align="center">$2$</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
+                            <tr>
 
-                            <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
-                            <td width=14% align="center">$11.86$</td>
-                            <td width=14% align="center">$2.63$</td>
-                            <td width=14% align="center"> $-1$</td>
-                            <td width=14% align="center">$0.28$</td>
-                            <td width=14% align="center">$4.61$</td>
+                                <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
+                                <td width=14% align="center">$11.86$</td>
+                                <td width=14% align="center">$2.63$</td>
+                                <td width=14% align="center"> $-1$</td>
+                                <td width=14% align="center">$0.28$</td>
+                                <td width=14% align="center">$4.61$</td>
 
-                        </tr>
+                            </tr>
 
-                        <tr>
-                            <td class="w3-dark-grey" width=14% align="center"></td>
-                            <td width=14% align="center">$5$</td>
-                            <td width=14% align="center">$2$</td>
-                            <td width=14% align="center"> </td>
-                            <td width=14% align="center">$2$</td>
-                            <td width=14% align="center">$1$</td>
+                            <tr>
+                                <td class="w3-dark-grey" width=14% align="center"></td>
+                                <td width=14% align="center">$5$</td>
+                                <td width=14% align="center">$2$</td>
+                                <td width=14% align="center"> </td>
+                                <td width=14% align="center">$2$</td>
+                                <td width=14% align="center">$1$</td>
 
-                        </tr>
+                            </tr>
 
                             <tr>
                                 <td  width=14% align="center"></td>
@@ -305,333 +309,333 @@
 
                             </tr>
 
-                    </table>
-        </div>
+                        </table>
+                    </div>
                     <br>
-                    <p class="w3-justify w3-recuo"> Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Agora já
+                    <p> Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Agora já
                         já podemos utilizar o método da bissecção para encontrarmos uma aproximação da raiz de $f$.</p>
 
-                        Temos,<br>
-                        $a=0$ &nbsp;&nbsp; e &nbsp;&nbsp;$f(a)= -1$
-                        <br>$b=1$ &nbsp;&nbsp; e &nbsp;&nbsp; $f(b)=0.282$<br><br>
+                    Temos,<br>
+                    $a=0$ &nbsp;&nbsp; e &nbsp;&nbsp;$f(a)= -1$
+                    <br>$b=1$ &nbsp;&nbsp; e &nbsp;&nbsp; $f(b)=0.282$<br><br>
 
-                        Calculando o ponto médio entre $a$ e $b$ temos,<br>
-                        $x_n = \frac{( 0 + 1 )} { 2}$ $→ x_n =0.5$ &nbsp;&nbsp;e &nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
-                        Agora analisamos onde ocorre inversão de sinal.<br>
-                        $f(a)= -1,$&nbsp;&nbsp;
-                        $f(b)= 0.282$ &nbsp;&nbsp;&nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
-                        Assim temos nosso novo intervalo: $[x_n , b] → [0.5 , 1]$.<br>
-                        <br>Repetindo as etapas anteriores temos a seguinte tabela:<br><br>
-               <div class="w3-responsive">
-                    <table class="w3-table w3-striped w3-bordered w3-border">
-                    <thead>
-                    <tr class="w3-dark-grey">
+                    Calculando o ponto médio entre $a$ e $b$ temos,<br>
+                    $x_n = \frac{( 0 + 1 )} { 2}$ $→ x_n =0.5$ &nbsp;&nbsp;e &nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
+                    Agora analisamos onde ocorre inversão de sinal.<br>
+                    $f(a)= -1,$&nbsp;&nbsp;
+                    $f(b)= 0.282$ &nbsp;&nbsp;&nbsp;&nbsp;$f(x_n )= -0.899$<br><br>
+                    Assim temos nosso novo intervalo: $[x_n , b] → [0.5 , 1]$.<br>
+                    <br>Repetindo as etapas anteriores temos a seguinte tabela:<br><br>
+                    <div class="w3-responsive">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
+                            <thead>
+                            <tr class="w3-dark-grey">
 
-                            <td  width=12% align="center">$n$</td>
-                            <td width=12% align="center">$a$</td>
-                            <td width=12% align="center">$b$</td>
-                            <td width=12% align="center"> $x_n$</td>
-                            <td width=12% align="center">$f(a)$</td>
-                            <td width=12% align="center">$f(b)$</td>
-                            <td width=12% align="center">$f(x_n)$</td>
-                            <td width=12% align="center">$Erro$</td>
+                                <td  width=12% align="center">$n$</td>
+                                <td width=12% align="center">$a$</td>
+                                <td width=12% align="center">$b$</td>
+                                <td width=12% align="center"> $x_n$</td>
+                                <td width=12% align="center">$f(a)$</td>
+                                <td width=12% align="center">$f(b)$</td>
+                                <td width=12% align="center">$f(x_n)$</td>
+                                <td width=12% align="center">$Erro$</td>
 
-                        </tr>
-                    </thead>
-                        <tr>
+                            </tr>
+                            </thead>
+                            <tr>
 
-                            <td  width=12% align="center">1</td>
-                            <td width=12% align="center">0</td>
-                            <td width=12% align="center">1</td>
-                            <td width=12% align="center"> 0.5</td>
-                            <td width=12% align="center">-1</td>
-                            <td width=12% align="center">0.282</td>
-                            <td width=12% align="center">-0.899</td>
-                            <td width=12% align="center">-</td>
+                                <td  width=12% align="center">1</td>
+                                <td width=12% align="center">0</td>
+                                <td width=12% align="center">1</td>
+                                <td width=12% align="center"> 0.5</td>
+                                <td width=12% align="center">-1</td>
+                                <td width=12% align="center">0.282</td>
+                                <td width=12% align="center">-0.899</td>
+                                <td width=12% align="center">-</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=12% align="center">2</td>
-                            <td width=12% align="center">0.5</td>
-                            <td width=12% align="center">1</td>
-                            <td width=12% align="center"> 0.75</td>
-                            <td width=12% align="center">-8.99</td>
-                            <td width=12% align="center">0.282</td>
-                            <td width=12% align="center">-0.043</td>
-                            <td width=12% align="center">-0.333</td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td  width=12% align="center">3</td>
-                            <td width=12% align="center">0.75</td>
-                            <td width=12% align="center">1</td>
-                            <td width=12% align="center"> 0.875</td>
-                            <td width=12% align="center">-0.43</td>
-                            <td width=12% align="center">0.282</td>
-                            <td width=12% align="center">-0.102</td>
-                            <td width=12% align="center">0.143</td>
+                                <td  width=12% align="center">2</td>
+                                <td width=12% align="center">0.5</td>
+                                <td width=12% align="center">1</td>
+                                <td width=12% align="center"> 0.75</td>
+                                <td width=12% align="center">-8.99</td>
+                                <td width=12% align="center">0.282</td>
+                                <td width=12% align="center">-0.043</td>
+                                <td width=12% align="center">-0.333</td>
 
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=12% align="center">4</td>
-                            <td width=12% align="center">0.875</td>
-                            <td width=12% align="center">1</td>
-                            <td width=12% align="center"> 0.938</td>
-                            <td width=12% align="center">-0.102</td>
-                            <td width=12% align="center">0.282</td>
-                            <td width=12% align="center">0.085</td>
-                            <td width=12% align="center">-0.067</td>
-
-
-                        </tr>
-                        <tr>
-
-                            <td  width=12% align="center">5</td>
-                            <td width=12% align="center">0.875</td>
-                            <td width=12% align="center">0.938</td>
-                            <td width=12% align="center"> 0.907</td>
-                            <td width=12% align="center">-0.102</td>
-                            <td width=12% align="center">0.085</td>
-                            <td width=12% align="center">-0.009</td>
-                            <td width=12% align="center">0.034</td>
-
-                        </tr>
-                        <tr>
-
-                            <td  width=12% align="center">6</td>
-                            <td width=12% align="center">0.938</td>
-                            <td width=12% align="center">0.907</td>
-                            <td width=12% align="center"> 0.922</td>
-                            <td width=12% align="center" > 0.085</td>
-                            <td width=12% align="center">-0.009</td>
-                            <td width=12% align="center">0.036</td>
-                            <td width=12% align="center">0.016</td>
+                                <td  width=12% align="center">3</td>
+                                <td width=12% align="center">0.75</td>
+                                <td width=12% align="center">1</td>
+                                <td width=12% align="center"> 0.875</td>
+                                <td width=12% align="center">-0.43</td>
+                                <td width=12% align="center">0.282</td>
+                                <td width=12% align="center">-0.102</td>
+                                <td width=12% align="center">0.143</td>
 
 
+                            </tr>
+                            <tr>
 
-                        </tr>
-                        <tr>
+                                <td  width=12% align="center">4</td>
+                                <td width=12% align="center">0.875</td>
+                                <td width=12% align="center">1</td>
+                                <td width=12% align="center"> 0.938</td>
+                                <td width=12% align="center">-0.102</td>
+                                <td width=12% align="center">0.282</td>
+                                <td width=12% align="center">0.085</td>
+                                <td width=12% align="center">-0.067</td>
 
-                            <td  width=12% align="center">7</td>
-                            <td width=12% align="center">0.907</td>
-                            <td width=12% align="center">0.922</td>
-                            <td width=12% align="center" style="color:red"> 0.914</td>
-                            <td width=12% align="center" > -0.009</td>
-                            <td width=12% align="center">0.036</td>
-                            <td width=12% align="center">0.012</td>
-                            <td width=12% align="center">0.009</td>
+
+                            </tr>
+                            <tr>
+
+                                <td  width=12% align="center">5</td>
+                                <td width=12% align="center">0.875</td>
+                                <td width=12% align="center">0.938</td>
+                                <td width=12% align="center"> 0.907</td>
+                                <td width=12% align="center">-0.102</td>
+                                <td width=12% align="center">0.085</td>
+                                <td width=12% align="center">-0.009</td>
+                                <td width=12% align="center">0.034</td>
+
+                            </tr>
+                            <tr>
+
+                                <td  width=12% align="center">6</td>
+                                <td width=12% align="center">0.938</td>
+                                <td width=12% align="center">0.907</td>
+                                <td width=12% align="center"> 0.922</td>
+                                <td width=12% align="center" > 0.085</td>
+                                <td width=12% align="center">-0.009</td>
+                                <td width=12% align="center">0.036</td>
+                                <td width=12% align="center">0.016</td>
 
 
 
-                        </tr>
-                    </table>
-               </div>
+                            </tr>
+                            <tr>
+
+                                <td  width=12% align="center">7</td>
+                                <td width=12% align="center">0.907</td>
+                                <td width=12% align="center">0.922</td>
+                                <td width=12% align="center" style="color:red"> 0.914</td>
+                                <td width=12% align="center" > -0.009</td>
+                                <td width=12% align="center">0.036</td>
+                                <td width=12% align="center">0.012</td>
+                                <td width=12% align="center">0.009</td>
+
+
+
+                            </tr>
+                        </table>
+                    </div>
                     <br>
-                    <p class="w3-justify w3-recuo">Portanto usando o método da bissecção chegamos a uma aproximação igual a $0.914$, que
+                    <p>Portanto usando o método da bissecção chegamos a uma aproximação igual a $0.914$, que
                         representa uma das raízes da função $f(x) = 3x^2-e^x$.</p>
-                        <br><br>
+                    <br><br>
 
 
-                        <p class="w3-justify w3-recuo">
-                            <b>Exemplo 2:</b> Uma pessoa tomou um empréstimo de $A$ reais, que acrescenta os juros no total
+                    <p>
+                        <b>Exemplo 2:</b> Uma pessoa tomou um empréstimo de $A$ reais, que acrescenta os juros no total
                         antes de computar o pagamento mensal. Assim, se a taxa mensal de juros, em
                         porcentagem, é $q$ e o empréstimo é pelo prazo de $n$ meses, a quantia total que o tomador
                         concorda em pagar é:</p>
-                        <h3 class="w3-center">$C=A+A*n*\frac{q}{100}$</h3>
-                        <p class="w3-justify">Isto é dividido por n para dar o total de cada pagamento P , ou seja:</p>
-                        <h3 class="w3-center">$P=\frac{C}{n}=A(\frac{1}{n}+\frac{q}{100})$</h3>
+                    <h3 class="w3-center">$C=A+A*n*\frac{q}{100}$</h3>
+                    <p>Isto é dividido por n para dar o total de cada pagamento P , ou seja:</p>
+                    <h3 class="w3-center">$P=\frac{C}{n}=A(\frac{1}{n}+\frac{q}{100})$</h3>
 
-                        <p class="w3-justify w3-recuo">Isto é perfeitamente legal e muito usado em lojas de departamento. (E chamado de
+                    <p>Isto é perfeitamente legal e muito usado em lojas de departamento. (E chamado de
                         empréstimo com acréscimo). Mas a verdadeira taxa de juros que o tomador está pagando é
                         alguma coisa além de $q%$, porque ele não conserva o total do empréstimo por todos os $n$
                         meses. Ele está pagandoo
                         de volta com o decorrer do tempo. A verdadeira taxa de juros
                         pode ser encontrada pela determinação de uma raiz $x$ da equação:</p>
-                        <h3 class="w3-center">$f(x)=(Ax-P)(1+x)^n+P=0$</h3>
+                    <h3 class="w3-center">$f(x)=(Ax-P)(1+x)^n+P=0$</h3>
 
-                        <p class="w3-justify w3-recuo">Isto fornece a taxa de juros por período de pagamento, que pode ser convertida em
+                    <p>Isto fornece a taxa de juros por período de pagamento, que pode ser convertida em
                         taxa anual multiplicando-se a mesma por 12. Seja <b>A = R$1000</b>, <b>n=24</b> e <b>q=5%</b>. Determine a
                         verdadeira taxa de juros, considere $E<10^{-2}$.</p>
-                        <b>Resolução:</b><br>
-                        <br><b>A = 1000 reais</b>
-                        <br><b>N = 24 meses = 2 anos</b>
-                        <br><b>q = 5% a.m à 5*12 = 60% a.a. (ao ano)</b>
-                        <br><br>
-                        <p class="w3-justify">Substituindo esses dados na segunda equação do enunciado, que dá o valor de $P$ , temos:
-                        $P = 1000$.</p>
-                        <p>Agora, substituindo os valores de $A$, $P$ e $n$ na equação de $f(x)$, temos:</p>
-                        <p>$f(x) = (1000x – 1100)(1+x)^2 + 1100 = 0$</p>
-                        <p>$f(x) = 10x^3 + 9x^2 12x = 0$</p>
-                        <p>$f(x) = 10x^2 + 9x 12= 0. ←$ Encontramos nossa $f(x)$.</p>
-                        <p class="w3-justify">Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que
-                        possua raiz.</p>
-                     <div class="w3-responsive">
+                    <b>Resolução:</b><br>
+                    <br><b>A = 1000 reais</b>
+                    <br><b>N = 24 meses = 2 anos</b>
+                    <br><b>q = 5% a.m à 5*12 = 60% a.a. (ao ano)</b>
+                    <br><br>
+                    <p>Substituindo esses dados na segunda equação do enunciado, que dá o valor de $P$ , temos:
+                    $P = 1000$.</p>
+                    <p>Agora, substituindo os valores de $A$, $P$ e $n$ na equação de $f(x)$, temos:</p>
+                    <p>$f(x) = (1000x – 1100)(1+x)^2 + 1100 = 0$</p>
+                    <p>$f(x) = 10x^3 + 9x^2 12x = 0$</p>
+                    <p>$f(x) = 10x^2 + 9x 12= 0. ←$ Encontramos nossa $f(x)$.</p>
+                    <p>Usando o teorema de Bolzano aplicamos valores em $f$ para encontramos um intervalo que
+                    possua raiz.</p>
+                    <div class="w3-responsive">
 
-                         <table class="w3-table w3-striped w3-bordered w3-border">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
 
-                             <tr>
-                                 <td   class="w3-dark-grey w3-center" width=14%>$x$</td>
-                                 <td width=14% align="center">$-2$</td>
-                                 <td width=14% align="center">$-1$</td>
-                                 <td width=14% align="center"> $0$</td>
-                                 <td width=14% align="center">$1$</td>
-                                 <td width=14% align="center">$2$</td>
+                            <tr>
+                                <td   class="w3-dark-grey w3-center" width=14%>$x$</td>
+                                <td width=14% align="center">$-2$</td>
+                                <td width=14% align="center">$-1$</td>
+                                <td width=14% align="center"> $0$</td>
+                                <td width=14% align="center">$1$</td>
+                                <td width=14% align="center">$2$</td>
 
-                             </tr>
+                            </tr>
 
-                             <tr>
+                            <tr>
 
-                                 <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
-                                 <td width=14% align="center">$10$</td>
-                                 <td width=14% align="center">$-11$</td>
-                                 <td width=14% align="center"> $-12$</td>
-                                 <td width=14% align="center">$7$</td>
-                                 <td width=14% align="center">$46$</td>
+                                <td  class="w3-dark-grey w3-center"  width=14%>$f(x)$</td>
+                                <td width=14% align="center">$10$</td>
+                                <td width=14% align="center">$-11$</td>
+                                <td width=14% align="center"> $-12$</td>
+                                <td width=14% align="center">$7$</td>
+                                <td width=14% align="center">$46$</td>
 
-                             </tr>
+                            </tr>
 
-                             <tr>
-                                 <td  width=14% align="center"></td>
-                                 <td  width=14% align="center"></td>
-                                 <td width=14% align="center"></td>
-                                 <td width=14% align="center">$[ -$</td>
-                                 <td width=14% align="center">$+ ]$</td>
-                                 <td  width=14% align="center">$←$Possui raiz</td>
+                            <tr>
+                                <td  width=14% align="center"></td>
+                                <td  width=14% align="center"></td>
+                                <td width=14% align="center"></td>
+                                <td width=14% align="center">$[ -$</td>
+                                <td width=14% align="center">$+ ]$</td>
+                                <td  width=14% align="center">$←$Possui raiz</td>
 
 
-                             </tr>
+                            </tr>
 
-                         </table>
+                        </table>
 
-                     </div>
+                    </div>
 
                     <br>
-                    <p class="w3-justify w3-recuo">
+                    <p>
                         Assim descobrimos que entre o intervalo $[0,1]$ possui pelo menos uma raiz. Já que não faz
                         sentido termos um intervalo negativo, pois a questão quer saber a taxa de juros). Agora já
                         podemos utilizar o método da bissecção para encontramos uma aproximação da raiz de $f$. A
                         tabela a seguir expressa os resultados obtidos:</p>
 
-                     <div class="w3-responsive">
-                    <table class="w3-table w3-striped w3-bordered w3-border">
-                        <thead>
-                        <tr class="w3-dark-grey">
+                    <div class="w3-responsive">
+                        <table class="w3-table w3-striped w3-bordered w3-border">
+                            <thead>
+                            <tr class="w3-dark-grey">
 
-                            <td  width=10% align="center">$n$</td>
-                            <td width=10% align="center">$a$</td>
-                            <td width=10% align="center">$b$</td>
-                            <td width=10% align="center">$x_n$</td>
-                            <td width=10% align="center">$f(a)$</td>
-                            <td width=10% align="center">$f(b)$</td>
-                            <td width=10% align="center">$f(x_n)$</td>
-                            <td width=10% align="center">$Erro$</td>
+                                <td  width=10% align="center">$n$</td>
+                                <td width=10% align="center">$a$</td>
+                                <td width=10% align="center">$b$</td>
+                                <td width=10% align="center">$x_n$</td>
+                                <td width=10% align="center">$f(a)$</td>
+                                <td width=10% align="center">$f(b)$</td>
+                                <td width=10% align="center">$f(x_n)$</td>
+                                <td width=10% align="center">$Erro$</td>
 
-                        </tr>
-                        </thead>
-                        <tr>
+                            </tr>
+                            </thead>
+                            <tr>
 
-                            <td  width=10% align="center">1</td>
-                            <td width=10% align="center">0</td>
-                            <td width=10% align="center">1</td>
-                            <td width=10% align="center">0.5</td>
-                            <td width=10% align="center">-12</td>
-                            <td width=10% align="center">7</td>
-                            <td width=10 align="center">-5</td>
-                            <td width=10% align="center">-</td>
+                                <td  width=10% align="center">1</td>
+                                <td width=10% align="center">0</td>
+                                <td width=10% align="center">1</td>
+                                <td width=10% align="center">0.5</td>
+                                <td width=10% align="center">-12</td>
+                                <td width=10% align="center">7</td>
+                                <td width=10 align="center">-5</td>
+                                <td width=10% align="center">-</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">2</td>
-                            <td width=10% align="center">0.5</td>
-                            <td width=10% align="center">1</td>
-                            <td width=10% align="center">0.75</td>
-                            <td width=10% align="center">-5</td>
-                            <td width=10% align="center">7</td>
-                            <td width=10% align="center">0.375</td>
-                            <td width=10% align="center">0.333</td>
+                                <td  width=10% align="center">2</td>
+                                <td width=10% align="center">0.5</td>
+                                <td width=10% align="center">1</td>
+                                <td width=10% align="center">0.75</td>
+                                <td width=10% align="center">-5</td>
+                                <td width=10% align="center">7</td>
+                                <td width=10% align="center">0.375</td>
+                                <td width=10% align="center">0.333</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">3</td>
-                            <td width=10% align="center">0.5</td>
-                            <td width=10% align="center">0.75</td>
-                            <td width=10% align="center">0.625</td>
-                            <td width=10% align="center">-5</td>
-                            <td width=10% align="center">0.375</td>
-                            <td width=10% align="center">-2.469</td>
-                            <td width=10% align="center">0.2</td>
+                                <td  width=10% align="center">3</td>
+                                <td width=10% align="center">0.5</td>
+                                <td width=10% align="center">0.75</td>
+                                <td width=10% align="center">0.625</td>
+                                <td width=10% align="center">-5</td>
+                                <td width=10% align="center">0.375</td>
+                                <td width=10% align="center">-2.469</td>
+                                <td width=10% align="center">0.2</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">4</td>
-                            <td width=10% align="center">0.625</td>
-                            <td width=10% align="center">0.75</td>
-                            <td width=10% align="center">0.6875</td>
-                            <td width=10% align="center">-2.469</td>
-                            <td width=10% align="center">0.375</td>
-                            <td width=10% align="center">-1.086</td>
-                            <td width=10% align="center">0.09</td>
+                                <td  width=10% align="center">4</td>
+                                <td width=10% align="center">0.625</td>
+                                <td width=10% align="center">0.75</td>
+                                <td width=10% align="center">0.6875</td>
+                                <td width=10% align="center">-2.469</td>
+                                <td width=10% align="center">0.375</td>
+                                <td width=10% align="center">-1.086</td>
+                                <td width=10% align="center">0.09</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">5</td>
-                            <td width=10% align="center">0.6875</td>
-                            <td width=10% align="center">0.75</td>
-                            <td width=10% align="center">0.719</td>
-                            <td width=10% align="center">-1.086</td>
-                            <td width=10% align="center">0.375</td>
-                            <td width=10% align="center">-0.359</td>
-                            <td width=10% align="center">0.04</td>
+                                <td  width=10% align="center">5</td>
+                                <td width=10% align="center">0.6875</td>
+                                <td width=10% align="center">0.75</td>
+                                <td width=10% align="center">0.719</td>
+                                <td width=10% align="center">-1.086</td>
+                                <td width=10% align="center">0.375</td>
+                                <td width=10% align="center">-0.359</td>
+                                <td width=10% align="center">0.04</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">6</td>
-                            <td width=10% align="center">0.719</td>
-                            <td width=10% align="center">0.75</td>
-                            <td width=10% align="center">0.7345</td>
-                            <td width=10% align="center">-0.359</td>
-                            <td width=10% align="center">0.375</td>
-                            <td width=10% align="center">0.005</td>
-                            <td width=10% align="center">0.02</td>
+                                <td  width=10% align="center">6</td>
+                                <td width=10% align="center">0.719</td>
+                                <td width=10% align="center">0.75</td>
+                                <td width=10% align="center">0.7345</td>
+                                <td width=10% align="center">-0.359</td>
+                                <td width=10% align="center">0.375</td>
+                                <td width=10% align="center">0.005</td>
+                                <td width=10% align="center">0.02</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">7</td>
-                            <td width=10% align="center">0.719</td>
-                            <td width=10% align="center">0.7345</td>
-                            <td width=10% align="center">0.727</td>
-                            <td width=10% align="center">-0.359</td>
-                            <td width=10% align="center">0.005</td>
-                            <td width=10% align="center">-0.172</td>
-                            <td width=10% align="center">0.011</td>
+                                <td  width=10% align="center">7</td>
+                                <td width=10% align="center">0.719</td>
+                                <td width=10% align="center">0.7345</td>
+                                <td width=10% align="center">0.727</td>
+                                <td width=10% align="center">-0.359</td>
+                                <td width=10% align="center">0.005</td>
+                                <td width=10% align="center">-0.172</td>
+                                <td width=10% align="center">0.011</td>
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
 
-                            <td  width=10% align="center">8</td>
-                            <td width=10% align="center">0.727</td>
-                            <td width=10% align="center">0.7345</td>
-                            <td width=10% align="center" style="color:red">0.731</td>
-                            <td width=10% align="center">-0.172</td>
-                            <td width=10% align="center">0.005</td>
-                            <td width=10% align="center">-0.077</td>
-                            <td width=10% align="center">0.005</td>
+                                <td  width=10% align="center">8</td>
+                                <td width=10% align="center">0.727</td>
+                                <td width=10% align="center">0.7345</td>
+                                <td width=10% align="center" style="color:red">0.731</td>
+                                <td width=10% align="center">-0.172</td>
+                                <td width=10% align="center">0.005</td>
+                                <td width=10% align="center">-0.077</td>
+                                <td width=10% align="center">0.005</td>
 
-                        </tr>
-                    </table>
-                     </div>
-                    <br><p class="w3-justify">
+                            </tr>
+                        </table>
+                    </div>
+                    <br><p>
                     Portanto, uma aproximação da raiz de $f(x)$ é $x= 0,73$ que corresponde a <b>73%</b>&nbsp; a.a (ao ano).
                     Ou  <b>6,08%</b> &nbsp;a.m (ao mês).</p><br>
 
@@ -677,9 +681,9 @@
                 </div>
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-                        <p class="w3-justify w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
-                            em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
-                            auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
+                        <p class="w3-padding">Este site é um projeto da disciplina de Paradigmas Educacionais (período noite),
+                        em parceria com a disciplina de Cálculo Numérico, do curso de Ciência da Computação - UEPB. Tem por objetivo
+                        auxiliar a compreensão da última disciplina, utilizando recursos digitais produzidos pelos próprios alunos. <a href="quem-somos.html" style="text-decoration: none">(leia mais...)</a></p>
                     </li>
                 </ul>
             </div><hr>
@@ -837,10 +841,9 @@
                     <h4><b>Tags</b></h4>
                 </div>
                 <div class="w3-container w3-white">
-                    <p><span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
-                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
+                    <span class="w3-tag w3-black w3-margin-bottom"><a href="metodo-bisseccao.html">Bissecção</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-newton.html">Newton-Raphson</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-secante.html">Secante</a></span>
+                        <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="#">Posição falsa</a></span><span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="metodo-iterativo.html">Ponto fixo/iterativo linear</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="calcular-funcao.html">Calcular função</a></span>
                         <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="video-aulas.html">Video-aulas</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="testes-de-conhecimento.html">Quiz</a></span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom"><a href="codigos-python.html">Códigos em Python</a></span>
-                    </p>
                 </div>
             </div>
 
@@ -887,6 +890,10 @@
     js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script language="JavaScript" src="_javascript/bootstrap.min.js"></script>
+
 
 </body>
 </html>
